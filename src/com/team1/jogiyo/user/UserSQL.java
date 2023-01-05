@@ -1,5 +1,5 @@
-package com.team1.jogiyo.member;
+package com.team1.jogiyo.user;
 
-public class MemberSQL {
+public class UserSQL {
 
 }

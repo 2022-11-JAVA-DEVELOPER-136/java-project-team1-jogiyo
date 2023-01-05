@@ -1,13 +1,13 @@
-package com.team1.jogiyo.member;
+package com.team1.jogiyo.user;
 
-public class Member {
+public class User {
 	private String m_id;
 	private String m_password;
 	private String m_name;
 	private String m_loc;
 	private String m_phone;
 	
-	public Member(String m_id, String m_password, String m_name, String m_loc, String m_phone) {
+	public User(String m_id, String m_password, String m_name, String m_loc, String m_phone) {
 		super();
 		this.m_id = m_id;
 		this.m_password = m_password;
