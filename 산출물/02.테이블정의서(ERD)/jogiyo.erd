@@ -117,18 +117,18 @@
                         </targetConnections>
                         <error></error>
                         <linkedPath></linkedPath>
-                        <tableName>category</tableName>
-                        <logicalName>category</logicalName>
+                        <tableName>categories</tableName>
+                        <logicalName>categories</logicalName>
                         <description></description>
                         <columns>
                           <net.java.amateras.db.visual.model.ColumnModel>
                             <columnName>ct_no</columnName>
                             <logicalName>ct_no</logicalName>
                             <columnType class="net.java.amateras.db.dialect.ColumnType">
-                              <name>INTEGER</name>
-                              <logicalName>Integer</logicalName>
+                              <name>NUMBER</name>
+                              <logicalName>Numeric</logicalName>
                               <supportSize>true</supportSize>
-                              <type>4</type>
+                              <type>2</type>
                             </columnType>
                             <size>10</size>
                             <notNull>false</notNull>
@@ -255,8 +255,8 @@
                               </targetConnections>
                               <error></error>
                               <linkedPath></linkedPath>
-                              <tableName>order</tableName>
-                              <logicalName>order</logicalName>
+                              <tableName>orders</tableName>
+                              <logicalName>orders</logicalName>
                               <description></description>
                               <columns>
                                 <net.java.amateras.db.visual.model.ColumnModel>
@@ -545,8 +545,8 @@
       </targetConnections>
       <error></error>
       <linkedPath></linkedPath>
-      <tableName>member</tableName>
-      <logicalName>member</logicalName>
+      <tableName>userinfo</tableName>
+      <logicalName>userinfo</logicalName>
       <description></description>
       <columns>
         <net.java.amateras.db.visual.model.ColumnModel>
