@@ -1,0 +1,1 @@
+insert into mamber(m_id,m_password,m_name,m_loc,m_phone) values("vjvjdid")
