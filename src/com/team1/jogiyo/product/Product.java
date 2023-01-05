@@ -7,19 +7,19 @@ public class Product {
 	private String p_image; 
 	private int p_price; 
 	private String p_desc; 
-	private int ct_no;
+	private int c_no;
 	
 	public Product() {
 	}
 
-	public Product(int p_no, String p_name, String p_image, int p_price, String p_desc, int ct_no) {
+	public Product(int p_no, String p_name, String p_image, int p_price, String p_desc, int c_no) {
 	super();
 	this.p_no = p_no;
 	this.p_name = p_name;
 	this.p_image = p_image;
 	this.p_price = p_price;
 	this.p_desc = p_desc;
-	this.ct_no = ct_no;
+	this.c_no = c_no;
 	}
 
 	public int getP_no() {
@@ -42,8 +42,8 @@ public class Product {
 		return p_desc;
 	}
 
-	public int getCt_no() {
-		return ct_no;
+	public int getC_no() {
+		return c_no;
 	}
 
 	public void setP_no(int p_no) {
@@ -66,14 +66,14 @@ public class Product {
 		this.p_desc = p_desc;
 	}
 
-	public void setCt_no(int ct_no) {
-		this.ct_no = ct_no;
+	public void setC_no(int c_no) {
+		this.c_no = c_no;
 	}
 
 	@Override
 	public String toString() {
 		return "Product [p_no=" + p_no + ", p_name=" + p_name + ", p_image=" + p_image + ", p_price=" + p_price
-				+ ", p_desc=" + p_desc + ", ct_no=" + ct_no + "]";
+				+ ", p_desc=" + p_desc + ", c_no=" + c_no + "]";
 	}	
 	
 	
