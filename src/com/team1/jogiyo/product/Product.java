@@ -1,5 +1,15 @@
 package com.team1.jogiyo.product;
 
+/*
+  이름      널?       유형            
+------- -------- ------------- 
+P_NO    NOT NULL NUMBER(10)    
+P_NAME           VARCHAR2(50)  
+P_IMAGE          VARCHAR2(50)  
+P_PRICE          NUMBER(10)    
+P_DESC           VARCHAR2(200) 
+CT_NO            NUMBER(10)    
+ */
 public class Product {
 
 	private int p_no; 
@@ -7,19 +17,22 @@ public class Product {
 	private String p_image; 
 	private int p_price; 
 	private String p_desc; 
-	private int c_no;
+	
+	//FK
+	private int ct_no;
 	
 	public Product() {
+		// TODO Auto-generated constructor stub
 	}
 
-	public Product(int p_no, String p_name, String p_image, int p_price, String p_desc, int c_no) {
-	super();
-	this.p_no = p_no;
-	this.p_name = p_name;
-	this.p_image = p_image;
-	this.p_price = p_price;
-	this.p_desc = p_desc;
-	this.c_no = c_no;
+	public Product(int p_no, String p_name, String p_image, int p_price, String p_desc, int ct_no) {
+		super();
+		this.p_no = p_no;
+		this.p_name = p_name;
+		this.p_image = p_image;
+		this.p_price = p_price;
+		this.p_desc = p_desc;
+		this.ct_no = ct_no;
 	}
 
 	public int getP_no() {
@@ -42,8 +55,8 @@ public class Product {
 		return p_desc;
 	}
 
-	public int getC_no() {
-		return c_no;
+	public int getCt_no() {
+		return ct_no;
 	}
 
 	public void setP_no(int p_no) {
@@ -66,17 +79,14 @@ public class Product {
 		this.p_desc = p_desc;
 	}
 
-	public void setC_no(int c_no) {
-		this.c_no = c_no;
+	public void setCt_no(int ct_no) {
+		this.ct_no = ct_no;
 	}
 
 	@Override
 	public String toString() {
 		return "Product [p_no=" + p_no + ", p_name=" + p_name + ", p_image=" + p_image + ", p_price=" + p_price
-				+ ", p_desc=" + p_desc + ", c_no=" + c_no + "]";
-	}	
-	
-	
-	
+				+ ", p_desc=" + p_desc + ", ct_no=" + ct_no + "]";
+	}
 	
 }
