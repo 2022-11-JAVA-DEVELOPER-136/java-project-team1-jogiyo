@@ -4,3 +4,4 @@ insert into userinfo(m_id,m_password,m_name,m_loc,m_phone) values('cccc','1234',
 insert into userinfo(m_id,m_password,m_name,m_loc,m_phone) values('dddd','1234','이은지','천호','010-4444-4444');
 insert into userinfo(m_id,m_password,m_name,m_loc,m_phone) values('ffff','1234','유승근','역삼','010-5555-5555');
 insert into userinfo(m_id,m_password,m_name,m_loc,m_phone) values('gggg','1234','이다은','삼성','010-6666-6666');
+
