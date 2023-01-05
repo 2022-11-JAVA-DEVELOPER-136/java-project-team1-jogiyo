@@ -10,6 +10,7 @@ P_PRICE          NUMBER(10)
 P_DESC           VARCHAR2(200) 
 CT_NO            NUMBER(10)    
  */
+
 public class Product {
 
 	private int p_no; 
