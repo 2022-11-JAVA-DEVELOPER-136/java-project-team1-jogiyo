@@ -2,3 +2,5 @@ eclipse.preferences.version=1
 encoding//src/com/team1/jogiyo/cart/sg_cart_categories_insert.sql=UTF-8
 encoding//src/com/team1/jogiyo/product/daeun_product_insert.sql=UTF-8
 encoding//\uC0B0\uCD9C\uBB3C/02.\uD14C\uC774\uBE14\uC815\uC758\uC11C(ERD)/jogiyo.ddl=MS949
+encoding//\uC0B0\uCD9C\uBB3C/02.\uD14C\uC774\uBE14\uC815\uC758\uC11C(ERD)/jogiyo_insert.sql=UTF-8
+encoding//\uC0B0\uCD9C\uBB3C/02.\uD14C\uC774\uBE14\uC815\uC758\uC11C(ERD)/jogiyo_select_update_delete.sql=UTF-8
