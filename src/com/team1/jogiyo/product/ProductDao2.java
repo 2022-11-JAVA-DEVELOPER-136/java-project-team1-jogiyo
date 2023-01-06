@@ -3,6 +3,8 @@ package com.team1.jogiyo.product;
 import java.sql.*;
 import java.util.*;
 
+import javax.naming.*;
+
 import com.team1.jogiyo.common.*;
 
 public class ProductDao2 {
@@ -16,30 +18,47 @@ public class ProductDao2 {
 	
 	
 	public int insert(Product product) throws Exception {
+		Connection con = dataSource.getConnection();
+		PreparedStatement pstmt = con.prepareStatement(ProductSQL2.PRODUCT_INSERT);
 		
-		return 0;
+		pstmt.setInt(1, product.getP_no());
+		pstmt.setString(2, product.getP_name());
+		pstmt.setString(3, product.getP_image());
+		pstmt.setInt(4, product.getP_price());
+		pstmt.setString(5, product.getP_desc());
+		pstmt.setInt(6, product.getCt_no());
+		int rowCount = pstmt.executeUpdate();
+		pstmt.close();
+		con.close();
+		return rowCount;
 	}
 	
 	
 	public int update(Product product) throws Exception {
+		Connection con = dataSource.getConnection();
+		PreparedStatement pstmt = con.prepareStatement(ProductSQL2.PRODUCT_UPDATE);
 		
-		return 0;
-	}
-	public int delete(String p_name) throws Exception {
-		
-		return 0;
+		pstmt.setString(1, product.getP_name());
+		pstmt.setString(2, product.getP_image());
+		pstmt.setInt(2, product.getP_price());
+		pstmt.setString(4, product.getP_desc());
+		pstmt.setInt(5, product.getCt_no());
+		pstmt.setInt(6, product.getP_no());
+		int rowCount = pstmt.executeUpdate();
+		pstmt.close();
+		con.close();
+		return rowCount;
 	}
 	
-	/*
-	이름      널?       유형            
-	------- -------- ------------- 
-	P_NO    NOT NULL NUMBER(10)    
-	P_NAME           VARCHAR2(50)  
-	P_IMAGE          VARCHAR2(50)  
-	P_PRICE          NUMBER(10)    
-	P_DESC           VARCHAR2(200) 
-	CT_NO            NUMBER(10)  
-	 */
+	public int delete(String p_name) throws Exception {
+		Connection con = dataSource.getConnection();
+		PreparedStatement pstmt = con.prepareStatement(ProductSQL2.PRODUCT_DELETE);
+		pstmt.setString(1, p_name);
+		int rowCount = pstmt.executeUpdate();
+		pstmt.close();
+		con.close();;
+		return rowCount;
+	}
 	
 	public Product findByPrimaryKey(int p_no) throws Exception {
 		Product product = null;
@@ -55,14 +74,14 @@ public class ProductDao2 {
 									rs.getString("p_desc"),
 									rs.getInt("ct_no"));
 		}
-		
 		return product;
 	}
+	
 	public Product findByName(String p_name) throws Exception {
 		Product product = null;
 		Connection con = dataSource.getConnection();
 		PreparedStatement pstmt = con.prepareStatement(ProductSQL2.PRODUCT_FIND_BY_NAME);
-		pstmt.setString(0, p_name);
+		pstmt.setString(1, p_name);
 		ResultSet rs = pstmt.executeQuery();
 		if(rs.next()) {
 			product = new Product(rs.getInt("p_no"),
