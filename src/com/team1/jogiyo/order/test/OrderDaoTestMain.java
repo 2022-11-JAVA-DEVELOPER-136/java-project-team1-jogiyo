@@ -23,11 +23,11 @@ public class OrderDaoTestMain {
 		int p_no=1;
 		ProductDao productDao=new ProductDao();
 		Product product=productDao.findByPrimaryKey(p_no);
-		
+		System.out.println(product);
 		ArrayList<OrderItem> orderItemList=new ArrayList<OrderItem>();
 		orderItemList.add(new OrderItem(0, p_qty, p_no, product));
 		
-		Orders newOrder=new Orders(0, new Date(0), product.getP_price(), "dddd");
+		Orders newOrder=new Orders(0, null, product.getP_price(), "dddd");
 		orderDao.insert(newOrder);
 		System.out.println(orderDao.findByUserId("dddd"));
 		
