@@ -12,7 +12,7 @@ update userinfo set m_password='2345', m_name='sdtest', m_loc='test', m_phone='0
 --제품리스트
 select * from product;
 --제품상세보기
-select * from product where p_no=4;
+select * from product where p_no=1;
 --제품수정(X)
 --제품삭제(X)
 --제품추가(X)
@@ -47,7 +47,7 @@ select *
 where m_id='cccc';
 
 --
-select 
+select o.o_date,o.o_total,u.m_id,oi.oi_qty,p.p_name,p.p_image,p.p_price,p.p_desc,u.m_name,u.m_loc,u.m_phone
     from orders o
     join order_item oi
     on o.o_no=oi.o_no
@@ -64,7 +64,7 @@ select *
     on o.o_no=oi.o_no 
     join product p
     on p.p_no=oi.p_no
-where userid='guard1' and o.o_no=1;
+where m_id='bbbb' and o.o_no=2;
 
 --4.로그인한멤버() 주문1개 삭제
 -- on delete cascade
