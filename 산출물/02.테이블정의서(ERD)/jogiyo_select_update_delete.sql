@@ -1,14 +1,32 @@
 /***************회원******************/
 --회원정보보기(select pk)
+<<<<<<< HEAD
 select * from userinfo;
+=======
+>>>>>>> refs/heads/daeun
 select * from userinfo where m_id='aaaa';
 --회원정보수정(update pk)
+<<<<<<< HEAD
 update userinfo set m_password='2345', m_name='sdtest', m_loc='test', m_phone='010-1234-1234' where m_id='bbbb';
+=======
+update userinfo set m_password = 'aaaa1' , m_name = '수정' , m_loc = '서울 강남구' , m_phone = '010-0000-00001' where m_id = 'aaaa';
+>>>>>>> refs/heads/daeun
 --회원탈퇴(delete pk)
+delete userinfo where m_id = 'aaaa';
 
+
+이름         널?       유형            
+---------- -------- ------------- 
+M_ID       NOT NULL VARCHAR2(50)  
+M_PASSWORD NOT NULL VARCHAR2(50)  
+M_NAME     NOT NULL VARCHAR2(50)  
+M_LOC      NOT NULL VARCHAR2(100) 
+M_PHONE             VARCHAR2(20)  
 
 
 /****************제품*****************/
+
+
 --제품리스트
 select * from product;
 --제품상세보기
@@ -17,6 +35,7 @@ select * from product where p_no=1;
 --제품삭제(X)
 --제품추가(X)
 
+<<<<<<< HEAD
 /****************cart*****************/
 --로그인한 멤버()의 카트리스트
 select * from cart where m_id='bbbb';
@@ -74,3 +93,5 @@ delete orders where o_no=1;
 delete orders where userid='guard1';
 
 desc order_item;
+=======
+>>>>>>> refs/heads/daeun
