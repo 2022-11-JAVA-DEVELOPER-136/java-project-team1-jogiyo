@@ -57,6 +57,17 @@ select o.o_date,o.o_total,u.m_id,oi.oi_qty,p.p_name,p.p_image,p.p_price,p.p_desc
     on u.m_id=o.m_id
 where o.m_id='cccc';
 --
+--
+select *
+    from orders o
+    join order_item oi
+    on o.o_no=oi.o_no
+    join product p
+    on p.p_no=oi.p_no
+    join userinfo u
+    on u.m_id=o.m_id
+where o.m_id='cccc';
+--
 --3.멤버한사람의 주문(주문아이템+제품)한개()
 select * 
     from orders o 
