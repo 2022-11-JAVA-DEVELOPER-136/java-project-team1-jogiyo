@@ -12,7 +12,7 @@ public class CartDao{
 	Cart cart=new Cart();
 	private DataSource dataSource;
 	
-	public CartDao() {
+	public CartDao() throws Exception{
 		this.dataSource=new DataSource();
 	}
 
@@ -29,26 +29,29 @@ public class CartDao{
 			pstmt.setObject(3, cart.getProduct());
 			rowCount=pstmt.executeUpdate();
 		} finally {
-			pstmt.close();
-			con.close();
+			if(con!=null) {
+				con.close();
+			}
 		}
 		return rowCount;
 	}
 
 	//카트에 있는 제품의 수량 변경 (카트리스트에서 변경)
-	public int update(Cart cart) throws Exception {
+	public int update(int c_no, int c_qty) throws Exception {
 		Connection con=null;
 		PreparedStatement pstmt=null;
 		int rowCount=0;
 		try {
 			con=dataSource.getConnection();
 			pstmt=con.prepareStatement(CartSQL.CART_UPDATE_BY_C_NO);
-			pstmt.setInt(1, cart.getC_qty());
-			pstmt.setInt(2, cart.getC_no());
+			pstmt.setInt(1, c_qty);
+			pstmt.setInt(2, c_no);
 			rowCount=pstmt.executeUpdate();
 		} finally {
-			pstmt.close();
-			con.close();
+			if(con!=null) {
+				pstmt.close();
+				con.close();
+			}
 		}
 		return rowCount;
 	}
@@ -64,8 +67,10 @@ public class CartDao{
 			pstmt.setInt(1, c_no);
 			rowCount=pstmt.executeUpdate();
 		} finally {
-			pstmt.close();
-			con.close();
+			if(con!=null) {
+				pstmt.close();
+				con.close();
+			}
 		}
 		return rowCount;
 	}
@@ -81,8 +86,10 @@ public class CartDao{
 			pstmt.setString(1, m_id);
 			rowCount=pstmt.executeUpdate();
 		} finally {
-			pstmt.close();
-			con.close();
+			if(con!=null) {
+				pstmt.close();
+				con.close();
+			}
 		}
 		return rowCount;
 	}
@@ -113,9 +120,11 @@ public class CartDao{
 							);
 			}
 		} finally {
-			rs.close();
-			pstmt.close();
-			con.close();
+			if(con!=null) {
+				rs.close();
+				pstmt.close();
+				con.close();
+			}
 		}
 		return cartList;
 	}
