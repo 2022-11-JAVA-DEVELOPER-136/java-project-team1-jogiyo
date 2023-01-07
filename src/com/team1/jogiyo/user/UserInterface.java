@@ -10,4 +10,5 @@ public interface UserInterface {
 	public User findByPrimaryKey(String m_id) throws Exception;
 	public User findByName(String m_name) throws Exception;
 	public List<User> findAll() throws Exception;
+	public int countByUserId(String m_id) throws Exception;
 }

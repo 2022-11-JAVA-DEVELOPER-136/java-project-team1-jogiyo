@@ -72,7 +72,9 @@ public class UserDao implements UserInterface{
 					      rs.getString("m_loc"),
 					      rs.getString("m_phone"));
 		}
-		
+		rs.close();
+		pstmt.close();
+		con.close();
 		return user;
 	}
 	
@@ -90,7 +92,9 @@ public class UserDao implements UserInterface{
 					      rs.getString("m_loc"),
 					      rs.getString("m_phone"));
 		}
-		
+		rs.close();
+		pstmt.close();
+		con.close();
 		return user;
 		
 		
@@ -111,8 +115,25 @@ public class UserDao implements UserInterface{
 					              rs.getString("m_loc"),
 					              rs.getString("m_phone")));
 		}
-	
-		
+		rs.close();
+		pstmt.close();
+		con.close();
 		return userList;
 	}
+	@Override
+	public int countByUserId(String m_id) throws Exception {
+		Connection con = dataSource.getConnection();
+		PreparedStatement pstmt = con.prepareStatement(UserSQL.USER_SELECT_BY_ID_COUNT);
+		pstmt.setString(1, m_id);
+		ResultSet rs = pstmt.executeQuery();
+		rs.next();
+		int userCount = rs.getInt(1);
+		
+		rs.close();
+		pstmt.close();
+		con.close();
+		return userCount;
+	}
+	
+	
 }
