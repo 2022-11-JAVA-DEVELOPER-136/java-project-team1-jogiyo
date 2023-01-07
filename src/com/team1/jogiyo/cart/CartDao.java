@@ -26,10 +26,11 @@ public class CartDao{
 			pstmt=con.prepareStatement(CartSQL.CART_INSERT);
 			pstmt.setInt(1, cart.getC_qty());
 			pstmt.setString(2, cart.getM_id());
-			pstmt.setObject(3, cart.getProduct());
+			pstmt.setInt(3, cart.getProduct().getP_no());
 			rowCount=pstmt.executeUpdate();
 		} finally {
 			if(con!=null) {
+				pstmt.close();
 				con.close();
 			}
 		}
