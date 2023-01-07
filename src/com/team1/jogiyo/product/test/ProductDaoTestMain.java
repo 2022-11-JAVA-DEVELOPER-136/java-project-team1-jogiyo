@@ -18,15 +18,15 @@ public class ProductDaoTestMain {
 		//상품 삭제
 		productDao.delete("떡떡볶이");		
 		
-		//상품 검색(번호)
+		//상품 보기(번호)
 		System.out.println(productDao.findByPrimaryKey(10));
 		
 		
-		//상품 검색(이름)
+		//상품 보기(이름)
 		System.out.println(productDao.findByName("찰순대"));
 		
 		
-		//상품 검색(전체)
+		//상품 보기(전체)
 		System.out.println(productDao.findAll());
 		
 	}

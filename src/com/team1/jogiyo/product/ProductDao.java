@@ -86,6 +86,11 @@ CT_NO            NUMBER(10)
 							rs.getString("p_desc"),
 							rs.getInt("ct_no"));
 	    	}
+		
+		rs.close();
+		pstmt.close();
+		con.close();
+		
 		return product;
 	}
 	
@@ -104,6 +109,10 @@ CT_NO            NUMBER(10)
 							rs.getString("p_desc"),
 							rs.getInt("ct_no"));
 	    	}
+		
+		rs.close();
+		pstmt.close();
+		con.close();
 		return product;
 	}
 	
@@ -122,6 +131,10 @@ CT_NO            NUMBER(10)
 							rs.getInt("ct_no"));
 			productList.add(product);
 	    }
+		
+		rs.close();
+		pstmt.close();
+		con.close();
 		return productList;
 	}
 
