@@ -4,7 +4,7 @@ select * from userinfo;
 select * from userinfo where m_id='aaaa';
 --회원정보수정(update pk)
 update userinfo set m_password='2345', m_name='sdtest', m_loc='test', m_phone='010-1234-1234' where m_id='bbbb';
-update userinfo set m_password = 'aaaa1' , m_name = '수정' , m_loc = '서울 강남구' , m_phone = '010-0000-00001' where m_id = 'aaaa';
+update userinfo set m_password = 'aaaa1' , m_name = '수정' , m_loc = '서울 강남구' , m_phone = '010-0000-0000' where m_id = 'aaaa';
 
 --회원탈퇴(delete pk)
 delete from userinfo where m_id='hhhh';
@@ -109,3 +109,4 @@ delete orders where o_no=1;
 delete orders where m_id='aaaa';
 
 desc order_item;
+commit;
