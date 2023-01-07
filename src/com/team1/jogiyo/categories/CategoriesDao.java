@@ -17,8 +17,27 @@ public class CategoriesDao {
 		dataSource = new DataSource();
 	}
 
-	//ProductInterface를 implements후 메소드 재정의 하세요
 	
+	public List<Categories> findAll() throws Exception{
+		List<Categories> categoriesList = new ArrayList<Categories>();
+		Connection con = dataSource.getConnection();
+		PreparedStatement pstmt = con.prepareStatement(CategoriesSQL.CATEGORIES_FIND_BY_ALL);
+		ResultSet rs = pstmt.executeQuery();
+		while(rs.next()) {
+			Categories categories = new Categories( 
+							rs.getInt("ct_no"),
+							rs.getString("ct_name"),
+							rs.getString("ct_image"));
+			categoriesList.add(categories);
+	    }
+		
+		rs.close();
+		pstmt.close();
+		con.close();
+		return categoriesList;
+	}
+	
+	/*
 	public int insert(Categories categories) throws Exception {
 		Connection con = dataSource.getConnection();
 		PreparedStatement pstmt = con.prepareStatement(CategoriesSQL.CATEGORIES_INSERT);
@@ -70,21 +89,7 @@ public class CategoriesDao {
 	    	}
 		return categories;
 	}
-	
-	public List<Categories> findAll() throws Exception{
-		List<Categories> categoriesList = new ArrayList<Categories>();
-		Connection con = dataSource.getConnection();
-		PreparedStatement pstmt = con.prepareStatement(CategoriesSQL.CATEGORIES_FIND_BY_ALL);
-		ResultSet rs = pstmt.executeQuery();
-		while(rs.next()) {
-			Categories categories = new Categories( 
-							rs.getInt("ct_no"),
-							rs.getString("ct_name"),
-							rs.getString("ct_image"));
-			categoriesList.add(categories);
-	    }
-		return categoriesList;
-	}
+	*/
 
 	}
 	
