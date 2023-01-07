@@ -20,9 +20,5 @@ public class ProductSQL {
 	public final static String PRODUCT_FIND_BY_ALL =
 			"select * from product";
 	
-	
-	
-	
-	
 
 }

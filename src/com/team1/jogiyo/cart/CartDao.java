@@ -3,6 +3,7 @@ package com.team1.jogiyo.cart;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.team1.jogiyo.common.DataSource;
@@ -100,7 +101,7 @@ public class CartDao{
 		Connection con=null;
 		PreparedStatement pstmt=null;
 		ResultSet rs=null;
-		List<Cart> cartList=null;
+		List<Cart> cartList=new ArrayList<Cart>();
 		try {
 			con=dataSource.getConnection();
 			pstmt=con.prepareStatement(CartSQL.CART_FIND_BY_M_ID);
