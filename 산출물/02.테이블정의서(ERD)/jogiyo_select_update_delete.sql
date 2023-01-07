@@ -47,7 +47,7 @@ select * from cart where m_id='bbbb';
 select * from cart c join product p on c.p_no=p.p_no where m_id='bbbb';
 
 --로그인한멤버()의 카트리스트삭제
-delete from cart where cart_no=2;
+delete from cart where c_no=2;
 
 --로그인한멤버()의 카트1개아이템 수량변경
 update cart set c_qty = 3 where c_no=1;
@@ -106,6 +106,6 @@ where m_id='bbbb' and o.o_no=2;
 delete orders where o_no=1;
 
 --5.로그인한멤버() 주문전체 삭제
-delete orders where userid='guard1';
+delete orders where m_id='aaaa';
 
 desc order_item;
