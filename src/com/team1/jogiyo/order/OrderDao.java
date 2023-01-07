@@ -127,7 +127,9 @@ public class OrderDao {
 											   rs.getInt("o_total"), 
 											   rs.getString("m_id")));
 			}
-			
+			rs.close();
+			pstmt.close();
+			con.close();
 		}finally {
 			if(con!=null) {
 				con.close();
@@ -188,6 +190,7 @@ O_NO O_DATE        O_TOTAL M_ID      OI_NO     OI_QTY       O_NO       P_NO     
 				} while (rs.next());
 				
 			}
+			rs.close();
 			pstmt.close();
 			con.close();
 		}finally {

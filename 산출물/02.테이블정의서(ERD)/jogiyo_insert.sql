@@ -24,7 +24,7 @@ desc cart;
 insert into cart(c_no,c_qty,p_no,m_id) VALUES(CART_C_NO_SEQ.nextval,1,1,'aaaa');
 insert into cart(c_no,c_qty,p_no,m_id) VALUES(CART_C_NO_SEQ.nextval,2,2,'bbbb');
 insert into cart(c_no,c_qty,p_no,m_id) VALUES(CART_C_NO_SEQ.nextval,3,3,'cccc');
-
+insert into cart(c_no,c_qty,p_no,m_id) values(cart_c_no_SEQ.nextval,4,1,'bbbb');
 /**********************order insert************************/
 desc order_item;
 --1.orders

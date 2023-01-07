@@ -3,13 +3,14 @@ package com.team1.jogiyo.cart;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.team1.jogiyo.common.DataSource;
 import com.team1.jogiyo.product.Product;
 
 public class CartDao{
-	Cart cart=new Cart();
+	//Cart cart=new Cart();
 	private DataSource dataSource;
 	
 	public CartDao() throws Exception{
@@ -18,6 +19,8 @@ public class CartDao{
 
 	//카트에 추가
 	public int insert(Cart cart) throws Exception {
+		//유나님 CART_INSERT="insert cart(c_no,c_qty,m_id,p_no) values(cart_c_no_SEQ.nextval,?,?,?)";				
+		//CART_INSERT="insert into cart(c_no,c_qty,p_no,m_id) values(cart_c_no_SEQ.nextval,?,?,?)";
 		Connection con=null;
 		PreparedStatement pstmt=null;
 		int rowCount=0;
@@ -100,7 +103,7 @@ public class CartDao{
 		Connection con=null;
 		PreparedStatement pstmt=null;
 		ResultSet rs=null;
-		List<Cart> cartList=null;
+		List<Cart> cartList=new ArrayList<Cart>();
 		try {
 			con=dataSource.getConnection();
 			pstmt=con.prepareStatement(CartSQL.CART_FIND_BY_M_ID);
@@ -111,12 +114,12 @@ public class CartDao{
 									  rs.getInt("c_qty"),
 									  rs.getString("m_id"),
 									  new Product(rs.getInt("p_no"),
-												 rs.getString("p_name"),
-												 rs.getString("p_image"),
-												 rs.getInt("p_price"),
-												 rs.getString("p_desc"),
-												 rs.getInt("ct_no")
-											  	 )
+											  rs.getString("p_name"),
+											  rs.getString("p_image"),
+											  rs.getInt("p_price"),
+											  rs.getString("p_desc"),
+											  rs.getInt("ct_no")
+											  )
 									  )
 							);
 			}
