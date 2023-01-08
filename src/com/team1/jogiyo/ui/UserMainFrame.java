@@ -233,7 +233,7 @@ private User loginMember=null;
 				}
 			}
 		});
-		loginBtn.setBounds(67, 341, 97, 23);
+		loginBtn.setBounds(67, 305, 97, 23);
 		memberLoginPanel.add(loginBtn);
 		
 		JButton joinBtn = new JButton("회원가입");
@@ -242,7 +242,7 @@ private User loginMember=null;
 				memberTabbedPane.setSelectedIndex(1);
 			}
 		});
-		joinBtn.setBounds(260, 341, 97, 23);
+		joinBtn.setBounds(236, 305, 97, 23);
 		memberLoginPanel.add(joinBtn);
 		
 		JLabel lblNewLabel_5 = new JLabel("로그인");
