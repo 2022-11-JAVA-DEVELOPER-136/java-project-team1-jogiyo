@@ -16,10 +16,36 @@ public class CartDao{
 	public CartDao() throws Exception{
 		this.dataSource=new DataSource();
 	}
-
+	
+	//카트 제품 존재 여부
+	public int countByProductNo(String sUserId, int p_no) throws Exception{
+		Connection con=null;
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		int count=0;
+		try {
+			con=dataSource.getConnection();
+			pstmt=con.prepareStatement(CartSQL.CART_COUNT_BY_M_ID_P_NO);
+			pstmt.setString(1, sUserId);
+			pstmt.setInt(2, p_no);
+			rs=pstmt.executeQuery();
+			if(rs.next()) {
+				count=rs.getInt(1);
+			}
+		} finally {
+			if(con!=null) {
+				rs.close();
+				pstmt.close();
+				con.close();
+			}
+		}
+		return count;		
+	}
+	
+	
 	//카트에 추가
 	public int insert(Cart cart) throws Exception {
-		//유나님 CART_INSERT="insert cart(c_no,c_qty,m_id,p_no) values(cart_c_no_SEQ.nextval,?,?,?)";				
+		//유나님 CART_INSERT="insert into cart(c_no,c_qty,m_id,p_no) values(cart_c_no_SEQ.nextval,?,?,?)";				
 		//CART_INSERT="insert into cart(c_no,c_qty,p_no,m_id) values(cart_c_no_SEQ.nextval,?,?,?)";
 		Connection con=null;
 		PreparedStatement pstmt=null;
@@ -28,8 +54,8 @@ public class CartDao{
 			con=dataSource.getConnection();
 			pstmt=con.prepareStatement(CartSQL.CART_INSERT);
 			pstmt.setInt(1, cart.getC_qty());
-			pstmt.setString(2, cart.getM_id());
-			pstmt.setInt(3, cart.getProduct().getP_no());
+			pstmt.setInt(2, cart.getProduct().getP_no());
+			pstmt.setString(3, cart.getM_id());
 			rowCount=pstmt.executeUpdate();
 		} finally {
 			if(con!=null) {
@@ -41,7 +67,7 @@ public class CartDao{
 	}
 
 	//카트에 있는 제품의 수량 변경 (카트리스트에서 변경)
-	public int update(int c_no, int c_qty) throws Exception {
+	public int updateInCart(int c_no, int c_qty) throws Exception {
 		Connection con=null;
 		PreparedStatement pstmt=null;
 		int rowCount=0;
@@ -59,6 +85,26 @@ public class CartDao{
 		}
 		return rowCount;
 	}
+	//카트에 있는 제품의 수량 변경(상품에서 카트 수량 변경)
+		public int updateInProduct(Cart cart) throws Exception {
+			Connection con=null;
+			PreparedStatement pstmt=null;
+			int rowCount=0;
+			try {
+				con=dataSource.getConnection();
+				pstmt=con.prepareStatement(CartSQL.CART_UPDATE_BY_C_NO);
+				pstmt.setInt(1, cart.getC_qty());
+				pstmt.setInt(2, cart.getC_no());
+				rowCount=pstmt.executeUpdate();
+			} finally {
+				if(con!=null) {
+					pstmt.close();
+					con.close();
+				}
+			}
+			return rowCount;
+		}
+	
 
 	//카트 물품 하나 삭제 
 	public int deleteByCartNo(int c_no) throws Exception {
