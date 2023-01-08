@@ -1,18 +1,13 @@
 package com.team1.jogiyo.categories.test;
 
-import com.team1.jogiyo.categories.Categories;
 import com.team1.jogiyo.categories.CategoriesDao;
-import com.team1.jogiyo.categories.CategoriesService;
 
 public class CategoriesDaoTestMain {
 
 	public static void main(String[] args) throws Exception {
+	CategoriesDao categoriesDao = new CategoriesDao();
+	
+	categoriesDao.findAll();
 
-		CategoriesService categoriesService = new CategoriesService();
-		
-		//카테고리전체보기
-		categoriesService.findAll();
-		
 	}
-
 }
