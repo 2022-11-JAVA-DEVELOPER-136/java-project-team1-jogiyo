@@ -40,7 +40,7 @@ public class ProductDao2 {
 		
 		pstmt.setString(1, product.getP_name());
 		pstmt.setString(2, product.getP_image());
-		pstmt.setInt(2, product.getP_price());
+		pstmt.setInt(3, product.getP_price());
 		pstmt.setString(4, product.getP_desc());
 		pstmt.setInt(5, product.getCt_no());
 		pstmt.setInt(6, product.getP_no());
@@ -74,6 +74,9 @@ public class ProductDao2 {
 									rs.getString("p_desc"),
 									rs.getInt("ct_no"));
 		}
+		rs.close();
+		pstmt.close();
+		con.close();
 		return product;
 	}
 	
@@ -91,6 +94,9 @@ public class ProductDao2 {
 									rs.getString("p_desc"),
 									rs.getInt("ct_no"));
 		}
+		rs.close();
+		pstmt.close();
+		con.close();
 		return product;
 	}
 	public List<Product> findAll() throws Exception {
@@ -107,6 +113,9 @@ public class ProductDao2 {
 											rs.getInt("ct_no"));
 			productList.add(product);
 		}
+		rs.close();
+		pstmt.close();
+		con.close();
 		return productList;
 	}
 }

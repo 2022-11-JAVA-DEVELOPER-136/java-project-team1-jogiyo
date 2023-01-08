@@ -2,7 +2,7 @@ package com.team1.jogiyo.product;
 
 public class ProductSQL2 {
 	public final static String PRODUCT_INSERT =
-			"insert into product values(?, ?, ?, ?, ?)";
+			"insert into product values(product_p_no_SEQ.nextval, ?, ?, ?, ?, ?)";
 	
 	public final static String PRODUCT_UPDATE =
 			"update product set p_name = ?, p_image = ?, p_price = ?, p_desc = ? , ct_no = ? where p_no = ?";
