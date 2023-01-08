@@ -1,5 +1,9 @@
 package com.team1.jogiyo.user;
 
+import java.util.List;
+
+
+
 public class UserService {
 	private UserDao userDao;
 	public UserService() throws Exception {
@@ -22,7 +26,7 @@ public class UserService {
 	/*
 	 * 회원로그인
 	 */
-	public int login(String m_id, String m_password) throws Exception {
+	public  int login(String m_id, String m_password) throws Exception {
 		/*
 		 * 0 : 실패
 		 * 1 : 성공
@@ -80,5 +84,8 @@ public class UserService {
 	public int remove(String m_id) throws Exception {
 		return userDao.delete(m_id);
 	
+	}
+	public List<User> userList() throws Exception{
+		return userDao.findAll();
 	}
 }
