@@ -59,7 +59,6 @@ private User loginMember=null;
 	private JPasswordField passTF;
 	private JTextField nameTF;
 	private JTextField locTF;
-	private JTextField phoneTF;
 	private JLabel idMsgLB;
 	private JTextField loginIdTF;
 	private JPasswordField loginPassTF;
@@ -185,25 +184,25 @@ private User loginMember=null;
 		memberMainPanel.add(memberMainLB, BorderLayout.CENTER);
 		
 		JPanel memberLoginPanel = new JPanel();
-		memberLoginPanel.setBackground(Color.GREEN);
+		memberLoginPanel.setBackground(Color.WHITE);
 		memberTabbedPane.addTab("회원로그인", null, memberLoginPanel, null);
 		memberLoginPanel.setLayout(null);
 		
 		JLabel passwordLB = new JLabel("아이디");
-		passwordLB.setBounds(36, 111, 57, 15);
+		passwordLB.setBounds(67, 211, 57, 15);
 		memberLoginPanel.add(passwordLB);
 		
 		JLabel lblNewLabel_6 = new JLabel("패쓰워드");
-		lblNewLabel_6.setBounds(36, 173, 57, 15);
+		lblNewLabel_6.setBounds(67, 252, 57, 15);
 		memberLoginPanel.add(lblNewLabel_6);
 		
 		loginIdTF = new JTextField();
-		loginIdTF.setBounds(136, 108, 116, 21);
+		loginIdTF.setBounds(136, 208, 116, 21);
 		memberLoginPanel.add(loginIdTF);
 		loginIdTF.setColumns(10);
 		
 		loginPassTF = new JPasswordField();
-		loginPassTF.setBounds(136, 170, 116, 21);
+		loginPassTF.setBounds(136, 249, 116, 21);
 		memberLoginPanel.add(loginPassTF);
 		
 		JButton loginBtn = new JButton("로그인");
@@ -234,7 +233,7 @@ private User loginMember=null;
 				}
 			}
 		});
-		loginBtn.setBounds(38, 232, 97, 23);
+		loginBtn.setBounds(67, 341, 97, 23);
 		memberLoginPanel.add(loginBtn);
 		
 		JButton joinBtn = new JButton("회원가입");
@@ -243,65 +242,66 @@ private User loginMember=null;
 				memberTabbedPane.setSelectedIndex(1);
 			}
 		});
-		joinBtn.setBounds(155, 232, 97, 23);
+		joinBtn.setBounds(260, 341, 97, 23);
 		memberLoginPanel.add(joinBtn);
 		
+		JLabel lblNewLabel_5 = new JLabel("로그인");
+		lblNewLabel_5.setFont(new Font("HY견고딕", Font.PLAIN, 40));
+		lblNewLabel_5.setBounds(135, 47, 133, 113);
+		memberLoginPanel.add(lblNewLabel_5);
+		
 		JPanel memberJoinPanel = new JPanel();
-		memberJoinPanel.setBackground(SystemColor.activeCaption);
+		memberJoinPanel.setBackground(Color.WHITE);
 		memberTabbedPane.addTab("회원가입", null, memberJoinPanel, null);
 		memberJoinPanel.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("아이디");
-		lblNewLabel.setBounds(53, 60, 57, 15);
+		lblNewLabel.setBounds(53, 101, 57, 15);
 		memberJoinPanel.add(lblNewLabel);
 		
 		idTF = new JTextField();
-		idTF.setBounds(131, 57, 116, 21);
+		idTF.setBounds(131, 98, 116, 21);
 		memberJoinPanel.add(idTF);
 		idTF.setColumns(10);
 		
 		JLabel 패쓰워드 = new JLabel("패쓰워드");
-		패쓰워드.setBounds(53, 109, 57, 15);
+		패쓰워드.setBounds(53, 150, 57, 15);
 		memberJoinPanel.add(패쓰워드);
 		
 		JLabel lblNewLabel_2 = new JLabel("이름");
-		lblNewLabel_2.setBounds(53, 162, 57, 15);
+		lblNewLabel_2.setBounds(53, 203, 57, 15);
 		memberJoinPanel.add(lblNewLabel_2);
 		
 		JLabel lblNewLabel_3 = new JLabel("주소");
-		lblNewLabel_3.setBounds(53, 205, 57, 15);
+		lblNewLabel_3.setBounds(53, 246, 57, 15);
 		memberJoinPanel.add(lblNewLabel_3);
 		
-		JLabel lblNewLabel_4 = new JLabel("핸드폰번호");
-		lblNewLabel_4.setBounds(53, 249, 57, 15);
+		JLabel lblNewLabel_4 = new JLabel("핸드폰 번호");
+		lblNewLabel_4.setBounds(36, 290, 74, 15);
 		memberJoinPanel.add(lblNewLabel_4);
 		
 
 		
 		passTF = new JPasswordField();
-		passTF.setBounds(131, 107, 116, 18);
+		passTF.setBounds(131, 148, 116, 18);
 		memberJoinPanel.add(passTF);
 		
 		nameTF = new JTextField();
-		nameTF.setBounds(131, 159, 116, 21);
+		nameTF.setBounds(131, 200, 116, 21);
 		memberJoinPanel.add(nameTF);
 		nameTF.setColumns(10);
 		
 		locTF = new JTextField();
-		locTF.setBounds(131, 202, 116, 21);
+		locTF.setBounds(131, 243, 116, 21);
 		memberJoinPanel.add(locTF);
 		locTF.setColumns(10);
 		
-		phoneTF = new JTextField();
-		phoneTF.setBounds(131, 202, 116, 21);
-		memberJoinPanel.add(phoneTF);
-		phoneTF.setColumns(10);
 		
 		
 		
 		
-		
-		JButton memberJoinBtn = new JButton("가입");
+		JButton memberJoinBtn = new JButton("가입완료");
+		memberJoinBtn.setFont(new Font("굴림", Font.BOLD, 20));
 		memberJoinBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				/*********** 회원가입 ************/
@@ -336,11 +336,11 @@ private User loginMember=null;
 				}
 			}
 		});
-		memberJoinBtn.setBounds(47, 391, 97, 23);
+		memberJoinBtn.setBounds(130, 332, 176, 38);
 		memberJoinPanel.add(memberJoinBtn);
 		
 		JButton memberCancleBtn = new JButton("취소");
-		memberCancleBtn.setBounds(160, 391, 97, 23);
+		memberCancleBtn.setBounds(179, 395, 97, 23);
 		memberJoinPanel.add(memberCancleBtn);
 		
 		idMsgLB = new JLabel("");
@@ -349,9 +349,18 @@ private User loginMember=null;
 		memberJoinPanel.add(idMsgLB);
 		
 		textField = new JTextField();
-		textField.setBounds(131, 246, 116, 21);
+		textField.setBounds(131, 287, 116, 21);
 		memberJoinPanel.add(textField);
 		textField.setColumns(10);
+		
+		JLabel lblNewLabel_7 = new JLabel("회원가입");
+		lblNewLabel_7.setFont(new Font("HY헤드라인M", Font.PLAIN, 30));
+		lblNewLabel_7.setBounds(134, 11, 123, 54);
+		memberJoinPanel.add(lblNewLabel_7);
+		
+		JButton btnNewButton = new JButton("중복확인");
+		btnNewButton.setBounds(259, 97, 81, 23);
+		memberJoinPanel.add(btnNewButton);
 		
 		JPanel memberInfoPanel = new JPanel();
 		memberInfoPanel.setBackground(Color.LIGHT_GRAY);
@@ -466,7 +475,7 @@ private User loginMember=null;
 		memberAdminPanel.setLayout(null);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(12, 10, 365, 110);
+		scrollPane.setBounds(12, 10, 365, 347);
 		memberAdminPanel.add(scrollPane);
 		
 		memberListTB = new JTable();
@@ -480,6 +489,21 @@ private User loginMember=null;
 		});
 		memberListTB.setModel(new DefaultTableModel(
 			new Object[][] {
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
 				{null, null, null, null, null, null, null},
 				{null, null, null, null, null, null, null},
 				{null, null, null, null, null, null, null},
@@ -500,23 +524,13 @@ private User loginMember=null;
 		});
 		scrollPane.setViewportView(memberListTB);
 		
-		
-		
-		JScrollPane scrollPane_1 = new JScrollPane();
-		scrollPane_1.setBounds(12, 223, 127, 182);
-		memberAdminPanel.add(scrollPane_1);
-		
-		
-	
-		scrollPane_1.setViewportView(memberListLT);
-		
 		JButton memberListBtn = new JButton("회원리스트");
 		memberListBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				displayMemberList();
 			}
 		});
-		memberListBtn.setBounds(65, 148, 104, 23);
+		memberListBtn.setBounds(52, 388, 104, 23);
 		memberAdminPanel.add(memberListBtn);
 		
 		memberDeleteBtn = new JButton("회원삭제");
@@ -539,7 +553,7 @@ private User loginMember=null;
 			}
 		});
 		memberDeleteBtn.setEnabled(false);
-		memberDeleteBtn.setBounds(213, 148, 97, 23);
+		memberDeleteBtn.setBounds(242, 388, 97, 23);
 		memberAdminPanel.add(memberDeleteBtn);
 		
 		/******2.MemberService멤버필드객체생성*********/
