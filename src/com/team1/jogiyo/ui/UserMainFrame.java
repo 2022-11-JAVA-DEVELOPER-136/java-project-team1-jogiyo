@@ -68,7 +68,7 @@ private User loginMember=null;
 	private JTextField infoNameTF;
 	private JTextField infoAddressTF;
 	private JTabbedPane memberTabbedPane;
-	private JComboBox infoAgeCB;
+	private JComboBox infophoneTF;
 	private JCheckBox infoMarriedCK;
 	private JMenuItem loginMenuItem;
 	private JMenuItem joinMenuItem;
@@ -311,6 +311,7 @@ private User loginMember=null;
 					String password=new String(passTF.getPassword());
 					String name=nameTF.getText();
 					String address=locTF.getText();
+					String phone = phoneTF.getText();
 					/***********유효성체크****************/
 					if(id.equals("")) {
 						 idMsgLB.setText("아이디를 입력하세요.");
@@ -320,10 +321,11 @@ private User loginMember=null;
 					
 					
 					
-					User newUser=new User(id,password,name,loc,phone);
-					boolean isAdd = userService.addUser(newUser);
-					if(isAdd) {
-						//로그인화면전환
+					User newUser=new User(id,password,name,address,phone);
+					int isAdd = userService.create(newUser);
+					/*
+					if() {
+					//로그인화면전환
 						 memberTabbedPane.setSelectedIndex(1);
 					}else {
 						JOptionPane.showMessageDialog(null, "이미사용하고있는 아이디입니다.");
@@ -331,11 +333,13 @@ private User loginMember=null;
 						idTF.setSelectionStart(0);
 						idTF.setSelectionEnd(id.length());
 					}
+					*/
 				}catch (Exception e1) {
 					System.out.println("회원가입-->"+e1.getMessage());
 				}
 			}
 		});
+		
 		memberJoinBtn.setBounds(47, 391, 97, 23);
 		memberJoinPanel.add(memberJoinBtn);
 		
@@ -401,11 +405,11 @@ private User loginMember=null;
 		lblNewLabel_4_1.setBounds(45, 252, 57, 15);
 		memberInfoPanel.add(lblNewLabel_4_1);
 		
-		infoAgeCB = new JComboBox();
-		infoAgeCB.setEnabled(false);
-		infoAgeCB.setModel(new DefaultComboBoxModel(new String[] {"20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34"}));
-		infoAgeCB.setBounds(123, 248, 116, 23);
-		memberInfoPanel.add(infoAgeCB);
+		infophoneTF = new JComboBox();
+		infophoneTF.setEnabled(false);
+		infophoneTF.setModel(new DefaultComboBoxModel(new String[] {"20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34"}));
+		infophoneTF.setBounds(123, 248, 116, 23);
+		memberInfoPanel.add(infophoneTF);
 		
 		
 		infoMarriedCK = new JCheckBox("");
@@ -440,8 +444,10 @@ private User loginMember=null;
 					String password=new String(infoPassTF.getPassword());
 					String name=infoNameTF.getText();
 					String address=infoAddressTF.getText();
+//					String phone = infophoneTF();
 					
-					String ageStr=(String)infoAgeCB.getSelectedItem();
+					
+					String ageStr=(String)infophoneTF.getSelectedItem();
 					int age = Integer.parseInt(ageStr);
 					String married="";
 					if(infoMarriedCK.isSelected()) {
@@ -449,8 +455,8 @@ private User loginMember=null;
 					}else {
 						married="F";
 					}
-					User member=new User(id,password,name,loc,phone);
-					userService.update(member);
+//				User member=new User(id,password,name,address,phone);
+//					userService.update(member);
 					loginMember = userService.findUser(id);
 					updateFormEnable(false);
 				}catch (Exception e1) {
@@ -606,7 +612,7 @@ private User loginMember=null;
 			//infoPassTF.setEnabled(true);
 			infoNameTF.setEditable(true);
 			infoAddressTF.setEditable(true);
-			infoAgeCB.setEnabled(true);
+			infophoneTF.setEnabled(true);
 			infoMarriedCK.setEnabled(true);
 			
 			updateFormBtn.setText("수정취소");
@@ -617,7 +623,7 @@ private User loginMember=null;
 			infoPassTF.setEnabled(false);
 			infoNameTF.setEditable(false);
 			infoAddressTF.setEditable(false);
-			infoAgeCB.setEnabled(false);
+			infophoneTF.setEnabled(false);
 			infoMarriedCK.setEnabled(false);
 			
 			updateFormBtn.setText("수정폼");
@@ -685,7 +691,7 @@ private User loginMember=null;
 		infoPassTF.setText(user.getM_password());
 		infoNameTF.setText(user.getM_name());
 		infoAddressTF.setText(user.getM_loc());
-		infoAgeCB.setSelectedItem(user.getM_phone()+"");
+		infophoneTF.setSelectedItem(user.getM_phone()+"");
 		
 		
 	}
