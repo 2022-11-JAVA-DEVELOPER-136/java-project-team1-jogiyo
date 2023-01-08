@@ -10,13 +10,23 @@ public class ProductServiceTestMain {
 	public static void main(String[] args) throws Exception {
 		ProductService productService = new ProductService();
 		
-		//상품전체보기
-		List<Product> productList = productService.productList();
+		Product insert = new Product(5, "순대국밥", "sss.jpg", 8000, "뜨끈한 순대국밥", 10);
+		productService.insert(insert);
+		
+		productService.delete("피자");
+		
+		Product update = productService.findByPrimaryKey(3);
+		update.setP_desc("아주아주 맛있는~~");
+		
+		Product detail = productService.findByName("자장면");
+		System.out.println("상품상세정보 : " + detail);
+		
+		Product detail2 = productService.findByPrimaryKey(3);
+		System.out.println("상품상세정보 : " + detail2);
+		
+		List<Product> productList = productService.findAll();
 		System.out.println("상품전체보기 : " + productList);
 		
-		//상품상세보기
-		Product detail = productService.productDetail(3);
-		System.out.println("상품상세정보 : " + detail);
 
 	}
 
