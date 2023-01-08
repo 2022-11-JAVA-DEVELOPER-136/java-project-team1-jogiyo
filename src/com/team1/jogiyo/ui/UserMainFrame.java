@@ -339,12 +339,12 @@ private User loginMember=null;
 				}
 			}
 		});
-<<<<<<< HEAD
+
 		
-		memberJoinBtn.setBounds(47, 391, 97, 23);
-=======
+		
+
 		memberJoinBtn.setBounds(130, 332, 176, 38);
->>>>>>> branch 'main' of https://github.com/2022-11-JAVA-DEVELOPER/java-project-team1-jogiyo.git
+
 		memberJoinPanel.add(memberJoinBtn);
 		
 		JButton memberCancleBtn = new JButton("취소");
