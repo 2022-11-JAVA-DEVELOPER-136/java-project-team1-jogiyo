@@ -78,7 +78,7 @@ private User loginMember=null;
 	private JButton memberDeleteBtn;
 	private JList memberListLT;
 	private JComboBox memberListCB;
-	private JTextField textField;
+	private JTextField phoneTF;
 
 	/**
 	 * Launch the application.
@@ -353,13 +353,13 @@ private User loginMember=null;
 		
 		idMsgLB = new JLabel("");
 		idMsgLB.setForeground(Color.RED);
-		idMsgLB.setBounds(131, 88, 116, 15);
+		idMsgLB.setBounds(131, 76, 160, 15);
 		memberJoinPanel.add(idMsgLB);
 		
-		textField = new JTextField();
-		textField.setBounds(131, 287, 116, 21);
-		memberJoinPanel.add(textField);
-		textField.setColumns(10);
+		phoneTF = new JTextField();
+		phoneTF.setBounds(131, 287, 116, 21);
+		memberJoinPanel.add(phoneTF);
+		phoneTF.setColumns(10);
 		
 		JLabel lblNewLabel_7 = new JLabel("회원가입");
 		lblNewLabel_7.setFont(new Font("HY헤드라인M", Font.PLAIN, 30));
