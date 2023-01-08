@@ -7,7 +7,7 @@ public class ProductService {
 
 	private ProductDao productDao;
 	
-	public ProductService() {
+	public ProductService() throws Exception {
 		productDao = new ProductDao();
 	}
 
