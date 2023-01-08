@@ -13,7 +13,7 @@ public class ProductServiceTestMain {
 	productService.insert(insert);
 
 	//상품 삭제
-	productService.delete("치킨");
+	productService.delete("김밥");
 	
 	//상품 보기 (번호)
 	productService.findByPrimaryKey(2);
