@@ -9,8 +9,10 @@ import javax.swing.JScrollPane;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
+import com.team1.jogiyo.cart.Cart;
 import com.team1.jogiyo.cart.CartService;
 import com.team1.jogiyo.order.OrderService;
+import com.team1.jogiyo.product.Product;
 import com.team1.jogiyo.product.ProductService;
 import com.team1.jogiyo.user.User;
 import com.team1.jogiyo.user.UserService;
@@ -25,7 +27,10 @@ import java.awt.Dimension;
 import java.awt.Cursor;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.List;
+
 import javax.swing.JCheckBox;
+import javax.swing.DefaultComboBoxModel;
 
 public class CartListPanel_정유나 extends JPanel {
 	private JScrollPane scrollPane;
@@ -46,12 +51,12 @@ public class CartListPanel_정유나 extends JPanel {
 	private CartService cartService;
 	private ProductService productService;
 	private UserService userService;
-	private User loginUser=null;		//로그인 성공한 userid
+	private User loginUser;		//로그인 성공한 userid
 
 	/**
 	 * Create the panel.
 	 */
-	public CartListPanel_정유나() {
+	public CartListPanel_정유나() throws Exception {
 		setLayout(null);
 		
 		scrollPane = new JScrollPane();
@@ -68,6 +73,12 @@ public class CartListPanel_정유나 extends JPanel {
 		cartPanel.setLayout(null);
 		
 		productImageLB = new JLabel("");
+		productImageLB.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				//제품상세페이지로 넘어가기
+			}
+		});
 		productImageLB.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		productImageLB.setVerticalTextPosition(SwingConstants.BOTTOM);
 		productImageLB.setHorizontalTextPosition(SwingConstants.CENTER);
@@ -92,6 +103,8 @@ public class CartListPanel_정유나 extends JPanel {
 		cartPanel.add(productCount);
 		
 		productCountCB = new JComboBox();
+		productCountCB.setEditable(true);
+		productCountCB.setModel(new DefaultComboBoxModel(new String[] {"", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"}));
 		productCountCB.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		productCountCB.setBounds(167, 55, 25, 15);
 		cartPanel.add(productCountCB);
@@ -117,6 +130,9 @@ public class CartListPanel_정유나 extends JPanel {
 		cartOrderCheck.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		cartOrderCheck.setBounds(274, 4, 21, 23);
 		cartPanel.add(cartOrderCheck);
+		
+		cartList();
+		
 		
 		orderAllBtn = new JButton("전체주문");
 		orderAllBtn.addMouseListener(new MouseAdapter() {
@@ -152,5 +168,73 @@ public class CartListPanel_정유나 extends JPanel {
 		totalOrderPriceLB.setBounds(163, 513, 135, 15);
 		add(totalOrderPriceLB);
 
+	}
+	/****************생성자 끝**************/
+	//====> 오류오류!!!!!!!!!!!!!!
+	private void cartList() throws Exception{
+		List<Cart> cartList=cartService.cartListByUserId("aaaa");
+		for (Cart cart : cartList) {
+			Product product=productService.findByPrimaryKey(cart.getProduct().getP_no());
+			
+			cartPanel = new JPanel();
+			cartPanel.setPreferredSize(new Dimension(300, 80));
+			cartListPanel.add(cartPanel);
+			cartPanel.setLayout(null);
+
+			productImageLB = new JLabel("");
+			productImageLB.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+			productImageLB.setVerticalTextPosition(SwingConstants.BOTTOM);
+			productImageLB.setHorizontalTextPosition(SwingConstants.CENTER);
+			productImageLB.setHorizontalAlignment(SwingConstants.CENTER);
+			productImageLB.setIcon(new ImageIcon(CartListPanel_정유나.class.getResource(product.getP_image())));
+			productImageLB.setBounds(6, 10, 57, 60);
+			cartPanel.add(productImageLB);
+
+			productDetailLB = new JLabel(product.getP_desc());
+			productDetailLB.setBounds(65, 31, 211, 15);
+			cartPanel.add(productDetailLB);
+
+			productNameLB = new JLabel(product.getP_name());
+			productNameLB.setHorizontalAlignment(SwingConstants.CENTER);
+			productNameLB.setBounds(125, 9, 57, 15);
+			cartPanel.add(productNameLB);
+
+			JLabel productCount = new JLabel("수량");
+			productCount.setPreferredSize(new Dimension(22, 15));
+			productCount.setHorizontalAlignment(SwingConstants.CENTER);
+			productCount.setBounds(127, 56, 32, 15);
+			cartPanel.add(productCount);
+
+			productCountCB = new JComboBox();
+			productCountCB.setEditable(true);
+			productCountCB.setModel(new DefaultComboBoxModel(new String[] {"", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"}));
+			productCountCB.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+			productCountCB.setBounds(167, 55, 25, 15);
+			cartPanel.add(productCountCB);
+
+			JLabel productTotalPriceLB = new JLabel("총 금액");
+			productTotalPriceLB.setBounds(202, 56, 40, 15);
+			cartPanel.add(productTotalPriceLB);
+
+			JLabel productPrice = new JLabel("가격");
+			productPrice.setHorizontalAlignment(SwingConstants.CENTER);
+			productPrice.setBounds(65, 55, 25, 15);
+			cartPanel.add(productPrice);
+
+			productPriceLB = new JLabel(""+product.getP_price());
+			productPriceLB.setBounds(94, 55, 32, 15);
+			cartPanel.add(productPriceLB);
+
+			totalProductPriceLB = new JLabel(""+(product.getP_price()*cart.getC_qty()));
+			totalProductPriceLB.setBounds(248, 56, 49, 15);
+			cartPanel.add(totalProductPriceLB);
+
+			cartOrderCheck = new JCheckBox("");
+			cartOrderCheck.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+			cartOrderCheck.setBounds(274, 4, 21, 23);
+			cartPanel.add(cartOrderCheck);
+			
+			cartListPanel.add(cartPanel);
+		}
 	}
 }
