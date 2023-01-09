@@ -184,7 +184,7 @@ public class CartDao{
 	public Cart findByCartNo(int c_no) throws Exception {
 		Connection con=dataSource.getConnection();
 		PreparedStatement pstmt=con.prepareStatement(CartSQL.CART_FIND_BY_C_NO);
-		pstmt.setInt(1, cart.getC_no());
+		pstmt.setInt(1, c_no);
 		ResultSet rs=pstmt.executeQuery();
 		Cart newCart=null;
 		try{
