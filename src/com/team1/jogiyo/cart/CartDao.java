@@ -146,7 +146,7 @@ public class CartDao{
 	}
 
 	//해당 유저의 카트리스트 전체 보여주기
-	public List<Cart> findByUser(Cart cart) throws Exception {
+	public List<Cart> findByUser(String m_id) throws Exception {
 		Connection con=null;
 		PreparedStatement pstmt=null;
 		ResultSet rs=null;
@@ -154,7 +154,7 @@ public class CartDao{
 		try {
 			con=dataSource.getConnection();
 			pstmt=con.prepareStatement(CartSQL.CART_FIND_BY_M_ID);
-			pstmt.setString(1, cart.getM_id());
+			pstmt.setString(1, m_id);
 			rs=pstmt.executeQuery();
 			while(rs.next()) {
 				cartList.add(new Cart(rs.getInt("c_no"),
@@ -181,7 +181,7 @@ public class CartDao{
 	}
 	
 	//카트번호로 해당 제품 보여주기?
-	public Cart findByCartNo(Cart cart) throws Exception {
+	public Cart findByCartNo(int c_no) throws Exception {
 		Connection con=dataSource.getConnection();
 		PreparedStatement pstmt=con.prepareStatement(CartSQL.CART_FIND_BY_C_NO);
 		pstmt.setInt(1, cart.getC_no());
