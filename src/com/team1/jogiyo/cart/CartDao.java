@@ -94,7 +94,8 @@ public class CartDao{
 				con=dataSource.getConnection();
 				pstmt=con.prepareStatement(CartSQL.CART_UPDATE_BY_C_NO);
 				pstmt.setInt(1, cart.getC_qty());
-				pstmt.setInt(2, cart.getC_no());
+				pstmt.setString(2, cart.getM_id());
+				pstmt.setInt(3, cart.getProduct().getP_no());
 				rowCount=pstmt.executeUpdate();
 			} finally {
 				if(con!=null) {
