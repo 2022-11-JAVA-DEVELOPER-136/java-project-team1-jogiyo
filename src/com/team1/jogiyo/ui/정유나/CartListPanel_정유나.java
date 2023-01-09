@@ -12,6 +12,7 @@ import java.awt.Font;
 import javax.swing.ImageIcon;
 import javax.swing.JLayeredPane;
 import javax.swing.JComboBox;
+import javax.swing.JScrollBar;
 
 public class CartListPanel_정유나 extends JPanel {
 
@@ -25,8 +26,8 @@ public class CartListPanel_정유나 extends JPanel {
 		scrollPane.setBounds(12, 36, 326, 375);
 		add(scrollPane);
 		
-		JList list = new JList();
-		scrollPane.setViewportView(list);
+		JPanel panel = new JPanel();
+		scrollPane.setViewportView(panel);
 		
 		JButton orderAllBtn = new JButton("전체주문");
 		orderAllBtn.setBounds(75, 446, 97, 23);

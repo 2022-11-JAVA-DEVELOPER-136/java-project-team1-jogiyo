@@ -88,7 +88,7 @@ public class JogiyoMainFrame extends JFrame {
 		JTabbedPane productTabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		tabbedPane.addTab("제품", null, productTabbedPane, null);
 		
-		CartListPanel_정유나 cartListPanel = new CartListPanel_정유나();
+		JTabbedPane cartListPanel = new JTabbedPane(JTabbedPane.TOP);
 		tabbedPane.addTab("카트", null, cartListPanel, null);
 		
 		JTabbedPane orderTabbedPane = new JTabbedPane(JTabbedPane.TOP);
