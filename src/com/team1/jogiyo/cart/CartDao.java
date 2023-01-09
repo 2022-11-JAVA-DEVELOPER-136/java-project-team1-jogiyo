@@ -92,9 +92,9 @@ public class CartDao{
 			int rowCount=0;
 			try {
 				con=dataSource.getConnection();
-				pstmt=con.prepareStatement(CartSQL.CART_UPDATE_BY_C_NO);
+				pstmt=con.prepareStatement(CartSQL.CART_UPDATE_BY_P_NO);
 				pstmt.setInt(1, cart.getC_qty());
-				pstmt.setString(2, cart.getM_id());
+				pstmt.setString(2, cart.getM_id());				
 				pstmt.setInt(3, cart.getProduct().getP_no());
 				rowCount=pstmt.executeUpdate();
 			} finally {
