@@ -4,31 +4,45 @@ import java.util.List;
 
 import com.team1.jogiyo.cart.Cart;
 import com.team1.jogiyo.cart.CartService;
+import com.team1.jogiyo.order.Order;
+import com.team1.jogiyo.order.OrderItem;
 import com.team1.jogiyo.order.OrderService;
+import com.team1.jogiyo.product.ProductService;
 
 public class OrderServiceTestMain {
 
 	public static void main(String[] args) throws Exception {
 		OrderService orderService=new OrderService();
 		CartService cartService=new CartService();
+		ProductService productService=new ProductService();
 		/*
 		 * 1.상품에서 직접주문
 		 */
-		System.out.println("상품에서 직접주문 >> "+ orderService.create("bbbb", 2, 2));
-		System.out.println("주문목록 확인 >>"+orderService.list("bbbb"));
-		/*
-		 * 2.cart에서 한번에 주문
-		 */
-		System.out.println("cart에서 회원 장바구니 리스트 확인");
-		List<Cart> cartList= cartService.cartListByUserId("bbbb");
-		System.out.println(cartList);
-		System.out.println("cart에서 한번에 주문>>"+ orderService.create("bbbb"));
+//		System.out.println("상품에서 직접주문 >> "+ orderService.create("bbbb", 2, 2));
+//		System.out.println("주문목록 확인 >>"+orderService.list("bbbb"));
+//		/*
+//		 * 2.cart에서 한번에 주문
+//		 */
+//		System.out.println("cart에서 회원 장바구니 리스트 확인");
+//		List<Cart> cartList= cartService.cartListByUserId("bbbb");
+//		System.out.println(cartList);
+//		System.out.println("cart에서 한번에 주문>>"+ orderService.create("bbbb"));
 		
 		/*
 		 * 3. cart에서 선택 주문
 		 */
 		
-		
+		/*
+		 * 테스트
+		 */
+		List<Order> orderList =  orderService.list("bbbb");
+		for (Order order : orderList) {
+			List<OrderItem> orderItems= orderService.detail("bbbb", order.getO_no()).getOrderItemList();
+			for (OrderItem orderItem : orderItems) {
+				System.out.println(orderItem.getProduct().getP_name()+" :"+orderItem.getProduct().getP_price()*orderItem.getOi_qty());
+			}
+
+		}
 	}
 
 }

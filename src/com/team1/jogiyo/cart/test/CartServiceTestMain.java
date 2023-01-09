@@ -1,5 +1,7 @@
 package com.team1.jogiyo.cart.test;
 
+import java.util.List;
+
 import com.team1.jogiyo.cart.Cart;
 import com.team1.jogiyo.cart.CartService;
 import com.team1.jogiyo.product.Product;
@@ -19,6 +21,8 @@ public class CartServiceTestMain {
 		System.out.println("1. 장바구니 수량 업데이트 ");
 		rowCount=cartService.updateByCartNo(3,8);
 		System.out.println(rowCount);
+		
+		System.out.println("카트 전체 출력 >> "+cartService.cartListByUserId("aaaa"));
 	}
 
 }

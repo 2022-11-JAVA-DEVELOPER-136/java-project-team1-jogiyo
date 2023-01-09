@@ -97,6 +97,9 @@ public class JogiyoMainFrame_조성동 extends JFrame {
 		//JTabbedPane orderTabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		OrderHistoryPanel_조성동  orderTabbedPane = new OrderHistoryPanel_조성동();
 		tabbedPane.addTab("주문내역", null, orderTabbedPane, null);
+		
+		JTabbedPane orderHistoryDetail = new JTabbedPane(JTabbedPane.TOP);
+		tabbedPane.addTab("주문상세", null,orderHistoryDetail,null);
 	}
 
 }
