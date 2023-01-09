@@ -19,7 +19,7 @@ public class OrderDao {
 	/*
 	 * 주문생성
 	 */
-	public int insert(Orders orders) throws Exception {
+	public int insert(Order order) throws Exception {
 		//insert into orders(o_no, o_date, o_total, m_id) values(orders_o_no_SEQ.nextval, sysdate, ?, ?)
 		//insert into order_item(oi_no,oi_qty,o_no,p_no) values(order_item_oi_no_SEQ.nextval,?,orders_o_no_SEQ.currval,?)
 		Connection con=null;
@@ -29,12 +29,12 @@ public class OrderDao {
 			con=dataSource.getConnection();
 			con.setAutoCommit(false);
 			pstmt=con.prepareStatement(OrderSQL.ORDER_INSERT);
-			pstmt.setInt(1, orders.getO_total());
-			pstmt.setString(2, orders.getM_id());
+			pstmt.setInt(1, order.getO_total());
+			pstmt.setString(2, order.getM_id());
 			rowCount = pstmt.executeUpdate();
 			
 			pstmt=con.prepareStatement(OrderSQL.ORDERITEM_INSERT);
-			for (OrderItem orderItem : orders.getOrderItemList()) {
+			for (OrderItem orderItem : order.getOrderItemList()) {
 				pstmt.setInt(1, orderItem.getOi_qty());
 				pstmt.setInt(2, orderItem.getProduct().getP_no());
 				pstmt.executeUpdate();
@@ -108,12 +108,12 @@ public class OrderDao {
 	/*
 	 * 주문전체(특정사용자)
 	 */
-	public ArrayList<Orders> findByUserId(String sUserId) throws Exception{
+	public ArrayList<Order> findByUserId(String sUserId) throws Exception{
 		//select * from orders where m_id=?
 		Connection con=null;
 		PreparedStatement pstmt=null;
 		ResultSet rs=null;
-		ArrayList<Orders> ordersArrayList = new ArrayList<Orders>();
+		ArrayList<Order> ordersArrayList = new ArrayList<Order>();
 		
 		try {
 			con=dataSource.getConnection();
@@ -122,7 +122,7 @@ public class OrderDao {
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
-				ordersArrayList.add(new Orders(rs.getInt("o_no"), 
+				ordersArrayList.add(new Order(rs.getInt("o_no"), 
 											   rs.getDate("o_date"), 
 											   rs.getInt("o_total"), 
 											   rs.getString("m_id")));
@@ -142,7 +142,7 @@ public class OrderDao {
 	/*
 	 * 주문1개보기(주문상세리스트)
 	 */
-	public Orders findByOrderNo(String sUserId,int o_no)throws Exception{
+	public Order findByOrderNo(String sUserId,int o_no)throws Exception{
 		/*
 		select * 
 		    from orders o 
@@ -152,7 +152,7 @@ public class OrderDao {
 		    on p.p_no=oi.p_no
 		where m_id=? and o.o_no=?;
 		 */
-		Orders findOrder=null;
+		Order findOrder=null;
 		Connection con=null;
 		PreparedStatement pstmt=null;
 		ResultSet rs=null;
@@ -171,7 +171,7 @@ O_NO O_DATE        O_TOTAL M_ID      OI_NO     OI_QTY       O_NO       P_NO     
   2 2023/01/06      45000 bbbb        5          3          2          3          3 자장면      jajangmyeon.jpg    8000 고소한자장면             30
 			 */
 			if(rs.next()) {
-				findOrder=new Orders(rs.getInt("o_no"), 
+				findOrder=new Order(rs.getInt("o_no"), 
 									 rs.getDate("o_Date"), 
 									 rs.getInt("o_total"), 
 									 rs.getString("m_id"));

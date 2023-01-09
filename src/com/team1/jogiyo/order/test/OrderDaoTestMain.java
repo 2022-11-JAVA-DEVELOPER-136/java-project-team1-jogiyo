@@ -8,7 +8,7 @@ import com.team1.jogiyo.cart.Cart;
 import com.team1.jogiyo.cart.CartDao;
 import com.team1.jogiyo.order.OrderDao;
 import com.team1.jogiyo.order.OrderItem;
-import com.team1.jogiyo.order.Orders;
+import com.team1.jogiyo.order.Order;
 import com.team1.jogiyo.product.Product;
 import com.team1.jogiyo.product.ProductDao;
 
