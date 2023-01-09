@@ -9,6 +9,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import java.awt.Font;
+import javax.swing.ImageIcon;
 
 public class CartListPanel_정유나 extends JPanel {
 
@@ -32,10 +33,6 @@ public class CartListPanel_정유나 extends JPanel {
 		btnNewButton.setFont(new Font("굴림", Font.PLAIN, 10));
 		btnNewButton.setBounds(12, 23, 73, 23);
 		add(btnNewButton);
-		
-		JLabel lblNewLabel_1 = new JLabel("New label");
-		lblNewLabel_1.setBounds(224, 26, 57, 15);
-		add(lblNewLabel_1);
 
 	}
 }
