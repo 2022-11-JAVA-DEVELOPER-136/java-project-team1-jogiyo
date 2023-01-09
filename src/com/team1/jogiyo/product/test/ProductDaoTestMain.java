@@ -13,10 +13,10 @@ public class ProductDaoTestMain {
 		System.out.println("상품추가 : " + result );
 		
 		//상품 수정
-		productDao.update(new Product(11,"찰순대","bbb.jpg",4000,"순대맛있",30));
+		result = productDao.update(new Product(11,"찰순대","bbb.jpg",4000,"순대맛있",30));
 		
 		//상품 삭제
-		productDao.delete("떡떡볶이");		
+		result = productDao.delete("떡떡볶이");		
 		
 		//상품 보기(번호)
 		System.out.println(productDao.findByPrimaryKey(10));
@@ -32,3 +32,5 @@ public class ProductDaoTestMain {
 	}
 
 }
+
+

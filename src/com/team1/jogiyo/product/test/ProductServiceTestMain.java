@@ -8,9 +8,9 @@ public class ProductServiceTestMain {
 	public static void main(String[] args) throws Exception {
 	ProductService productService = new ProductService();
 		
-	//상품 추가
-	Product insert = new Product(0,"김치찜","image2.jpg",21000,"설명",10);	
-	productService.insert(insert);
+	//상품 추가	
+	productService.insert(new Product(0,"김치찜aaa","image2.jpg",21000,"설명",10));
+	
 
 	//상품 삭제
 	productService.delete("치킨");
@@ -26,8 +26,8 @@ public class ProductServiceTestMain {
 	
 	//상품 수정
 	Product update = productService.findByPrimaryKey(2);
-	update.setP_desc("상세설명~");
 	update.setP_price(22000);
+	System.out.println(update); 
 
 	}
 
