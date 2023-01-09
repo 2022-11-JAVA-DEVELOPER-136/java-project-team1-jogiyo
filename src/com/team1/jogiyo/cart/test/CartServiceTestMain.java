@@ -17,7 +17,7 @@ public class CartServiceTestMain {
 		System.out.println(rowCount);
 		//1-1. 카트에 들어있던 제품 수량 업데이트
 		System.out.println("1. 장바구니 수량 업데이트 ");
-		rowCount=cartService.updateInCart(new Cart(0,11,"aaaa",productService.findByPrimaryKey(1)));
+		rowCount=cartService.updateByCartNo(3,8);
 		System.out.println(rowCount);
 	}
 

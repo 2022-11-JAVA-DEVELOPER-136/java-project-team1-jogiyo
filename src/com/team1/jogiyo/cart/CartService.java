@@ -16,7 +16,7 @@ public class CartService {
 		}
 	}
 	//카트 창에서 제품수량 변경
-	public int updateInCart(int c_no,int c_qty) throws Exception{
+	public int updateByCartNo(int c_no,int c_qty) throws Exception{
 		return cartDao.updateByCartNo(c_no, c_qty);
 	}
 	//해당 유저의 카트 보기

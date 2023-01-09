@@ -5,12 +5,12 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class CartListPanel extends JPanel {
+public class CartListPanel_정유나 extends JPanel {
 
 	/**
 	 * Create the panel.
 	 */
-	public CartListPanel() {
+	public CartListPanel_정유나() {
 		setLayout(null);
 		
 		JButton btnNewButton = new JButton("전체결제");
