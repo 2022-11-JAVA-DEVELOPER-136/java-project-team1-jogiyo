@@ -13,6 +13,7 @@ public class CartServiceTestMain {
 		ProductService productService=new ProductService();
 		//1. 카트에 제품 추가
 		System.out.println("1. 제품 장바구니에 담기 "+cartService.addCartInProduct(new Cart(0,3,"aaaa",productService.findByName("치킨"))));
+		
 	}
 
 }
