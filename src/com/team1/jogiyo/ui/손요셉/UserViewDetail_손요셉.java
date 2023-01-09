@@ -7,6 +7,8 @@ import javax.swing.JTextField;
 import java.awt.Font;
 import javax.swing.JButton;
 import java.awt.Color;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class UserViewDetail_손요셉 extends JPanel {
 	private JTextField txtVjvjdid;
@@ -80,11 +82,21 @@ public class UserViewDetail_손요셉 extends JPanel {
 		add(textField_3);
 		
 		JButton btnNewButton = new JButton("수정");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//수정클릭시 SQL 정보 업데이트
+			}
+		});
 		btnNewButton.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
 		btnNewButton.setBounds(40, 406, 97, 23);
 		add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("취소");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//취소시 로그인 화면으로 전환
+			}
+		});
 		btnNewButton_1.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
 		btnNewButton_1.setBounds(202, 406, 97, 23);
 		add(btnNewButton_1);
