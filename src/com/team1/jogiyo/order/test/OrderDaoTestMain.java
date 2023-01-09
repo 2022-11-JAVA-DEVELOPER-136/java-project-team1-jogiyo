@@ -3,6 +3,8 @@ package com.team1.jogiyo.order.test;
 import java.sql.Date;
 import java.util.ArrayList;
 
+import com.team1.jogiyo.cart.Cart;
+import com.team1.jogiyo.cart.CartDao;
 import com.team1.jogiyo.order.OrderDao;
 import com.team1.jogiyo.order.OrderItem;
 import com.team1.jogiyo.order.Orders;
@@ -27,15 +29,18 @@ public class OrderDaoTestMain {
 		ArrayList<OrderItem> orderItemList=new ArrayList<OrderItem>();
 		orderItemList.add(new OrderItem(0, p_qty, p_no, product));
 		
-		Orders newOrder=new Orders(0, null, product.getP_price(), "dddd");
+		Orders newOrder=new Orders(0, null, product.getP_price(), "bbbb");
 		orderDao.insert(newOrder);
-		System.out.println(orderDao.findByUserId("dddd"));
+		System.out.println(orderDao.findByUserId("bbbb"));
 		
 		/*
 		 * 2.cart에서 주문
 		 */
-		
-		
+		int c_no=2;
+		int c_qty;
+		CartDao cartDao=new CartDao();
+		Cart cart=cartDao.findByCartNo(c_no);
+		System.out.println(cart);
 		
 	}
 

@@ -24,7 +24,7 @@ public class CartService {
 		return cartDao.findByUser(cart.getM_id());
 	}
 	//카트 아이템 한 개 보기 
-	public List<Cart> cartListByCartNo(Cart cart) throws Exception{
+	public Cart cartListByCartNo(Cart cart) throws Exception{
 		return cartDao.findByCartNo(cart.getC_no());
 	}
 	//카트 전체 삭제

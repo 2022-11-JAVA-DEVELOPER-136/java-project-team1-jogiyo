@@ -180,15 +180,15 @@ public class CartDao{
 	}
 	
 	//카트번호로 해당 제품 보여주기?
-	public List<Cart> findByCartNo(int c_no) throws Exception {
+	public Cart findByCartNo(int c_no) throws Exception {
 		Connection con=dataSource.getConnection();
 		PreparedStatement pstmt=con.prepareStatement(CartSQL.CART_FIND_BY_C_NO);
 		pstmt.setInt(1, c_no);
 		ResultSet rs=pstmt.executeQuery();
-		List<Cart> cartList=null;
+		Cart newCart=null;
 		try{
 			while(rs.next()) {
-				cartList.add(new Cart(rs.getInt("c_no"),
+				newCart= new Cart(rs.getInt("c_no"),
 									  rs.getInt("c_qty"),
 									  rs.getString("m_id"),
 									  new Product(rs.getInt("p_no"),
@@ -198,14 +198,13 @@ public class CartDao{
 										  	  	  rs.getString("p_desc"),
 										  	  	  rs.getInt("ct_no")
 										  	 	 )
-									 )
-							);
+									 );
 			} 
 		}finally {
 			rs.close();
 			pstmt.close();
 			con.close();
 			}
-		return cartList;
+		return newCart;
 	}
 }
