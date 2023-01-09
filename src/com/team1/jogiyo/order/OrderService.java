@@ -33,13 +33,13 @@ public class OrderService {
 	/*
 	 * 주문목록
 	 */
-	public ArrayList<Orders> list(String sUserId) throws Exception{
+	public ArrayList<Order> list(String sUserId) throws Exception{
 		return orderDao.findByUserId(sUserId);
 	}
 	/*
 	 * 주문상세보기
 	 */
-	public Orders detail(String sUserId,int o_no)throws Exception{
+	public Order detail(String sUserId,int o_no)throws Exception{
 		return orderDao.findByOrderNo(sUserId, o_no);
 	}
 	/*
@@ -51,8 +51,8 @@ public class OrderService {
 		OrderItem orderItem=new OrderItem(0, oi_qty, p_no, product);
 		// Orders 객체에 List<OrderItem> 필요
 		ArrayList<OrderItem> orderItemList=new ArrayList<OrderItem>();
-		
-		Orders newOrders=new Orders(0, 
+		orderItemList.add(orderItem);
+		Order newOrders=new Order(0, 
 									null, 
 									orderItemList.get(0).getOi_qty()*orderItemList.get(0).getProduct().getP_price(), 
 									sUserId);
@@ -60,7 +60,7 @@ public class OrderService {
 		return orderDao.insert(newOrders);
 	}
 	/*
-	 * cart에서 주문
+	 * cart 전체주문
 	 */
 	public int create(String sUserId) throws Exception{
 		//카트(cart)객체에서 정보 orderItem객체로 모두 전이
@@ -73,11 +73,11 @@ public class OrderService {
 			orderItemList.add(orderItem);
 			o_tot_price+=orderItem.getOi_qty()*orderItem.getProduct().getP_price();
 		}
-		Orders newOrders=new Orders(0, null, o_tot_price, sUserId);
+		Order newOrders=new Order(0, null, o_tot_price, sUserId);
 		newOrders.setOrderItemList(orderItemList);
-		orderDao.insert(newOrders);
+		int rowCount = orderDao.insert(newOrders);
 		cartDao.deleteAll(sUserId);
-		return 0;
+		return rowCount;
 	}
 	/*
 	 * cart에서 선택주문

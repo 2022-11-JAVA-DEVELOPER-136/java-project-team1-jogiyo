@@ -11,8 +11,10 @@ public class CartSQL {
 	//카트에 담기
 	//public static String CART_INSERT="insert into cart(c_no,c_qty,p_no,m_id) values(cart_c_no_SEQ.nextval,?,?,?)";				
 	public static String CART_INSERT="insert into cart(c_no,c_qty,p_no,m_id) values(cart_c_no_SEQ.nextval,?,?,?)";				
-	//카트에 있는 제품의 수량 변경 (카트리스트에서 변경)
-	public static String CART_UPDATE_BY_C_NO="update cart set c_qty=? where c_no=?";									
+	//카트에 제품의 수량 변경 (카트리스트에서 변경)
+	public static String CART_UPDATE_BY_C_NO="update cart set c_qty=? where c_no=?";
+	//카트에 있는 제품의 수량 변경 (상품에서 카트 추가시 변경)
+	public static String CART_UPDATE_BY_P_NO="update cart set c_qty=c_qty+? where m_id=? and p_no=?";	
 	//아이디로 카트 전체 날리기(주문완료 시 카트 삭제)
 	public static String CART_DELETE_BY_M_ID="delete from cart where m_id=?";
 	//카트 물품 하나 삭제 

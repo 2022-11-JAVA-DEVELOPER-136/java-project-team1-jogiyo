@@ -67,7 +67,7 @@ public class CartDao{
 	}
 
 	//카트에 있는 제품의 수량 변경 (카트리스트에서 변경)
-	public int updateInCart(int c_no, int c_qty) throws Exception {
+	public int updateByCartNo(int c_no, int c_qty) throws Exception {
 		Connection con=null;
 		PreparedStatement pstmt=null;
 		int rowCount=0;
@@ -86,15 +86,16 @@ public class CartDao{
 		return rowCount;
 	}
 	//카트에 있는 제품의 수량 변경(상품에서 카트 수량 변경)
-		public int updateInProduct(Cart cart) throws Exception {
+		public int updateByProductNo(Cart cart) throws Exception {
 			Connection con=null;
 			PreparedStatement pstmt=null;
 			int rowCount=0;
 			try {
 				con=dataSource.getConnection();
-				pstmt=con.prepareStatement(CartSQL.CART_UPDATE_BY_C_NO);
+				pstmt=con.prepareStatement(CartSQL.CART_UPDATE_BY_P_NO);
 				pstmt.setInt(1, cart.getC_qty());
-				pstmt.setInt(2, cart.getC_no());
+				pstmt.setString(2, cart.getM_id());				
+				pstmt.setInt(3, cart.getProduct().getP_no());
 				rowCount=pstmt.executeUpdate();
 			} finally {
 				if(con!=null) {
@@ -180,15 +181,15 @@ public class CartDao{
 	}
 	
 	//카트번호로 해당 제품 보여주기?
-	public List<Cart> findByCartNo(int c_no) throws Exception {
+	public Cart findByCartNo(int c_no) throws Exception {
 		Connection con=dataSource.getConnection();
 		PreparedStatement pstmt=con.prepareStatement(CartSQL.CART_FIND_BY_C_NO);
 		pstmt.setInt(1, c_no);
 		ResultSet rs=pstmt.executeQuery();
-		List<Cart> cartList=null;
+		Cart newCart=null;
 		try{
 			while(rs.next()) {
-				cartList.add(new Cart(rs.getInt("c_no"),
+				newCart= new Cart(rs.getInt("c_no"),
 									  rs.getInt("c_qty"),
 									  rs.getString("m_id"),
 									  new Product(rs.getInt("p_no"),
@@ -198,14 +199,13 @@ public class CartDao{
 										  	  	  rs.getString("p_desc"),
 										  	  	  rs.getInt("ct_no")
 										  	 	 )
-									 )
-							);
+									 );
 			} 
 		}finally {
 			rs.close();
 			pstmt.close();
 			con.close();
 			}
-		return cartList;
+		return newCart;
 	}
 }
