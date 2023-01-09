@@ -67,7 +67,7 @@ public class CartDao{
 	}
 
 	//카트에 있는 제품의 수량 변경 (카트리스트에서 변경)
-	public int updateInCart(int c_no, int c_qty) throws Exception {
+	public int updateByCartNo(int c_no, int c_qty) throws Exception {
 		Connection con=null;
 		PreparedStatement pstmt=null;
 		int rowCount=0;
@@ -86,7 +86,7 @@ public class CartDao{
 		return rowCount;
 	}
 	//카트에 있는 제품의 수량 변경(상품에서 카트 수량 변경)
-		public int updateInProduct(Cart cart) throws Exception {
+		public int updateByProductNo(Cart cart) throws Exception {
 			Connection con=null;
 			PreparedStatement pstmt=null;
 			int rowCount=0;

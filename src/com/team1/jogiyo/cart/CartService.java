@@ -10,14 +10,14 @@ public class CartService {
 	//상품창에서 카트에 제품 추가 및 수정
 	public int addCartInProduct(Cart cart) throws Exception {
 		if(cartDao.countByProductNo(cart.getM_id(), cart.getProduct().getP_no())>0) {
-			return cartDao.updateInProduct(cart);
+			return cartDao.updateByProductNo(cart);
 		} else {
 			return cartDao.insert(cart); 
 		}
 	}
 	//카트 창에서 제품수량 변경
 	public int updateInCart(int c_no,int c_qty) throws Exception{
-		return cartDao.updateInCart(c_no, c_qty);
+		return cartDao.updateByCartNo(c_no, c_qty);
 	}
 	//해당 유저의 카트 보기
 	public List<Cart> cartListByUserId(String sUserId) throws Exception{
