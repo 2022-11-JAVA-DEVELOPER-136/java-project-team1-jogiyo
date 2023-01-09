@@ -42,39 +42,39 @@ public class userJoinMainPanel extends JPanel {
 		add(lblNewLabel_4);
 		
 		JButton userJoinBtn = new JButton("회원가입");
-		userJoinBtn.setBounds(67, 387, 97, 23);
+		userJoinBtn.setBounds(42, 387, 97, 23);
 		add(userJoinBtn);
 		
 		JButton userJoinCancelBtn = new JButton("취소");
-		userJoinCancelBtn.setBounds(211, 387, 97, 23);
+		userJoinCancelBtn.setBounds(199, 387, 97, 23);
 		add(userJoinCancelBtn);
 		
 		passwordField = new JPasswordField();
-		passwordField.setBounds(157, 134, 151, 21);
+		passwordField.setBounds(111, 134, 151, 21);
 		add(passwordField);
 		
 		userJoinIdTF = new JTextField();
-		userJoinIdTF.setBounds(157, 90, 116, 21);
+		userJoinIdTF.setBounds(111, 90, 116, 21);
 		add(userJoinIdTF);
 		userJoinIdTF.setColumns(10);
 		
 		userJoinnameTF = new JTextField();
-		userJoinnameTF.setBounds(157, 181, 116, 21);
+		userJoinnameTF.setBounds(111, 181, 116, 21);
 		add(userJoinnameTF);
 		userJoinnameTF.setColumns(10);
 		
 		userJoinAddressTF = new JTextField();
-		userJoinAddressTF.setBounds(157, 228, 116, 21);
+		userJoinAddressTF.setBounds(111, 228, 116, 21);
 		add(userJoinAddressTF);
 		userJoinAddressTF.setColumns(10);
 		
 		userJoinPhoneTF = new JTextField();
-		userJoinPhoneTF.setBounds(157, 278, 116, 21);
+		userJoinPhoneTF.setBounds(111, 278, 116, 21);
 		add(userJoinPhoneTF);
 		userJoinPhoneTF.setColumns(10);
 		
 		JButton userJoinFindIdBtn = new JButton("중복확인");
-		userJoinFindIdBtn.setBounds(291, 89, 97, 23);
+		userJoinFindIdBtn.setBounds(239, 89, 97, 23);
 		add(userJoinFindIdBtn);
 
 	}
