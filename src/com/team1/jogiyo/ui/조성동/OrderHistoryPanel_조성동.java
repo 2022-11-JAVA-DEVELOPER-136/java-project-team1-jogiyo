@@ -14,7 +14,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
 
-public class OrderHistoryPanel_csd extends JPanel {
+public class OrderHistoryPanel_조성동 extends JPanel {
 	private JButton OrderHistoryDetailBtn_0;
 	/***************************************/
 	/*
@@ -31,7 +31,7 @@ public class OrderHistoryPanel_csd extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public OrderHistoryPanel_csd() throws Exception{
+	public OrderHistoryPanel_조성동() throws Exception{
 		setBackground(new Color(0, 64, 64));
 		setLayout(null);
 		
