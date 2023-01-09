@@ -23,6 +23,9 @@ public class CartListPanel_정유나 extends JPanel {
 		scrollPane.setBounds(12, 36, 326, 375);
 		add(scrollPane);
 		
+		JPanel panel_1 = new JPanel();
+		scrollPane.setViewportView(panel_1);
+		
 		JButton orderAllBtn = new JButton("전체주문");
 		orderAllBtn.setBounds(75, 446, 97, 23);
 		add(orderAllBtn);
