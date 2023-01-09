@@ -1,4 +1,4 @@
-package com.team1.jogiyo.ui;
+package com.team1.jogiyo.ui.유승근;
 
 import java.awt.EventQueue;
 
@@ -13,7 +13,7 @@ import javax.swing.JTextField;
 import javax.swing.JTabbedPane;
 import java.awt.Cursor;
 
-public class JogiyoMainFrame extends JFrame {
+public class JogiyoMainFrame_유승근 extends JFrame {
 
 	private JPanel contentPane;
 
@@ -24,7 +24,7 @@ public class JogiyoMainFrame extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					JogiyoMainFrame frame = new JogiyoMainFrame();
+					JogiyoMainFrame_유승근 frame = new JogiyoMainFrame_유승근();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -36,7 +36,7 @@ public class JogiyoMainFrame extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public JogiyoMainFrame() {
+	public JogiyoMainFrame_유승근() {
 		setTitle("JOGIYO");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 399, 700);
@@ -84,6 +84,12 @@ public class JogiyoMainFrame extends JFrame {
 		JTabbedPane userTabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		tabbedPane.addTab("회원", null, userTabbedPane, null);
 		
+		userJoinMainPanel userJoinMainPanel_ = new userJoinMainPanel();
+		userTabbedPane.addTab("회원가입", null, userJoinMainPanel_, null);
+		
+		userInfoMainPanel userInfoMainPanel_ = new userInfoMainPanel();
+		userTabbedPane.addTab("회원정보", null, userInfoMainPanel_, null);
+		
 		JTabbedPane productTabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		tabbedPane.addTab("제품", null, productTabbedPane, null);
 		
@@ -93,9 +99,5 @@ public class JogiyoMainFrame extends JFrame {
 		
 		JTabbedPane orderTabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		tabbedPane.addTab("주문내역", null, orderTabbedPane, null);
-		
-		JTabbedPane orderHistoryDetail = new JTabbedPane(JTabbedPane.TOP);
-		tabbedPane.addTab("주문상세", null,orderHistoryDetail,null);
 	}
-
 }

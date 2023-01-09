@@ -1,4 +1,4 @@
-package com.team1.jogiyo.ui;
+package com.team1.jogiyo.ui.정유나;
 
 import java.awt.EventQueue;
 
@@ -11,9 +11,11 @@ import javax.swing.JLabel;
 import java.awt.Component;
 import javax.swing.JTextField;
 import javax.swing.JTabbedPane;
+import com.team1.jogiyo.ui.정유나.CartListPanel_정유나;
 import java.awt.Cursor;
+import com.team1.jogiyo.ui.조성동.OrderHistoryPanel_csd;
 
-public class JogiyoMainFrame extends JFrame {
+public class JogiyoMainFrame_정유나 extends JFrame {
 
 	private JPanel contentPane;
 
@@ -24,7 +26,7 @@ public class JogiyoMainFrame extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					JogiyoMainFrame frame = new JogiyoMainFrame();
+					JogiyoMainFrame_정유나 frame = new JogiyoMainFrame_정유나();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -36,7 +38,7 @@ public class JogiyoMainFrame extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public JogiyoMainFrame() {
+	public JogiyoMainFrame_정유나() {
 		setTitle("JOGIYO");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 399, 700);
@@ -87,15 +89,10 @@ public class JogiyoMainFrame extends JFrame {
 		JTabbedPane productTabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		tabbedPane.addTab("제품", null, productTabbedPane, null);
 		
-
-		JTabbedPane cartListPanel = new JTabbedPane(JTabbedPane.TOP);
-		tabbedPane.addTab("카트", null, cartListPanel, null);
+		CartListPanel_정유나 cartListPanel_정유나 = new CartListPanel_정유나();
+		tabbedPane.addTab("New tab", null, cartListPanel_정유나, null);
 		
-		JTabbedPane orderTabbedPane = new JTabbedPane(JTabbedPane.TOP);
-		tabbedPane.addTab("주문내역", null, orderTabbedPane, null);
-		
-		JTabbedPane orderHistoryDetail = new JTabbedPane(JTabbedPane.TOP);
-		tabbedPane.addTab("주문상세", null,orderHistoryDetail,null);
+		OrderHistoryPanel_csd orderHistoryPanel_csd = new OrderHistoryPanel_csd();
+		tabbedPane.addTab("주문내역", null, orderHistoryPanel_csd, null);
 	}
-
 }
