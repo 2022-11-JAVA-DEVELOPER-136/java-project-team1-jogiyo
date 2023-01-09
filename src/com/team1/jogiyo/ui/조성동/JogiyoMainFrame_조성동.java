@@ -5,13 +5,15 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import com.team1.jogiyo.ui.정유나.CartListPanel_정유나;
+
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import javax.swing.JLabel;
 import java.awt.Component;
 import javax.swing.JTextField;
 import javax.swing.JTabbedPane;
-import com.team1.jogiyo.ui.정유나.CartListPanel;
 import java.awt.Cursor;
 
 public class JogiyoMainFrame_조성동 extends JFrame {
@@ -88,7 +90,7 @@ public class JogiyoMainFrame_조성동 extends JFrame {
 		JTabbedPane productTabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		tabbedPane.addTab("제품", null, productTabbedPane, null);
 		
-		CartListPanel cartListPanel = new CartListPanel();
+		CartListPanel_정유나 cartListPanel = new CartListPanel_정유나();
 		tabbedPane.addTab("카트", null, cartListPanel, null);
 		
 		JTabbedPane orderTabbedPane = new JTabbedPane(JTabbedPane.TOP);
