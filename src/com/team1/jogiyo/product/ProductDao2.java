@@ -21,12 +21,11 @@ public class ProductDao2 {
 		Connection con = dataSource.getConnection();
 		PreparedStatement pstmt = con.prepareStatement(ProductSQL2.PRODUCT_INSERT);
 		
-		pstmt.setInt(1, product.getP_no());
-		pstmt.setString(2, product.getP_name());
-		pstmt.setString(3, product.getP_image());
-		pstmt.setInt(4, product.getP_price());
-		pstmt.setString(5, product.getP_desc());
-		pstmt.setInt(6, product.getCt_no());
+		pstmt.setString(1, product.getP_name());
+		pstmt.setString(2, product.getP_image());
+		pstmt.setInt(3, product.getP_price());
+		pstmt.setString(4, product.getP_desc());
+		pstmt.setInt(5, product.getCt_no());
 		int rowCount = pstmt.executeUpdate();
 		pstmt.close();
 		con.close();

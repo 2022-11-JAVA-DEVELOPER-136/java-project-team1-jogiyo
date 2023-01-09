@@ -10,14 +10,14 @@ public class CategoriesDaoTestMain {
 		CategoriesDao categoriesDao = new CategoriesDao();
 		
 		//카테고리 추가
-		int result = categoriesDao.insert(new Categories(40, "일식", null));
-		System.out.println("상품 추가 : " + result);
+		//int result = categoriesDao.insert(new Categories(20, "중식", null));
+		//System.out.println("상품 추가 : " + result);
 		
 		//카테고리 수정
-		categoriesDao.update(new Categories(30, "분식", null));
+		categoriesDao.update(new Categories(30, "양식", null));
 		
 		//카테고리 삭제
-		categoriesDao.delete("중식");
+		categoriesDao.delete("일식");
 		
 		//카테고리 번호로 검색
 		System.out.println(categoriesDao.findByPrimaryKey(10));
