@@ -94,8 +94,8 @@ public class JogiyoMainFrame extends JFrame {
 		JTabbedPane orderTabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		tabbedPane.addTab("주문내역", null, orderTabbedPane, null);
 		
-		JPanel orderHistoryDetail = new JPanel();
-		tabbedPane.addTab("주문상세", null, orderHistoryDetail, null);
+		JTabbedPane orderHistoryDetail = new JTabbedPane(JTabbedPane.TOP);
+		tabbedPane.addTab("주문상세", null,orderHistoryDetail,null);
 	}
 
 }

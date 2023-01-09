@@ -13,9 +13,9 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
+import java.awt.Dimension;
 
 public class OrderHistoryPanel_조성동 extends JPanel {
-	private JButton OrderHistoryDetailBtn_0;
 	/***************************************/
 	/*
 	 * Sevice객체선언
@@ -35,30 +35,29 @@ public class OrderHistoryPanel_조성동 extends JPanel {
 		setBackground(new Color(0, 64, 64));
 		setLayout(null);
 		
-		JPanel OrderHistory = new JPanel();
-		OrderHistory.setBounds(0, 0, 350, 590);
-		add(OrderHistory);
-		OrderHistory.setLayout(null);
+		JScrollPane OrderHistoryScrollPane = new JScrollPane();
+		OrderHistoryScrollPane.setBounds(0, 0, 350, 502);
+		add(OrderHistoryScrollPane);
+		
+		JPanel OrderHistoryListPanel = new JPanel();
+		OrderHistoryListPanel.setPreferredSize(new Dimension(300, 700));
+		OrderHistoryScrollPane.setViewportView(OrderHistoryListPanel);
 		
 		JPanel OrderHistoryPanel_1 = new JPanel();
-		OrderHistoryPanel_1.setBounds(12, 83, 326, 68);
-		OrderHistory.add(OrderHistoryPanel_1);
+		OrderHistoryPanel_1.setPreferredSize(new Dimension(300, 65));
 		OrderHistoryPanel_1.setLayout(null);
+		OrderHistoryListPanel.add(OrderHistoryPanel_1);
 		
 		JLabel DisplayProductNameLabel_0 = new JLabel("");
 		DisplayProductNameLabel_0.setBounds(99, 30, 66, 33);
 		OrderHistoryPanel_1.add(DisplayProductNameLabel_0);
 		
-		OrderHistoryDetailBtn_0 = new JButton("");
-		OrderHistoryDetailBtn_0.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		OrderHistoryDetailBtn_0.setBounds(277, 30, 25, 23);
+		JButton OrderHistoryDetailBtn_0 = new JButton("");
+		OrderHistoryDetailBtn_0.setBounds(247, 30, 25, 23);
 		OrderHistoryPanel_1.add(OrderHistoryDetailBtn_0);
 		
 		JLabel DisplayTotalPriceLabel_0 = new JLabel("");
-		DisplayTotalPriceLabel_0.setBounds(181, 32, 68, 29);
+		DisplayTotalPriceLabel_0.setBounds(167, 32, 68, 29);
 		OrderHistoryPanel_1.add(DisplayTotalPriceLabel_0);
 		
 		JLabel lblNewLabel_2 = new JLabel("주문날짜");
@@ -70,21 +69,20 @@ public class OrderHistoryPanel_조성동 extends JPanel {
 		OrderHistoryPanel_1.add(lblNewLabel_3);
 		
 		JLabel lblNewLabel_4 = new JLabel("총가격");
-		lblNewLabel_4.setBounds(180, 10, 57, 15);
+		lblNewLabel_4.setBounds(174, 10, 44, 15);
 		OrderHistoryPanel_1.add(lblNewLabel_4);
 		
 		JLabel lblNewLabel_5 = new JLabel("주문상세");
-		lblNewLabel_5.setBounds(267, 10, 57, 15);
+		lblNewLabel_5.setBounds(237, 10, 57, 15);
 		OrderHistoryPanel_1.add(lblNewLabel_5);
 		
 		JLabel DisplayDateLabel = new JLabel("");
-		DisplayDateLabel.setBounds(12, 39, 69, 15);
+		DisplayDateLabel.setBounds(0, 39, 81, 24);
 		OrderHistoryPanel_1.add(DisplayDateLabel);
 		
 		JPanel OrderHistoryPanel_2 = new JPanel();
 		OrderHistoryPanel_2.setLayout(null);
-		OrderHistoryPanel_2.setBounds(12, 161, 326, 68);
-		OrderHistory.add(OrderHistoryPanel_2);
+		OrderHistoryListPanel.add(OrderHistoryPanel_2);
 		
 		JLabel DisplayProductNameLabel_1 = new JLabel("");
 		DisplayProductNameLabel_1.setBounds(99, 30, 66, 33);
@@ -120,8 +118,7 @@ public class OrderHistoryPanel_조성동 extends JPanel {
 		
 		JPanel OrderHistoryPanel_3 = new JPanel();
 		OrderHistoryPanel_3.setLayout(null);
-		OrderHistoryPanel_3.setBounds(12, 239, 326, 68);
-		OrderHistory.add(OrderHistoryPanel_3);
+		OrderHistoryListPanel.add(OrderHistoryPanel_3);
 		
 		JLabel DisplayProductNameLabel_2 = new JLabel("");
 		DisplayProductNameLabel_2.setBounds(99, 30, 66, 33);
@@ -157,8 +154,7 @@ public class OrderHistoryPanel_조성동 extends JPanel {
 		
 		JPanel OrderHistoryPanel_4 = new JPanel();
 		OrderHistoryPanel_4.setLayout(null);
-		OrderHistoryPanel_4.setBounds(12, 317, 326, 68);
-		OrderHistory.add(OrderHistoryPanel_4);
+		OrderHistoryListPanel.add(OrderHistoryPanel_4);
 		
 		JLabel DisplayProductNameLabel_3 = new JLabel("");
 		DisplayProductNameLabel_3.setBounds(99, 30, 66, 33);
@@ -194,8 +190,7 @@ public class OrderHistoryPanel_조성동 extends JPanel {
 		
 		JPanel OrderHistoryPanel_5 = new JPanel();
 		OrderHistoryPanel_5.setLayout(null);
-		OrderHistoryPanel_5.setBounds(12, 395, 326, 68);
-		OrderHistory.add(OrderHistoryPanel_5);
+		OrderHistoryListPanel.add(OrderHistoryPanel_5);
 		
 		JLabel DisplayProductNameLabel_4 = new JLabel("");
 		DisplayProductNameLabel_4.setBounds(99, 30, 66, 33);
