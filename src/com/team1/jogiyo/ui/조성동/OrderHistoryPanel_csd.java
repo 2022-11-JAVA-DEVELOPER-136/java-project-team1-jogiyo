@@ -3,6 +3,11 @@ package com.team1.jogiyo.ui.조성동;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
+
+import com.team1.jogiyo.order.OrderService;
+import com.team1.jogiyo.user.User;
+import com.team1.jogiyo.user.UserService;
+
 import javax.swing.JLabel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -11,11 +16,22 @@ import java.awt.Color;
 
 public class OrderHistoryPanel_csd extends JPanel {
 	private JButton OrderHistoryDetailBtn_0;
-
+	/***************************************/
+	/*
+	 * Sevice객체선언
+	 */
+	OrderService orderService=null;
+	UserService userService=null;
+	/*
+	 * loginMember객체선언
+	 */
+	User user=null;
+	/***************************************/
+	
 	/**
 	 * Create the panel.
 	 */
-	public OrderHistoryPanel_csd() {
+	public OrderHistoryPanel_csd() throws Exception{
 		setBackground(new Color(0, 64, 64));
 		setLayout(null);
 		
@@ -213,6 +229,17 @@ public class OrderHistoryPanel_csd extends JPanel {
 		DisplayDateLabel_4.setBounds(12, 39, 69, 15);
 		OrderHistoryPanel_5.add(DisplayDateLabel_4);
 		
-
+		
+		/*******************************************/
+		orderService = new OrderService();
+		userService = new UserService();
+		user = new User("bbbb", null, "csd", "지역", "폰넘버");
+		
+		OrderListPrint("bbbb");
+	}
+	
+	private void OrderListPrint(String sUserId) throws Exception {
+		System.out.println(orderService.list(sUserId));
+	
 	}
 }
