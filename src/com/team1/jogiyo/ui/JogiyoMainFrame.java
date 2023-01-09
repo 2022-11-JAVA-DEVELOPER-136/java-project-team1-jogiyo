@@ -11,6 +11,8 @@ import javax.swing.JLabel;
 import java.awt.Component;
 import javax.swing.JTextField;
 import javax.swing.JTabbedPane;
+import com.team1.jogiyo.ui.정유나.CartListPanel;
+import java.awt.Cursor;
 
 public class JogiyoMainFrame extends JFrame {
 
@@ -50,12 +52,14 @@ public class JogiyoMainFrame extends JFrame {
 		NorthPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 60, 5));
 		
 		JLabel representLB = new JLabel("[조기요]");
+		representLB.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		NorthPanel.add(representLB);
 		
 		JLabel findLB = new JLabel("검색");
 		NorthPanel.add(findLB);
 		
 		JLabel cartLB = new JLabel("[CART]");
+		cartLB.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		NorthPanel.add(cartLB);
 		
 		JPanel SouthPanel = new JPanel();
@@ -64,12 +68,15 @@ public class JogiyoMainFrame extends JFrame {
 		SouthPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 70, 5));
 		
 		JLabel userInfoLB = new JLabel("MY");
+		userInfoLB.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		SouthPanel.add(userInfoLB);
 		
 		JLabel homeLB = new JLabel("HOME");
+		homeLB.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		SouthPanel.add(homeLB);
 		
 		JLabel orderLB = new JLabel("ORDER");
+		orderLB.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		SouthPanel.add(orderLB);
 		
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
@@ -81,8 +88,8 @@ public class JogiyoMainFrame extends JFrame {
 		JTabbedPane productTabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		tabbedPane.addTab("제품", null, productTabbedPane, null);
 		
-		JTabbedPane cartTabbedPane = new JTabbedPane(JTabbedPane.TOP);
-		tabbedPane.addTab("카트", null, cartTabbedPane, null);
+		CartListPanel cartListPanel = new CartListPanel();
+		tabbedPane.addTab("카트", null, cartListPanel, null);
 		
 		JTabbedPane orderTabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		tabbedPane.addTab("주문내역", null, orderTabbedPane, null);
