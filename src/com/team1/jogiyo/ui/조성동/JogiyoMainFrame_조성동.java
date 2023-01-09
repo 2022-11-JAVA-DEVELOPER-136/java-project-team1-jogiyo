@@ -11,9 +11,6 @@ import javax.swing.JLabel;
 import java.awt.Component;
 import javax.swing.JTextField;
 import javax.swing.JTabbedPane;
-
-import com.team1.jogiyo.ui.정유나.CartListPanel_정유나;
-
 import java.awt.Cursor;
 
 public class JogiyoMainFrame_조성동 extends JFrame {
@@ -38,8 +35,9 @@ public class JogiyoMainFrame_조성동 extends JFrame {
 
 	/**
 	 * Create the frame.
+	 * @throws Exception 
 	 */
-	public JogiyoMainFrame_조성동() {
+	public JogiyoMainFrame_조성동() throws Exception {
 		setTitle("JOGIYO");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 400, 700);
@@ -90,10 +88,11 @@ public class JogiyoMainFrame_조성동 extends JFrame {
 		JTabbedPane productTabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		tabbedPane.addTab("제품", null, productTabbedPane, null);
 		
-		CartListPanel_정유나 cartListPanel = new CartListPanel_정유나();
+		JTabbedPane cartListPanel = new JTabbedPane(JTabbedPane.TOP);
 		tabbedPane.addTab("카트", null, cartListPanel, null);
 		
-		JTabbedPane orderTabbedPane = new JTabbedPane(JTabbedPane.TOP);
+		//JTabbedPane orderTabbedPane = new JTabbedPane(JTabbedPane.TOP);
+		OrderHistoryPanel_조성동  orderTabbedPane = new OrderHistoryPanel_조성동();
 		tabbedPane.addTab("주문내역", null, orderTabbedPane, null);
 	}
 
