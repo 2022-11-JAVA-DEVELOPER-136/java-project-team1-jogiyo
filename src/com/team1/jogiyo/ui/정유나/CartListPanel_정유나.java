@@ -4,6 +4,11 @@ import javax.swing.JPanel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JList;
+import javax.swing.JScrollPane;
+import javax.swing.JLabel;
+import javax.swing.SwingConstants;
+import java.awt.Font;
 
 public class CartListPanel_정유나 extends JPanel {
 
@@ -13,18 +18,24 @@ public class CartListPanel_정유나 extends JPanel {
 	public CartListPanel_정유나() {
 		setLayout(null);
 		
-		JButton btnNewButton = new JButton("전체결제");
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnNewButton.setBounds(82, 450, 97, 23);
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(12, 56, 326, 346);
+		add(scrollPane);
+		
+		JLabel lblNewLabel = new JLabel("장바구니");
+		lblNewLabel.setFont(new Font("굴림", Font.BOLD, 25));
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setBounds(84, 7, 142, 46);
+		add(lblNewLabel);
+		
+		JButton btnNewButton = new JButton("뒤로가기");
+		btnNewButton.setFont(new Font("굴림", Font.PLAIN, 10));
+		btnNewButton.setBounds(12, 23, 73, 23);
 		add(btnNewButton);
 		
-		JButton btnNewButton_1 = new JButton("선택결제");
-		btnNewButton_1.setBounds(212, 450, 97, 23);
-		add(btnNewButton_1);
+		JLabel lblNewLabel_1 = new JLabel("New label");
+		lblNewLabel_1.setBounds(224, 26, 57, 15);
+		add(lblNewLabel_1);
 
 	}
-
 }

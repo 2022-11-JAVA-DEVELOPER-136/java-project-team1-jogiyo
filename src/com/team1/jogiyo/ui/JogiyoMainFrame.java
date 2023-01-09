@@ -40,7 +40,7 @@ public class JogiyoMainFrame extends JFrame {
 	public JogiyoMainFrame() {
 		setTitle("JOGIYO");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 400, 700);
+		setBounds(100, 100, 399, 700);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
