@@ -15,6 +15,7 @@ import javax.swing.JComboBox;
 import javax.swing.JScrollBar;
 import javax.swing.JInternalFrame;
 import java.awt.Dimension;
+import java.awt.Cursor;
 
 public class CartListPanel_정유나 extends JPanel {
 
@@ -38,6 +39,7 @@ public class CartListPanel_정유나 extends JPanel {
 		cartPanel.setLayout(null);
 		
 		JLabel productImageLB = new JLabel("");
+		productImageLB.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		productImageLB.setVerticalTextPosition(SwingConstants.BOTTOM);
 		productImageLB.setHorizontalTextPosition(SwingConstants.CENTER);
 		productImageLB.setHorizontalAlignment(SwingConstants.CENTER);
@@ -61,6 +63,7 @@ public class CartListPanel_정유나 extends JPanel {
 		cartPanel.add(productCount);
 		
 		JComboBox productCountCB = new JComboBox();
+		productCountCB.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		productCountCB.setBounds(195, 55, 25, 15);
 		cartPanel.add(productCountCB);
 		
