@@ -6,9 +6,16 @@ insert into categories VALUES (30,'분식',null);
 
 /**********************product insert************************/
 desc product;
-insert into product values(product_p_no_SEQ.nextval,'치킨','chicken.jpg',18000,'바삭바삭후라이드치킨',10);
-insert into product values(product_p_no_SEQ.nextval,'피자','chicken.jpg',24000,'맛있는피자',20);
-insert into product values(product_p_no_SEQ.nextval,'자장면','jajangmyeon.jpg',8000,'고소한자장면',30);
+insert into product values(product_p_no_SEQ.nextval,'순대국밥','aaa.jpg',9000,'순대가 들어간 국밥',10);
+insert into product values(product_p_no_SEQ.nextval,'김치찜','bbb.jpg',24000,'오랜시간 전해져 내려온 손맛',10);
+insert into product values(product_p_no_SEQ.nextval,'삼겹살','ccc.jpg',15000,'노릇노릇 맛있게 구운 삼겹살',10);
+insert into product values(product_p_no_SEQ.nextval,'자장면','ddd.jpg',8000,'고급 중식당 맛 그대로 불맛 가득',20);
+insert into product values(product_p_no_SEQ.nextval,'삼선짬뽕','eee.jpg',12000,'사천고추를 넣은 얼큰하고 칼칼한 맛',20);
+insert into product values(product_p_no_SEQ.nextval,'탕수육','fff.jpg',25000,'비법 소스를 곁들인 음식으로 인절미 같은 쫄깃한 식감',20);
+insert into product values(product_p_no_SEQ.nextval,'떡볶이','ggg.jpg',5000,'남녀노소 좋아할 매콤달달한 맛',30);
+insert into product values(product_p_no_SEQ.nextval,'어묵','hhh.jpg',4000,'시원한 국물과 씹는 맛이 다른 수제 어묵',30);
+insert into product values(product_p_no_SEQ.nextval,'순대','hhh.jpg',6000,'진짜 야채를 다져 넣은 건강한 순대',30);
+
 
 /**********************member insert************************/
 insert into userinfo(m_id,m_password,m_name,m_loc,m_phone) values('aaaa','1234','손요셉','성남','010-1111-1111');
