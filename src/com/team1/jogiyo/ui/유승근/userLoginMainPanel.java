@@ -19,8 +19,10 @@ public class userLoginMainPanel extends JPanel {
 	/*
 	 * Service 객체 생성
 	 */
+	
 	UserService userService=null;
 	User user=null;
+	
 	
 	/*********************************************/
 	
@@ -65,6 +67,7 @@ public class userLoginMainPanel extends JPanel {
 		add(userLoginFindIdPasswordBtn);
 		
 		/****************************************/
+		
 		userService=new UserService();
 		user=new User("aaaa", null, null, "주소", "폰넘버");
 		
@@ -73,6 +76,7 @@ public class userLoginMainPanel extends JPanel {
 	
 	private void findUser(String sUserId) throws Exception {
 		userService.findUser(sUserId);
+		
 
 	}
 }

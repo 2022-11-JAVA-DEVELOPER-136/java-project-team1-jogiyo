@@ -10,6 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.SwingConstants;
 
 public class userMainPanel extends JPanel   {
 	
@@ -24,19 +25,17 @@ public class userMainPanel extends JPanel   {
 	 * @throws Exception 
 	 */
 	public userMainPanel() throws Exception {
-		setBackground(new Color(255, 255, 255));
+		setBackground(new Color(128, 255, 255));
 		setLayout(null);
 		
 		JLabel userMainLB = new JLabel("");
-		userMainLB.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-			}
-		});
-		userMainLB.setBackground(new Color(255, 0, 0));
-		userMainLB.setForeground(new Color(255, 255, 255));
 		userMainLB.setIcon(new ImageIcon(userMainPanel.class.getResource("/com/team1/jogiyo/ui/유승근/image/userMain.png")));
-		userMainLB.setBounds(12, 29, 326, 445);
+		userMainLB.addMouseListener(new MouseAdapter() {
+	
+		});
+		userMainLB.setBackground(new Color(255, 255, 255));
+		userMainLB.setForeground(new Color(255, 255, 255));
+		userMainLB.setBounds(28, 44, 292, 406);
 		add(userMainLB);
 
 		
