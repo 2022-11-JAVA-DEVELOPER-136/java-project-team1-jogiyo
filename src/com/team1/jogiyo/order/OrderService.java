@@ -51,7 +51,7 @@ public class OrderService {
 		OrderItem orderItem=new OrderItem(0, oi_qty, p_no, product);
 		// Orders 객체에 List<OrderItem> 필요
 		ArrayList<OrderItem> orderItemList=new ArrayList<OrderItem>();
-		
+		orderItemList.add(orderItem);
 		Orders newOrders=new Orders(0, 
 									null, 
 									orderItemList.get(0).getOi_qty()*orderItemList.get(0).getProduct().getP_price(), 
@@ -60,7 +60,7 @@ public class OrderService {
 		return orderDao.insert(newOrders);
 	}
 	/*
-	 * cart에서 주문
+	 * cart 전체주문
 	 */
 	public int create(String sUserId) throws Exception{
 		//카트(cart)객체에서 정보 orderItem객체로 모두 전이
@@ -75,9 +75,9 @@ public class OrderService {
 		}
 		Orders newOrders=new Orders(0, null, o_tot_price, sUserId);
 		newOrders.setOrderItemList(orderItemList);
-		orderDao.insert(newOrders);
+		int rowCount = orderDao.insert(newOrders);
 		cartDao.deleteAll(sUserId);
-		return 0;
+		return rowCount;
 	}
 	/*
 	 * cart에서 선택주문
