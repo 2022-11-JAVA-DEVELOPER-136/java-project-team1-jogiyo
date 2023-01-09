@@ -10,6 +10,8 @@ import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import java.awt.Font;
 import javax.swing.ImageIcon;
+import javax.swing.JLayeredPane;
+import javax.swing.JComboBox;
 
 public class CartListPanel_정유나 extends JPanel {
 
@@ -20,19 +22,27 @@ public class CartListPanel_정유나 extends JPanel {
 		setLayout(null);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(12, 56, 326, 346);
+		scrollPane.setBounds(12, 36, 326, 375);
 		add(scrollPane);
 		
-		JLabel lblNewLabel = new JLabel("장바구니");
-		lblNewLabel.setFont(new Font("굴림", Font.BOLD, 25));
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setBounds(84, 7, 142, 46);
-		add(lblNewLabel);
+		JList list = new JList();
+		scrollPane.setViewportView(list);
 		
-		JButton btnNewButton = new JButton("뒤로가기");
-		btnNewButton.setFont(new Font("굴림", Font.PLAIN, 10));
-		btnNewButton.setBounds(12, 23, 73, 23);
-		add(btnNewButton);
+		JButton orderAllBtn = new JButton("전체주문");
+		orderAllBtn.setBounds(75, 446, 97, 23);
+		add(orderAllBtn);
+		
+		JButton orderSelectionBtn = new JButton("선택주문");
+		orderSelectionBtn.setBounds(201, 446, 97, 23);
+		add(orderSelectionBtn);
+		
+		JLabel lblNewLabel_2 = new JLabel("총 금액 : ");
+		lblNewLabel_2.setBounds(75, 421, 57, 15);
+		add(lblNewLabel_2);
+		
+		JLabel totalPriceLB = new JLabel("");
+		totalPriceLB.setBounds(167, 421, 135, 15);
+		add(totalPriceLB);
 
 	}
 }
