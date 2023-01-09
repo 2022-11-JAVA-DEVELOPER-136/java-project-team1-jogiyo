@@ -10,6 +10,8 @@ import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import java.awt.Font;
 import javax.swing.ImageIcon;
+import javax.swing.JLayeredPane;
+import javax.swing.JComboBox;
 
 public class CartListPanel_정유나 extends JPanel {
 
@@ -23,8 +25,8 @@ public class CartListPanel_정유나 extends JPanel {
 		scrollPane.setBounds(12, 36, 326, 375);
 		add(scrollPane);
 		
-		JPanel panel_1 = new JPanel();
-		scrollPane.setViewportView(panel_1);
+		JList list = new JList();
+		scrollPane.setViewportView(list);
 		
 		JButton orderAllBtn = new JButton("전체주문");
 		orderAllBtn.setBounds(75, 446, 97, 23);
@@ -38,9 +40,9 @@ public class CartListPanel_정유나 extends JPanel {
 		lblNewLabel_2.setBounds(75, 421, 57, 15);
 		add(lblNewLabel_2);
 		
-		JLabel lblNewLabel_3 = new JLabel("");
-		lblNewLabel_3.setBounds(167, 421, 135, 15);
-		add(lblNewLabel_3);
+		JLabel totalPriceLB = new JLabel("");
+		totalPriceLB.setBounds(167, 421, 135, 15);
+		add(totalPriceLB);
 
 	}
 }
