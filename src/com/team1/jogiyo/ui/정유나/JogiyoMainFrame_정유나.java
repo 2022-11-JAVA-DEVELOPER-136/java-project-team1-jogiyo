@@ -13,11 +13,22 @@ import javax.swing.JTextField;
 import javax.swing.JTabbedPane;
 import com.team1.jogiyo.ui.정유나.CartListPanel_정유나;
 import java.awt.Cursor;
-import com.team1.jogiyo.ui.조성동.OrderHistoryPanel_csd;
+import com.team1.jogiyo.ui.조성동.OrderHistoryPanel_조성동;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
-public class JogiyoMainFrame_정유나 extends JFrame {
+public class JogiyoMainFrame_정유나 extends JFrame{
 
 	private JPanel contentPane;
+	private JTabbedPane tabbedPane;
+	private JPanel SouthPanel;
+	private JPanel NorthPanel;
+	private JLabel representLB;
+	private JLabel findLB;
+	private JLabel cartLB;
+	private JLabel userInfoLB;
+	private JLabel homeLB;
+	private JLabel orderLB;
 
 	/**
 	 * Launch the application.
@@ -37,8 +48,9 @@ public class JogiyoMainFrame_정유나 extends JFrame {
 
 	/**
 	 * Create the frame.
+	 * @throws Exception 
 	 */
-	public JogiyoMainFrame_정유나() {
+	public JogiyoMainFrame_정유나() throws Exception {
 		setTitle("JOGIYO");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 399, 700);
@@ -48,39 +60,39 @@ public class JogiyoMainFrame_정유나 extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(new BorderLayout(0, 0));
 		
-		JPanel NorthPanel = new JPanel();
+		NorthPanel = new JPanel();
 		contentPane.add(NorthPanel, BorderLayout.NORTH);
 		NorthPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 60, 5));
 		
-		JLabel representLB = new JLabel("[조기요]");
+		representLB = new JLabel("[조기요]");
 		representLB.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		NorthPanel.add(representLB);
 		
-		JLabel findLB = new JLabel("검색");
+		findLB = new JLabel("검색");
 		NorthPanel.add(findLB);
 		
-		JLabel cartLB = new JLabel("[CART]");
+		cartLB = new JLabel("[CART]");
 		cartLB.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		NorthPanel.add(cartLB);
 		
-		JPanel SouthPanel = new JPanel();
+		SouthPanel = new JPanel();
 		SouthPanel.setAlignmentX(Component.RIGHT_ALIGNMENT);
 		contentPane.add(SouthPanel, BorderLayout.SOUTH);
 		SouthPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 70, 5));
 		
-		JLabel userInfoLB = new JLabel("MY");
+		userInfoLB = new JLabel("MY");
 		userInfoLB.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		SouthPanel.add(userInfoLB);
 		
-		JLabel homeLB = new JLabel("HOME");
+		homeLB = new JLabel("HOME");
 		homeLB.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		SouthPanel.add(homeLB);
 		
-		JLabel orderLB = new JLabel("ORDER");
+		orderLB = new JLabel("ORDER");
 		orderLB.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		SouthPanel.add(orderLB);
 		
-		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
+		tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		contentPane.add(tabbedPane, BorderLayout.CENTER);
 		
 		JTabbedPane userTabbedPane = new JTabbedPane(JTabbedPane.TOP);
@@ -90,9 +102,14 @@ public class JogiyoMainFrame_정유나 extends JFrame {
 		tabbedPane.addTab("제품", null, productTabbedPane, null);
 		
 		CartListPanel_정유나 cartListPanel_정유나 = new CartListPanel_정유나();
+		cartListPanel_정유나.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+			}
+		});
 		tabbedPane.addTab("New tab", null, cartListPanel_정유나, null);
 		
-		OrderHistoryPanel_csd orderHistoryPanel_csd = new OrderHistoryPanel_csd();
-		tabbedPane.addTab("주문내역", null, orderHistoryPanel_csd, null);
+		OrderHistoryPanel_조성동 orderHistoryPanel_조성동 = new OrderHistoryPanel_조성동();
+		tabbedPane.addTab("New tab", null, orderHistoryPanel_조성동, null);
 	}
 }

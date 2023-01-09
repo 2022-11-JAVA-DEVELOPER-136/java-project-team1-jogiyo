@@ -8,6 +8,8 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JTabbedPane;
 import java.awt.FlowLayout;
 import java.awt.BorderLayout;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class UserMainFrame_손요셉 extends JFrame {
 
@@ -45,6 +47,12 @@ public class UserMainFrame_손요셉 extends JFrame {
 		contentPane.add(tabbedPane);
 		
 		UserMainPane_손요셉 userMainPane_손요셉 = new UserMainPane_손요셉();
+		userMainPane_손요셉.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+			}
+		});
 		tabbedPane.addTab("메인", null, userMainPane_손요셉, null);
 		
 		UserLoginPane_손요셉 userLoginPane_손요셉 = new UserLoginPane_손요셉();

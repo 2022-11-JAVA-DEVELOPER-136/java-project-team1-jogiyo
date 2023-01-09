@@ -8,6 +8,13 @@ import javax.swing.JList;
 import javax.swing.JScrollPane;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
+
+import com.team1.jogiyo.cart.CartService;
+import com.team1.jogiyo.order.OrderService;
+import com.team1.jogiyo.product.ProductService;
+import com.team1.jogiyo.user.User;
+import com.team1.jogiyo.user.UserService;
+
 import java.awt.Font;
 import javax.swing.ImageIcon;
 import javax.swing.JLayeredPane;
@@ -21,6 +28,25 @@ import java.awt.event.MouseEvent;
 import javax.swing.JCheckBox;
 
 public class CartListPanel_정유나 extends JPanel {
+	private JScrollPane scrollPane;
+	private JPanel cartListPanel;
+	private JPanel cartPanel;
+	private JLabel productImageLB;
+	private JLabel productDetailLB;
+	private JLabel productNameLB;
+	private JComboBox productCountCB;
+	private JLabel productPriceLB;
+	private JLabel totalProductPriceLB;
+	private JCheckBox cartOrderCheck;
+	private JButton orderAllBtn;
+	private JButton orderSelectionBtn;
+	private JLabel totalOrderPriceLB;
+	
+	private OrderService orderService;
+	private CartService cartService;
+	private ProductService productService;
+	private UserService userService;
+	private User loginUser=null;		//로그인 성공한 userid
 
 	/**
 	 * Create the panel.
@@ -28,20 +54,20 @@ public class CartListPanel_정유나 extends JPanel {
 	public CartListPanel_정유나() {
 		setLayout(null);
 		
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(12, 36, 326, 375);
+		scrollPane = new JScrollPane();
+		scrollPane.setBounds(12, 36, 326, 453);
 		add(scrollPane);
 		
-		JPanel cartListPanel = new JPanel();
+		cartListPanel = new JPanel();
 		cartListPanel.setPreferredSize(new Dimension(10, 1000));
 		scrollPane.setViewportView(cartListPanel);
 		
-		JPanel cartPanel = new JPanel();
+		cartPanel = new JPanel();
 		cartPanel.setPreferredSize(new Dimension(300, 80));
 		cartListPanel.add(cartPanel);
 		cartPanel.setLayout(null);
 		
-		JLabel productImageLB = new JLabel("");
+		productImageLB = new JLabel("");
 		productImageLB.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		productImageLB.setVerticalTextPosition(SwingConstants.BOTTOM);
 		productImageLB.setHorizontalTextPosition(SwingConstants.CENTER);
@@ -50,11 +76,11 @@ public class CartListPanel_정유나 extends JPanel {
 		productImageLB.setBounds(6, 10, 57, 60);
 		cartPanel.add(productImageLB);
 		
-		JLabel productDetailLB = new JLabel("고기많이 김치찜");
+		productDetailLB = new JLabel("고기많이 김치찜");
 		productDetailLB.setBounds(65, 31, 211, 15);
 		cartPanel.add(productDetailLB);
 		
-		JLabel productNameLB = new JLabel("김치찜");
+		productNameLB = new JLabel("김치찜");
 		productNameLB.setHorizontalAlignment(SwingConstants.CENTER);
 		productNameLB.setBounds(125, 9, 57, 15);
 		cartPanel.add(productNameLB);
@@ -65,7 +91,7 @@ public class CartListPanel_정유나 extends JPanel {
 		productCount.setBounds(127, 56, 32, 15);
 		cartPanel.add(productCount);
 		
-		JComboBox productCountCB = new JComboBox();
+		productCountCB = new JComboBox();
 		productCountCB.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		productCountCB.setBounds(167, 55, 25, 15);
 		cartPanel.add(productCountCB);
@@ -79,23 +105,29 @@ public class CartListPanel_정유나 extends JPanel {
 		productPrice.setBounds(65, 55, 25, 15);
 		cartPanel.add(productPrice);
 		
-		JLabel productPriceLB = new JLabel("");
+		productPriceLB = new JLabel("");
 		productPriceLB.setBounds(94, 55, 32, 15);
 		cartPanel.add(productPriceLB);
 		
-		JLabel totalProductPriceLB = new JLabel("");
+		totalProductPriceLB = new JLabel("");
 		totalProductPriceLB.setBounds(248, 56, 49, 15);
 		cartPanel.add(totalProductPriceLB);
 		
-		JCheckBox cartOrderCheck = new JCheckBox("");
+		cartOrderCheck = new JCheckBox("");
 		cartOrderCheck.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		cartOrderCheck.setBounds(274, 4, 21, 23);
 		cartPanel.add(cartOrderCheck);
 		
-		JButton orderAllBtn = new JButton("전체주문");
+		orderAllBtn = new JButton("전체주문");
 		orderAllBtn.addMouseListener(new MouseAdapter() {
 			@Override
-			public void mouseClicked(MouseEvent e) {
+			public void mouseClicked(MouseEvent e){
+				//주문상세 페이지로 넘기기
+				try {
+					orderService.create(loginUser.getM_id());
+				} catch (Exception e1) {
+					System.out.println(e1.getMessage());
+				}
 			}
 		});
 		orderAllBtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -104,20 +136,20 @@ public class CartListPanel_정유나 extends JPanel {
 				
 			}
 		});
-		orderAllBtn.setBounds(75, 446, 97, 23);
+		orderAllBtn.setBounds(75, 538, 97, 23);
 		add(orderAllBtn);
 		
-		JButton orderSelectionBtn = new JButton("선택주문");
+		orderSelectionBtn = new JButton("선택주문");
 		orderSelectionBtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		orderSelectionBtn.setBounds(201, 446, 97, 23);
+		orderSelectionBtn.setBounds(201, 538, 97, 23);
 		add(orderSelectionBtn);
 		
 		JLabel lblNewLabel_2 = new JLabel("주문금액 :");
-		lblNewLabel_2.setBounds(75, 421, 63, 15);
+		lblNewLabel_2.setBounds(75, 513, 63, 15);
 		add(lblNewLabel_2);
 		
-		JLabel totalOrderPriceLB = new JLabel("");
-		totalOrderPriceLB.setBounds(167, 421, 135, 15);
+		totalOrderPriceLB = new JLabel("");
+		totalOrderPriceLB.setBounds(163, 513, 135, 15);
 		add(totalOrderPriceLB);
 
 	}
