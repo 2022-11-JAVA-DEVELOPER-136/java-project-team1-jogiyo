@@ -6,10 +6,11 @@ import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import javax.swing.ImageIcon;
 
 public class userLoginMainPanel extends JPanel {
-	private JPasswordField passwordField;
-	private JTextField textField;
+	private JPasswordField userLoginPasswordTF;
+	private JTextField userLoginIdTF;
 
 	/**
 	 * Create the panel.
@@ -18,34 +19,34 @@ public class userLoginMainPanel extends JPanel {
 		setBackground(new Color(204, 255, 204));
 		setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setBounds(52, 136, 112, 31);
-		add(lblNewLabel);
+		JLabel userLoginIdLB = new JLabel("아이디");
+		userLoginIdLB.setBounds(52, 136, 112, 31);
+		add(userLoginIdLB);
 		
-		JLabel lblNewLabel_1 = new JLabel("New label");
-		lblNewLabel_1.setBounds(52, 216, 57, 15);
-		add(lblNewLabel_1);
+		JLabel userLoginPasswordLB = new JLabel("비밀번호");
+		userLoginPasswordLB.setBounds(52, 216, 57, 15);
+		add(userLoginPasswordLB);
 		
-		passwordField = new JPasswordField();
-		passwordField.setBounds(181, 213, 163, 21);
-		add(passwordField);
+		userLoginPasswordTF = new JPasswordField();
+		userLoginPasswordTF.setBounds(181, 213, 163, 21);
+		add(userLoginPasswordTF);
 		
-		textField = new JTextField();
-		textField.setBounds(176, 141, 168, 21);
-		add(textField);
-		textField.setColumns(10);
+		userLoginIdTF = new JTextField();
+		userLoginIdTF.setBounds(176, 141, 168, 21);
+		add(userLoginIdTF);
+		userLoginIdTF.setColumns(10);
 		
-		JButton btnNewButton = new JButton("New button");
-		btnNewButton.setBounds(32, 393, 97, 23);
-		add(btnNewButton);
+		JButton userLoginBtn = new JButton("로그인");
+		userLoginBtn.setBounds(63, 394, 112, 21);
+		add(userLoginBtn);
 		
-		JButton btnNewButton_1 = new JButton("New button");
-		btnNewButton_1.setBounds(151, 393, 97, 23);
-		add(btnNewButton_1);
+		JButton userLoginJoinBtn = new JButton("회원가입");
+		userLoginJoinBtn.setBounds(217, 393, 97, 23);
+		add(userLoginJoinBtn);
 		
-		JButton btnNewButton_2 = new JButton("New button");
-		btnNewButton_2.setBounds(273, 393, 97, 23);
-		add(btnNewButton_2);
+		JButton userLoginFindIdPasswordBtn = new JButton("아이디/비밀번호 찾기");
+		userLoginFindIdPasswordBtn.setBounds(100, 430, 200, 23);
+		add(userLoginFindIdPasswordBtn);
 
 	}
 }
