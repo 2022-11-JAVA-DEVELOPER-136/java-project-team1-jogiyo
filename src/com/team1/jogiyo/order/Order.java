@@ -5,7 +5,7 @@ import java.util.Date;
 import java.util.List;
 
 
-public class Orders {
+public class Order {
 	private int o_no;
 	private Date o_date;
 	private int o_total;
@@ -13,10 +13,10 @@ public class Orders {
 	private String m_id;
 	/***********List<OrderItem>****/
 	private List<OrderItem> orderItemList;
-	public Orders() {
+	public Order() {
 		orderItemList=new ArrayList<OrderItem>();
 	}
-	public Orders(int o_no, Date o_date, int o_total, String m_id) {
+	public Order(int o_no, Date o_date, int o_total, String m_id) {
 		super();
 		this.o_no = o_no;
 		this.o_date = o_date;
@@ -56,7 +56,7 @@ public class Orders {
 	}
 	@Override
 	public String toString() {
-		return "Orders [o_no=" + o_no + ", o_date=" + o_date + ", o_total=" + o_total + ", m_id=" + m_id
+		return "Order [o_no=" + o_no + ", o_date=" + o_date + ", o_total=" + o_total + ", m_id=" + m_id
 				+ ", orderItemList=" + orderItemList + "]\n";
 	}
 	
