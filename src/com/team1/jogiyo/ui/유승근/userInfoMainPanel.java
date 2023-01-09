@@ -4,6 +4,10 @@ import javax.swing.JPanel;
 import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+
+import com.team1.jogiyo.user.User;
+import com.team1.jogiyo.user.UserService;
+
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
 
@@ -13,6 +17,13 @@ public class userInfoMainPanel extends JPanel {
 	private JTextField userInfoNameTF;
 	private JTextField userInfoAddressTF;
 	private JTextField userInfoPhoneTF;
+	
+	/*
+	 * Service 객체 생성
+	 */
+	
+	UserService userService=null;
+	User user=null;
 
 	/**
 	 * Create the panel.

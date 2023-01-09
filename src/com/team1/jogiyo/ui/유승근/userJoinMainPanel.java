@@ -7,12 +7,22 @@ import javax.swing.JButton;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+import com.team1.jogiyo.user.User;
+import com.team1.jogiyo.user.UserService;
+
 public class userJoinMainPanel extends JPanel {
 	private JPasswordField passwordField;
 	private JTextField userJoinIdTF;
 	private JTextField userJoinnameTF;
 	private JTextField userJoinAddressTF;
 	private JTextField userJoinPhoneTF;
+	
+	/*
+	 * Service 객체 생성
+	 */
+	
+	UserService userService=null;
+	User user=null;
 
 	/**
 	 * Create the panel.
