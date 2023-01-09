@@ -70,18 +70,29 @@ public class UserSignupPane_손요셉 extends JPanel {
 		add(textField_phone);
 		
 		JButton btnNewButton = new JButton("중복확인");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//중복확인 사용가능 or 불가능합니다
+			}
+		});
 		btnNewButton.setBounds(256, 127, 82, 23);
 		add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("가입");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				//가입시 SQL로 정보 보내고 가입완료시 로그인창으로 화면전환
 			}
 		});
 		btnNewButton_1.setBounds(37, 412, 97, 23);
 		add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("취소");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//취소시 로그인창으로 화면전환 
+			}
+		});
 		btnNewButton_2.setBounds(199, 412, 97, 23);
 		add(btnNewButton_2);
 		

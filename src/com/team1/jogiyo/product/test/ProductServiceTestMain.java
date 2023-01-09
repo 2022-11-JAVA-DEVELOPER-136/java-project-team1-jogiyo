@@ -9,6 +9,14 @@ public class ProductServiceTestMain {
 
 	public static void main(String[] args) throws Exception {
 	ProductService productService = new ProductService();
+
+	//상품 추가	
+	productService.insert(new Product(0,"김치찜aaa","image2.jpg",21000,"설명",10));
+	
+
+	//상품 삭제
+	productService.delete("치킨");
+
 	
 	int rowCount = productService.insert(new Product(5, "순대국밥", "sss.jpg", 9000, "뜨끈한 순대국밥", 10));
 	System.out.println(rowCount + "개 추가");
@@ -16,6 +24,12 @@ public class ProductServiceTestMain {
 	rowCount = productService.delete("순대국밥");
 	System.out.println(rowCount + "개 삭제");
 	
+
+	//상품 수정
+	Product update = productService.findByPrimaryKey(2);
+	update.setP_price(22000);
+	System.out.println(update); 
+
 	rowCount = productService.update(new Product(6, "떡볶이", "ddd.jpg", 5000, "매운 떡볶이", 30));
 	System.out.println(rowCount + "개 수정");
 	
