@@ -45,15 +45,15 @@ public class UserMainFrame_손요셉 extends JFrame {
 		contentPane.add(tabbedPane);
 		
 		UserMainPane_손요셉 userMainPane_손요셉 = new UserMainPane_손요셉();
-		tabbedPane.addTab("New tab", null, userMainPane_손요셉, null);
+		tabbedPane.addTab("메인", null, userMainPane_손요셉, null);
 		
 		UserLoginPane_손요셉 userLoginPane_손요셉 = new UserLoginPane_손요셉();
-		tabbedPane.addTab("New tab", null, userLoginPane_손요셉, null);
+		tabbedPane.addTab("로그인", null, userLoginPane_손요셉, null);
 		
 		UserSignupPane_손요셉 userSignupPane_손요셉 = new UserSignupPane_손요셉();
-		tabbedPane.addTab("New tab", null, userSignupPane_손요셉, null);
+		tabbedPane.addTab("회원가입", null, userSignupPane_손요셉, null);
 		
 		UserViewDetail_손요셉 userViewDetail_손요셉 = new UserViewDetail_손요셉();
-		tabbedPane.addTab("New tab", null, userViewDetail_손요셉, null);
+		tabbedPane.addTab("회원정보", null, userViewDetail_손요셉, null);
 	}
 }
