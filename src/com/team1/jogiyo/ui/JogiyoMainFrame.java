@@ -21,6 +21,9 @@ import com.team1.jogiyo.product.ProductService;
 import com.team1.jogiyo.ui.손요셉.UserLoginPane_손요셉;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import com.team1.jogiyo.ui.조성동.OrderHistoryTabbedPanel_조성동;
+import com.team1.jogiyo.ui.조성동.OrderHistoryDetailTabbedPanel_조성동;
+import com.team1.jogiyo.ui.정유나.CartListTabbedPanel_정유나;
 
 public class JogiyoMainFrame extends JFrame {
 	/****************1. Service 멤버필드 선언********************/
@@ -60,9 +63,9 @@ public class JogiyoMainFrame extends JFrame {
 	private JTabbedPane parentTabbedPane;
 	private UserMainPane_손요셉 userMainPane_손요셉;
 	private JTabbedPane productTabbedPane;
-	private JTabbedPane cartListPanel;
-	private JTabbedPane orderTabbedPane;
-	private JTabbedPane orderHistoryDetail;
+	private CartListTabbedPanel_정유나 cartListTabbedPanel_정유나;
+	private OrderHistoryTabbedPanel_조성동 orderHistoryTabbedPanel_조성동;
+	private OrderHistoryDetailTabbedPanel_조성동 orderHistoryDetailTabbedPanel_조성동;
 
 	/**
 	 * Launch the application.
@@ -82,8 +85,9 @@ public class JogiyoMainFrame extends JFrame {
 
 	/**
 	 * Create the frame.
+	 * @throws Exception 
 	 */
-	public JogiyoMainFrame() {
+	public JogiyoMainFrame() throws Exception {
 		setTitle("JOGIYO");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 399, 700);
@@ -152,15 +156,16 @@ public class JogiyoMainFrame extends JFrame {
 		productTabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		parentTabbedPane.addTab("제품", null, productTabbedPane, null);
 		
-
-		cartListPanel = new JTabbedPane(JTabbedPane.TOP);
-		parentTabbedPane.addTab("카트", null, cartListPanel, null);
+		OrderHistoryTabbedPanel_조성동 orderHistoryPanel_조성동 = new OrderHistoryTabbedPanel_조성동();
+		parentTabbedPane.addTab("주문내역", null, orderHistoryPanel_조성동, null);
 		
-		orderTabbedPane = new JTabbedPane(JTabbedPane.TOP);
-		parentTabbedPane.addTab("주문내역", null, orderTabbedPane, null);
+		cartListTabbedPanel_정유나 = new CartListTabbedPanel_정유나();
+		parentTabbedPane.addTab("카트", null, cartListTabbedPanel_정유나, null);
 		
-		orderHistoryDetail = new JTabbedPane(JTabbedPane.TOP);
-		parentTabbedPane.addTab("주문상세", null,orderHistoryDetail,null);
-	}/***************************생성자 끝**********************************/
-	
+		orderHistoryTabbedPanel_조성동 = new OrderHistoryTabbedPanel_조성동();
+		parentTabbedPane.addTab("주문내역", null, orderHistoryTabbedPanel_조성동, null);
+		
+		orderHistoryDetailTabbedPanel_조성동 = new OrderHistoryDetailTabbedPanel_조성동();
+		parentTabbedPane.addTab("주문상세", null, orderHistoryDetailTabbedPanel_조성동, null);
+	}	
 }
