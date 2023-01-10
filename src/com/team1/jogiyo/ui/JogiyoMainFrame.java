@@ -147,12 +147,7 @@ public class JogiyoMainFrame extends JFrame {
 		userTabbedPane.addTab("회원메인", null, userMainPane_손요셉, null);
 		
 		userLoginPane_손요셉 = new UserLoginPane_손요셉();
-		userLoginPane_손요셉.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				//회원 로그인
-			}
-		});
+		
 		userTabbedPane.addTab("로그인", null, userLoginPane_손요셉, null);
 		
 		UserSignupPane_손요셉 userSignupPane_손요셉 = new UserSignupPane_손요셉();
