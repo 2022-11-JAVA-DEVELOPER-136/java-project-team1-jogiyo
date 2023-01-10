@@ -232,12 +232,12 @@ public class JogiyoMainFrame extends JFrame {
 		categoriesPanel_이은지 = new CategoriesPanel_이은지();
 		productTabbedPanel.addTab("카테고리", null, categoriesPanel_이은지, null);
 		
+		HansikPanel_이은지 hansikPanel_이은지 = new HansikPanel_이은지();
+		productTabbedPanel.addTab("New tab", null, hansikPanel_이은지, null);
+		
 		ProductDetailPanel_이다은 productDetailPanel_이다은 = new ProductDetailPanel_이다은();
 		productDetailPanel_이다은.setBackground(new Color(255, 255, 255));
 		productTabbedPanel.addTab("New tab", null, productDetailPanel_이다은, null);
-		
-		HansikPanel_이은지 hansikPanel_이은지 = new HansikPanel_이은지();
-		productTabbedPanel.addTab("New tab", null, hansikPanel_이은지, null);
 		
 		cartListTabbedPanel_정유나 = new CartListTabbedPanel_정유나();
 		parentTabbedPanel.addTab("카트", null, cartListTabbedPanel_정유나, null);

@@ -15,20 +15,21 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.Cursor;
 
-public class CategoriesPanel extends JPanel {
+public class CategoriesPanel_이은지2 extends JPanel {
 	
 	private JScrollPane categoriesListScrollPane;
 
 	/**
 	 * Create the panel.
 	 */
-	public CategoriesPanel() {
+	public CategoriesPanel_이은지2() {
 		setLayout(null);
 		
 		categoriesListScrollPane = new JScrollPane();
 		categoriesListScrollPane.setBounds(0, 503, 350, -501);
 		add(categoriesListScrollPane);
 		
+		//패널생성
 		/*
 		 * 해당 패널 클릭 시 한식리스트 보기
 		 */
@@ -96,5 +97,7 @@ public class CategoriesPanel extends JPanel {
 		bunsikPanel.add(bunsikLB);
 
 	}
+	
+	
 	
 }

@@ -17,6 +17,7 @@ import com.team1.jogiyo.user.User;
 import com.team1.jogiyo.user.UserService;
 import com.team1.jogiyo.cart.CartService;
 import com.team1.jogiyo.order.OrderService;
+import com.team1.jogiyo.product.Product;
 import com.team1.jogiyo.product.ProductService;
 import com.team1.jogiyo.ui.손요셉.UserLoginPane_손요셉;
 import java.awt.event.MouseAdapter;
@@ -44,7 +45,7 @@ public class JogiyoMainFrame extends JFrame {
 	public CartService cartService;
 	public OrderService orderService;
 	
-	User loginUser=null;
+	public User loginUser;
 	/****************2. tap페이지 상수 선언********************/
 	private static int USERTABBEDPANE_P=1;
 	private static int USERMAINPANE=11; 
@@ -83,11 +84,7 @@ public class JogiyoMainFrame extends JFrame {
 	private JTextField findProductTL;
 	private JLabel findProductIconLB;
 	private UserViewDetail_손요셉 userViewDetail_손요셉;
-	/*
-	private HansikPanel_이은지 hansikPanel_이은지;
-	private JoongsikPanel_이은지 joongsikPanel_이은지;
-	private BunsikPanel_이은지 bunsikPanel_이은지;
-	*/
+	
 
 	/**
 	 * Launch the application.
@@ -151,6 +148,17 @@ public class JogiyoMainFrame extends JFrame {
 		findProductTL.setColumns(10);
 		
 		findProductIconLB = new JLabel("");
+		findProductIconLB.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				try {
+					Product searchedProduct=productService.findByName(findProductTL.getText());
+					changePanel(25,searchedProduct);
+				} catch(Exception e1) {
+					System.out.println(e1.getMessage());
+				}
+			}
+		});
 		findProductIconLB.setIcon(new ImageIcon(JogiyoMainFrame.class.getResource("/images/search_20px.png")));
 		panel.add(findProductIconLB);
 		cartLB.setIcon(new ImageIcon(JogiyoMainFrame.class.getResource("/images/3cart_30px.png")));
@@ -250,6 +258,7 @@ public class JogiyoMainFrame extends JFrame {
 		productService =new ProductService();
 		cartService = new CartService();
 		orderService = new OrderService();
+		loginUser=new User();
 
 		/*
 		 * JogiyoMainFrame 참조를 Panel에 넘겨줌
@@ -308,7 +317,11 @@ public class JogiyoMainFrame extends JFrame {
 	
 	
 	
+<<<<<<< HEAD
 	
+}
+=======
 }
 
 
+>>>>>>> branch 'main' of https://github.com/2022-11-JAVA-DEVELOPER/java-project-team1-jogiyo.git
