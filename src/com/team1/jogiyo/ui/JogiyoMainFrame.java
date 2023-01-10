@@ -25,6 +25,7 @@ import com.team1.jogiyo.ui.조성동.OrderHistoryTabbedPanel_조성동;
 import com.team1.jogiyo.ui.조성동.OrderHistoryDetailTabbedPanel_조성동;
 import com.team1.jogiyo.ui.정유나.CartListTabbedPanel_정유나;
 import com.team1.jogiyo.ui.손요셉.UserSignupPane_손요셉;
+import com.team1.jogiyo.ui.손요셉.UserViewDetail_손요셉;
 import com.team1.jogiyo.ui.이은지.CategoriesPanel_이은지;
 import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
@@ -82,6 +83,7 @@ public class JogiyoMainFrame extends JFrame {
 	private JPanel panel;
 	private JTextField findProductTL;
 	private JLabel findProductIconLB;
+	private UserViewDetail_손요셉 userViewDetail_손요셉;
 	/*
 	private HansikPanel_이은지 hansikPanel_이은지;
 	private JoongsikPanel_이은지 joongsikPanel_이은지;
@@ -259,7 +261,15 @@ public class JogiyoMainFrame extends JFrame {
 		/*
 		 * shopMainFrame 참조를 Panel에 넘겨줌
 		 */
+		userLoginPanel_손요셉.setFrame(this);
+		userMainPanel_손요셉.setFrame(this);
+		userSignupPanel_손요셉.setFrame(this);
+		userViewDetail.setFrame(this);
+		userLoginPanel_손요셉.setFrame(this);
+		userLoginPanel_손요셉.setFrame(this);
 		
+		userViewDetail_손요셉 = new UserViewDetail_손요셉();
+		userTabbedPanel.addTab("회원정보", null, userViewDetail_손요셉, null);
 		
 		
 		

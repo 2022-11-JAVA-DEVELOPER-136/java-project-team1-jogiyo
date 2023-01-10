@@ -71,7 +71,7 @@ public class CartListTabbedPanel_정유나 extends JPanel {
 		cartListPanel = new JPanel();
 		cartListPanel.setPreferredSize(new Dimension(10, 1000));
 		cartScrollPane.setViewportView(cartListPanel);
-		
+		/*		CartListItem Start		*/
 		cartPanel = new JPanel();
 		cartPanel.setPreferredSize(new Dimension(300, 80));
 		cartListPanel.add(cartPanel);
@@ -133,9 +133,13 @@ public class CartListTabbedPanel_정유나 extends JPanel {
 		
 		cartOrderCheck = new JCheckBox("");
 		cartOrderCheck.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		cartOrderCheck.setBounds(274, 4, 21, 23);
+		cartOrderCheck.setBounds(276, 47, 21, 23);
 		cartPanel.add(cartOrderCheck);
 		
+		JButton btnNewButton = new JButton("New button");
+		btnNewButton.setBounds(200, 11, 97, 23);
+		cartPanel.add(btnNewButton);
+		/* 		CartListItem End	*/
 		
 		orderAllBtn = new JButton("전체주문");
 		orderAllBtn.addMouseListener(new MouseAdapter() {
@@ -178,6 +182,7 @@ public class CartListTabbedPanel_정유나 extends JPanel {
 	/****************생성자 끝**************/
 	//====> 오류오류!!!!!!!!!!!!!!
 	public void cartListDisplay(String sUserId) throws Exception{
+		cartListPanel.removeAll();
 		List<Cart> cartList=cartService.cartListByUserId(sUserId);
 		for (Cart cart : cartList) {
 			Product product=productService.findByPrimaryKey(cart.getProduct().getP_no());
@@ -188,13 +193,19 @@ public class CartListTabbedPanel_정유나 extends JPanel {
 			cartPanel.setLayout(null);
 
 			productImageLB = new JLabel("");
+			productImageLB.addMouseListener(new MouseAdapter() {
+				@Override
+				public void mouseClicked(MouseEvent e) {
+					//제품상세페이지로 넘어가기
+				}
+			});
 			productImageLB.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 			productImageLB.setVerticalTextPosition(SwingConstants.BOTTOM);
 			productImageLB.setHorizontalTextPosition(SwingConstants.CENTER);
 			productImageLB.setHorizontalAlignment(SwingConstants.CENTER);
-			/* 나중에 처리
-			productImageLB.setIcon(new ImageIcon(CartListPanel_정유나.class.getResource("/images/"+product.getP_image())));
-			*/
+			
+			productImageLB.setIcon(new ImageIcon(CartListTabbedPanel_정유나.class.getResource("/images/"+product.getP_image())));
+			
 			productImageLB.setBounds(6, 10, 57, 60);
 			cartPanel.add(productImageLB);
 
