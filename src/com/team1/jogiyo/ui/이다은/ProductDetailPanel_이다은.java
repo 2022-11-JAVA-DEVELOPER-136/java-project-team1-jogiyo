@@ -42,11 +42,9 @@ public class ProductDetailPanel_이다은 extends JPanel {
 	public void setUser(User loginUser) throws Exception {
 		this.loginUser=loginUser;
 	}
-	public void setProduct(Product product) throws Exception{
-		displayProductDetail(product);
+	public void setProduct(String p_name) throws Exception{
+		displayProductDetail(p_name);
 	}
-	
-
 	
 	private JComboBox productcomboBox;
 	private JButton orderBtn;
@@ -149,10 +147,14 @@ public class ProductDetailPanel_이다은 extends JPanel {
 	
 	// 제품정보 불러오기
 	public void displayProductDetail(String p_name) {
+		try {
 		productImageLB.setIcon(new ImageIcon(ProductDetailPanel_이다은.class.getResource("/image/" + frame.productService.findByName(p_name).getP_image())));
-		productNameLB.setText(product.getP_name()+"");
-		productDescLB.setText(product.getP_desc()+"");
-		productPriceLB.setText(product.getP_price()+"");	
+			productNameLB.setText(frame.productService.findByName(p_name).getP_name()+"");
+		productDescLB.setText(frame.productService.findByName(p_name).getP_desc()+"");
+		productPriceLB.setText(frame.productService.findByName(p_name).getP_price()+"");	
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	/*
 	 * ===> 은지님 해당 버튼에 productDetailPanel_이다은.displayProductdetail(p_name) 넣어주세요
