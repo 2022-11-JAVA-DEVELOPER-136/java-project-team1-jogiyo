@@ -177,17 +177,63 @@ public class UserViewDetail_손요셉 extends JPanel {
 		detailPhoneTF.setText(user.getM_phone());
 		detailPhoneTF.setColumns(10);
 		detailPhoneTF.setBounds(89, 336, 146, 21);
-		add(detailPhoneTF);
+		add(detailPhoneTF);  	
+	/********************************생성자 끝****************************************************/	
+	
 		
-		  
+		
+	userViewUpdateBtn = new JButton("수정");
+	userViewUpdateBtn.addActionListener(new ActionListener() {
+		public void actionPerformed(ActionEvent e) {
+			//수정클릭시 SQL 정보 업데이트
+			try {
+				  String id = detailIdTF.getText();
+				  String password = new String(detailpasswordTF.getText());
+				  String name = detailnameTF.getText();
+				  String loc = detailAddressTF.getText();
+				  String phone = detailPhoneTF.getText();
+				  User user=new User(id,password,name,loc,phone);
+				  userService.update(user);
+				  loginUser = userService.findUser(id);
+				  updateFormEnable(false);
+			}catch (Exception e1) {
+				System.out.println(e1.getMessage());
+				
+				
+				
+				
+			}
 			
 		}
+
+		public void updateFormEnable(boolean b) {
+			if(b) {
+				detailnameTF.setEditable(true);
+				detailAddressTF.setEditable(true);
+				detailPhoneTF.setEditable(true);
+				
+				userViewUpdateBtn.setText("수정");
+				userViewUpdateBtn.setEnabled(true);
+			
+				
+			}else {
+				detailnameTF.setEditable(false);
+				detailAddressTF.setEditable(false);
+				detailPhoneTF.setEditable(false);
+				
+				userViewCancelBtn.setText("취소");
+				userViewCancelBtn.setEnabled(false);
+			}
+		}
+	});
 		
-	
+	}
+}
 	
 				
 			
-		}
+		
+
 		
 	 
 	
