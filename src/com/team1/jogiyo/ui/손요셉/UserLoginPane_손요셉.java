@@ -7,6 +7,10 @@ import javax.swing.ImageIcon;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
+
+import com.team1.jogiyo.user.User;
+import com.team1.jogiyo.user.UserService;
+
 import javax.swing.JLabel;
 import java.awt.Font;
 
@@ -15,6 +19,10 @@ import java.awt.Font;
 public class UserLoginPane_손요셉 extends JPanel {
 	private JTextField textField;
 	private JTextField textField_1;
+	
+	private UserService userService;
+	private User loginUser;
+	
 	/**
 	 * Create the panel.
 	 */

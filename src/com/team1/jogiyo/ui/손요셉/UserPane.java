@@ -12,21 +12,21 @@ public class UserPane extends JPanel {
 	public UserPane() {
 		setLayout(null);
 		
-		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
-		tabbedPane.setBounds(12, 10, 376, 590);
-		add(tabbedPane);
+		JTabbedPane userTabbedPane = new JTabbedPane(JTabbedPane.TOP);
+		userTabbedPane.setBounds(12, 10, 376, 630);
+		add(userTabbedPane);
 		
 		UserMainPane_손요셉 userMainPane_손요셉 = new UserMainPane_손요셉();
-		tabbedPane.addTab("메인", null, userMainPane_손요셉, null);
+		userTabbedPane.addTab("메인", null, userMainPane_손요셉, null);
 		
 		UserSignupPane_손요셉 userSignupPane_손요셉 = new UserSignupPane_손요셉();
-		tabbedPane.addTab("로그인", null, userSignupPane_손요셉, null);
+		userTabbedPane.addTab("로그인", null, userSignupPane_손요셉, null);
 		
 		UserSignupPane_손요셉 userSignupPane_손요셉_1 = new UserSignupPane_손요셉();
-		tabbedPane.addTab("회원가입", null, userSignupPane_손요셉_1, null);
+		userTabbedPane.addTab("회원가입", null, userSignupPane_손요셉_1, null);
 		
 		UserViewDetail_손요셉 userViewDetail_손요셉 = new UserViewDetail_손요셉();
-		tabbedPane.addTab("회원정보", null, userViewDetail_손요셉, null);
+		userTabbedPane.addTab("회원정보", null, userViewDetail_손요셉, null);
 
 	}
 }

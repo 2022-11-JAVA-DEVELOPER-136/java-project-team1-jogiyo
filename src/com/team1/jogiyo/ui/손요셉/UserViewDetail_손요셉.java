@@ -11,8 +11,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class UserViewDetail_손요셉 extends JPanel {
-	private JTextField txtVjvjdid;
-	private JTextField textField;
+	private JTextField userIdTF;
+	private JTextField userPasswordTF;
 	private JTextField textField_1;
 	private JTextField textField_2;
 	private JTextField textField_3;
@@ -50,18 +50,18 @@ public class UserViewDetail_손요셉 extends JPanel {
 		lblNewLabel_4.setBounds(51, 193, 27, 15);
 		add(lblNewLabel_4);
 		
-		txtVjvjdid = new JTextField();
-		txtVjvjdid.setFont(new Font("Arial Black", Font.BOLD, 20));
-		txtVjvjdid.setText("vjvjdid");
-		txtVjvjdid.setBounds(132, 94, 146, 52);
-		add(txtVjvjdid);
-		txtVjvjdid.setColumns(10);
+		userIdTF = new JTextField();
+		userIdTF.setFont(new Font("Arial Black", Font.BOLD, 20));
+		userIdTF.setText("vjvjdid");
+		userIdTF.setBounds(132, 94, 146, 52);
+		add(userIdTF);
+		userIdTF.setColumns(10);
 		
-		textField = new JTextField();
-		textField.setText("비밀번호");
-		textField.setBounds(89, 187, 146, 21);
-		add(textField);
-		textField.setColumns(10);
+		userPasswordTF = new JTextField();
+		userPasswordTF.setText("비밀번호");
+		userPasswordTF.setBounds(89, 187, 146, 21);
+		add(userPasswordTF);
+		userPasswordTF.setColumns(10);
 		
 		textField_1 = new JTextField();
 		textField_1.setText("이름");
@@ -81,25 +81,25 @@ public class UserViewDetail_손요셉 extends JPanel {
 		textField_3.setBounds(89, 336, 146, 21);
 		add(textField_3);
 		
-		JButton btnNewButton = new JButton("수정");
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton userEditBtn = new JButton("수정");
+		userEditBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//수정클릭시 SQL 정보 업데이트
 			}
 		});
-		btnNewButton.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
-		btnNewButton.setBounds(40, 406, 97, 23);
-		add(btnNewButton);
+		userEditBtn.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
+		userEditBtn.setBounds(40, 406, 97, 23);
+		add(userEditBtn);
 		
-		JButton btnNewButton_1 = new JButton("취소");
-		btnNewButton_1.addActionListener(new ActionListener() {
+		JButton userEditCancleBtn = new JButton("취소");
+		userEditCancleBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//취소시 로그인 화면으로 전환
 			}
 		});
-		btnNewButton_1.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
-		btnNewButton_1.setBounds(202, 406, 97, 23);
-		add(btnNewButton_1);
+		userEditCancleBtn.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
+		userEditCancleBtn.setBounds(202, 406, 97, 23);
+		add(userEditCancleBtn);
 		
 		JLabel lblNewLabel_5 = new JLabel("회원정보/수정");
 		lblNewLabel_5.setFont(new Font("맑은 고딕", Font.BOLD, 17));
