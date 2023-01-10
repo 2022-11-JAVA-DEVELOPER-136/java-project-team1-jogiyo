@@ -13,6 +13,7 @@ import javax.swing.JScrollPane;
 import java.awt.Component;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.Cursor;
 
 public class CategoriesPanel extends JPanel {
 	
@@ -32,10 +33,10 @@ public class CategoriesPanel extends JPanel {
 		 * 해당 패널 클릭 시 한식리스트 보기
 		 */
 		JPanel hansikPanel = new JPanel();
+		hansikPanel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		hansikPanel.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				
 				System.out.println("한식리스트로 이동");
 			}
 		});
@@ -54,6 +55,7 @@ public class CategoriesPanel extends JPanel {
 		 * 해당 패널 클릭 시 중식리스트 보기
 		 */
 		JPanel joongsikPanel = new JPanel();
+		joongsikPanel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		joongsikPanel.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -75,6 +77,7 @@ public class CategoriesPanel extends JPanel {
 		 * 해당 패널 클릭 시 분식리스트 보기
 		 */
 		JPanel bunsikPanel = new JPanel();
+		bunsikPanel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		bunsikPanel.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
