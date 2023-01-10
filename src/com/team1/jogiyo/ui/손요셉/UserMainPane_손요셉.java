@@ -17,6 +17,7 @@ public class UserMainPane_손요셉 extends JPanel {
 	private User loginUser=null;
 	private int selected_index;
 	private JTabbedPane userTabbedPane;
+	private JLabel mainLogo;
 	/**
 	 * Create the panel.
 	 */
@@ -24,16 +25,16 @@ public class UserMainPane_손요셉 extends JPanel {
 		setBackground(Color.WHITE);
 		setLayout(null);
 		
-		JLabel lblNewLabelMainLogo = new JLabel("");
-		lblNewLabelMainLogo.addMouseListener(new MouseAdapter() {
+		mainLogo = new JLabel("");
+		mainLogo.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				//로그인화면으로 전환
 			}
 		});
-		lblNewLabelMainLogo.setIcon(new ImageIcon(UserMainPane_손요셉.class.getResource("/com/team1/jogiyo/ui/손요셉/image/1 (1) (2).png")));
-		lblNewLabelMainLogo.setBounds(93, 99, 199, 241);
-		add(lblNewLabelMainLogo);
+		mainLogo.setIcon(new ImageIcon(UserMainPane_손요셉.class.getResource("/com/team1/jogiyo/ui/손요셉/image/1 (1) (2).png")));
+		mainLogo.setBounds(93, 99, 199, 241);
+		add(mainLogo);
 
 	}
 
