@@ -82,14 +82,12 @@ public class OrderService {
 	/*
 	 * cart에서 선택주문
 	 */
-	public int create(String sUserId,String[] cart_item_noStr_array) throws Exception{
+	public int create(String sUserId,int[] c_no_int_array) throws Exception{
 		//cartOrderCheckBox에 해당하는 c_no을 받음
 		//carDao.findByCartNo(c_no)로 반복
 		// OrderItem로 정보 복사
 		List<Cart> cartList = new ArrayList<Cart>();
-		for (String str : cart_item_noStr_array) {
-			//왜 스트링배열인지 모르겠음 - 2023.01.10 오후2시
-			int c_no=0; //더미
+		for (int c_no : c_no_int_array) {
 			cartList.add(cartDao.findByCartNo(c_no));
 		}
 		ArrayList<OrderItem> orderItemList=new ArrayList<OrderItem>();
