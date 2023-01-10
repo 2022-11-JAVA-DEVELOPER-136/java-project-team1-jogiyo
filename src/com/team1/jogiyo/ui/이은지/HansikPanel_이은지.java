@@ -9,6 +9,7 @@ import javax.swing.SwingConstants;
 
 import com.team1.jogiyo.cart.*;
 import com.team1.jogiyo.product.*;
+import com.team1.jogiyo.ui.*;
 import com.team1.jogiyo.user.*;
 
 import javax.swing.JTextField;
@@ -26,8 +27,10 @@ public class HansikPanel_이은지 extends JPanel {
 	/*
 	 * Service 객체선언
 	 */
-	ProductService productService;
-	CartService cartService;
+	JogiyoMainFrame frame;
+	public void setFrame(JogiyoMainFrame frame) {
+		this.frame = frame;
+	}
 	
 	/*
 	 * loginMember 객체선언
@@ -57,25 +60,31 @@ public class HansikPanel_이은지 extends JPanel {
 		//패널생성
 		JPanel hansikMenuPanel1 = new JPanel();
 		hansikMenuPanel1.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
-		hansikMenuPanel1.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				System.out.println("순대국밥 상세보기로 이동");
-			}
-		});
 		hansikMenuPanel1.setBounds(0, 0, 350, 167);
 		add(hansikMenuPanel1);
 		hansikMenuPanel1.setLayout(null);
 		
 		
 		JLabel hansikImageLB1 = new JLabel("");
-		hansikImageLB1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		hansikImageLB1.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 		hansikImageLB1.setBounds(0, 0, 234, 167);
-		hansikImageLB1.setIcon(new ImageIcon("C:\\Users\\itwill\\Downloads\\p_image1 (2).jpg"));
+		hansikImageLB1.setIcon(new ImageIcon("C:\\2022-11-JAVA-DEVELOPER\\git-repositories-home\\java-project-team1-jogiyo\\src\\images\\productList\\p_image1.jpg"));
 		hansikMenuPanel1.add(hansikImageLB1);
 		
 		
 		JLabel hansikNameLB1 = new JLabel("순대국밥");
+		hansikNameLB1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				try {
+					System.out.println("순대국밥 상세보기로 이동");
+					Product clickedProduct=productDetail(hansikNameLB1.getText());
+					frame.changePanel(25,clickedProduct);
+				} catch (Exception e1) {
+					System.out.println(e1.getMessage());
+				}
+			}
+		});
 		hansikNameLB1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		hansikNameLB1.setFont(new Font("맑은 고딕", Font.BOLD, 25));
 		hansikNameLB1.setBounds(229, 36, 109, 30);
@@ -117,23 +126,29 @@ public class HansikPanel_이은지 extends JPanel {
 		 * 해당 패널 클릭 시 김치찜 상세보기로 이동
 		 */
 		JPanel hansikMenuPanel2 = new JPanel();
-		hansikMenuPanel2.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				System.out.println("김치찜 상세보기로 이동");
-			}
-		});
 		hansikMenuPanel2.setLayout(null);
 		hansikMenuPanel2.setBounds(0, 166, 350, 167);
 		add(hansikMenuPanel2);
 		
 		JLabel hansikImageLB2 = new JLabel("");
-		hansikImageLB2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		hansikImageLB2.setIcon(new ImageIcon("C:\\Users\\itwill\\Downloads\\p_image2.jpg"));
+		hansikImageLB2.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
+		hansikImageLB2.setIcon(new ImageIcon("C:\\2022-11-JAVA-DEVELOPER\\git-repositories-home\\java-project-team1-jogiyo\\src\\images\\productList\\p_image2.jpg"));
 		hansikImageLB2.setBounds(0, 0, 251, 167);
 		hansikMenuPanel2.add(hansikImageLB2);
 		
 		JLabel hansikNameLB2 = new JLabel("김치찜");
+		hansikNameLB2.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				try {
+					System.out.println("김치찜 상세보기로 이동");
+					Product clickedProduct=productDetail(hansikNameLB2.getText());
+					frame.changePanel(25,clickedProduct);
+				} catch (Exception e1) {
+					System.out.println(e1.getMessage());
+				}
+			}
+		});
 		hansikNameLB2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		hansikNameLB2.setHorizontalAlignment(SwingConstants.RIGHT);
 		hansikNameLB2.setFont(new Font("맑은 고딕", Font.BOLD, 25));
@@ -180,12 +195,24 @@ public class HansikPanel_이은지 extends JPanel {
 		add(hansikMenuPanel3);
 		
 		JLabel hansikImageLB3 = new JLabel("");
-		hansikImageLB3.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		hansikImageLB3.setIcon(new ImageIcon("C:\\Users\\itwill\\Downloads\\p_image3.jpg"));
+		hansikImageLB3.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
+		hansikImageLB3.setIcon(new ImageIcon("C:\\2022-11-JAVA-DEVELOPER\\git-repositories-home\\java-project-team1-jogiyo\\src\\images\\productList\\p_image3.jpg"));
 		hansikImageLB3.setBounds(0, 0, 251, 167);
 		hansikMenuPanel3.add(hansikImageLB3);
 		
 		JLabel hansikNameLB3 = new JLabel("삼겹살");
+		hansikNameLB3.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				try {
+					System.out.println("삼겹살 상세보기로 이동");
+					Product clickedProduct=productDetail(hansikNameLB3.getText());
+					frame.changePanel(25,clickedProduct);
+				} catch (Exception e1) {
+					System.out.println(e1.getMessage());
+				}
+			}
+		});
 		hansikNameLB3.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		hansikNameLB3.setHorizontalAlignment(SwingConstants.RIGHT);
 		hansikNameLB3.setFont(new Font("맑은 고딕", Font.BOLD, 25));
@@ -220,11 +247,7 @@ public class HansikPanel_이은지 extends JPanel {
 
 		
 		/**********************생성자 끝************************/
-		/*
-		 * Service객체 생성
-		 */
-		productService = new ProductService();
-		cartService =new CartService();
+		
 		
 		/*
 		 * loginMember 객체 생성
@@ -240,19 +263,25 @@ public class HansikPanel_이은지 extends JPanel {
 	 */
 	
 	/*
-	 * hansikMenuPanel1, hansikMenuPanel2, hansikMenuPanel3 각각 선택 시, 각 상품 상세페이지로 이동
+	 * 메뉴 이름 클릭 시, 각 상품 상세 페이지로 이동
 	 */
+	public Product productDetail(String p_name) throws Exception{
+		return frame.productService.findByName(p_name);
+	}
+	
 	
 	
 	/*
-	 * 콤보박스로 선택한 수량만큼 상품을 카트에 담기
+	 * 콤보박스로 선택한 수량만큼 카트에 상품 담기
 	 */
 	private void menuToCart1(String p_name) throws Exception {
-		
+		/*
+		 * 오류
 		Cart cartInMenu1 = new Cart(0, (int)hansikComboBox1.getSelectedItem(), loginUser.getM_id(), productService.findByName(p_name));
 		if(hansikNameLB1.getText().equals(p_name)) {
 			cartService.addCartInProduct(cartInMenu1);
 		}
+		*/
 	}
 	
 	

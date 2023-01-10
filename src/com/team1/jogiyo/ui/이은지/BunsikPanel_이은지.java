@@ -9,6 +9,7 @@ import javax.swing.SwingConstants;
 
 import com.team1.jogiyo.cart.*;
 import com.team1.jogiyo.product.*;
+import com.team1.jogiyo.ui.*;
 import com.team1.jogiyo.user.*;
 
 import javax.swing.JTextField;
@@ -26,8 +27,10 @@ public class BunsikPanel_이은지 extends JPanel {
 	/*
 	 * Service 객체선언
 	 */
-	ProductService productService;
-	CartService cartService;
+	JogiyoMainFrame frame;
+	public void setFrame(JogiyoMainFrame frame) {
+		this.frame = frame;
+	}
 	
 	/*
 	 * loginMember 객체선언
@@ -60,23 +63,29 @@ public class BunsikPanel_이은지 extends JPanel {
 		 * 해당 패널 클릭 시 떡볶이 상세보기로 이동
 		 */
 		JPanel bunsikPanel1 = new JPanel();
-		bunsikPanel1.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				System.out.println("떡볶이 상세보기로 이동");
-			}
-		});
 		bunsikPanel1.setBounds(0, 0, 350, 167);
 		add(bunsikPanel1);
 		bunsikPanel1.setLayout(null);
 		
 		JLabel bunsikImageLB1 = new JLabel("");
-		bunsikImageLB1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		bunsikImageLB1.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 		bunsikImageLB1.setBounds(0, 0, 236, 167);
-		bunsikImageLB1.setIcon(new ImageIcon("C:\\Users\\itwill\\Downloads\\p_image7.jpg"));
+		bunsikImageLB1.setIcon(new ImageIcon("C:\\2022-11-JAVA-DEVELOPER\\git-repositories-home\\java-project-team1-jogiyo\\src\\images\\productList\\p_image7.jpg"));
 		bunsikPanel1.add(bunsikImageLB1);
 		
 		JLabel bunsikNameLB1 = new JLabel("떡볶이");
+		bunsikNameLB1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				try {
+					System.out.println("순대국밥 상세보기로 이동");
+					Product clickedProduct=productDetail(bunsikNameLB1.getText());
+					frame.changePanel(25,clickedProduct);
+				} catch (Exception e1) {
+					System.out.println(e1.getMessage());
+				}
+			}
+		});
 		bunsikNameLB1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		bunsikNameLB1.setHorizontalAlignment(SwingConstants.RIGHT);
 		bunsikNameLB1.setFont(new Font("맑은 고딕", Font.BOLD, 25));
@@ -113,23 +122,29 @@ public class BunsikPanel_이은지 extends JPanel {
 		 * 해당 패널 클릭 시 어묵 상세보기로 이동
 		 */
 		JPanel bunsikPanel2 = new JPanel();
-		bunsikPanel2.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				System.out.println("어묵 상세보기로 이동");
-			}
-		});
 		bunsikPanel2.setLayout(null);
 		bunsikPanel2.setBounds(0, 167, 350, 167);
 		add(bunsikPanel2);
 		
 		JLabel bunsikImageLB2 = new JLabel("");
-		bunsikImageLB2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		bunsikImageLB2.setIcon(new ImageIcon("C:\\Users\\itwill\\Downloads\\p_image8.jpg"));
+		bunsikImageLB2.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
+		bunsikImageLB2.setIcon(new ImageIcon("C:\\2022-11-JAVA-DEVELOPER\\git-repositories-home\\java-project-team1-jogiyo\\src\\images\\productList\\p_image8.jpg"));
 		bunsikImageLB2.setBounds(0, 0, 236, 167);
 		bunsikPanel2.add(bunsikImageLB2);
 		
 		JLabel bunsikNameLB2 = new JLabel("어묵");
+		bunsikNameLB2.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				try {
+					System.out.println("순대국밥 상세보기로 이동");
+					Product clickedProduct=productDetail(bunsikNameLB2.getText());
+					frame.changePanel(25,clickedProduct);
+				} catch (Exception e1) {
+					System.out.println(e1.getMessage());
+				}
+			}
+		});
 		bunsikNameLB2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		bunsikNameLB2.setHorizontalAlignment(SwingConstants.RIGHT);
 		bunsikNameLB2.setFont(new Font("맑은 고딕", Font.BOLD, 25));
@@ -166,23 +181,29 @@ public class BunsikPanel_이은지 extends JPanel {
 		 * 해당 패널 클릭 시 순대 상세보기로 이동
 		 */
 		JPanel bunsikPanel3 = new JPanel();
-		bunsikPanel3.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				System.out.println("순대 상세보기로 이동");
-			}
-		});
 		bunsikPanel3.setLayout(null);
 		bunsikPanel3.setBounds(0, 333, 350, 167);
 		add(bunsikPanel3);
 		
 		JLabel bunsikImageLB3 = new JLabel("");
-		bunsikImageLB3.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		bunsikImageLB3.setIcon(new ImageIcon("C:\\Users\\itwill\\Downloads\\p_image9.jpg"));
+		bunsikImageLB3.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
+		bunsikImageLB3.setIcon(new ImageIcon("C:\\2022-11-JAVA-DEVELOPER\\git-repositories-home\\java-project-team1-jogiyo\\src\\images\\productList\\p_image9.jpg"));
 		bunsikImageLB3.setBounds(0, 0, 236, 167);
 		bunsikPanel3.add(bunsikImageLB3);
 		
 		JLabel bunsikNameLB3 = new JLabel("순대");
+		bunsikNameLB3.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				try {
+					System.out.println("순대국밥 상세보기로 이동");
+					Product clickedProduct=productDetail(bunsikNameLB3.getText());
+					frame.changePanel(25,clickedProduct);
+				} catch (Exception e1) {
+					System.out.println(e1.getMessage());
+				}
+			}
+		});
 		bunsikNameLB3.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		bunsikNameLB3.setHorizontalAlignment(SwingConstants.RIGHT);
 		bunsikNameLB3.setFont(new Font("맑은 고딕", Font.BOLD, 25));
@@ -217,21 +238,19 @@ public class BunsikPanel_이은지 extends JPanel {
 
 		
 		/**********************생성자 끝************************/
-		/*
-		 * Service객체 생성
-		 */
-		productService = new ProductService();
-		cartService =new CartService();
 		
 		/*
 		 * loginMember 객체 생성
 		 */
 		loginUser = new User("asas","1111","가가가","제주","012-345-6789");
 		
-		//메소드 사용
-		
-		
 	}
 	
+	/*
+	 * 메뉴 이름 클릭 시, 각 상품 상세 페이지로 이동
+	 */
+	public Product productDetail(String p_name) throws Exception{
+		return frame.productService.findByName(p_name);
+	}
 	
 }

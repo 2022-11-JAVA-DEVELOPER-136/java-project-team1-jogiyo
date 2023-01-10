@@ -317,10 +317,8 @@ public class JogiyoMainFrame extends JFrame {
 	
 	
 	
-<<<<<<< HEAD
-	
 }
-=======
+
 }
 
 
