@@ -131,7 +131,7 @@ public class ProductDetailPanel_이다은 extends JPanel {
 		cartBtn = new JButton("장바구니");
 		cartBtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		cartBtn.setForeground(new Color(0, 0, 0));
-		cartBtn.setBackground(new Color(240, 240, 240));
+		cartBtn.setBackground(new Color(255, 255, 255));
 		cartBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// 카트패널로전환
