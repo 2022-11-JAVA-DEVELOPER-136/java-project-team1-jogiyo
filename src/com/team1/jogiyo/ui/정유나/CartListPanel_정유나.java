@@ -47,7 +47,6 @@ public class CartListPanel_정유나 extends JPanel {
 	private JButton orderSelectionBtn;
 	private JLabel totalOrderPriceLB;
 	
-	//private Product product;
 	private OrderService orderService;
 	private CartService cartService;
 	private ProductService productService;
@@ -173,7 +172,6 @@ public class CartListPanel_정유나 extends JPanel {
 		cartService = new CartService();
 		productService=new ProductService();
 		loginUser=new User("bbbb",null,null,null,null);
-		//product=new Product();
 		cartListDisplay(loginUser.getM_id());
 	}
 	/****************생성자 끝**************/
@@ -193,7 +191,6 @@ public class CartListPanel_정유나 extends JPanel {
 			productImageLB.setVerticalTextPosition(SwingConstants.BOTTOM);
 			productImageLB.setHorizontalTextPosition(SwingConstants.CENTER);
 			productImageLB.setHorizontalAlignment(SwingConstants.CENTER);
-			//productImageLB.setIcon(new ImageIcon(CartListPanel_정유나.class.getResource(product.getP_image())));
 			productImageLB.setIcon(new ImageIcon(CartListPanel_정유나.class.getResource(product.getP_image())));
 			
 			productImageLB.setBounds(6, 10, 57, 60);
