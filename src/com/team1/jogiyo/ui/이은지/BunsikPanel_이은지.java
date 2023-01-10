@@ -12,8 +12,10 @@ import java.awt.SystemColor;
 import javax.swing.JScrollPane;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
-public class BunsikPanel extends JPanel {
+public class BunsikPanel_이은지 extends JPanel {
 	private final JPanel bunsikPanel1 = new JPanel();
 	private JLabel bunsikCartLB1;
 	private JComboBox bunsikComboBox1;
@@ -25,7 +27,7 @@ public class BunsikPanel extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public BunsikPanel() {
+	public BunsikPanel_이은지() {
 		setLayout(null);
 		
 		/*
@@ -58,14 +60,17 @@ public class BunsikPanel extends JPanel {
 		/*
 		 * 해당 라벨 클릭 시 장바구니에 상품 추가
 		 */
+		JLabel bunsikCartLB1 = new JLabel("");
+		bunsikCartLB1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+			}
+		});
 		bunsikCartLB1 = new JLabel("");
 		bunsikCartLB1.setIcon(new ImageIcon("C:\\Users\\itwill\\Downloads\\cart.png"));
 		bunsikCartLB1.setBounds(311, 113, 27, 27);
 		bunsikPanel1.add(bunsikCartLB1);
 		
-		/*
-		 * 수량 지정 후 장바구니 추가 시, 장바구니 수량 변경
-		 */
 		bunsikComboBox1 = new JComboBox();
 		bunsikComboBox1.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5"}));
 		bunsikComboBox1.setBounds(263, 117, 32, 23);
@@ -99,14 +104,17 @@ public class BunsikPanel extends JPanel {
 		/*
 		 * 해당 라벨 클릭 시 장바구니에 상품 추가
 		 */
+		JLabel bunsikCartLB2 = new JLabel("");
+		bunsikCartLB2.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+			}
+		});
 		bunsikCartLB2 = new JLabel("");
 		bunsikCartLB2.setIcon(new ImageIcon("C:\\Users\\itwill\\Downloads\\cart.png"));
 		bunsikCartLB2.setBounds(311, 113, 27, 27);
 		bunsikPanel2.add(bunsikCartLB2);
 		
-		/*
-		 * 수량 지정 후 장바구니 추가 시, 장바구니 수량 변경
-		 */
 		bunsikComboBox2 = new JComboBox();
 		bunsikComboBox2.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5"}));
 		bunsikComboBox2.setBounds(263, 117, 32, 23);
@@ -140,14 +148,17 @@ public class BunsikPanel extends JPanel {
 		/*
 		 * 해당 라벨 클릭 시 장바구니에 상품 추가
 		 */
+		JLabel bunsikCartLB3 = new JLabel("");
+		bunsikCartLB3.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+			}
+		});
 		bunsikCartLB3 = new JLabel("");
 		bunsikCartLB3.setIcon(new ImageIcon("C:\\Users\\itwill\\Downloads\\cart.png"));
 		bunsikCartLB3.setBounds(311, 113, 27, 27);
 		bunsikPanel3.add(bunsikCartLB3);
 		
-		/*
-		 * 수량 지정 후 장바구니 추가 시, 장바구니 수량 변경
-		 */
 		bunsikComboBox3 = new JComboBox();
 		bunsikComboBox3.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5"}));
 		bunsikComboBox3.setBounds(263, 117, 32, 23);

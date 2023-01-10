@@ -12,8 +12,10 @@ import java.awt.SystemColor;
 import javax.swing.JScrollPane;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
-public class JoongsikPanel extends JPanel {
+public class JoongsikPanel_이은지 extends JPanel {
 	/*
 	 * 해당 패널 클릭 시 자장면 상세보기로 이동
 	 */
@@ -22,7 +24,7 @@ public class JoongsikPanel extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public JoongsikPanel() {
+	public JoongsikPanel_이은지() {
 		setLayout(null);
 		
 		JScrollPane joongsikListScrollPane = new JScrollPane();
@@ -53,13 +55,15 @@ public class JoongsikPanel extends JPanel {
 		 * 해당 라벨 클릭 시 장바구니에 상품 추가
 		 */
 		JLabel joongsikCartLB1 = new JLabel("");
+		joongsikCartLB1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+			}
+		});
 		joongsikCartLB1.setIcon(new ImageIcon("C:\\Users\\itwill\\Downloads\\cart.png"));
 		joongsikCartLB1.setBounds(311, 114, 27, 27);
 		joongsikMenuPanel1.add(joongsikCartLB1);
 		
-		/*
-		 * 수량 지정 후 장바구니 추가 시, 장바구니 수량 변경
-		 */
 		JComboBox joongsikComboBox1 = new JComboBox();
 		joongsikComboBox1.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5"}));
 		joongsikComboBox1.setBounds(263, 118, 32, 23);
@@ -94,13 +98,15 @@ public class JoongsikPanel extends JPanel {
 		 * 해당 라벨 클릭 시 장바구니에 상품 추가
 		 */
 		JLabel joongsikCartLB2 = new JLabel("");
+		joongsikCartLB2.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+			}
+		});
 		joongsikCartLB2.setIcon(new ImageIcon("C:\\Users\\itwill\\Downloads\\cart.png"));
 		joongsikCartLB2.setBounds(311, 114, 27, 27);
 		joongsikMenuPanel2.add(joongsikCartLB2);
 		
-		/*
-		 * 수량 지정 후 장바구니 추가 시, 장바구니 수량 변경
-		 */
 		JComboBox joongsikComboBox2 = new JComboBox();
 		joongsikComboBox2.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5"}));
 		joongsikComboBox2.setBounds(263, 118, 32, 23);
@@ -135,13 +141,15 @@ public class JoongsikPanel extends JPanel {
 		 * 해당 라벨 클릭 시 장바구니에 상품 추가
 		 */
 		JLabel joongsikCartLB3 = new JLabel("");
+		joongsikCartLB3.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+			}
+		});
 		joongsikCartLB3.setIcon(new ImageIcon("C:\\Users\\itwill\\Downloads\\cart.png"));
 		joongsikCartLB3.setBounds(311, 114, 27, 27);
 		joongsikMenuPanel3.add(joongsikCartLB3);
 		
-		/*
-		 * 수량 지정 후 장바구니 추가 시, 장바구니 수량 변경
-		 */
 		JComboBox joongsikComboBox3 = new JComboBox();
 		joongsikComboBox3.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5"}));
 		joongsikComboBox3.setBounds(263, 118, 32, 23);

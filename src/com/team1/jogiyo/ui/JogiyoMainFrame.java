@@ -26,6 +26,16 @@ import com.team1.jogiyo.ui.조성동.OrderHistoryDetailTabbedPanel_조성동;
 import com.team1.jogiyo.ui.정유나.CartListTabbedPanel_정유나;
 import com.team1.jogiyo.ui.손요셉.UserSignupPane_손요셉;
 import com.team1.jogiyo.ui.이은지.CategoriesPanel_이은지;
+import javax.swing.ImageIcon;
+import javax.swing.SwingConstants;
+import javax.swing.JSplitPane;
+import javax.swing.JTextPane;
+import javax.swing.JComboBox;
+/*
+import com.team1.jogiyo.ui.이은지.HansikPanel_이은지;
+import com.team1.jogiyo.ui.이은지.JoongsikPanel_이은지;
+import com.team1.jogiyo.ui.이은지.BunsikPanel_이은지;
+*/
 
 public class JogiyoMainFrame extends JFrame {
 	/****************1. Service 멤버필드 선언********************/
@@ -34,7 +44,7 @@ public class JogiyoMainFrame extends JFrame {
 	private CartService cartService;
 	private OrderService orderService;
 	
-	private User loginUser=null;
+	User loginUser=null;
 	/****************2. tap페이지 상수 선언********************/
 	private static int USERTABBEDPANE_P=1;
 	private static int USERMAINPANE=11; 
@@ -54,20 +64,29 @@ public class JogiyoMainFrame extends JFrame {
 	private static int ORDERHISTORYDETAILTABBEDPANE_P=5;
 	/***********************************************************/
 	private JPanel contentPane;
-	private UserLoginPane_손요셉 userLoginPane_손요셉;
-	private JTabbedPane userTabbedPane;
+	private UserLoginPane_손요셉 userLoginPanel_손요셉;
+	private JTabbedPane userTabbedPanel;
 	private JLabel representLB;
-	private JLabel findLB;
 	private JLabel cartLB;
 	private JLabel userInfoLB;
 	private JLabel homeLB;
 	private JLabel orderLB;
-	private JTabbedPane parentTabbedPane;
-	private UserMainPane_손요셉 userMainPane_손요셉;
-	private JTabbedPane productTabbedPane;
+	private UserMainPane_손요셉 userMainPanel_손요셉;
 	private CartListTabbedPanel_정유나 cartListTabbedPanel_정유나;
 	private OrderHistoryTabbedPanel_조성동 orderHistoryTabbedPanel_조성동;
 	private OrderHistoryDetailTabbedPanel_조성동 orderHistoryDetailTabbedPanel_조성동;
+	private CategoriesPanel_이은지 categoriesPanel_이은지;
+	private JTabbedPane parentTabbedPanel;
+	private JTabbedPane productTabbedPanel;
+	private UserSignupPane_손요셉 userSignupPanel_손요셉;
+	private JPanel panel;
+	private JTextField findProductTL;
+	private JLabel findProductIconLB;
+	/*
+	private HansikPanel_이은지 hansikPanel_이은지;
+	private JoongsikPanel_이은지 joongsikPanel_이은지;
+	private BunsikPanel_이은지 bunsikPanel_이은지;
+	*/
 
 	/**
 	 * Launch the application.
@@ -100,17 +119,40 @@ public class JogiyoMainFrame extends JFrame {
 		contentPane.setLayout(new BorderLayout(0, 0));
 		
 		JPanel NorthPanel = new JPanel();
+		NorthPanel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		contentPane.add(NorthPanel, BorderLayout.NORTH);
-		NorthPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 60, 5));
 		
-		representLB = new JLabel("[조기요]");
+		representLB = new JLabel("");
+		representLB.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				userTabbedPanel.setSelectedComponent(categoriesPanel_이은지);
+			}
+		});
+		NorthPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 30, 5));
+		representLB.setIcon(new ImageIcon(JogiyoMainFrame.class.getResource("/com/team1/jogiyo/ui/손요셉/image/smile (4).png")));
 		representLB.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		NorthPanel.add(representLB);
 		
-		findLB = new JLabel("검색");
-		NorthPanel.add(findLB);
+		cartLB = new JLabel("");
+		cartLB.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				userTabbedPanel.setSelectedComponent(cartListTabbedPanel_정유나);
+			}
+		});
 		
-		cartLB = new JLabel("[CART]");
+		panel = new JPanel();
+		NorthPanel.add(panel);
+		
+		findProductTL = new JTextField();
+		panel.add(findProductTL);
+		findProductTL.setColumns(10);
+		
+		findProductIconLB = new JLabel("");
+		findProductIconLB.setIcon(new ImageIcon(JogiyoMainFrame.class.getResource("/images/search_20px.png")));
+		panel.add(findProductIconLB);
+		cartLB.setIcon(new ImageIcon(JogiyoMainFrame.class.getResource("/images/3cart_30px.png")));
 		cartLB.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		NorthPanel.add(cartLB);
 		
@@ -119,56 +161,108 @@ public class JogiyoMainFrame extends JFrame {
 		contentPane.add(SouthPanel, BorderLayout.SOUTH);
 		SouthPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 70, 5));
 		
-		userInfoLB = new JLabel("MY");
+		userInfoLB = new JLabel("");
+		userInfoLB.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+			}
+		});
+		userInfoLB.setHorizontalTextPosition(SwingConstants.CENTER);
+		userInfoLB.setVerticalTextPosition(SwingConstants.BOTTOM);
+		userInfoLB.setHorizontalAlignment(SwingConstants.CENTER);
+		userInfoLB.setIcon(new ImageIcon(JogiyoMainFrame.class.getResource("/images/3my_50px.png")));
 		userInfoLB.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		SouthPanel.add(userInfoLB);
 		
-		homeLB = new JLabel("HOME");
+		homeLB = new JLabel("");
+		homeLB.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				userTabbedPanel.setSelectedComponent(userMainPanel_손요셉);
+			}
+		});
+		homeLB.setHorizontalTextPosition(SwingConstants.CENTER);
+		homeLB.setVerticalTextPosition(SwingConstants.BOTTOM);
+		homeLB.setIcon(new ImageIcon(JogiyoMainFrame.class.getResource("/images/3home_50px.png")));
 		homeLB.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		SouthPanel.add(homeLB);
 		
-		orderLB = new JLabel("ORDER");
+		orderLB = new JLabel("");
+		orderLB.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+				System.exit(0);
+			}
+		});
+		orderLB.setVerticalTextPosition(SwingConstants.BOTTOM);
+		orderLB.setHorizontalTextPosition(SwingConstants.CENTER);
+		orderLB.setIcon(new ImageIcon(JogiyoMainFrame.class.getResource("/images/50exit.png")));
 		orderLB.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		SouthPanel.add(orderLB);
 		
-		parentTabbedPane = new JTabbedPane(JTabbedPane.TOP);
-		contentPane.add(parentTabbedPane, BorderLayout.CENTER);
+		parentTabbedPanel = new JTabbedPane(JTabbedPane.TOP);
+		contentPane.add(parentTabbedPanel, BorderLayout.CENTER);
 		
-		userTabbedPane = new JTabbedPane(JTabbedPane.TOP);
-		parentTabbedPane.addTab("회원", null, userTabbedPane, null);
+		userTabbedPanel = new JTabbedPane(JTabbedPane.TOP);
+		parentTabbedPanel.addTab("회원", null, userTabbedPanel, null);
 		
-		userMainPane_손요셉 = new UserMainPane_손요셉();
-		userMainPane_손요셉.addMouseListener(new MouseAdapter() {
+		userMainPanel_손요셉 = new UserMainPane_손요셉();
+		userMainPanel_손요셉.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				userTabbedPane.setSelectedComponent(userLoginPane_손요셉);
+				userTabbedPanel.setSelectedComponent(userLoginPanel_손요셉);
 			}
 		});
-		userTabbedPane.addTab("회원메인", null, userMainPane_손요셉, null);
+		userTabbedPanel.addTab("회원메인", null, userMainPanel_손요셉, null);
 		
-		userLoginPane_손요셉 = new UserLoginPane_손요셉();
+		userLoginPanel_손요셉 = new UserLoginPane_손요셉();
 		
-		userTabbedPane.addTab("로그인", null, userLoginPane_손요셉, null);
+		userTabbedPanel.addTab("로그인", null, userLoginPanel_손요셉, null);
 		
-		UserSignupPane_손요셉 userSignupPane_손요셉 = new UserSignupPane_손요셉();
-		userTabbedPane.addTab("회원가입", null, userSignupPane_손요셉, null);
+		userSignupPanel_손요셉 = new UserSignupPane_손요셉();
+		userTabbedPanel.addTab("회원가입", null, userSignupPanel_손요셉, null);
 		
-		productTabbedPane = new JTabbedPane(JTabbedPane.TOP);
-		parentTabbedPane.addTab("제품", null, productTabbedPane, null);
+		productTabbedPanel = new JTabbedPane(JTabbedPane.TOP);
+		parentTabbedPanel.addTab("제품", null, productTabbedPanel, null);
 		
-		CategoriesPanel_이은지 categoriesPanel_이은지 = new CategoriesPanel_이은지();
-		productTabbedPane.addTab("카테고리", null, categoriesPanel_이은지, null);
+		categoriesPanel_이은지 = new CategoriesPanel_이은지();
+		productTabbedPanel.addTab("카테고리", null, categoriesPanel_이은지, null);
+		/*
+		hansikPanel_이은지 = new HansikPanel_이은지();
+		productTabbedPanel.addTab("한식", null, hansikPanel_이은지, null);
 		
-		OrderHistoryTabbedPanel_조성동 orderHistoryPanel_조성동 = new OrderHistoryTabbedPanel_조성동();
-		parentTabbedPane.addTab("주문내역", null, orderHistoryPanel_조성동, null);
+		joongsikPanel_이은지 = new JoongsikPanel_이은지();
+		productTabbedPanel.addTab("중식", null, joongsikPanel_이은지, null);
 		
+		bunsikPanel_이은지 = new BunsikPanel_이은지();
+		productTabbedPanel.addTab("분식", null, bunsikPanel_이은지, null);
+		*/
 		cartListTabbedPanel_정유나 = new CartListTabbedPanel_정유나();
-		parentTabbedPane.addTab("카트", null, cartListTabbedPanel_정유나, null);
+		parentTabbedPanel.addTab("카트", null, cartListTabbedPanel_정유나, null);
 		
 		orderHistoryTabbedPanel_조성동 = new OrderHistoryTabbedPanel_조성동();
-		parentTabbedPane.addTab("주문내역", null, orderHistoryTabbedPanel_조성동, null);
+		parentTabbedPanel.addTab("주문내역", null, orderHistoryTabbedPanel_조성동, null);
 		
 		orderHistoryDetailTabbedPanel_조성동 = new OrderHistoryDetailTabbedPanel_조성동();
-		parentTabbedPane.addTab("주문상세", null, orderHistoryDetailTabbedPanel_조성동, null);
-	}	
+		parentTabbedPanel.addTab("주문상세", null, orderHistoryDetailTabbedPanel_조성동, null);
+		
+		/*
+		 * 3. Service 객체 생성
+		 */
+		userService =new UserService();
+		productService =new ProductService();
+		cartService = new CartService();
+		orderService = new OrderService();
+		
+		/*
+		 * shopMainFrame 참조를 Panel에 넘겨줌
+		 */
+		
+		
+		
+		
+		
+	}
 }

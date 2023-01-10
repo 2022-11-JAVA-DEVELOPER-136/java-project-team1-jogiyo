@@ -5,6 +5,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
+import com.team1.jogiyo.ui.JogiyoMainFrame;
 import com.team1.jogiyo.user.User;
 import com.team1.jogiyo.user.UserService;
 
@@ -16,8 +17,13 @@ import javax.swing.ImageIcon;
 import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.Cursor;
 
 public class UserSignupPane_손요셉 extends JPanel {
+	JogiyoMainFrame frame;
+	public void setFrame(JogiyoMainFrame frame) {
+		this.frame = frame;
+	}
 	private JTextField idTF;
 	private JTextField passwordTF;
 	private JTextField nameTF;
@@ -88,6 +94,7 @@ public class UserSignupPane_손요셉 extends JPanel {
 		add(phoneTF);
 		
 		idcheakBtn = new JButton("중복확인");
+		idcheakBtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		idcheakBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 					try {
@@ -109,12 +116,15 @@ public class UserSignupPane_손요셉 extends JPanel {
 		add(idcheakBtn);
 		
 		joinBtn = new JButton("가입");
+		joinBtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		joinBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//가입시 SQL로 정보 보내고 가입완료시 로그인창으로 화면전환
+				//로그인창으로 화면전환
 				try {
 					newUser();
-					
+					if(newUser()>0) {
+						JOptionPane.showMessageDialog(null, "가입을 축하드립니다.");
+					}
 				}catch(Exception e1) {
 					
 				}
@@ -124,6 +134,7 @@ public class UserSignupPane_손요셉 extends JPanel {
 		add(joinBtn);
 		
 		cancelBtn = new JButton("취소");
+		cancelBtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		cancelBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//취소시 로그인창으로 화면전환 
@@ -141,13 +152,16 @@ public class UserSignupPane_손요셉 extends JPanel {
 		
 	}
 	
+
 	public void newUser() throws Exception {
+
 		String m_id = idTF.getText();
 		String m_password = passwordTF.getText();
 		String m_name = nameTF.getText();
 		String m_address = addressTF.getText();
 		String m_phone = phoneTF.getText();
 		System.out.println(m_id);
-		userService.create(new User(m_id,m_password,m_name,m_address,m_phone));
+		int result=userService.create(new User(m_id,m_password,m_name,m_address,m_phone));
+		
 	}
 }

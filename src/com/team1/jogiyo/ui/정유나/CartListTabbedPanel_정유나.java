@@ -14,6 +14,7 @@ import com.team1.jogiyo.cart.CartService;
 import com.team1.jogiyo.order.OrderService;
 import com.team1.jogiyo.product.Product;
 import com.team1.jogiyo.product.ProductService;
+import com.team1.jogiyo.ui.JogiyoMainFrame;
 import com.team1.jogiyo.ui.조성동.OrderHistoryTabbedPanel_조성동;
 import com.team1.jogiyo.user.User;
 import com.team1.jogiyo.user.UserService;
@@ -34,7 +35,10 @@ import javax.swing.JCheckBox;
 import javax.swing.DefaultComboBoxModel;
 
 public class CartListTabbedPanel_정유나 extends JPanel {
-	private JScrollPane scrollPane;
+	JogiyoMainFrame frame;
+	public void setFrame(JogiyoMainFrame frame) {
+		this.frame = frame;
+	}
 	private JPanel cartListPanel;
 	private JPanel cartPanel;
 	private JLabel productImageLB;
@@ -60,13 +64,13 @@ public class CartListTabbedPanel_정유나 extends JPanel {
 	public CartListTabbedPanel_정유나() throws Exception {
 		setLayout(null);
 		
-		scrollPane = new JScrollPane();
-		scrollPane.setBounds(12, 36, 326, 453);
-		add(scrollPane);
+		JScrollPane cartScrollPane = new JScrollPane();
+		cartScrollPane.setBounds(12, 36, 326, 372);
+		add(cartScrollPane);
 		
 		cartListPanel = new JPanel();
 		cartListPanel.setPreferredSize(new Dimension(10, 1000));
-		scrollPane.setViewportView(cartListPanel);
+		cartScrollPane.setViewportView(cartListPanel);
 		
 		cartPanel = new JPanel();
 		cartPanel.setPreferredSize(new Dimension(300, 80));
@@ -147,20 +151,20 @@ public class CartListTabbedPanel_정유나 extends JPanel {
 				
 			}
 		});
-		orderAllBtn.setBounds(75, 538, 97, 23);
+		orderAllBtn.setBounds(75, 470, 97, 23);
 		add(orderAllBtn);
 		
 		orderSelectionBtn = new JButton("선택주문");
 		orderSelectionBtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		orderSelectionBtn.setBounds(201, 538, 97, 23);
+		orderSelectionBtn.setBounds(201, 470, 97, 23);
 		add(orderSelectionBtn);
 		
 		JLabel lblNewLabel_2 = new JLabel("주문금액 :");
-		lblNewLabel_2.setBounds(75, 513, 63, 15);
+		lblNewLabel_2.setBounds(75, 445, 63, 15);
 		add(lblNewLabel_2);
 		
 		totalOrderPriceLB = new JLabel("");
-		totalOrderPriceLB.setBounds(163, 513, 135, 15);
+		totalOrderPriceLB.setBounds(163, 445, 135, 15);
 		add(totalOrderPriceLB);
 		
 		
@@ -173,7 +177,7 @@ public class CartListTabbedPanel_정유나 extends JPanel {
 	}
 	/****************생성자 끝**************/
 	//====> 오류오류!!!!!!!!!!!!!!
-	private void cartListDisplay(String sUserId) throws Exception{
+	public void cartListDisplay(String sUserId) throws Exception{
 		List<Cart> cartList=cartService.cartListByUserId(sUserId);
 		for (Cart cart : cartList) {
 			Product product=productService.findByPrimaryKey(cart.getProduct().getP_no());
@@ -241,7 +245,7 @@ public class CartListTabbedPanel_정유나 extends JPanel {
 			cartListPanel.add(cartPanel);
 		}
 	}
-	private void orderAllInCart(String sUserId) throws Exception{
+	public void orderAllInCart(String sUserId) throws Exception{
 		try {
 			orderService.create(sUserId);
 		} catch (Exception e1) {

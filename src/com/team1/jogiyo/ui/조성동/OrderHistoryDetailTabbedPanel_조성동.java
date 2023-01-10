@@ -6,6 +6,7 @@ import com.team1.jogiyo.order.Order;
 import com.team1.jogiyo.order.OrderItem;
 import com.team1.jogiyo.order.OrderService;
 import com.team1.jogiyo.product.Product;
+import com.team1.jogiyo.ui.JogiyoMainFrame;
 import com.team1.jogiyo.user.User;
 
 import java.awt.Color;
@@ -17,6 +18,10 @@ import java.util.List;
 import javax.swing.JButton;
 
 public class OrderHistoryDetailTabbedPanel_조성동 extends JPanel {
+	JogiyoMainFrame frame;
+	public void setFrame(JogiyoMainFrame frame) {
+		this.frame = frame;
+	}
 
 	/***************************************/
 	/*
@@ -32,6 +37,11 @@ public class OrderHistoryDetailTabbedPanel_조성동 extends JPanel {
 	private JPanel OrderProductListPanel;
 	private JPanel panel;
 	private JButton ToOrderHistoryBtn;
+	private JLabel OrderNumberLabel;
+	private JLabel OrderDateLabel;
+	private JLabel OrderTotalPriceLabel;
+	private JLabel OrderUserPhoneLabel;
+	private JLabel OrderUserLocLabel;
 	/***************************************/
 	
 	
@@ -52,17 +62,9 @@ public class OrderHistoryDetailTabbedPanel_조성동 extends JPanel {
 		lblNewLabel.setBounds(77, 22, 75, 20);
 		panel.add(lblNewLabel);
 		
-		JLabel OrderNumberLabel = new JLabel("");
-		OrderNumberLabel.setBounds(164, 23, 80, 20);
-		panel.add(OrderNumberLabel);
-		
 		JLabel lblNewLabel_2 = new JLabel("주문일");
 		lblNewLabel_2.setBounds(77, 56, 57, 15);
 		panel.add(lblNewLabel_2);
-		
-		JLabel OrderDateLabel = new JLabel("");
-		OrderDateLabel.setBounds(163, 56, 57, 15);
-		panel.add(OrderDateLabel);
 		
 		JLabel lblNewLabel_4 = new JLabel("=========================================================");
 		lblNewLabel_4.setBounds(12, 81, 346, 15);
@@ -121,18 +123,6 @@ public class OrderHistoryDetailTabbedPanel_조성동 extends JPanel {
 		lblNewLabel_8.setBounds(77, 454, 57, 15);
 		panel.add(lblNewLabel_8);
 		
-		JLabel OrderUserPhoneLabel = new JLabel("");
-		OrderUserPhoneLabel.setBounds(146, 427, 57, 15);
-		panel.add(OrderUserPhoneLabel);
-		
-		JLabel OrderTotalPriceLabel = new JLabel("");
-		OrderTotalPriceLabel.setBounds(146, 397, 57, 15);
-		panel.add(OrderTotalPriceLabel);
-		
-		JLabel OrderUserLocLabel = new JLabel("");
-		OrderUserLocLabel.setBounds(146, 454, 57, 15);
-		panel.add(OrderUserLocLabel);
-		
 		ToOrderHistoryBtn = new JButton("뒤로가기");
 		ToOrderHistoryBtn.setBounds(123, 524, 97, 23);
 		panel.add(ToOrderHistoryBtn);
@@ -144,7 +134,7 @@ public class OrderHistoryDetailTabbedPanel_조성동 extends JPanel {
 		orderProductPrint(loginUser.getM_id());
 	}
 	
-	private void orderProductPrint(String sUserId) throws Exception {
+	public void orderProductPrint(String sUserId) throws Exception {
 		//List<Order> orderList =  orderService.list(sUserId);
 		Order order = orderService.list(sUserId).get(0);
 
@@ -197,18 +187,25 @@ public class OrderHistoryDetailTabbedPanel_조성동 extends JPanel {
 			lblNewLabel_8.setBounds(77, 454, 57, 15);
 			panel.add(lblNewLabel_8);
 			
-			JLabel OrderUserPhoneLabel = new JLabel("<html>"+loginUser.getM_phone()+"</html>");
-			OrderUserPhoneLabel.setBounds(146, 427, 57, 15);
-			panel.add(OrderUserPhoneLabel);
-			
-			JLabel OrderTotalPriceLabel = new JLabel("<html>"+o_tot_price+"</html>");
-			OrderTotalPriceLabel.setBounds(146, 397, 57, 15);
-			panel.add(OrderTotalPriceLabel);
-			
-			JLabel OrderUserLocLabel = new JLabel("<html>"+loginUser.getM_loc()+"</html>");
-			OrderUserLocLabel.setBounds(146, 454, 57, 15);
-			panel.add(OrderUserLocLabel);
-
 		}
+		OrderNumberLabel = new JLabel(order.getO_no()+"");
+		OrderNumberLabel.setBounds(164, 23, 80, 20);
+		panel.add(OrderNumberLabel);
+		
+		OrderDateLabel = new JLabel(order.getO_date()+"");
+		OrderDateLabel.setBounds(163, 56, 135, 15);
+		panel.add(OrderDateLabel);
+		
+		OrderUserPhoneLabel = new JLabel("<html>"+loginUser.getM_phone()+"</html>");
+		OrderUserPhoneLabel.setBounds(146, 427, 134, 15);
+		panel.add(OrderUserPhoneLabel);
+		
+		OrderTotalPriceLabel = new JLabel("<html>"+o_tot_price+"</html>");
+		OrderTotalPriceLabel.setBounds(146, 397, 111, 15);
+		panel.add(OrderTotalPriceLabel);
+		
+		OrderUserLocLabel = new JLabel("<html>"+loginUser.getM_loc()+"</html>");
+		OrderUserLocLabel.setBounds(146, 454, 152, 15);
+		panel.add(OrderUserLocLabel);
 	}
 }
