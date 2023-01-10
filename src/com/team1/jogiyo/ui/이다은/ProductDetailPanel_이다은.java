@@ -42,20 +42,22 @@ public class ProductDetailPanel_이다은 extends JPanel {
 	OrderService orderService;
 	CartService cartService;
 	Product product;
-	OrderItem orderItem;
 	Cart cart;
-	
 	User loginUser;
+	
 	private JComboBox productcomboBox;
 	private JButton orderBtn;
 	private JButton cartBtn;
-	
+	private JLabel productImageLB;
+	private JLabel productNameLB;
+	private JLabel productDescLB;
+	private JLabel productPriceLB;
+	private JogiyoMainFrame jogiyoMainFrame;
 	
 	
 	public ProductDetailPanel_이다은 () throws Exception {
 		setBackground(new Color(255, 255, 255));
 		setLayout(null);
-		
 		
 		JLabel productImageLB = new JLabel("");
 		productImageLB.setIcon(new ImageIcon(ProductDetailPanel_이다은.class.getResource("/images/productDetail/p_no_01.jpg")));
@@ -75,6 +77,13 @@ public class ProductDetailPanel_이다은 extends JPanel {
 		productDescLB.setFont(new Font("굴림", Font.PLAIN, 15));
 		productDescLB.setBounds(0, 271, 350, 47);
 		add(productDescLB);
+		
+		JLabel productPriceLB = new JLabel("9000");
+		productPriceLB.setHorizontalAlignment(SwingConstants.RIGHT);
+		productPriceLB.setFont(new Font("굴림", Font.BOLD, 15));
+		productPriceLB.setBounds(208, 340, 101, 15);
+		add(productPriceLB);
+		
 		
 		//선택한 수량 만큼 바로주문 and 장바구니에 담김
 		
@@ -123,12 +132,7 @@ public class ProductDetailPanel_이다은 extends JPanel {
 		cartBtn.setBounds(208, 460, 97, 23);
 		add(cartBtn);
 		
-		JLabel productPriceLB = new JLabel("9000");
-		productPriceLB.setHorizontalAlignment(SwingConstants.RIGHT);
-		productPriceLB.setFont(new Font("굴림", Font.BOLD, 15));
-		productPriceLB.setBounds(208, 340, 101, 15);
-		add(productPriceLB);
-		
+	
 		/**************************/
 		OrderService orderService = new OrderService();
 		CartService cartService = new CartService();
@@ -138,18 +142,13 @@ public class ProductDetailPanel_이다은 extends JPanel {
 	
 	/************************************************/
 	
-	/* 제품 넣는 메소드~
-	private void insertProductDetail(Product p_no) {
-		
-	}
-	*/
-	
-	
+	// 제품정보 불러오기
 	public void displayProductDetail(Product product) {
-		JLabel productImageLB;
-		}
-	
-	
+		productImageLB.setIcon(new ImageIcon(ProductDetailPanel_이다은.class.getResource("/image/" + product.getP_image())));
+		productNameLB.setText(product.getP_name()+"");
+		productDescLB.setText(product.getP_desc()+"");
+		productPriceLB.setText(product.getP_price()+"");	
+	}
 	
 	
 	private void productInOrder() throws Exception {

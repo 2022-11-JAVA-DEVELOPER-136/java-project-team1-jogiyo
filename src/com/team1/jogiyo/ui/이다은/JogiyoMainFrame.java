@@ -17,6 +17,7 @@ import com.team1.jogiyo.user.User;
 import com.team1.jogiyo.user.UserService;
 import com.team1.jogiyo.cart.CartService;
 import com.team1.jogiyo.order.OrderService;
+import com.team1.jogiyo.product.Product;
 import com.team1.jogiyo.product.ProductService;
 import com.team1.jogiyo.ui.손요셉.UserLoginPane_손요셉;
 import java.awt.event.MouseAdapter;
@@ -89,7 +90,9 @@ public class JogiyoMainFrame extends JFrame {
 	private JoongsikPanel_이은지 joongsikPanel_이은지;
 	private BunsikPanel_이은지 bunsikPanel_이은지;
 	*/
-
+	
+	private Product product;
+	
 	/**
 	 * Launch the application.
 	 */
