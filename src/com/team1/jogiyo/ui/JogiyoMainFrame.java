@@ -74,10 +74,12 @@ public class JogiyoMainFrame extends JFrame {
 	private OrderHistoryTabbedPanel_조성동 orderHistoryTabbedPanel_조성동;
 	private OrderHistoryDetailTabbedPanel_조성동 orderHistoryDetailTabbedPanel_조성동;
 	private CategoriesPanel_이은지 categoriesPanel_이은지;
-	private JTextField textField;
 	private JTabbedPane parentTabbedPanel;
 	private JTabbedPane productTabbedPanel;
 	private UserSignupPane_손요셉 userSignupPanel_손요셉;
+	private JPanel panel;
+	private JTextField textField;
+	private JLabel lblNewLabel;
 
 	/**
 	 * Launch the application.
@@ -133,9 +135,16 @@ public class JogiyoMainFrame extends JFrame {
 			}
 		});
 		
+		panel = new JPanel();
+		NorthPanel.add(panel);
+		
 		textField = new JTextField();
-		NorthPanel.add(textField);
+		panel.add(textField);
 		textField.setColumns(10);
+		
+		lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon(JogiyoMainFrame.class.getResource("/images/search_20px.png")));
+		panel.add(lblNewLabel);
 		cartLB.setIcon(new ImageIcon(JogiyoMainFrame.class.getResource("/images/3cart_30px.png")));
 		cartLB.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		NorthPanel.add(cartLB);
@@ -145,7 +154,7 @@ public class JogiyoMainFrame extends JFrame {
 		contentPane.add(SouthPanel, BorderLayout.SOUTH);
 		SouthPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 70, 5));
 		
-		userInfoLB = new JLabel("MY");
+		userInfoLB = new JLabel("");
 		userInfoLB.setHorizontalTextPosition(SwingConstants.CENTER);
 		userInfoLB.setVerticalTextPosition(SwingConstants.BOTTOM);
 		userInfoLB.setHorizontalAlignment(SwingConstants.CENTER);
@@ -153,7 +162,7 @@ public class JogiyoMainFrame extends JFrame {
 		userInfoLB.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		SouthPanel.add(userInfoLB);
 		
-		homeLB = new JLabel("HOME");
+		homeLB = new JLabel("");
 		homeLB.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -166,16 +175,17 @@ public class JogiyoMainFrame extends JFrame {
 		homeLB.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		SouthPanel.add(homeLB);
 		
-		orderLB = new JLabel("ORDER");
+		orderLB = new JLabel("");
 		orderLB.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				
+				System.exit(0);
 			}
 		});
 		orderLB.setVerticalTextPosition(SwingConstants.BOTTOM);
 		orderLB.setHorizontalTextPosition(SwingConstants.CENTER);
-		orderLB.setIcon(new ImageIcon(JogiyoMainFrame.class.getResource("/images/3order_50px.png")));
+		orderLB.setIcon(new ImageIcon(JogiyoMainFrame.class.getResource("/images/50exit.png")));
 		orderLB.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		SouthPanel.add(orderLB);
 		
@@ -237,10 +247,12 @@ public class JogiyoMainFrame extends JFrame {
 	/*
 	 * 패널 변경 메쏘드
 	 */
+	/*
 	public void changePanel(int panel_no) {
 		if(panel_no==) {
 			
 		} else if(panel_no==)
-		
+	
 	}
+	*/
 }
