@@ -152,7 +152,9 @@ public class UserSignupPane_손요셉 extends JPanel {
 		
 	}
 	
-	private int newUser() throws Exception {
+
+	public void newUser() throws Exception {
+
 		String m_id = idTF.getText();
 		String m_password = passwordTF.getText();
 		String m_name = nameTF.getText();
@@ -160,6 +162,6 @@ public class UserSignupPane_손요셉 extends JPanel {
 		String m_phone = phoneTF.getText();
 		System.out.println(m_id);
 		int result=userService.create(new User(m_id,m_password,m_name,m_address,m_phone));
-		return result;
+		
 	}
 }
