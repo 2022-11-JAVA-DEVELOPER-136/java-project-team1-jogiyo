@@ -11,12 +11,10 @@ public class ProductServiceTestMain {
 	public static void main(String[] args) throws Exception {
 	ProductService productService = new ProductService();
 	CartService cartService= new CartService();
-<<<<<<< HEAD
+	
 	//상품 추가	
 	productService.insert(new Product(0,"김치찜aaa","image2.jpg",21000,"설명",10));
-	
-=======
-	Product product;
+
 //	//상품 추가	
 //	productService.insert(new Product(0,"김치찜aaa","image2.jpg",21000,"설명",10));
 //	
@@ -48,9 +46,6 @@ public class ProductServiceTestMain {
 //	
 //	List<Product> productList = productService.findAll();
 //	System.out.println("상품전체보기 : " + productList);
->>>>>>> branch 'main' of https://github.com/2022-11-JAVA-DEVELOPER/java-project-team1-jogiyo.git
-
-<<<<<<< HEAD
 	//상품 삭제
 	productService.delete("치킨");
 
@@ -78,7 +73,6 @@ public class ProductServiceTestMain {
 	
 	List<Product> productList = productService.findAll();
 	System.out.println("상품전체보기 : " + productList);
-=======
 	//Cart cartInMenu1 = new Cart(0, 2, "dddd", productService.findByName("순대국밥"));
 	//System.out.println(cartService.addCartInProduct(cartInMenu1));
 	
@@ -86,7 +80,6 @@ public class ProductServiceTestMain {
 	Cart productincart  = new Cart(0, 2 , "ffff" , productService.findByPrimaryKey(1));
 	cartService.addCartInProduct(productincart);
 	
->>>>>>> branch 'main' of https://github.com/2022-11-JAVA-DEVELOPER/java-project-team1-jogiyo.git
 	
 	}
 

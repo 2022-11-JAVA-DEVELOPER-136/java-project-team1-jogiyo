@@ -36,8 +36,13 @@ import javax.swing.DefaultComboBoxModel;
 
 public class CartListTabbedPanel_정유나 extends JPanel {
 	JogiyoMainFrame frame;
+	private User loginUser=null;
 	public void setFrame(JogiyoMainFrame frame) {
 		this.frame = frame;
+	}
+	public void setUser(User loginUser) throws Exception {
+		this.loginUser=loginUser;
+		cartListDisplay(loginUser.getM_id());
 	}
 	private JPanel cartListPanel;
 	private JPanel cartPanel;
@@ -51,7 +56,6 @@ public class CartListTabbedPanel_정유나 extends JPanel {
 	private JButton orderAllBtn;
 	private JButton orderSelectionBtn;
 	private JLabel totalOrderPriceLB;
-
 
 	/**
 	 * Create the panel.
@@ -169,8 +173,7 @@ public class CartListTabbedPanel_정유나 extends JPanel {
 		
 		
 		/*****************생성자 작성************************/
-		frame.userService.findUser(frame.loginUser.getM_id());
-		cartListDisplay(frame.loginUser.getM_id());
+
 	}
 	/****************생성자 끝**************/
 	//====> 오류오류!!!!!!!!!!!!!!

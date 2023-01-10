@@ -16,6 +16,7 @@ import com.team1.jogiyo.ui.손요셉.UserMainPane_손요셉;
 import com.team1.jogiyo.user.User;
 import com.team1.jogiyo.user.UserService;
 import com.team1.jogiyo.cart.CartService;
+import com.team1.jogiyo.order.Order;
 import com.team1.jogiyo.order.OrderService;
 import com.team1.jogiyo.product.Product;
 import com.team1.jogiyo.product.ProductService;
@@ -45,7 +46,8 @@ public class JogiyoMainFrame extends JFrame {
 	public CartService cartService;
 	public OrderService orderService;
 	
-	public User loginUser;
+	public User loginUser=null;
+
 	/****************2. tap페이지 상수 선언********************/
 	private static int USERTABBEDPANE_P=1;
 	private static int USERMAINPANE=11; 
@@ -269,10 +271,11 @@ public class JogiyoMainFrame extends JFrame {
 		userViewDetail_손요셉.setFrame(this);
 		categoriesPanel_이은지.setFrame(this);
 		orderHistoryTabbedPanel_조성동.setFrame(this);
-		orderHistoryDetailTabbedPanel_조성동.setFrame(this);	
+		orderHistoryDetailTabbedPanel_조성동.setFrame(this);
+
 	}
-	public void changePanel(int panel_no,Object data) {
-		if(panel_no==USERMAINPANE){
+	public void changePanel(int panel_no,Object data){
+		if(panel_no==USERTABBEDPANE_P) {
 			parentTabbedPanel.setSelectedIndex(0);
 			userTabbedPanel.setSelectedIndex(0);
 		} else if(panel_no==USERLOGINPANE){
@@ -286,10 +289,16 @@ public class JogiyoMainFrame extends JFrame {
 			userTabbedPanel.setSelectedIndex(3);
 			userTabbedPanel.setSelectedIndex(4);
 		} else if(panel_no==PRODUCTTABBEDPANE_P){
-			loginUser= (User)data;
 			parentTabbedPanel.setSelectedIndex(1);
 			productTabbedPanel.setSelectedIndex(0);
 		} else if(panel_no==PRODUCTCATEGORYPANE){
+			loginUser= (User)data;
+			try {
+				transferLoginUser(loginUser);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			parentTabbedPanel.setSelectedIndex(1);
 			productTabbedPanel.setSelectedIndex(0);
 		} else if(panel_no==HANSIKPANE){
@@ -307,19 +316,30 @@ public class JogiyoMainFrame extends JFrame {
 		} else if(panel_no==CARTTABBEDPANE_P){
 			parentTabbedPanel.setSelectedIndex(2);
 		} else if(panel_no==ORDERTABBEDPANE_P){
+			
 			parentTabbedPanel.setSelectedIndex(3);
 		} else if(panel_no==ORDERDETAILTABBEDPANE_P){
+			try {
+				transferOrder((Order)data);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 			parentTabbedPanel.setSelectedIndex(4);
 		}
 	}
 	
+	public void transferLoginUser(User user) throws Exception {
+		System.out.println("user :"+user);
+		userMainPanel_손요셉.setUser(user);
+		userSignupPanel_손요셉.setUser(user);
+		userViewDetail_손요셉.setUser(user);
+		categoriesPanel_이은지.setUser(user);
+		orderHistoryTabbedPanel_조성동.setUser(user);
+		orderHistoryDetailTabbedPanel_조성동.setUser(user);
+	}
 	
 	
-	
-	
+	public void transferOrder(Order order) throws Exception {
+		orderHistoryDetailTabbedPanel_조성동.setOrder(order);
+	}
 }
-
-}
-
-
->>>>>>> branch 'main' of https://github.com/2022-11-JAVA-DEVELOPER/java-project-team1-jogiyo.git

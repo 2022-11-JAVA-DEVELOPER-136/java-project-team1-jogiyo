@@ -5,6 +5,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
+import com.team1.jogiyo.order.OrderService;
 import com.team1.jogiyo.ui.JogiyoMainFrame;
 import com.team1.jogiyo.user.User;
 import com.team1.jogiyo.user.UserService;
@@ -21,9 +22,14 @@ import java.awt.Cursor;
 
 public class UserSignupPane_손요셉 extends JPanel {
 	JogiyoMainFrame frame;
+	User loginUser=null;
 	public void setFrame(JogiyoMainFrame frame) {
 		this.frame = frame;
 	}
+	public void setUser(User loginUser) {
+		this.loginUser=loginUser;
+	}
+	
 	private JTextField idTF;
 	private JTextField passwordTF;
 	private JTextField nameTF;
@@ -33,7 +39,6 @@ public class UserSignupPane_손요셉 extends JPanel {
 	private JButton cancelBtn;
 	private JButton idcheakBtn;
 
-	
 	/**
 	 * Create the panel.
 	 */

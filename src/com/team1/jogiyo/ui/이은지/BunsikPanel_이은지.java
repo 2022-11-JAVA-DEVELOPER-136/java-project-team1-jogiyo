@@ -12,6 +12,8 @@ import com.team1.jogiyo.product.*;
 import com.team1.jogiyo.ui.*;
 import com.team1.jogiyo.user.*;
 
+import com.team1.jogiyo.ui.JogiyoMainFrame;
+import com.team1.jogiyo.user.User;
 import javax.swing.JTextField;
 import java.awt.Font;
 import java.awt.SystemColor;
@@ -23,21 +25,17 @@ import java.awt.event.MouseEvent;
 import java.awt.Cursor;
 
 public class BunsikPanel_이은지 extends JPanel {
-	/**************************************/
-	/*
-	 * Service 객체선언
-	 */
 	JogiyoMainFrame frame;
+	User loginUser=null;
 	public void setFrame(JogiyoMainFrame frame) {
 		this.frame = frame;
 	}
+	public void setUser(User loginUser) {
+		this.loginUser=loginUser;
+	}
 	
-	/*
-	 * loginMember 객체선언
-	 */
-	User loginUser=null;
-	
-	
+	private final JPanel bunsikPanel1 = new JPanel();
+
 	private JLabel bunsikCartLB1;
 	private JComboBox bunsikComboBox1;
 	private JLabel bunsikCartLB2;
@@ -238,11 +236,6 @@ public class BunsikPanel_이은지 extends JPanel {
 
 		
 		/**********************생성자 끝************************/
-		
-		/*
-		 * loginMember 객체 생성
-		 */
-		loginUser = new User("asas","1111","가가가","제주","012-345-6789");
 		
 	}
 	

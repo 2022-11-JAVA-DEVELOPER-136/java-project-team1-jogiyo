@@ -20,20 +20,15 @@ import java.awt.Dimension;
 
 public class OrderHistoryTabbedPanel_조성동 extends JPanel {
 	JogiyoMainFrame frame;
+	User loginUser=null;
 	public void setFrame(JogiyoMainFrame frame) {
 		this.frame = frame;
 	}
-	/***************************************/
-	/*
-	 * Sevice객체선언
-	 */
-	
-	OrderService orderService=null;
-	/*
-	 * loginMember객체선언
-	 */
-	User loginUser=null;
-	/***************************************/
+	public void setUser(User loginUser) throws Exception {
+		this.loginUser=loginUser;
+		OrderListPrint(loginUser.getM_id());
+	}
+
 	private JPanel OrderHistoryListPanel;
 	
 	/**
@@ -51,61 +46,58 @@ public class OrderHistoryTabbedPanel_조성동 extends JPanel {
 		OrderHistoryListPanel.setPreferredSize(new Dimension(300, 700));
 		OrderHistoryScrollPane.setViewportView(OrderHistoryListPanel);
 		/******패널 생성자*******/
-		JPanel OrderHistoryPanel = new JPanel();
-		OrderHistoryPanel.setPreferredSize(new Dimension(325, 65));
-		OrderHistoryPanel.setLayout(null);
-		OrderHistoryListPanel.add(OrderHistoryPanel);
-		
-		JLabel DisplayProductNameLabel = new JLabel("");
-		DisplayProductNameLabel.setBounds(96, 30, 75, 33);
-		OrderHistoryPanel.add(DisplayProductNameLabel);
-		
-		JButton OrderHistoryDetailBtn = new JButton("");
-		OrderHistoryDetailBtn.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				System.out.println("주문상세 페이지 전환");
-			}
-		});
-		OrderHistoryDetailBtn.setBounds(255, 30, 25, 23);
-		OrderHistoryPanel.add(OrderHistoryDetailBtn);
-		
-		JLabel DisplayTotalPriceLabel = new JLabel("");
-		DisplayTotalPriceLabel.setBounds(175, 32, 68, 29);
-		OrderHistoryPanel.add(DisplayTotalPriceLabel);
-		
-		JLabel lblNewLabel_2 = new JLabel("주문날짜");
-		lblNewLabel_2.setBounds(12, 10, 57, 15);
-		OrderHistoryPanel.add(lblNewLabel_2);
-		
-		JLabel lblNewLabel_3 = new JLabel("상품이름");
-		lblNewLabel_3.setBounds(99, 10, 57, 15);
-		OrderHistoryPanel.add(lblNewLabel_3);
-		
-		JLabel lblNewLabel_4 = new JLabel("총가격");
-		lblNewLabel_4.setBounds(182, 10, 44, 15);
-		OrderHistoryPanel.add(lblNewLabel_4);
-		
-		JLabel lblNewLabel_5 = new JLabel("주문상세");
-		lblNewLabel_5.setBounds(245, 10, 57, 15);
-		OrderHistoryPanel.add(lblNewLabel_5);
-		
-		JLabel DisplayDateLabel = new JLabel("");
-		DisplayDateLabel.setBounds(0, 39, 81, 24);
-		OrderHistoryPanel.add(DisplayDateLabel);
+//		JPanel OrderHistoryPanel = new JPanel();
+//		OrderHistoryPanel.setPreferredSize(new Dimension(325, 65));
+//		OrderHistoryPanel.setLayout(null);
+//		OrderHistoryListPanel.add(OrderHistoryPanel);
+//		
+//		JLabel DisplayProductNameLabel = new JLabel("");
+//		DisplayProductNameLabel.setBounds(96, 30, 75, 33);
+//		OrderHistoryPanel.add(DisplayProductNameLabel);
+//		
+//		JButton OrderHistoryDetailBtn = new JButton("");
+//		OrderHistoryDetailBtn.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				System.out.println("주문상세 페이지 전환");
+//			}
+//		});
+//		OrderHistoryDetailBtn.setBounds(255, 30, 25, 23);
+//		OrderHistoryPanel.add(OrderHistoryDetailBtn);
+//		
+//		JLabel DisplayTotalPriceLabel = new JLabel("");
+//		DisplayTotalPriceLabel.setBounds(175, 32, 68, 29);
+//		OrderHistoryPanel.add(DisplayTotalPriceLabel);
+//		
+//		JLabel lblNewLabel_2 = new JLabel("주문날짜");
+//		lblNewLabel_2.setBounds(12, 10, 57, 15);
+//		OrderHistoryPanel.add(lblNewLabel_2);
+//		
+//		JLabel lblNewLabel_3 = new JLabel("상품이름");
+//		lblNewLabel_3.setBounds(99, 10, 57, 15);
+//		OrderHistoryPanel.add(lblNewLabel_3);
+//		
+//		JLabel lblNewLabel_4 = new JLabel("총가격");
+//		lblNewLabel_4.setBounds(182, 10, 44, 15);
+//		OrderHistoryPanel.add(lblNewLabel_4);
+//		
+//		JLabel lblNewLabel_5 = new JLabel("주문상세");
+//		lblNewLabel_5.setBounds(245, 10, 57, 15);
+//		OrderHistoryPanel.add(lblNewLabel_5);
+//		
+//		JLabel DisplayDateLabel = new JLabel("");
+//		DisplayDateLabel.setBounds(0, 39, 81, 24);
+//		OrderHistoryPanel.add(DisplayDateLabel);
 		
 		
 		/*******************************************/
-		orderService = new OrderService();
-		loginUser = new User("bbbb", null, "csd", "지역", "폰넘버");
-		
-		OrderListPrint(loginUser.getM_id());
+
 	}
 	
 	public void OrderListPrint(String sUserId) throws Exception {
-		List<Order> orderList =  orderService.list(sUserId);
+		List<Order> orderList =  frame.orderService.list(sUserId);
 		
 		for (Order order : orderList) {
-			List<OrderItem> orderItems= orderService.detail(sUserId, order.getO_no()).getOrderItemList();
+			List<OrderItem> orderItems= frame.orderService.detail(sUserId, order.getO_no()).getOrderItemList();
 			int o_tot_price=0;
 			int p_tot_qty=0;
 			for (OrderItem orderItem : orderItems) {
@@ -125,7 +117,11 @@ public class OrderHistoryTabbedPanel_조성동 extends JPanel {
 			OrderHistoryDetailBtn.setBounds(247, 30, 25, 23);
 			OrderHistoryDetailBtn.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					System.out.println("주문상세 페이지 전환");
+					try {
+						frame.changePanel(5, order);
+					} catch (Exception e1) {
+						e1.printStackTrace();
+					}
 				}
 			});
 			OrderHistoryPanel.add(OrderHistoryDetailBtn);
