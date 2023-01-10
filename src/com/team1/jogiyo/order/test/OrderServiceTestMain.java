@@ -33,16 +33,25 @@ public class OrderServiceTestMain {
 		 */
 		
 		/*
-		 * 테스트
+		 * orderHistory테스트
 		 */
-		List<Order> orderList =  orderService.list("bbbb");
-		for (Order order : orderList) {
-			List<OrderItem> orderItems= orderService.detail("bbbb", order.getO_no()).getOrderItemList();
-			for (OrderItem orderItem : orderItems) {
-				System.out.println(orderItem.getProduct().getP_name()+" :"+orderItem.getProduct().getP_price()*orderItem.getOi_qty());
-			}
-
+//		List<Order> orderList =  orderService.list("bbbb");
+//		for (Order order : orderList) {
+//			List<OrderItem> orderItems= orderService.detail("bbbb", order.getO_no()).getOrderItemList();
+//			for (OrderItem orderItem : orderItems) {
+//				System.out.println(order.getO_no()+" "+orderItem.getProduct());
+//			}
+//		}
+		/*
+		 * orderHistoryDetatil테스트
+		 */
+		Order order =  orderService.list("bbbb").get(0);
+		System.out.println("========="+order);
+		List<OrderItem> orderItems= orderService.detail("bbbb", order.getO_no()).getOrderItemList();
+		for (OrderItem orderItem : orderItems) {
+			System.out.println(order.getO_no()+" "+orderItem.getProduct());
 		}
+
 	}
 
 }
