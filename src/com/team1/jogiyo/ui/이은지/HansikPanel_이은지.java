@@ -23,20 +23,7 @@ import java.awt.event.MouseEvent;
 import java.awt.Cursor;
 
 public class HansikPanel_이은지 extends JPanel {
-<<<<<<< HEAD
 	JogiyoMainFrame frame;
-=======
-	/**************************************/
-	/*
-	 * Service 객체선언
-	 */
-	ProductService productService;
-	CartService cartService;
-	
-	/*
-	 * loginMember 객체선언
-	 */
->>>>>>> branch 'main' of https://github.com/2022-11-JAVA-DEVELOPER/java-project-team1-jogiyo.git
 	User loginUser=null;
 	public void setFrame(JogiyoMainFrame frame) {
 		this.frame = frame;
