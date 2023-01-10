@@ -16,6 +16,7 @@ import javax.swing.ImageIcon;
 import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.Cursor;
 
 public class UserSignupPane_손요셉 extends JPanel {
 	private JTextField idTF;
@@ -88,6 +89,7 @@ public class UserSignupPane_손요셉 extends JPanel {
 		add(phoneTF);
 		
 		idcheakBtn = new JButton("중복확인");
+		idcheakBtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		idcheakBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 					try {
@@ -109,6 +111,7 @@ public class UserSignupPane_손요셉 extends JPanel {
 		add(idcheakBtn);
 		
 		joinBtn = new JButton("가입");
+		joinBtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		joinBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//가입시 SQL로 정보 보내고 가입완료시 로그인창으로 화면전환
@@ -124,6 +127,7 @@ public class UserSignupPane_손요셉 extends JPanel {
 		add(joinBtn);
 		
 		cancelBtn = new JButton("취소");
+		cancelBtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		cancelBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//취소시 로그인창으로 화면전환 

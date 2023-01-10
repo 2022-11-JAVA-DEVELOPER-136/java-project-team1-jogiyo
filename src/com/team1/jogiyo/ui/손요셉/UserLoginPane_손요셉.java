@@ -16,6 +16,7 @@ import javax.swing.JOptionPane;
 
 import java.awt.Font;
 import javax.swing.JPasswordField;
+import java.awt.Cursor;
 
 
 
@@ -40,6 +41,7 @@ public class UserLoginPane_손요셉 extends JPanel {
 		setLayout(null);
 		
 		loginbutton = new JButton("");//로그인버튼
+		loginbutton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		loginbutton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//카테고리 화면으로 전환
@@ -59,6 +61,7 @@ public class UserLoginPane_손요셉 extends JPanel {
 		add(loginbutton);
 		
 		signupbutton = new JButton("회원가입");
+		signupbutton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		signupbutton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//회원가입 화면으로 전환
@@ -70,6 +73,7 @@ public class UserLoginPane_손요셉 extends JPanel {
 		add(signupbutton);
 		
 		idfindbutton = new JButton("아이디/비밀번호찾기");
+		idfindbutton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		idfindbutton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//안살릴듯?
