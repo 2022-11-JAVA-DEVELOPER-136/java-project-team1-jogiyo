@@ -5,6 +5,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
+import com.team1.jogiyo.ui.JogiyoMainFrame;
 import com.team1.jogiyo.user.User;
 import com.team1.jogiyo.user.UserService;
 
@@ -19,6 +20,10 @@ import java.awt.event.MouseEvent;
 import java.awt.Cursor;
 
 public class UserSignupPane_손요셉 extends JPanel {
+	JogiyoMainFrame frame;
+	public void setFrame(JogiyoMainFrame frame) {
+		this.frame = frame;
+	}
 	private JTextField idTF;
 	private JTextField passwordTF;
 	private JTextField nameTF;
@@ -28,13 +33,6 @@ public class UserSignupPane_손요셉 extends JPanel {
 	private JButton cancelBtn;
 	private JButton idcheakBtn;
 
-	/******** userService 객체선언 ****/
-	UserService userService;
-	
-	
-	
-	
-	
 	
 	/**
 	 * Create the panel.
@@ -94,11 +92,11 @@ public class UserSignupPane_손요셉 extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 					try {
 					String m_id = idTF.getText();
-					boolean isSuccess = userService.isDuplicateId(m_id);
-					if(isSuccess==true) {
+					boolean isSuccess = frame.userService.isDuplicateId(m_id);
+					if(isSuccess==false) {
 						JOptionPane.showMessageDialog(null, "사용 가능한 아이디입니다");
 						passwordTF.requestFocus();
-						}else if(isSuccess==false) {
+						}else if(isSuccess==true) {
 						JOptionPane.showMessageDialog(null, "존재하는 아이디입니다.");
 						}
 					}catch(Exception e1) {
@@ -114,12 +112,15 @@ public class UserSignupPane_손요셉 extends JPanel {
 		joinBtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		joinBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//가입시 SQL로 정보 보내고 가입완료시 로그인창으로 화면전환
+				//로그인창으로 화면전환
 				try {
-					newUser();
-					
+					System.out.println(newUser());
+					if(newUser()>0) {
+						JOptionPane.showMessageDialog(null, "가입을 축하드립니다.");
+						frame.changePanel(12, null);
+					}
 				}catch(Exception e1) {
-					
+					System.out.println(e1.getMessage());
 				}
 			}
 		});
@@ -145,13 +146,16 @@ public class UserSignupPane_손요셉 extends JPanel {
 		
 	}
 	
-	private void newUser() throws Exception {
+
+	public int newUser() throws Exception {
+		int result=0;
 		String m_id = idTF.getText();
 		String m_password = passwordTF.getText();
 		String m_name = nameTF.getText();
 		String m_address = addressTF.getText();
 		String m_phone = phoneTF.getText();
 		System.out.println(m_id);
-		userService.create(new User(m_id,m_password,m_name,m_address,m_phone));
+		result=frame.userService.create(new User(m_id,m_password,m_name,m_address,m_phone));
+		return result;
 	}
 }

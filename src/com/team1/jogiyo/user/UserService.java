@@ -34,8 +34,8 @@ public class UserService {
 		int result = 0;
 		if(userDao.countByUserId(m_id)==1) {
 			//아이디존재하는 경우
-			User lofinUser = userDao.findByPrimaryKey(m_id);
-			if(lofinUser.getM_password().equals(m_password)) {
+			User loginUser = userDao.findByPrimaryKey(m_id);
+			if(loginUser.getM_password().equals(m_password)) {
 				//패스워드 일치
 				result = 1;
 			}else {
