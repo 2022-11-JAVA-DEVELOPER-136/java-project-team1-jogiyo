@@ -141,7 +141,7 @@ public class UserSignupPane_손요셉 extends JPanel {
 		
 	}
 	
-	private void newUser() throws Exception {
+	public void newUser() throws Exception {
 		String m_id = idTF.getText();
 		String m_password = passwordTF.getText();
 		String m_name = nameTF.getText();
