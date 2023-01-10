@@ -45,7 +45,7 @@ public class JogiyoMainFrame extends JFrame {
 	public CartService cartService;
 	public OrderService orderService;
 	
-	User loginUser=null;
+	public User loginUser;
 	/****************2. tap페이지 상수 선언********************/
 	private static int USERTABBEDPANE_P=1;
 	private static int USERMAINPANE=11; 
