@@ -5,14 +5,13 @@ import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import javax.swing.JTextField;
 
-
 import com.team1.jogiyo.user.User;
 import com.team1.jogiyo.user.UserDao;
 import com.team1.jogiyo.user.UserService;
 
 import com.team1.jogiyo.ui.JogiyoMainFrame;
-
-
+import com.team1.jogiyo.user.User;
+import com.team1.jogiyo.user.UserService;
 import java.awt.Font;
 import javax.swing.JButton;
 import java.awt.Color;
@@ -21,15 +20,18 @@ import java.awt.event.ActionEvent;
 
 public class UserViewDetail_손요셉 extends JPanel {
 
-	private UserService userService;
-	private User loginUser=null;
 	private int selected_index=0;
 	/***********************************************/
 
 	JogiyoMainFrame frame;
+	User loginUser=null;
 	public void setFrame(JogiyoMainFrame frame) {
 		this.frame = frame;
 	}
+	public void setUser(User loginUser) {
+		this.loginUser=loginUser;
+	}
+	
 	private JTextField txtVjvjdid;
 	private JTextField detailpasswordTF;
 
@@ -133,9 +135,9 @@ public class UserViewDetail_손요셉 extends JPanel {
 		
 		/********************************************************/
 		
-	userService=new UserService();
+		frame.userService=new UserService();
 	/*****생성자끝****/
-		loginUser=userService.findUser("aaaa");
+		loginUser=frame.userService.findUser("aaaa");
 		
 		
 //		User findUser= new User(m_id);
@@ -193,8 +195,8 @@ public class UserViewDetail_손요셉 extends JPanel {
 				  String loc = detailAddressTF.getText();
 				  String phone = detailPhoneTF.getText();
 				  User user=new User(id,password,name,loc,phone);
-				  userService.update(user);
-				  loginUser = userService.findUser(id);
+				  frame.userService.update(user);
+				  loginUser = frame.userService.findUser(id);
 				  updateFormEnable(false);
 			}catch (Exception e1) {
 				System.out.println(e1.getMessage());

@@ -7,7 +7,9 @@ import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
 
+import com.team1.jogiyo.order.OrderService;
 import com.team1.jogiyo.ui.JogiyoMainFrame;
+import com.team1.jogiyo.user.User;
 
 import javax.swing.JTextField;
 import java.awt.Font;
@@ -19,8 +21,12 @@ import java.awt.Component;
 
 public class CategoriesPanel_이은지 extends JPanel {
 	JogiyoMainFrame frame;
+	User loginUser=null;
 	public void setFrame(JogiyoMainFrame frame) {
 		this.frame = frame;
+	}
+	public void setUser(User loginUser) {
+		this.loginUser=loginUser;
 	}
 	private JScrollPane categoriesListScrollPane;
 	private JLabel hansikLB;
