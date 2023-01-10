@@ -12,13 +12,13 @@ import java.awt.SystemColor;
 import javax.swing.JScrollPane;
 import java.awt.Component;
 
-public class CategoriesPanel extends JPanel {
+public class CategoriesPanel_이은지 extends JPanel {
 	private JScrollPane categoriesListScrollPane;
 
 	/**
 	 * Create the panel.
 	 */
-	public CategoriesPanel() {
+	public CategoriesPanel_이은지() {
 		setLayout(null);
 		
 		categoriesListScrollPane = new JScrollPane();
