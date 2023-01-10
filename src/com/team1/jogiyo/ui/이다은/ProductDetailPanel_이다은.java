@@ -135,7 +135,6 @@ public class ProductDetailPanel_이다은 extends JPanel {
 	
 	private void productInOrder() throws Exception {
 		
-		// 콤보박스에서 수량 가자오는걸 모르겠음
 			orderService.create(loginUser.getM_id(), product.getP_no(), (int)productcomboBox.getSelectedItem());
 	    
 	    // 콤보박스에서 받은 수량 > 오더로 넘기
@@ -144,9 +143,7 @@ public class ProductDetailPanel_이다은 extends JPanel {
 		//orderService.create(id, p_no, 수량);
 	}
 	private void productInCart() throws Exception {
-		// 카트에 상품데이터( 상품번호,이름,이미지,가격,수량) 담기
-
-		Cart productincart  = new Cart(0, (int)productcomboBox.getSelectedItem(), loginUser.getM_id(), product);
+		Cart productincart  = new Cart(0, (int)productcomboBox.getSelectedItem(), loginUser.getM_id(), productService.findByPrimaryKey(0));
 		cartService.addCartInProduct(productincart);
 		
 	}
