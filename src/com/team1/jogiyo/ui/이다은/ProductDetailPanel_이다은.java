@@ -14,6 +14,7 @@ import com.team1.jogiyo.order.OrderItem;
 import com.team1.jogiyo.order.OrderService;
 import com.team1.jogiyo.product.Product;
 import com.team1.jogiyo.product.ProductService;
+import com.team1.jogiyo.ui.JogiyoMainFrame;
 import com.team1.jogiyo.user.User;
 
 import javafx.scene.control.ComboBox;
@@ -33,29 +34,37 @@ import java.awt.SystemColor;
 import java.awt.Cursor;
 
 public class ProductDetailPanel_이다은 extends JPanel {
+	JogiyoMainFrame frame;
+	User loginUser = null;
+	public void setFrame(JogiyoMainFrame frame) {
+		this.frame = frame;
+	}
+	public void setUser(User loginUser) throws Exception {
+		this.loginUser=loginUser;
+	}
+	public void setProduct(Product product) throws Exception{
+		displayProductDetail(product);
+	}
+	
+
+	
+	private JComboBox productcomboBox;
+	private JButton orderBtn;
+	private JButton cartBtn;
+	private JLabel productImageLB;
+	private JLabel productNameLB;
+	private JLabel productDescLB;
+	private JLabel productPriceLB;
+	private JogiyoMainFrame jogiyoMainFrame;
 	
 	/**
 	 * Create the panel.
 	 */
-	
-	ProductService productService;
-	OrderService orderService;
-	CartService cartService;
-	Product product;
-	OrderItem orderItem;
-	Cart cart;
-	
-	User loginUser;
-	private JComboBox productcomboBox;
-	private JButton orderBtn;
-	private JButton cartBtn;
-	
-	
+
 	
 	public ProductDetailPanel_이다은 () throws Exception {
 		setBackground(new Color(255, 255, 255));
 		setLayout(null);
-		
 		
 		JLabel productImageLB = new JLabel("");
 		productImageLB.setIcon(new ImageIcon(ProductDetailPanel_이다은.class.getResource("/images/productDetail/p_no_01.jpg")));
@@ -75,6 +84,13 @@ public class ProductDetailPanel_이다은 extends JPanel {
 		productDescLB.setFont(new Font("굴림", Font.PLAIN, 15));
 		productDescLB.setBounds(0, 271, 350, 47);
 		add(productDescLB);
+		
+		JLabel productPriceLB = new JLabel("9000");
+		productPriceLB.setHorizontalAlignment(SwingConstants.RIGHT);
+		productPriceLB.setFont(new Font("굴림", Font.BOLD, 15));
+		productPriceLB.setBounds(208, 340, 101, 15);
+		add(productPriceLB);
+		
 		
 		//선택한 수량 만큼 바로주문 and 장바구니에 담김
 		
@@ -114,7 +130,7 @@ public class ProductDetailPanel_이다은 extends JPanel {
 		cartBtn = new JButton("장바구니");
 		cartBtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		cartBtn.setForeground(new Color(0, 0, 0));
-		cartBtn.setBackground(new Color(240, 240, 240));
+		cartBtn.setBackground(new Color(255, 255, 255));
 		cartBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// 카트패널로전환
@@ -123,38 +139,28 @@ public class ProductDetailPanel_이다은 extends JPanel {
 		cartBtn.setBounds(208, 460, 97, 23);
 		add(cartBtn);
 		
-		JLabel productPriceLB = new JLabel("9000");
-		productPriceLB.setHorizontalAlignment(SwingConstants.RIGHT);
-		productPriceLB.setFont(new Font("굴림", Font.BOLD, 15));
-		productPriceLB.setBounds(208, 340, 101, 15);
-		add(productPriceLB);
-		
+	
 		/**************************/
-		OrderService orderService = new OrderService();
-		CartService cartService = new CartService();
-
+		
 		
 	}
 	
 	/************************************************/
 	
-	/* 제품 넣는 메소드~
-	private void insertProductDetail(Product p_no) {
-		
+	// 제품정보 불러오기
+	public void displayProductDetail(String p_name) {
+		productImageLB.setIcon(new ImageIcon(ProductDetailPanel_이다은.class.getResource("/image/" + frame.productService.findByName(p_name).getP_image())));
+		productNameLB.setText(product.getP_name()+"");
+		productDescLB.setText(product.getP_desc()+"");
+		productPriceLB.setText(product.getP_price()+"");	
 	}
-	*/
-	
-	
-	public void displayProductDetail(Product product) {
-		JLabel productImageLB;
-		}
-	
-	
-	
+	/*
+	 * ===> 은지님 해당 버튼에 productDetailPanel_이다은.displayProductdetail(p_name) 넣어주세요
+	 */
 	
 	private void productInOrder() throws Exception {
 		
-			orderService.create(loginUser.getM_id(), product.getP_no(), (int)productcomboBox.getSelectedItem());
+			//orderService.create(loginUser.getM_id(), product.getP_no(), (int)productcomboBox.getSelectedItem());
 	    
 	    // 콤보박스에서 받은 수량 > 오더로 넘기
 		// 수량은 콤보박스에서
@@ -162,10 +168,11 @@ public class ProductDetailPanel_이다은 extends JPanel {
 		//orderService.create(id, p_no, 수량);
 	}
 	private void productInCart() throws Exception {
-		Cart productincart  = new Cart(0, (int)productcomboBox.getSelectedItem(), loginUser.getM_id(), productService.findByPrimaryKey(0));
-		cartService.addCartInProduct(productincart);
+		Cart productincart  = new Cart(0, (int)productcomboBox.getSelectedItem(), loginUser.getM_id(), frame.productService.findByPrimaryKey(0));
+		frame.cartService.addCartInProduct(productincart);
 		
 	}
+	
 	
 	
 }
