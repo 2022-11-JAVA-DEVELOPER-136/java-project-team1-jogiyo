@@ -135,6 +135,7 @@ public class UserViewDetail_손요셉 extends JPanel {
 					System.out.println(e1.getMessage());
 				}
 				
+				
 			}
 		});
 		userViewUpdateBtn.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
