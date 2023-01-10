@@ -17,6 +17,7 @@ import com.team1.jogiyo.user.User;
 import com.team1.jogiyo.user.UserService;
 import com.team1.jogiyo.cart.CartService;
 import com.team1.jogiyo.order.OrderService;
+import com.team1.jogiyo.product.Product;
 import com.team1.jogiyo.product.ProductService;
 import com.team1.jogiyo.ui.손요셉.UserLoginPane_손요셉;
 import java.awt.event.MouseAdapter;
@@ -151,6 +152,17 @@ public class JogiyoMainFrame extends JFrame {
 		findProductTL.setColumns(10);
 		
 		findProductIconLB = new JLabel("");
+		findProductIconLB.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				try {
+					Product searchedProduct=productService.findByName(findProductTL.getText());
+					changePanel(25,searchedProduct);
+				} catch(Exception e1) {
+					System.out.println(e1.getMessage());
+				}
+			}
+		});
 		findProductIconLB.setIcon(new ImageIcon(JogiyoMainFrame.class.getResource("/images/search_20px.png")));
 		panel.add(findProductIconLB);
 		cartLB.setIcon(new ImageIcon(JogiyoMainFrame.class.getResource("/images/3cart_30px.png")));
@@ -303,7 +315,6 @@ public class JogiyoMainFrame extends JFrame {
 			parentTabbedPanel.setSelectedIndex(4);
 		}
 	}
-	
 	
 	
 	
