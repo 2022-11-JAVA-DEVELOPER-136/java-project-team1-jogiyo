@@ -274,7 +274,7 @@ public class JogiyoMainFrame extends JFrame {
 		orderHistoryDetailTabbedPanel_조성동.setFrame(this);
 
 	}
-	public void changePanel(int panel_no,Object data) throws Exception {
+	public void changePanel(int panel_no,Object data){
 		if(panel_no==USERTABBEDPANE_P) {
 			parentTabbedPanel.setSelectedIndex(0);
 			userTabbedPanel.setSelectedIndex(0);
@@ -293,7 +293,12 @@ public class JogiyoMainFrame extends JFrame {
 			productTabbedPanel.setSelectedIndex(0);
 		} else if(panel_no==PRODUCTCATEGORYPANE){
 			loginUser= (User)data;
-			transferLoginUser(loginUser);
+			try {
+				transferLoginUser(loginUser);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			parentTabbedPanel.setSelectedIndex(1);
 			productTabbedPanel.setSelectedIndex(0);
 		} else if(panel_no==HANSIKPANE){
@@ -314,7 +319,12 @@ public class JogiyoMainFrame extends JFrame {
 			
 			parentTabbedPanel.setSelectedIndex(3);
 		} else if(panel_no==ORDERDETAILTABBEDPANE_P){
-			transferOrder((Order)data);
+			try {
+				transferOrder((Order)data);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			parentTabbedPanel.setSelectedIndex(4);
 		}
 	}
