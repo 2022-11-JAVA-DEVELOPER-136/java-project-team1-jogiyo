@@ -114,9 +114,9 @@ public class UserSignupPane_손요셉 extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				//로그인창으로 화면전환
 				try {
-					System.out.println(newUser());
 					if(newUser()>0) {
 						JOptionPane.showMessageDialog(null, "가입을 축하드립니다.");
+						deleteContext();
 						frame.changePanel(12, null);
 					}
 				}catch(Exception e1) {
@@ -131,7 +131,9 @@ public class UserSignupPane_손요셉 extends JPanel {
 		cancelBtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		cancelBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//취소시 로그인창으로 화면전환 
+				//취소시 로그인창으로 화면전환
+				deleteContext();
+				frame.changePanel(12, null);
 			}
 		});
 		cancelBtn.setBounds(199, 412, 97, 23);
@@ -157,5 +159,13 @@ public class UserSignupPane_손요셉 extends JPanel {
 		System.out.println(m_id);
 		result=frame.userService.create(new User(m_id,m_password,m_name,m_address,m_phone));
 		return result;
+	}
+	
+	public void deleteContext() {
+		idTF.setText("");
+		passwordTF.setText("");
+		nameTF.setText("");
+		addressTF.setText("");
+		phoneTF.setText("");
 	}
 }
