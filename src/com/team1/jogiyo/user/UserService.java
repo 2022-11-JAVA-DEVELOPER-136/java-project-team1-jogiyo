@@ -75,8 +75,8 @@ public class UserService {
 		if(userDao.countByUserId(m_id)>=1) {
 			return true;
 		}else {
-		return false;
-	}
+			return false;
+		}
 }
 	/*
 	 * 회원탈퇴

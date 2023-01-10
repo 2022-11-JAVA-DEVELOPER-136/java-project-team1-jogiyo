@@ -5,6 +5,10 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import com.team1.jogiyo.user.User;
+import com.team1.jogiyo.user.UserService;
+
 import javax.swing.JTabbedPane;
 import java.awt.FlowLayout;
 import java.awt.BorderLayout;
@@ -15,6 +19,7 @@ public class UserMainFrame_손요셉 extends JFrame {
 	
 	private JPanel contentPane;
 
+	
 	/**
 	 * Launch the application.
 	 */
