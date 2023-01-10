@@ -7,8 +7,12 @@ public class aa extends JPanel {
 	/**
 	 * Create the panel.
 	 */
+	
 	public aa() {
+		
+		int s;
 
 	}
 
 }
+ 
