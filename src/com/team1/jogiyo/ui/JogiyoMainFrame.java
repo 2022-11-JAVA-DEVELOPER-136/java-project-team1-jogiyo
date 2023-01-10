@@ -322,7 +322,6 @@ public class JogiyoMainFrame extends JFrame {
 			try {
 				transferOrder((Order)data);
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			parentTabbedPanel.setSelectedIndex(4);
