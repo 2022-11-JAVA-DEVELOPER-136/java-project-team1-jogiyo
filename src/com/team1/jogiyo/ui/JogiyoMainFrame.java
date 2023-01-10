@@ -26,6 +26,8 @@ import com.team1.jogiyo.ui.조성동.OrderHistoryDetailTabbedPanel_조성동;
 import com.team1.jogiyo.ui.정유나.CartListTabbedPanel_정유나;
 import com.team1.jogiyo.ui.손요셉.UserSignupPane_손요셉;
 import com.team1.jogiyo.ui.이은지.CategoriesPanel_이은지;
+import javax.swing.ImageIcon;
+import javax.swing.SwingConstants;
 
 public class JogiyoMainFrame extends JFrame {
 	/****************1. Service 멤버필드 선언********************/
@@ -100,17 +102,26 @@ public class JogiyoMainFrame extends JFrame {
 		contentPane.setLayout(new BorderLayout(0, 0));
 		
 		JPanel NorthPanel = new JPanel();
+		NorthPanel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		contentPane.add(NorthPanel, BorderLayout.NORTH);
-		NorthPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 60, 5));
+		NorthPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 75, 5));
 		
-		representLB = new JLabel("[조기요]");
+		representLB = new JLabel("");
+		representLB.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				userTabbedPane.setSelectedComponent(userMainPane_손요셉);
+			}
+		});
+		representLB.setIcon(new ImageIcon(JogiyoMainFrame.class.getResource("/com/team1/jogiyo/ui/손요셉/image/smile (4).png")));
 		representLB.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		NorthPanel.add(representLB);
 		
 		findLB = new JLabel("검색");
 		NorthPanel.add(findLB);
 		
-		cartLB = new JLabel("[CART]");
+		cartLB = new JLabel("");
+		cartLB.setIcon(new ImageIcon(JogiyoMainFrame.class.getResource("/images/3cart_30px.png")));
 		cartLB.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		NorthPanel.add(cartLB);
 		
@@ -120,14 +131,24 @@ public class JogiyoMainFrame extends JFrame {
 		SouthPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 70, 5));
 		
 		userInfoLB = new JLabel("MY");
+		userInfoLB.setHorizontalTextPosition(SwingConstants.CENTER);
+		userInfoLB.setVerticalTextPosition(SwingConstants.BOTTOM);
+		userInfoLB.setHorizontalAlignment(SwingConstants.CENTER);
+		userInfoLB.setIcon(new ImageIcon(JogiyoMainFrame.class.getResource("/images/3my_50px.png")));
 		userInfoLB.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		SouthPanel.add(userInfoLB);
 		
 		homeLB = new JLabel("HOME");
+		homeLB.setHorizontalTextPosition(SwingConstants.CENTER);
+		homeLB.setVerticalTextPosition(SwingConstants.BOTTOM);
+		homeLB.setIcon(new ImageIcon(JogiyoMainFrame.class.getResource("/images/3home_50px.png")));
 		homeLB.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		SouthPanel.add(homeLB);
 		
 		orderLB = new JLabel("ORDER");
+		orderLB.setVerticalTextPosition(SwingConstants.BOTTOM);
+		orderLB.setHorizontalTextPosition(SwingConstants.CENTER);
+		orderLB.setIcon(new ImageIcon(JogiyoMainFrame.class.getResource("/images/3order_50px.png")));
 		orderLB.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		SouthPanel.add(orderLB);
 		
