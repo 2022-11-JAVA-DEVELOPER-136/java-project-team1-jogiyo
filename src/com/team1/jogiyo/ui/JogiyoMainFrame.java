@@ -279,6 +279,7 @@ public class JogiyoMainFrame extends JFrame {
 			parentTabbedPanel.setSelectedIndex(0);
 			userTabbedPanel.setSelectedIndex(4);
 		} else if(panel_no==PRODUCTTABBEDPANE_P){
+			loginUser= (User)data;
 			parentTabbedPanel.setSelectedIndex(1);
 			productTabbedPanel.setSelectedIndex(0);
 		} else if(panel_no==PRODUCTCATEGORYPANE){
