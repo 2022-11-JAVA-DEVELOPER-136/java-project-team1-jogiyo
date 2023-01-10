@@ -100,8 +100,8 @@ public class UserSignupPane_손요셉 extends JPanel {
 		add(cancelBtn);
 		
 		JLabel lblNewLabel_로고 = new JLabel("");
-		lblNewLabel_로고.setIcon(new ImageIcon(UserSignupPane_손요셉.class.getResource("/com/team1/jogiyo/ui/손요셉/image/smile (4) (1).png")));
-		lblNewLabel_로고.setBounds(129, 38, 93, 45);
+		lblNewLabel_로고.setIcon(new ImageIcon("C:\\Program Files\\2022-11-java\\git-reposi\\java-project-team1-jogiyo\\bin\\com\\team1\\jogiyo\\ui\\손요셉\\image\\smile (4).png"));
+		lblNewLabel_로고.setBounds(119, 21, 93, 67);
 		add(lblNewLabel_로고);
 
 	}
