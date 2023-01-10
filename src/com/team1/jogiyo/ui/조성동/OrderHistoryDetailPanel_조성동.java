@@ -137,11 +137,11 @@ public class OrderHistoryDetailPanel_조성동 extends JPanel {
 		ToOrderHistoryBtn.setBounds(123, 524, 97, 23);
 		panel.add(ToOrderHistoryBtn);
 
-		orderProductPrint(loginUser.getM_id());
 		/**************************************/
 		orderService=new OrderService();
 		loginUser = new User("bbbb", null, "csd", "서울", "010-xxxx-xxxx");
 		
+		orderProductPrint(loginUser.getM_id());
 	}
 	
 	private void orderProductPrint(String sUserId) throws Exception {
