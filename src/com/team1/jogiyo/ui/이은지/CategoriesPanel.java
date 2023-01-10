@@ -34,6 +34,7 @@ public class CategoriesPanel extends JPanel {
 		hansikPanel.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				
 				System.out.println("한식리스트로 이동");
 			}
 		});

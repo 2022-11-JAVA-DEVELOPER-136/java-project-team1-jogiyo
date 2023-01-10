@@ -21,20 +21,22 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 public class HansikPanel extends JPanel {
-	/*
-	 * 해당 패널 클릭 시 순대국밥 상세보기로 이동
-	 */
 	ProductService productService;
 	CartService cartService;
 	
 	User loginUser=null;
+	
+	JComboBox hansikComboBox1;
+	JComboBox hansikComboBox2;
+	JComboBox hansikComboBox3;
 	/**
 	 * Create the panel.
 	 */
 	
 	private final JPanel hansikMenuPanel1 = new JPanel();
 	
-	public HansikPanel() {
+	public HansikPanel() throws Exception {
+		
 		setLayout(null);
 		
 		JScrollPane hansikListScrollPane = new JScrollPane();
@@ -76,9 +78,6 @@ public class HansikPanel extends JPanel {
 		hansikMenuPanel1.add(hansikCartLB1);
 		hansikCartLB1.setIcon(new ImageIcon("C:\\Users\\itwill\\Downloads\\cart.png"));
 		
-		/*
-		 * 수량 지정 후 장바구니 추가 시, 장바구니 수량 변경
-		 */
 		JComboBox hansikComboBox1 = new JComboBox();
 		hansikComboBox1.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5"}));
 		hansikComboBox1.setBounds(263, 118, 32, 23);
@@ -122,9 +121,6 @@ public class HansikPanel extends JPanel {
 		hansikCartLB2.setBounds(311, 114, 27, 27);
 		hansikMenuPanel2.add(hansikCartLB2);
 		
-		/*
-		 * 수량 지정 후 장바구니 추가 시, 장바구니 수량 변경
-		 */
 		JComboBox hansikComboBox2 = new JComboBox();
 		hansikComboBox2.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5"}));
 		hansikComboBox2.setBounds(263, 118, 32, 23);
@@ -168,9 +164,6 @@ public class HansikPanel extends JPanel {
 		hansikCartLB3.setBounds(311, 114, 27, 27);
 		hansikMenuPanel3.add(hansikCartLB3);
 		
-		/*
-		 * 수량 지정 후 장바구니 추가 시, 장바구니 수량 변경
-		 */
 		JComboBox hansikComboBox3 = new JComboBox();
 		hansikComboBox3.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5"}));
 		hansikComboBox3.setBounds(263, 118, 32, 23);
@@ -184,7 +177,7 @@ public class HansikPanel extends JPanel {
 	}
 	
 	/*메소드*/
-	private void menuToCart() {
+	private void menuToCart() throws Exception {
 		/* 
 		 * 제품 수량으로 카트에 넣고싶음
 		 * insert cart 필요함
@@ -204,7 +197,8 @@ public class HansikPanel extends JPanel {
 			 시작 
 		 */
 		
-		Cart cartInMenu = new Cart();
+		Cart cartInMenu = new Cart(0, (int)hansikComboBox1.getSelectedItem(), loginUser.getM_id(), new Product(1, "순대국밥", "p_image_1", 9000, "순대가 들어간 국밥", 10));
+		cartService.addCartInProduct(cartInMenu);
 		
 		
 		

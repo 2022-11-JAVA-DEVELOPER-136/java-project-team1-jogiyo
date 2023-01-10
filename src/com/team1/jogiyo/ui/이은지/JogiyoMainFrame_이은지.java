@@ -35,8 +35,9 @@ public class JogiyoMainFrame_이은지 extends JFrame {
 
 	/**
 	 * Create the frame.
+	 * @throws Exception 
 	 */
-	public JogiyoMainFrame_이은지() {
+	public JogiyoMainFrame_이은지() throws Exception {
 		setTitle("JOGIYO");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 399, 700);

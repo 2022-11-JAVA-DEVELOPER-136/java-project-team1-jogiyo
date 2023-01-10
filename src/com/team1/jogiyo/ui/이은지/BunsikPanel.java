@@ -71,9 +71,6 @@ public class BunsikPanel extends JPanel {
 		bunsikCartLB1.setBounds(311, 113, 27, 27);
 		bunsikPanel1.add(bunsikCartLB1);
 		
-		/*
-		 * 수량 지정 후 장바구니 추가 시, 장바구니 수량 변경
-		 */
 		bunsikComboBox1 = new JComboBox();
 		bunsikComboBox1.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5"}));
 		bunsikComboBox1.setBounds(263, 117, 32, 23);
@@ -118,9 +115,6 @@ public class BunsikPanel extends JPanel {
 		bunsikCartLB2.setBounds(311, 113, 27, 27);
 		bunsikPanel2.add(bunsikCartLB2);
 		
-		/*
-		 * 수량 지정 후 장바구니 추가 시, 장바구니 수량 변경
-		 */
 		bunsikComboBox2 = new JComboBox();
 		bunsikComboBox2.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5"}));
 		bunsikComboBox2.setBounds(263, 117, 32, 23);
@@ -165,9 +159,6 @@ public class BunsikPanel extends JPanel {
 		bunsikCartLB3.setBounds(311, 113, 27, 27);
 		bunsikPanel3.add(bunsikCartLB3);
 		
-		/*
-		 * 수량 지정 후 장바구니 추가 시, 장바구니 수량 변경
-		 */
 		bunsikComboBox3 = new JComboBox();
 		bunsikComboBox3.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5"}));
 		bunsikComboBox3.setBounds(263, 117, 32, 23);

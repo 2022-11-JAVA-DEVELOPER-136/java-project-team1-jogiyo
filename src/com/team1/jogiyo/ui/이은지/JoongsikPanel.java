@@ -64,9 +64,6 @@ public class JoongsikPanel extends JPanel {
 		joongsikCartLB1.setBounds(311, 114, 27, 27);
 		joongsikMenuPanel1.add(joongsikCartLB1);
 		
-		/*
-		 * 수량 지정 후 장바구니 추가 시, 장바구니 수량 변경
-		 */
 		JComboBox joongsikComboBox1 = new JComboBox();
 		joongsikComboBox1.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5"}));
 		joongsikComboBox1.setBounds(263, 118, 32, 23);
@@ -110,9 +107,6 @@ public class JoongsikPanel extends JPanel {
 		joongsikCartLB2.setBounds(311, 114, 27, 27);
 		joongsikMenuPanel2.add(joongsikCartLB2);
 		
-		/*
-		 * 수량 지정 후 장바구니 추가 시, 장바구니 수량 변경
-		 */
 		JComboBox joongsikComboBox2 = new JComboBox();
 		joongsikComboBox2.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5"}));
 		joongsikComboBox2.setBounds(263, 118, 32, 23);
@@ -156,9 +150,6 @@ public class JoongsikPanel extends JPanel {
 		joongsikCartLB3.setBounds(311, 114, 27, 27);
 		joongsikMenuPanel3.add(joongsikCartLB3);
 		
-		/*
-		 * 수량 지정 후 장바구니 추가 시, 장바구니 수량 변경
-		 */
 		JComboBox joongsikComboBox3 = new JComboBox();
 		joongsikComboBox3.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5"}));
 		joongsikComboBox3.setBounds(263, 118, 32, 23);
