@@ -96,7 +96,7 @@ public class OrderHistoryTabbedPanel_조성동 extends JPanel {
 		OrderListPrint(loginUser.getM_id());
 	}
 	
-	private void OrderListPrint(String sUserId) throws Exception {
+	public void OrderListPrint(String sUserId) throws Exception {
 		List<Order> orderList =  orderService.list(sUserId);
 		
 		for (Order order : orderList) {

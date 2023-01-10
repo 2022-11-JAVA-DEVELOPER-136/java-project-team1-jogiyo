@@ -129,7 +129,7 @@ public class OrderHistoryDetailTabbedPanel_조성동 extends JPanel {
 		orderProductPrint(loginUser.getM_id());
 	}
 	
-	private void orderProductPrint(String sUserId) throws Exception {
+	public void orderProductPrint(String sUserId) throws Exception {
 		//List<Order> orderList =  orderService.list(sUserId);
 		Order order = orderService.list(sUserId).get(0);
 
