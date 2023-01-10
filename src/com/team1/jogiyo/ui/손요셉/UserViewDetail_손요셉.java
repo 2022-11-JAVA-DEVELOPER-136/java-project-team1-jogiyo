@@ -106,12 +106,12 @@ public class UserViewDetail_손요셉 extends JPanel {
 //		detailPhoneTF.setBounds(89, 336, 146, 21);
 //		add(detailPhoneTF);
 		
-		userViewUpdateBtn = new JButton("수정");
-		userViewUpdateBtn.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				//수정클릭시 SQL 정보 업데이트
-			}
-		});
+//		userViewUpdateBtn = new JButton("수정");
+//		userViewUpdateBtn.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				//수정클릭시 SQL 정보 업데이트
+//			}
+//		});
 		userViewUpdateBtn.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
 		userViewUpdateBtn.setBounds(40, 406, 97, 23);
 		add(userViewUpdateBtn);
@@ -198,9 +198,6 @@ public class UserViewDetail_손요셉 extends JPanel {
 				  updateFormEnable(false);
 			}catch (Exception e1) {
 				System.out.println(e1.getMessage());
-				
-				
-				
 				
 			}
 			
