@@ -117,7 +117,9 @@ public class UserSignupPane_손요셉 extends JPanel {
 				//가입시 SQL로 정보 보내고 가입완료시 로그인창으로 화면전환
 				try {
 					newUser();
-					
+					if(newUser()>0) {
+						JOptionPane.showMessageDialog(null, "가입을 축하드립니다.");
+					}
 				}catch(Exception e1) {
 					
 				}
@@ -145,13 +147,14 @@ public class UserSignupPane_손요셉 extends JPanel {
 		
 	}
 	
-	private void newUser() throws Exception {
+	private int newUser() throws Exception {
 		String m_id = idTF.getText();
 		String m_password = passwordTF.getText();
 		String m_name = nameTF.getText();
 		String m_address = addressTF.getText();
 		String m_phone = phoneTF.getText();
 		System.out.println(m_id);
-		userService.create(new User(m_id,m_password,m_name,m_address,m_phone));
+		int result=userService.create(new User(m_id,m_password,m_name,m_address,m_phone));
+		return result;
 	}
 }
