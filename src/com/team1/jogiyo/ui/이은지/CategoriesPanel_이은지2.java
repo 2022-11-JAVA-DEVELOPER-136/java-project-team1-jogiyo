@@ -15,14 +15,14 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.Cursor;
 
-public class CategoriesPanel extends JPanel {
+public class CategoriesPanel_이은지2 extends JPanel {
 	
 	private JScrollPane categoriesListScrollPane;
 
 	/**
 	 * Create the panel.
 	 */
-	public CategoriesPanel() {
+	public CategoriesPanel_이은지2() {
 		setLayout(null);
 		
 		categoriesListScrollPane = new JScrollPane();

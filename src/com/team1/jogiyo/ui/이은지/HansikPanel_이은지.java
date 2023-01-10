@@ -22,6 +22,10 @@ import java.awt.event.MouseEvent;
 import java.awt.Cursor;
 
 public class HansikPanel_이은지 extends JPanel {
+	/**************************************/
+	/*
+	 * 객체선언
+	 */
 	ProductService productService;
 	CartService cartService;
 	
