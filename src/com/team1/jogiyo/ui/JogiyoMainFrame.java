@@ -251,18 +251,6 @@ public class JogiyoMainFrame extends JFrame {
 		cartService = new CartService();
 		orderService = new OrderService();
 
-	}
-	/*
-	 * 패널 변경 메쏘드
-	 */
-//	public void changePanel(int panel_no) {
-//		if(panel_no==) {
-//			
-//		} else if(panel_no==)
-//		
-//	}
-
-		
 		/*
 		 * JogiyoMainFrame 참조를 Panel에 넘겨줌
 		 */
@@ -274,7 +262,9 @@ public class JogiyoMainFrame extends JFrame {
 		orderHistoryTabbedPanel_조성동.setFrame(this);
 		orderHistoryDetailTabbedPanel_조성동.setFrame(this);	
 	}
-<<<<<<< HEAD
+
+		
+
 	
 	public void changePanel(int panel_no,Object data) {
 		if(panel_no==USERTABBEDPANE_P) {
@@ -325,6 +315,5 @@ public class JogiyoMainFrame extends JFrame {
 	
 	
 }
-=======
-}
->>>>>>> branch 'main' of https://github.com/2022-11-JAVA-DEVELOPER/java-project-team1-jogiyo.git
+
+
