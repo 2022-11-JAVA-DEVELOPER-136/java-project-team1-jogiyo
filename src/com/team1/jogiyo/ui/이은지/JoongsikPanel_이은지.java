@@ -202,11 +202,6 @@ public class JoongsikPanel_이은지 extends JPanel {
 		
 		/**********************생성자 끝************************/
 		
-		/*
-		 * loginMember 객체 생성
-		 */
-		loginUser = new User("asas","1111","가가가","제주","012-345-6789");
-		
 	}
 	
 	/*
