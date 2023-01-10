@@ -36,7 +36,9 @@ public class JoongsikPanel_이은지 extends JPanel {
 	 * loginMember 객체선언
 	 */
 	User loginUser=null;
-	
+	public void setUser(User loginUser) {
+		this.loginUser=loginUser;
+	}
 	
 
 	/**

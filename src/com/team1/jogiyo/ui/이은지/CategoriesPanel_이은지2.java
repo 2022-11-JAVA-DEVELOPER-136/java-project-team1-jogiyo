@@ -8,6 +8,7 @@ import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
 
 import com.team1.jogiyo.ui.*;
+import com.team1.jogiyo.user.User;
 
 import javax.swing.JTextField;
 import java.awt.Font;
@@ -23,11 +24,14 @@ public class CategoriesPanel_이은지2 extends JPanel {
 	/*
 	 * Service 객체선언
 	 */
+	User loginUser=null;
 	JogiyoMainFrame frame;
 	public void setFrame(JogiyoMainFrame frame) {
 		this.frame = frame;
 	}
-	
+	public void setUser(User loginUser) {
+		this.loginUser=loginUser;
+	}
 	
 	private JScrollPane categoriesListScrollPane;
 

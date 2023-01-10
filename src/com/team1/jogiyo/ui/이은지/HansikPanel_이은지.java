@@ -27,6 +27,10 @@ public class HansikPanel_이은지 extends JPanel {
 	public void setFrame(JogiyoMainFrame frame) {
 		this.frame = frame;
 	}
+	User loginUser=null;
+	public void setUser(User loginUser) {
+		this.loginUser=loginUser;
+	}
 
 public class HansikPanel_이은지 extends JPanel {
 	JogiyoMainFrame frame;
