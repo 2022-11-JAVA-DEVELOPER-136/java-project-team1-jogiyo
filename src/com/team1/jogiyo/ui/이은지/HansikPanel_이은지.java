@@ -211,7 +211,7 @@ public class HansikPanel_이은지 extends JPanel {
 		hansikMenuPanel3.add(hansikComboBox3);
 
 		
-		/**********************************************/
+		/**********************생성자 끝************************/
 		loginUser = new User("asas","1111","가가가","제주","012-345-6789");
 		
 		//메소드 사용
