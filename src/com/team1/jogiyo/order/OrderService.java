@@ -101,7 +101,9 @@ public class OrderService {
 		Order newOrders=new Order(0, null, o_tot_price, sUserId);
 		newOrders.setOrderItemList(orderItemList);
 		int rowCount = orderDao.insert(newOrders);
-		cartDao.deleteAll(sUserId);
+		for (int c_no : c_no_int_array) {
+			cartDao.deleteByCartNo(c_no);
+		}
 		return rowCount;
 	}
 	
