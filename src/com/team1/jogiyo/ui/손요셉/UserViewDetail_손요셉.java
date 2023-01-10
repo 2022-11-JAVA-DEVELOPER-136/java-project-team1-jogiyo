@@ -5,7 +5,10 @@ import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import javax.swing.JTextField;
 
+import com.team1.jogiyo.order.OrderService;
 import com.team1.jogiyo.ui.JogiyoMainFrame;
+import com.team1.jogiyo.user.User;
+import com.team1.jogiyo.user.UserService;
 
 import java.awt.Font;
 import javax.swing.JButton;
@@ -15,9 +18,14 @@ import java.awt.event.ActionEvent;
 
 public class UserViewDetail_손요셉 extends JPanel {
 	JogiyoMainFrame frame;
+	User loginUser=null;
 	public void setFrame(JogiyoMainFrame frame) {
 		this.frame = frame;
 	}
+	public void setUser(User loginUser) {
+		this.loginUser=loginUser;
+	}
+	
 	private JTextField txtVjvjdid;
 	private JTextField detailpasswordTF;
 	private JTextField detailIdTF;

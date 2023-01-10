@@ -14,6 +14,7 @@ import com.team1.jogiyo.order.OrderItem;
 import com.team1.jogiyo.order.OrderService;
 import com.team1.jogiyo.product.Product;
 import com.team1.jogiyo.product.ProductService;
+import com.team1.jogiyo.ui.JogiyoMainFrame;
 import com.team1.jogiyo.user.User;
 
 import javafx.scene.control.ComboBox;
@@ -30,19 +31,18 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.UIManager;
 
 public class ProductDetailPanel_이다은 extends JPanel {
+	JogiyoMainFrame frame;
+	User loginUser=null;
+	public void setFrame(JogiyoMainFrame frame) {
+		this.frame = frame;
+	}
+	public void setUser(User loginUser) {
+		this.loginUser=loginUser;
+	}
 	
 	/**
 	 * Create the panel.
 	 */
-	
-	ProductService productService;
-	OrderService orderService;
-	CartService cartService;
-	Product product;
-	OrderItem orderItem;
-	Cart cart;
-	
-	User loginUser;
 	private JComboBox productcomboBox;
 	private JButton orderBtn;
 	private JButton cartBtn;
@@ -135,7 +135,7 @@ public class ProductDetailPanel_이다은 extends JPanel {
 	
 	private void productInOrder() throws Exception {
 		
-			orderService.create(loginUser.getM_id(), product.getP_no(), (int)productcomboBox.getSelectedItem());
+			//orderService.create(loginUser.getM_id(), product.getP_no(), (int)productcomboBox.getSelectedItem());
 	    
 	    // 콤보박스에서 받은 수량 > 오더로 넘기
 		// 수량은 콤보박스에서

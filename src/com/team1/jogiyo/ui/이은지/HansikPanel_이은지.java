@@ -9,6 +9,7 @@ import javax.swing.SwingConstants;
 
 import com.team1.jogiyo.cart.*;
 import com.team1.jogiyo.product.*;
+import com.team1.jogiyo.ui.JogiyoMainFrame;
 import com.team1.jogiyo.user.*;
 
 import javax.swing.JTextField;
@@ -22,10 +23,14 @@ import java.awt.event.MouseEvent;
 import java.awt.Cursor;
 
 public class HansikPanel_이은지 extends JPanel {
-	ProductService productService;
-	CartService cartService;
-	
+	JogiyoMainFrame frame;
 	User loginUser=null;
+	public void setFrame(JogiyoMainFrame frame) {
+		this.frame = frame;
+	}
+	public void setUser(User loginUser) {
+		this.loginUser=loginUser;
+	}
 	
 	JComboBox hansikComboBox1;
 	JComboBox hansikComboBox2;

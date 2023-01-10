@@ -6,6 +6,10 @@ import javax.swing.JEditorPane;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
+
+import com.team1.jogiyo.ui.JogiyoMainFrame;
+import com.team1.jogiyo.user.User;
+
 import javax.swing.JTextField;
 import java.awt.Font;
 import java.awt.SystemColor;
@@ -17,6 +21,14 @@ import java.awt.event.MouseEvent;
 import java.awt.Cursor;
 
 public class BunsikPanel_이은지 extends JPanel {
+	JogiyoMainFrame frame;
+	User loginUser=null;
+	public void setFrame(JogiyoMainFrame frame) {
+		this.frame = frame;
+	}
+	public void setUser(User loginUser) {
+		this.loginUser=loginUser;
+	}
 	private final JPanel bunsikPanel1 = new JPanel();
 	private JLabel bunsikCartLB1;
 	private JComboBox bunsikComboBox1;
