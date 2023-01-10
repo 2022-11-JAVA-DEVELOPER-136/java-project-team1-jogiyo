@@ -7,12 +7,18 @@ import javax.swing.ImageIcon;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
+
+import com.team1.jogiyo.user.UserService;
+
 import javax.swing.JLabel;
 import java.awt.Font;
+import javax.swing.JPasswordField;
 
 
 
 public class UserLoginPane_손요셉 extends JPanel {
+	private UserService userService;
+	
 	private JTextField loginIdTF;
 	private JTextField loginPasswordTF;
 	private JButton loginbutton;
@@ -40,7 +46,7 @@ public class UserLoginPane_손요셉 extends JPanel {
 		signupbutton = new JButton("회원가입");
 		signupbutton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//회원가입으로 화면 전환
+				userLogin();
 			}
 		});
 		signupbutton.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
@@ -78,5 +84,25 @@ public class UserLoginPane_손요셉 extends JPanel {
 		
 	
 		
+	}
+	private void userLogin() {
+		try {
+			String id=loginIdTF.getText();
+			String password=loginPasswordTF.getText();
+			
+			int result=userService.login(id, password);
+			if(result==1) {
+				//로그인 성공시
+				loginIdTF.setText("");
+				loginPasswordTF.setText("");
+			} else {
+				loginIdTF.setSelectionStart(0);
+				loginIdTF.setSelectionEnd(id.length());
+				loginIdTF.requestFocus();
+			}
+			
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
 	}
 }
