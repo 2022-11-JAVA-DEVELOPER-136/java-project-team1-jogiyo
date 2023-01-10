@@ -39,19 +39,14 @@ public class ProductDetailPanel_이다은 extends JPanel {
 	public void setFrame(JogiyoMainFrame frame) {
 		this.frame = frame;
 	}
-	public void setUser(User loginUser) {
+	public void setUser(User loginUser) throws Exception {
 		this.loginUser=loginUser;
 	}
+	public void setProduct(Product product) throws Exception{
+		displayProductDetail(product);
+	}
 	
-	/**
-	 * Create the panel.
-	 */
-	
-	ProductService productService;
-	OrderService orderService;
-	CartService cartService;
-	Product product;
-	Cart cart;
+
 	
 	private JComboBox productcomboBox;
 	private JButton orderBtn;
@@ -62,6 +57,10 @@ public class ProductDetailPanel_이다은 extends JPanel {
 	private JLabel productPriceLB;
 	private JogiyoMainFrame jogiyoMainFrame;
 	
+	/**
+	 * Create the panel.
+	 */
+
 	
 	public ProductDetailPanel_이다은 () throws Exception {
 		setBackground(new Color(255, 255, 255));
@@ -142,22 +141,22 @@ public class ProductDetailPanel_이다은 extends JPanel {
 		
 	
 		/**************************/
-		OrderService orderService = new OrderService();
-		CartService cartService = new CartService();
-
+		
 		
 	}
 	
 	/************************************************/
 	
 	// 제품정보 불러오기
-	public void displayProductDetail(Product product) {
-		productImageLB.setIcon(new ImageIcon(ProductDetailPanel_이다은.class.getResource("/image/" + product.getP_image())));
+	public void displayProductDetail(String p_name) {
+		productImageLB.setIcon(new ImageIcon(ProductDetailPanel_이다은.class.getResource("/image/" + frame.productService.findByName(p_name).getP_image())));
 		productNameLB.setText(product.getP_name()+"");
 		productDescLB.setText(product.getP_desc()+"");
 		productPriceLB.setText(product.getP_price()+"");	
 	}
-	
+	/*
+	 * ===> 은지님 해당 버튼에 productDetailPanel_이다은.displayProductdetail(p_name) 넣어주세요
+	 */
 	
 	private void productInOrder() throws Exception {
 		
@@ -173,6 +172,7 @@ public class ProductDetailPanel_이다은 extends JPanel {
 		frame.cartService.addCartInProduct(productincart);
 		
 	}
+	
 	
 	
 }
