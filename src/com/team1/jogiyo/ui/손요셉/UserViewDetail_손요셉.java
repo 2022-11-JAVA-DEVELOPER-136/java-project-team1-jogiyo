@@ -114,6 +114,7 @@ public class UserViewDetail_손요셉 extends JPanel {
 		detailPhoneTF.setBounds(89, 336, 146, 21);
 		add(detailPhoneTF);
  
+		
 		userViewUpdateBtn = new JButton("수정");
 		userViewUpdateBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
