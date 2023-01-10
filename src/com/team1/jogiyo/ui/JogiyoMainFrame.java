@@ -262,10 +262,6 @@ public class JogiyoMainFrame extends JFrame {
 		orderHistoryTabbedPanel_조성동.setFrame(this);
 		orderHistoryDetailTabbedPanel_조성동.setFrame(this);	
 	}
-
-		
-
-	
 	public void changePanel(int panel_no,Object data) {
 		if(panel_no==USERTABBEDPANE_P) {
 			parentTabbedPanel.setSelectedIndex(0);
