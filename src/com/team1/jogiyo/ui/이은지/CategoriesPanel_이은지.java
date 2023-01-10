@@ -9,6 +9,8 @@ import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import java.awt.Font;
 import java.awt.SystemColor;
+import java.awt.event.*;
+
 import javax.swing.JScrollPane;
 import java.awt.Component;
 
@@ -29,6 +31,13 @@ public class CategoriesPanel_이은지 extends JPanel {
 		 * 해당 패널 클릭 시 한식리스트 보기
 		 */
 		JPanel hansikPanel = new JPanel();
+		hansikPanel.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+				System.out.println("한식리스트로 이동");
+			}
+		});
 		hansikPanel.setBounds(0, 0, 350, 166);
 		add(hansikPanel);
 		hansikPanel.setLayout(null);
@@ -44,6 +53,12 @@ public class CategoriesPanel_이은지 extends JPanel {
 		 * 해당 패널 클릭 시 중식리스트 보기
 		 */
 		JPanel joongsikPanel = new JPanel();
+		joongsikPanel.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				System.out.println("중식리스트로 이동");
+			}
+		});
 		joongsikPanel.setBounds(0, 166, 350, 171);
 		add(joongsikPanel);
 		joongsikPanel.setLayout(null);
@@ -59,6 +74,12 @@ public class CategoriesPanel_이은지 extends JPanel {
 		 * 해당 패널 클릭 시 분식리스트 보기
 		 */
 		JPanel bunsikPanel = new JPanel();
+		bunsikPanel.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				System.out.println("분식리스트로 이동");
+			}
+		});
 		bunsikPanel.setBounds(0, 334, 350, 166);
 		add(bunsikPanel);
 		bunsikPanel.setLayout(null);

@@ -15,7 +15,7 @@ import javax.swing.DefaultComboBoxModel;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class BunsikPanel extends JPanel {
+public class BunsikPanel_이은지 extends JPanel {
 	private final JPanel bunsikPanel1 = new JPanel();
 	private JLabel bunsikCartLB1;
 	private JComboBox bunsikComboBox1;
@@ -27,7 +27,7 @@ public class BunsikPanel extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public BunsikPanel() {
+	public BunsikPanel_이은지() {
 		setLayout(null);
 		
 		/*

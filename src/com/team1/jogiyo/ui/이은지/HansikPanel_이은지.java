@@ -20,7 +20,7 @@ import javax.swing.DefaultComboBoxModel;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class HansikPanel extends JPanel {
+public class HansikPanel_이은지 extends JPanel {
 	ProductService productService;
 	CartService cartService;
 	
@@ -35,13 +35,19 @@ public class HansikPanel extends JPanel {
 	
 	private final JPanel hansikMenuPanel1 = new JPanel();
 	
-	public HansikPanel() throws Exception {
+	public HansikPanel_이은지() throws Exception {
 		
 		setLayout(null);
 		
 		JScrollPane hansikListScrollPane = new JScrollPane();
 		hansikListScrollPane.setBounds(0, 498, 350, -496);
 		add(hansikListScrollPane);
+		hansikMenuPanel1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				System.out.println("순대국밥 상세보기로 이동");
+			}
+		});
 		hansikMenuPanel1.setBounds(0, 0, 350, 167);
 		add(hansikMenuPanel1);
 		hansikMenuPanel1.setLayout(null);
@@ -87,6 +93,12 @@ public class HansikPanel extends JPanel {
 		 * 해당 패널 클릭 시 김치찜 상세보기로 이동
 		 */
 		JPanel hansikMenuPanel2 = new JPanel();
+		hansikMenuPanel2.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				System.out.println("김치찜 상세보기로 이동");
+			}
+		});
 		hansikMenuPanel2.setLayout(null);
 		hansikMenuPanel2.setBounds(0, 166, 350, 167);
 		add(hansikMenuPanel2);
@@ -130,6 +142,12 @@ public class HansikPanel extends JPanel {
 		 * 해당 패널 클릭 시 삼겹살 상세보기로 이동
 		 */
 		JPanel hansikMenuPanel3 = new JPanel();
+		hansikMenuPanel3.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				System.out.println("삼겹살 상세보기로 이동");
+			}
+		});
 		hansikMenuPanel3.setLayout(null);
 		hansikMenuPanel3.setBounds(0, 333, 350, 167);
 		add(hansikMenuPanel3);
@@ -169,8 +187,9 @@ public class HansikPanel extends JPanel {
 		hansikComboBox3.setBounds(263, 118, 32, 23);
 		hansikMenuPanel3.add(hansikComboBox3);
 
+		
 		/**********************************************/
-		loginUser = new User("aaaa","","","","");
+		loginUser = new User("aaaa","1111","가가가","제주","012-345-6789");
 		
 		//메소드 사용
 		menuToCart();

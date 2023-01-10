@@ -91,13 +91,13 @@ public class JogiyoMainFrame_이은지 extends JFrame {
 		CategoriesPanel categoriesPanel = new CategoriesPanel();
 		productTabbedPane.addTab("New tab", null, categoriesPanel, null);
 		
-		HansikPanel hansikPanel = new HansikPanel();
+		HansikPanel_이은지 hansikPanel = new HansikPanel_이은지();
 		productTabbedPane.addTab("New tab", null, hansikPanel, null);
 		
-		JoongsikPanel joongsikPanel = new JoongsikPanel();
+		JoongsikPanel_이은지 joongsikPanel = new JoongsikPanel_이은지();
 		productTabbedPane.addTab("New tab", null, joongsikPanel, null);
 		
-		BunsikPanel bunsikPanel = new BunsikPanel();
+		BunsikPanel_이은지 bunsikPanel = new BunsikPanel_이은지();
 		productTabbedPane.addTab("New tab", null, bunsikPanel, null);
 		
 

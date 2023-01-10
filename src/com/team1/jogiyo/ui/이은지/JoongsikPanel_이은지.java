@@ -15,7 +15,7 @@ import javax.swing.DefaultComboBoxModel;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class JoongsikPanel extends JPanel {
+public class JoongsikPanel_이은지 extends JPanel {
 	/*
 	 * 해당 패널 클릭 시 자장면 상세보기로 이동
 	 */
@@ -24,7 +24,7 @@ public class JoongsikPanel extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public JoongsikPanel() {
+	public JoongsikPanel_이은지() {
 		setLayout(null);
 		
 		JScrollPane joongsikListScrollPane = new JScrollPane();
