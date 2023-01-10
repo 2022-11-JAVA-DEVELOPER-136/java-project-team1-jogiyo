@@ -36,6 +36,12 @@ public class BunsikPanel_이은지 extends JPanel {
 		JScrollPane bunsikListScrollPane = new JScrollPane();
 		bunsikListScrollPane.setBounds(0, 498, 350, -496);
 		add(bunsikListScrollPane);
+		bunsikPanel1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				System.out.println("떡볶이 상세보기로 이동");
+			}
+		});
 		bunsikPanel1.setBounds(0, 0, 350, 167);
 		add(bunsikPanel1);
 		bunsikPanel1.setLayout(null);
@@ -45,17 +51,17 @@ public class BunsikPanel_이은지 extends JPanel {
 		bunsikImageLB1.setIcon(new ImageIcon("C:\\Users\\itwill\\Downloads\\p_image7.jpg"));
 		bunsikPanel1.add(bunsikImageLB1);
 		
-		JLabel hansikNameLB1 = new JLabel("떡볶이");
-		hansikNameLB1.setHorizontalAlignment(SwingConstants.RIGHT);
-		hansikNameLB1.setFont(new Font("맑은 고딕", Font.BOLD, 25));
-		hansikNameLB1.setBounds(229, 35, 109, 30);
-		bunsikPanel1.add(hansikNameLB1);
+		JLabel bunsikNameLB1 = new JLabel("떡볶이");
+		bunsikNameLB1.setHorizontalAlignment(SwingConstants.RIGHT);
+		bunsikNameLB1.setFont(new Font("맑은 고딕", Font.BOLD, 25));
+		bunsikNameLB1.setBounds(229, 35, 109, 30);
+		bunsikPanel1.add(bunsikNameLB1);
 		
-		JLabel hansikPriceLB1 = new JLabel("\\ 5,000");
-		hansikPriceLB1.setHorizontalAlignment(SwingConstants.RIGHT);
-		hansikPriceLB1.setFont(new Font("맑은 고딕", Font.PLAIN, 17));
-		hansikPriceLB1.setBounds(263, 75, 75, 24);
-		bunsikPanel1.add(hansikPriceLB1);
+		JLabel bunsikPriceLB1 = new JLabel("\\ 5,000");
+		bunsikPriceLB1.setHorizontalAlignment(SwingConstants.RIGHT);
+		bunsikPriceLB1.setFont(new Font("맑은 고딕", Font.PLAIN, 17));
+		bunsikPriceLB1.setBounds(263, 75, 75, 24);
+		bunsikPanel1.add(bunsikPriceLB1);
 		
 		/*
 		 * 해당 라벨 클릭 시 장바구니에 상품 추가
@@ -80,6 +86,12 @@ public class BunsikPanel_이은지 extends JPanel {
 		 * 해당 패널 클릭 시 어묵 상세보기로 이동
 		 */
 		JPanel bunsikPanel2 = new JPanel();
+		bunsikPanel2.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				System.out.println("어묵 상세보기로 이동");
+			}
+		});
 		bunsikPanel2.setLayout(null);
 		bunsikPanel2.setBounds(0, 167, 350, 167);
 		add(bunsikPanel2);
@@ -89,17 +101,17 @@ public class BunsikPanel_이은지 extends JPanel {
 		bunsikImageLB2.setBounds(0, 0, 236, 167);
 		bunsikPanel2.add(bunsikImageLB2);
 		
-		JLabel hansikNameLB2 = new JLabel("어묵");
-		hansikNameLB2.setHorizontalAlignment(SwingConstants.RIGHT);
-		hansikNameLB2.setFont(new Font("맑은 고딕", Font.BOLD, 25));
-		hansikNameLB2.setBounds(229, 35, 109, 30);
-		bunsikPanel2.add(hansikNameLB2);
+		JLabel bunsikNameLB2 = new JLabel("어묵");
+		bunsikNameLB2.setHorizontalAlignment(SwingConstants.RIGHT);
+		bunsikNameLB2.setFont(new Font("맑은 고딕", Font.BOLD, 25));
+		bunsikNameLB2.setBounds(229, 35, 109, 30);
+		bunsikPanel2.add(bunsikNameLB2);
 		
-		JLabel hansikPriceLB2 = new JLabel("\\ 4,000");
-		hansikPriceLB2.setHorizontalAlignment(SwingConstants.RIGHT);
-		hansikPriceLB2.setFont(new Font("맑은 고딕", Font.PLAIN, 17));
-		hansikPriceLB2.setBounds(263, 75, 75, 24);
-		bunsikPanel2.add(hansikPriceLB2);
+		JLabel bunsikPriceLB2 = new JLabel("\\ 4,000");
+		bunsikPriceLB2.setHorizontalAlignment(SwingConstants.RIGHT);
+		bunsikPriceLB2.setFont(new Font("맑은 고딕", Font.PLAIN, 17));
+		bunsikPriceLB2.setBounds(263, 75, 75, 24);
+		bunsikPanel2.add(bunsikPriceLB2);
 		
 		/*
 		 * 해당 라벨 클릭 시 장바구니에 상품 추가
@@ -124,6 +136,12 @@ public class BunsikPanel_이은지 extends JPanel {
 		 * 해당 패널 클릭 시 순대 상세보기로 이동
 		 */
 		JPanel bunsikPanel3 = new JPanel();
+		bunsikPanel3.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				System.out.println("순대 상세보기로 이동");
+			}
+		});
 		bunsikPanel3.setLayout(null);
 		bunsikPanel3.setBounds(0, 333, 350, 167);
 		add(bunsikPanel3);
@@ -133,17 +151,17 @@ public class BunsikPanel_이은지 extends JPanel {
 		bunsikImageLB3.setBounds(0, 0, 236, 167);
 		bunsikPanel3.add(bunsikImageLB3);
 		
-		JLabel hansikNameLB3 = new JLabel("순대");
-		hansikNameLB3.setHorizontalAlignment(SwingConstants.RIGHT);
-		hansikNameLB3.setFont(new Font("맑은 고딕", Font.BOLD, 25));
-		hansikNameLB3.setBounds(229, 35, 109, 30);
-		bunsikPanel3.add(hansikNameLB3);
+		JLabel bunsikNameLB3 = new JLabel("순대");
+		bunsikNameLB3.setHorizontalAlignment(SwingConstants.RIGHT);
+		bunsikNameLB3.setFont(new Font("맑은 고딕", Font.BOLD, 25));
+		bunsikNameLB3.setBounds(229, 35, 109, 30);
+		bunsikPanel3.add(bunsikNameLB3);
 		
-		JLabel hansikPriceLB3 = new JLabel("\\ 6,000");
-		hansikPriceLB3.setHorizontalAlignment(SwingConstants.RIGHT);
-		hansikPriceLB3.setFont(new Font("맑은 고딕", Font.PLAIN, 17));
-		hansikPriceLB3.setBounds(263, 75, 75, 24);
-		bunsikPanel3.add(hansikPriceLB3);
+		JLabel bunsikPriceLB3 = new JLabel("\\ 6,000");
+		bunsikPriceLB3.setHorizontalAlignment(SwingConstants.RIGHT);
+		bunsikPriceLB3.setFont(new Font("맑은 고딕", Font.PLAIN, 17));
+		bunsikPriceLB3.setBounds(263, 75, 75, 24);
+		bunsikPanel3.add(bunsikPriceLB3);
 		
 		/*
 		 * 해당 라벨 클릭 시 장바구니에 상품 추가

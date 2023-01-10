@@ -30,6 +30,12 @@ public class JoongsikPanel_이은지 extends JPanel {
 		JScrollPane joongsikListScrollPane = new JScrollPane();
 		joongsikListScrollPane.setBounds(0, 498, 350, -496);
 		add(joongsikListScrollPane);
+		joongsikMenuPanel1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				System.out.println("자장면 상세보기로 이동");
+			}
+		});
 		joongsikMenuPanel1.setBounds(0, 0, 350, 167);
 		add(joongsikMenuPanel1);
 		joongsikMenuPanel1.setLayout(null);
@@ -73,6 +79,12 @@ public class JoongsikPanel_이은지 extends JPanel {
 		 * 해당 패널 클릭 시 삼선짬뽕 상세보기로 이동
 		 */
 		JPanel joongsikMenuPanel2 = new JPanel();
+		joongsikMenuPanel2.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				System.out.println("짬뽕 상세보기로 이동");
+			}
+		});
 		joongsikMenuPanel2.setLayout(null);
 		joongsikMenuPanel2.setBounds(0, 166, 350, 167);
 		add(joongsikMenuPanel2);
@@ -116,6 +128,12 @@ public class JoongsikPanel_이은지 extends JPanel {
 		 * 해당 패널 클릭 시 탕수육 상세보기로 이동
 		 */
 		JPanel joongsikMenuPanel3 = new JPanel();
+		joongsikMenuPanel3.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				System.out.println("탕수육 상세보기로 이동");
+			}
+		});
 		joongsikMenuPanel3.setLayout(null);
 		joongsikMenuPanel3.setBounds(0, 333, 350, 167);
 		add(joongsikMenuPanel3);

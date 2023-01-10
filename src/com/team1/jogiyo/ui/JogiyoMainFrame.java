@@ -25,15 +25,13 @@ import com.team1.jogiyo.ui.조성동.OrderHistoryTabbedPanel_조성동;
 import com.team1.jogiyo.ui.조성동.OrderHistoryDetailTabbedPanel_조성동;
 import com.team1.jogiyo.ui.정유나.CartListTabbedPanel_정유나;
 import com.team1.jogiyo.ui.손요셉.UserSignupPane_손요셉;
-import com.team1.jogiyo.ui.이은지.CategoriesPanel_이은지;
+import com.team1.jogiyo.ui.이은지.*;
+
 import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
 import javax.swing.JSplitPane;
 import javax.swing.JTextPane;
 import javax.swing.JComboBox;
-import com.team1.jogiyo.ui.이은지.HansikPanel;
-import com.team1.jogiyo.ui.이은지.JoongsikPanel;
-import com.team1.jogiyo.ui.이은지.BunsikPanel;
 
 public class JogiyoMainFrame extends JFrame {
 	/****************1. Service 멤버필드 선언********************/
@@ -207,13 +205,13 @@ public class JogiyoMainFrame extends JFrame {
 		categoriesPanel_이은지 = new CategoriesPanel_이은지();
 		productTabbedPanel.addTab("카테고리", null, categoriesPanel_이은지, null);
 		
-		HansikPanel hansikPanel = new HansikPanel();
+		HansikPanel_이은지 hansikPanel = new HansikPanel_이은지();
 		productTabbedPanel.addTab("한식", null, hansikPanel, null);
 		
-		JoongsikPanel joongsikPanel = new JoongsikPanel();
+		JoongsikPanel_이은지 joongsikPanel = new JoongsikPanel_이은지();
 		productTabbedPanel.addTab("중식", null, joongsikPanel, null);
 		
-		BunsikPanel bunsikPanel = new BunsikPanel();
+		BunsikPanel_이은지 bunsikPanel = new BunsikPanel_이은지();
 		productTabbedPanel.addTab("분식", null, bunsikPanel, null);
 		
 		cartListTabbedPanel_정유나 = new CartListTabbedPanel_정유나();
@@ -237,10 +235,10 @@ public class JogiyoMainFrame extends JFrame {
 	/*
 	 * 패널 변경 메쏘드
 	 */
-	public void changePanel(int panel_no) {
-		if(panel_no==) {
-			
-		} else if(panel_no==)
-		
-	}
+//	public void changePanel(int panel_no) {
+//		if(panel_no==) {
+//			
+//		} else if(panel_no==)
+//		
+//	}
 }
