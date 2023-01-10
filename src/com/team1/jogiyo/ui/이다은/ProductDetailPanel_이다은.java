@@ -162,8 +162,8 @@ public class ProductDetailPanel_이다은 extends JPanel {
 		//orderService.create(id, p_no, 수량);
 	}
 	private void productInCart() throws Exception {
-		Cart productincart  = new Cart(0, (int)productcomboBox.getSelectedItem(), loginUser.getM_id(), productService.findByPrimaryKey(0));
-		cartService.addCartInProduct(productincart);
+		Cart productincart  = new Cart(0, (int)productcomboBox.getSelectedItem(), loginUser.getM_id(), frame.productService.findByPrimaryKey(0));
+		frame.cartService.addCartInProduct(productincart);
 		
 	}
 	

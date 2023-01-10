@@ -135,9 +135,9 @@ public class UserViewDetail_손요셉 extends JPanel {
 		
 		/********************************************************/
 		
-	userService=new UserService();
+		frame.userService=new UserService();
 	/*****생성자끝****/
-		loginUser=userService.findUser("aaaa");
+		loginUser=frame.userService.findUser("aaaa");
 		
 		
 //		User findUser= new User(m_id);
@@ -195,8 +195,8 @@ public class UserViewDetail_손요셉 extends JPanel {
 				  String loc = detailAddressTF.getText();
 				  String phone = detailPhoneTF.getText();
 				  User user=new User(id,password,name,loc,phone);
-				  userService.update(user);
-				  loginUser = userService.findUser(id);
+				  frame.userService.update(user);
+				  loginUser = frame.userService.findUser(id);
 				  updateFormEnable(false);
 			}catch (Exception e1) {
 				System.out.println(e1.getMessage());

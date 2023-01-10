@@ -221,8 +221,8 @@ public class HansikPanel_이은지 extends JPanel {
 		/*
 		 * Service객체 생성
 		 */
-		productService = new ProductService();
-		cartService =new CartService();
+		frame.productService = new ProductService();
+		frame.cartService =new CartService();
 		
 		/*
 		 * loginMember 객체 생성
@@ -247,9 +247,9 @@ public class HansikPanel_이은지 extends JPanel {
 	 */
 	private void menuToCart1(String p_name) throws Exception {
 		
-		Cart cartInMenu1 = new Cart(0, (int)hansikComboBox1.getSelectedItem(), loginUser.getM_id(), productService.findByName(p_name));
+		Cart cartInMenu1 = new Cart(0, (int)hansikComboBox1.getSelectedItem(), loginUser.getM_id(), frame.productService.findByName(p_name));
 		if(hansikNameLB1.getText().equals(p_name)) {
-			cartService.addCartInProduct(cartInMenu1);
+			frame.cartService.addCartInProduct(cartInMenu1);
 		}
 	}
 	

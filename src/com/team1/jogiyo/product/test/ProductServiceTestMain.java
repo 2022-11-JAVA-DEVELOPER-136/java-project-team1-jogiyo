@@ -14,9 +14,7 @@ public class ProductServiceTestMain {
 <<<<<<< HEAD
 	//상품 추가	
 	productService.insert(new Product(0,"김치찜aaa","image2.jpg",21000,"설명",10));
-	
-=======
-	Product product;
+
 //	//상품 추가	
 //	productService.insert(new Product(0,"김치찜aaa","image2.jpg",21000,"설명",10));
 //	

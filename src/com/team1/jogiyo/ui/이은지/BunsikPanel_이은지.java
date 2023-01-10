@@ -214,18 +214,6 @@ public class BunsikPanel_이은지 extends JPanel {
 
 		
 		/**********************생성자 끝************************/
-		/*
-		 * Service객체 생성
-		 */
-		productService = new ProductService();
-		cartService =new CartService();
-		
-		/*
-		 * loginMember 객체 생성
-		 */
-		loginUser = new User("asas","1111","가가가","제주","012-345-6789");
-		
-		//메소드 사용
 		
 		
 	}
