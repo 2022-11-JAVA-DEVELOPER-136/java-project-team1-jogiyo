@@ -31,9 +31,9 @@ import javax.swing.SwingConstants;
 import javax.swing.JSplitPane;
 import javax.swing.JTextPane;
 import javax.swing.JComboBox;
-import com.team1.jogiyo.ui.이은지.HansikPanel;
-import com.team1.jogiyo.ui.이은지.JoongsikPanel;
-import com.team1.jogiyo.ui.이은지.BunsikPanel;
+import com.team1.jogiyo.ui.이은지.HansikPanel_이은지;
+import com.team1.jogiyo.ui.이은지.JoongsikPanel_이은지;
+import com.team1.jogiyo.ui.이은지.BunsikPanel_이은지;
 
 public class JogiyoMainFrame extends JFrame {
 	/****************1. Service 멤버필드 선언********************/
@@ -78,8 +78,11 @@ public class JogiyoMainFrame extends JFrame {
 	private JTabbedPane productTabbedPanel;
 	private UserSignupPane_손요셉 userSignupPanel_손요셉;
 	private JPanel panel;
-	private JTextField textField;
-	private JLabel lblNewLabel;
+	private JTextField findProductTL;
+	private JLabel findProductIconLB;
+	private HansikPanel_이은지 hansikPanel_이은지;
+	private JoongsikPanel_이은지 joongsikPanel_이은지;
+	private BunsikPanel_이은지 bunsikPanel_이은지;
 
 	/**
 	 * Launch the application.
@@ -138,13 +141,13 @@ public class JogiyoMainFrame extends JFrame {
 		panel = new JPanel();
 		NorthPanel.add(panel);
 		
-		textField = new JTextField();
-		panel.add(textField);
-		textField.setColumns(10);
+		findProductTL = new JTextField();
+		panel.add(findProductTL);
+		findProductTL.setColumns(10);
 		
-		lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon(JogiyoMainFrame.class.getResource("/images/search_20px.png")));
-		panel.add(lblNewLabel);
+		findProductIconLB = new JLabel("");
+		findProductIconLB.setIcon(new ImageIcon(JogiyoMainFrame.class.getResource("/images/search_20px.png")));
+		panel.add(findProductIconLB);
 		cartLB.setIcon(new ImageIcon(JogiyoMainFrame.class.getResource("/images/3cart_30px.png")));
 		cartLB.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		NorthPanel.add(cartLB);
@@ -217,14 +220,14 @@ public class JogiyoMainFrame extends JFrame {
 		categoriesPanel_이은지 = new CategoriesPanel_이은지();
 		productTabbedPanel.addTab("카테고리", null, categoriesPanel_이은지, null);
 		
-		HansikPanel hansikPanel = new HansikPanel();
-		productTabbedPanel.addTab("한식", null, hansikPanel, null);
+		hansikPanel_이은지 = new HansikPanel_이은지();
+		productTabbedPanel.addTab("한식", null, hansikPanel_이은지, null);
 		
-		JoongsikPanel joongsikPanel = new JoongsikPanel();
-		productTabbedPanel.addTab("중식", null, joongsikPanel, null);
+		joongsikPanel_이은지 = new JoongsikPanel_이은지();
+		productTabbedPanel.addTab("중식", null, joongsikPanel_이은지, null);
 		
-		BunsikPanel bunsikPanel = new BunsikPanel();
-		productTabbedPanel.addTab("분식", null, bunsikPanel, null);
+		bunsikPanel_이은지 = new BunsikPanel_이은지();
+		productTabbedPanel.addTab("분식", null, bunsikPanel_이은지, null);
 		
 		cartListTabbedPanel_정유나 = new CartListTabbedPanel_정유나();
 		parentTabbedPanel.addTab("카트", null, cartListTabbedPanel_정유나, null);
@@ -242,17 +245,5 @@ public class JogiyoMainFrame extends JFrame {
 		productService =new ProductService();
 		cartService = new CartService();
 		orderService = new OrderService();
-
 	}
-	/*
-	 * 패널 변경 메쏘드
-	 */
-	/*
-	public void changePanel(int panel_no) {
-		if(panel_no==) {
-			
-		} else if(panel_no==)
-	
-	}
-	*/
 }
