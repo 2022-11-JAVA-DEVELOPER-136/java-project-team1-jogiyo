@@ -6,6 +6,10 @@ import javax.swing.JEditorPane;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
+
+
+import com.team1.jogiyo.ui.JogiyoMainFrame;
+import com.team1.jogiyo.user.User;
 import javax.swing.JTextField;
 import java.awt.Font;
 import java.awt.SystemColor;
@@ -17,7 +21,17 @@ import java.awt.event.MouseEvent;
 import java.awt.Cursor;
 
 public class BunsikPanel_이은지 extends JPanel {
+
+	JogiyoMainFrame frame;
+	User loginUser=null;
+	public void setFrame(JogiyoMainFrame frame) {
+		this.frame = frame;
+	}
+	public void setUser(User loginUser) {
+		this.loginUser=loginUser;
+	}
 	private final JPanel bunsikPanel1 = new JPanel();
+
 	private JLabel bunsikCartLB1;
 	private JComboBox bunsikComboBox1;
 	private JLabel bunsikCartLB2;
@@ -31,15 +45,18 @@ public class BunsikPanel_이은지 extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public BunsikPanel_이은지() {
+	public BunsikPanel_이은지() throws Exception {
 		setLayout(null);
 		
-		/*
-		 * 해당 패널 클릭 시 떡볶이 상세보기로 이동
-		 */
 		JScrollPane bunsikListScrollPane = new JScrollPane();
 		bunsikListScrollPane.setBounds(0, 498, 350, -496);
 		add(bunsikListScrollPane);
+		
+		//패널생성
+		/*
+		 * 해당 패널 클릭 시 떡볶이 상세보기로 이동
+		 */
+		JPanel bunsikPanel1 = new JPanel();
 		bunsikPanel1.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -195,5 +212,11 @@ public class BunsikPanel_이은지 extends JPanel {
 		bunsikComboBox3.setBounds(263, 117, 32, 23);
 		bunsikPanel3.add(bunsikComboBox3);
 
+		
+		/**********************생성자 끝************************/
+		
+		
 	}
+	
+	
 }

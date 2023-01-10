@@ -6,6 +6,11 @@ import javax.swing.JEditorPane;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
+
+import com.team1.jogiyo.cart.*;
+import com.team1.jogiyo.product.*;
+import com.team1.jogiyo.user.*;
+
 import javax.swing.JTextField;
 import java.awt.Font;
 import java.awt.SystemColor;
@@ -17,20 +22,32 @@ import java.awt.event.MouseEvent;
 import java.awt.Cursor;
 
 public class JoongsikPanel_이은지 extends JPanel {
+	/**************************************/
 	/*
-	 * 해당 패널 클릭 시 자장면 상세보기로 이동
+	 * Service 객체선언
 	 */
-	private final JPanel joongsikMenuPanel1 = new JPanel();
+	ProductService productService;
+	CartService cartService;
+	
+	/*
+	 * loginMember 객체선언
+	 */
+	User loginUser=null;
+	
+	
 
 	/**
 	 * Create the panel.
 	 */
-	public JoongsikPanel_이은지() {
+	public JoongsikPanel_이은지() throws Exception {
 		setLayout(null);
 		
 		JScrollPane joongsikListScrollPane = new JScrollPane();
 		joongsikListScrollPane.setBounds(0, 498, 350, -496);
 		add(joongsikListScrollPane);
+		
+		//패널생성
+		JPanel joongsikMenuPanel1 = new JPanel();
 		joongsikMenuPanel1.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -183,5 +200,22 @@ public class JoongsikPanel_이은지 extends JPanel {
 		joongsikComboBox3.setBounds(263, 118, 32, 23);
 		joongsikMenuPanel3.add(joongsikComboBox3);
 
+		
+		/**********************생성자 끝************************/
+		/*
+		 * Service객체 생성
+		 */
+		productService = new ProductService();
+		cartService =new CartService();
+		
+		/*
+		 * loginMember 객체 생성
+		 */
+		loginUser = new User("asas","1111","가가가","제주","012-345-6789");
+		
+		//메소드 사용
+		
 	}
+	
+	
 }
