@@ -42,8 +42,9 @@ public class UserMainFrame_손요셉 extends JFrame {
 
 	/**
 	 * Create the frame.
+	 * @throws Exception 
 	 */
-	public UserMainFrame_손요셉() {
+	public UserMainFrame_손요셉() throws Exception {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 400, 560);
 		contentPane = new JPanel();

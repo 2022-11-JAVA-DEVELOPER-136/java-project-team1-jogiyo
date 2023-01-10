@@ -6,6 +6,8 @@ public class User {
 	private String m_name;
 	private String m_loc;
 	private String m_phone;
+	public User() {
+	}
 	
 	public User(String m_id, String m_password, String m_name, String m_loc, String m_phone) {
 		super();

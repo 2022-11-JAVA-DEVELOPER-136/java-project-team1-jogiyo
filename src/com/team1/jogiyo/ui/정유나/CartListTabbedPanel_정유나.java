@@ -55,7 +55,6 @@ public class CartListTabbedPanel_정유나 extends JPanel {
 	private JButton orderAllBtn;
 	private JButton orderSelectionBtn;
 	private JLabel totalOrderPriceLB;
-	
 
 	/**
 	 * Create the panel.
@@ -173,18 +172,16 @@ public class CartListTabbedPanel_정유나 extends JPanel {
 		
 		
 		/*****************생성자 작성************************/
-		cartService = new CartService();
-		productService=new ProductService();
-		loginUser=new User("bbbb",null,null,null,null);
-		cartListDisplay(loginUser.getM_id());
+		frame.userService.findUser(frame.loginUser.getM_id());
+		cartListDisplay(frame.loginUser.getM_id());
 	}
 	/****************생성자 끝**************/
 	//====> 오류오류!!!!!!!!!!!!!!
 	public void cartListDisplay(String sUserId) throws Exception{
 		cartListPanel.removeAll();
-		List<Cart> cartList=cartService.cartListByUserId(sUserId);
+		List<Cart> cartList=frame.cartService.cartListByUserId(sUserId);
 		for (Cart cart : cartList) {
-			Product product=productService.findByPrimaryKey(cart.getProduct().getP_no());
+			Product product=frame.productService.findByPrimaryKey(cart.getProduct().getP_no());
 			
 			cartPanel = new JPanel();
 			cartPanel.setPreferredSize(new Dimension(300, 80));
@@ -257,7 +254,7 @@ public class CartListTabbedPanel_정유나 extends JPanel {
 	}
 	public void orderAllInCart(String sUserId) throws Exception{
 		try {
-			orderService.create(sUserId);
+			frame.orderService.create(sUserId);
 		} catch (Exception e1) {
 			System.out.println(e1.getMessage());
 		}

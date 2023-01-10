@@ -10,10 +10,10 @@ public class UserDaoTestMain {
 
 	public static void main(String[] args) throws Exception {
 		
-		UserDao userDao = new UserDao();
+//		UserDao userDao = new UserDao();
 //		
 //		System.out.println("insert"+userDao.insert(
-//								new User("hhhh","1234","송준기","구로","010-2134-2142")));
+//								new User("zxcv","1234","송준김","구로","010-2134-2142")));
 //								
 //		
 //		System.out.println("update"+userDao.update(
@@ -23,7 +23,7 @@ public class UserDaoTestMain {
 //		System.out.println("delete"+userDao.delete("gggg"));
 //		
 //		
-		System.out.println("findByPrimaryKey"+userDao.findByPrimaryKey("ffff"));
+//		System.out.println("findByPrimaryKey"+userDao.findByPrimaryKey("ffff"));
 //		
 //		System.out.println("findByName"+userDao.findByName("조성동"));
 //		
@@ -31,12 +31,19 @@ public class UserDaoTestMain {
 //		List<User> userList = userDao.findAll();
 //		System.out.println(userList);
 //		
-		
+/*		
 		UserService userService=new UserService();
-		int result = userService.create(new User("kjljlkkj","1234","유재석","조기요","010-1241-1240"));
+		//int result = userService.create(new User("kjljlkkj","1234","유재석","조기요","010-1241-1240"));
 		
-		System.out.println(result);
+<<<<<<< HEAD
+		//System.out.println(result);
+		
+		int result = userService.update(new User("aaaa", "13413", "김지수", "ㅇ어", "0105464"));
+		 System.out.println(result);
 
+=======
+		System.out.println(result);
+*/
 	}
 
 }
