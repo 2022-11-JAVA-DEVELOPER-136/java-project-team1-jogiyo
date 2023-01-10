@@ -24,7 +24,7 @@ public class UserSignupPane_손요셉 extends JPanel {
 	 * Create the panel.
 	 */
 	public UserSignupPane_손요셉() {
-		setBackground(Color.WHITE);
+		setBackground(new Color(255, 255, 255));
 		setLayout(null);
 		
 		JLabel lblNewLabel_ID = new JLabel("아이디");
@@ -99,11 +99,10 @@ public class UserSignupPane_손요셉 extends JPanel {
 		cancelBtn.setBounds(199, 412, 97, 23);
 		add(cancelBtn);
 		
-		JLabel lblNewLabel_로고 = new JLabel("");
-		lblNewLabel_로고.setIcon(new ImageIcon("C:\\Program Files\\2022-11-java\\git-reposi\\java-project-team1-jogiyo\\bin\\com\\team1\\jogiyo\\ui\\손요셉\\image\\smile (4).png"));
-		lblNewLabel_로고.setBounds(119, 21, 93, 67);
-		add(lblNewLabel_로고);
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon(UserSignupPane_손요셉.class.getResource("/com/team1/jogiyo/ui/손요셉/image/조기요.png")));
+		lblNewLabel.setBounds(127, 26, 97, 40);
+		add(lblNewLabel);
 
 	}
-
 }
