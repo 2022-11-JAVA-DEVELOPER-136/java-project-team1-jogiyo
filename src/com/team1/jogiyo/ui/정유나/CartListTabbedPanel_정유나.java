@@ -39,7 +39,6 @@ public class CartListTabbedPanel_정유나 extends JPanel {
 	public void setFrame(JogiyoMainFrame frame) {
 		this.frame = frame;
 	}
-	private JScrollPane scrollPane;
 	private JPanel cartListPanel;
 	private JPanel cartPanel;
 	private JLabel productImageLB;
@@ -65,13 +64,13 @@ public class CartListTabbedPanel_정유나 extends JPanel {
 	public CartListTabbedPanel_정유나() throws Exception {
 		setLayout(null);
 		
-		scrollPane = new JScrollPane();
-		scrollPane.setBounds(12, 36, 326, 372);
-		add(scrollPane);
+		JScrollPane cartScrollPane = new JScrollPane();
+		cartScrollPane.setBounds(12, 36, 326, 372);
+		add(cartScrollPane);
 		
 		cartListPanel = new JPanel();
 		cartListPanel.setPreferredSize(new Dimension(10, 1000));
-		scrollPane.setViewportView(cartListPanel);
+		cartScrollPane.setViewportView(cartListPanel);
 		
 		cartPanel = new JPanel();
 		cartPanel.setPreferredSize(new Dimension(300, 80));
