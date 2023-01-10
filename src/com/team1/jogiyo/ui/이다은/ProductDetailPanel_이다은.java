@@ -27,7 +27,10 @@ import java.util.List;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
+import javax.swing.border.LineBorder;
 import javax.swing.UIManager;
+import java.awt.SystemColor;
+import java.awt.Cursor;
 
 public class ProductDetailPanel_이다은 extends JPanel {
 	
@@ -50,8 +53,9 @@ public class ProductDetailPanel_이다은 extends JPanel {
 	
 	
 	public ProductDetailPanel_이다은 () throws Exception {
-		setBackground(new Color(192, 192, 192));
+		setBackground(new Color(255, 255, 255));
 		setLayout(null);
+		
 		
 		JLabel productImageLB = new JLabel("");
 		productImageLB.setIcon(new ImageIcon(ProductDetailPanel_이다은.class.getResource("/images/productDetail/p_no_01.jpg")));
@@ -66,9 +70,10 @@ public class ProductDetailPanel_이다은 extends JPanel {
 		add(productNameLB);
 		
 		JLabel productDescLB = new JLabel("순대가 들어간 국밥");
+		productDescLB.setBackground(new Color(255, 255, 255));
 		productDescLB.setHorizontalAlignment(SwingConstants.CENTER);
 		productDescLB.setFont(new Font("굴림", Font.PLAIN, 15));
-		productDescLB.setBounds(0, 271, 350, 25);
+		productDescLB.setBounds(0, 271, 350, 47);
 		add(productDescLB);
 		
 		//선택한 수량 만큼 바로주문 and 장바구니에 담김
@@ -76,7 +81,7 @@ public class ProductDetailPanel_이다은 extends JPanel {
 		productcomboBox = new JComboBox();
 		productcomboBox.setToolTipText("");
 		productcomboBox.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5"}));
-		productcomboBox.setBounds(277, 388, 32, 23);
+		productcomboBox.setBounds(268, 388, 41, 23);
 		add(productcomboBox);
 		
 		
@@ -90,6 +95,8 @@ public class ProductDetailPanel_이다은 extends JPanel {
 		
 		//클릭 시 주문 페이지로 이동
 		orderBtn = new JButton("바로주문");
+		orderBtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		orderBtn.setBackground(new Color(255, 255, 255));
 		orderBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// 오더패널로전환
@@ -105,6 +112,9 @@ public class ProductDetailPanel_이다은 extends JPanel {
 		
 		//클릭 시 장바구니로 이동
 		cartBtn = new JButton("장바구니");
+		cartBtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		cartBtn.setForeground(new Color(0, 0, 0));
+		cartBtn.setBackground(new Color(240, 240, 240));
 		cartBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// 카트패널로전환
@@ -122,6 +132,7 @@ public class ProductDetailPanel_이다은 extends JPanel {
 		/**************************/
 		OrderService orderService = new OrderService();
 		CartService cartService = new CartService();
+
 		
 	}
 	
@@ -132,6 +143,14 @@ public class ProductDetailPanel_이다은 extends JPanel {
 		
 	}
 	*/
+	
+	
+	public void displayProductDetail(Product product) {
+		JLabel productImageLB;
+		}
+	
+	
+	
 	
 	private void productInOrder() throws Exception {
 		
