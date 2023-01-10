@@ -35,27 +35,34 @@ import java.awt.Cursor;
 
 public class ProductDetailPanel_이다은 extends JPanel {
 	JogiyoMainFrame frame;
-	User loginUser=null;
+	User loginUser = null;
 	public void setFrame(JogiyoMainFrame frame) {
 		this.frame = frame;
 	}
-	public void setUser(User loginUser) {
+	public void setUser(User loginUser) throws Exception {
 		this.loginUser=loginUser;
 	}
+	public void setProduct(String p_name) throws Exception{
+		displayProductDetail(p_name);
+	}
+	
+	private JComboBox productcomboBox;
+	private JButton orderBtn;
+	private JButton cartBtn;
+	private JLabel productImageLB;
+	private JLabel productNameLB;
+	private JLabel productDescLB;
+	private JLabel productPriceLB;
+	private JogiyoMainFrame jogiyoMainFrame;
 	
 	/**
 	 * Create the panel.
 	 */
-	private JComboBox productcomboBox;
-	private JButton orderBtn;
-	private JButton cartBtn;
-	
-	
+
 	
 	public ProductDetailPanel_이다은 () throws Exception {
 		setBackground(new Color(255, 255, 255));
 		setLayout(null);
-		
 		
 		JLabel productImageLB = new JLabel("");
 		productImageLB.setIcon(new ImageIcon(ProductDetailPanel_이다은.class.getResource("/images/productDetail/p_no_01.jpg")));
@@ -75,6 +82,13 @@ public class ProductDetailPanel_이다은 extends JPanel {
 		productDescLB.setFont(new Font("굴림", Font.PLAIN, 15));
 		productDescLB.setBounds(0, 271, 350, 47);
 		add(productDescLB);
+		
+		JLabel productPriceLB = new JLabel("9000");
+		productPriceLB.setHorizontalAlignment(SwingConstants.RIGHT);
+		productPriceLB.setFont(new Font("굴림", Font.BOLD, 15));
+		productPriceLB.setBounds(208, 340, 101, 15);
+		add(productPriceLB);
+		
 		
 		//선택한 수량 만큼 바로주문 and 장바구니에 담김
 		
@@ -114,7 +128,7 @@ public class ProductDetailPanel_이다은 extends JPanel {
 		cartBtn = new JButton("장바구니");
 		cartBtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		cartBtn.setForeground(new Color(0, 0, 0));
-		cartBtn.setBackground(new Color(240, 240, 240));
+		cartBtn.setBackground(new Color(255, 255, 255));
 		cartBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// 카트패널로전환
@@ -123,34 +137,28 @@ public class ProductDetailPanel_이다은 extends JPanel {
 		cartBtn.setBounds(208, 460, 97, 23);
 		add(cartBtn);
 		
-		JLabel productPriceLB = new JLabel("9000");
-		productPriceLB.setHorizontalAlignment(SwingConstants.RIGHT);
-		productPriceLB.setFont(new Font("굴림", Font.BOLD, 15));
-		productPriceLB.setBounds(208, 340, 101, 15);
-		add(productPriceLB);
-		
+	
 		/**************************/
-		OrderService orderService = new OrderService();
-		CartService cartService = new CartService();
-
+		
 		
 	}
 	
 	/************************************************/
 	
-	/* 제품 넣는 메소드~
-	private void insertProductDetail(Product p_no) {
-		
-	}
-	*/
-	
-	
-	public void displayProductDetail(Product product) {
-		JLabel productImageLB;
+	// 제품정보 불러오기
+	public void displayProductDetail(String p_name) {
+		try {
+		productImageLB.setIcon(new ImageIcon(ProductDetailPanel_이다은.class.getResource("/image/" + frame.productService.findByName(p_name).getP_image())));
+			productNameLB.setText(frame.productService.findByName(p_name).getP_name()+"");
+		productDescLB.setText(frame.productService.findByName(p_name).getP_desc()+"");
+		productPriceLB.setText(frame.productService.findByName(p_name).getP_price()+"");	
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
-	
-	
-	
+	}
+	/*
+	 * ===> 은지님 해당 버튼에 productDetailPanel_이다은.displayProductdetail(p_name) 넣어주세요
+	 */
 	
 	private void productInOrder() throws Exception {
 		
@@ -166,6 +174,7 @@ public class ProductDetailPanel_이다은 extends JPanel {
 		frame.cartService.addCartInProduct(productincart);
 		
 	}
+	
 	
 	
 }

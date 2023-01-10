@@ -37,6 +37,7 @@ import javax.swing.SwingConstants;
 import javax.swing.JSplitPane;
 import javax.swing.JTextPane;
 import javax.swing.JComboBox;
+import com.team1.jogiyo.ui.이다은.ProductDetailPanel_이다은;
 
 
 public class JogiyoMainFrame extends JFrame {
@@ -78,7 +79,6 @@ public class JogiyoMainFrame extends JFrame {
 	private CartListTabbedPanel_정유나 cartListTabbedPanel_정유나;
 	private OrderHistoryTabbedPanel_조성동 orderHistoryTabbedPanel_조성동;
 	private OrderHistoryDetailTabbedPanel_조성동 orderHistoryDetailTabbedPanel_조성동;
-	private CategoriesPanel_이은지 categoriesPanel_이은지;
 	private JTabbedPane parentTabbedPanel;
 	private JTabbedPane productTabbedPanel;
 	private UserSignupPane_손요셉 userSignupPanel_손요셉;
@@ -86,6 +86,11 @@ public class JogiyoMainFrame extends JFrame {
 	private JTextField findProductTL;
 	private JLabel findProductIconLB;
 	private UserViewDetail_손요셉 userViewDetail_손요셉;
+	private CategoriesPanel_이은지2 categoriesPanel_이은지2;
+	private ProductDetailPanel_이다은 productDetailPanel_이다은;
+	private HansikPanel_이은지 hansikPanel_이은지;
+	private JoongsikPanel_이은지 joongsikPanel_이은지;
+	private BunsikPanel_이은지 bunsikPanel_이은지;
 	
 
 	/**
@@ -238,8 +243,20 @@ public class JogiyoMainFrame extends JFrame {
 		productTabbedPanel = new JTabbedPane(JTabbedPane.TOP);
 		parentTabbedPanel.addTab("제품", null, productTabbedPanel, null);
 		
-		categoriesPanel_이은지 = new CategoriesPanel_이은지();
-		productTabbedPanel.addTab("카테고리", null, categoriesPanel_이은지, null);
+		categoriesPanel_이은지2 = new CategoriesPanel_이은지2();
+		productTabbedPanel.addTab("카테고리", null, categoriesPanel_이은지2, null);
+		
+		hansikPanel_이은지 = new HansikPanel_이은지();
+		productTabbedPanel.addTab("한식", null, hansikPanel_이은지, null);
+		
+		joongsikPanel_이은지 = new JoongsikPanel_이은지();
+		productTabbedPanel.addTab("중식", null, joongsikPanel_이은지, null);
+		
+		bunsikPanel_이은지 = new BunsikPanel_이은지();
+		productTabbedPanel.addTab("분식", null, bunsikPanel_이은지, null);
+		
+		productDetailPanel_이다은 = new ProductDetailPanel_이다은();
+		productTabbedPanel.addTab("상세설명", null, productDetailPanel_이다은, null);
 		
 		cartListTabbedPanel_정유나 = new CartListTabbedPanel_정유나();
 		parentTabbedPanel.addTab("카트", null, cartListTabbedPanel_정유나, null);
@@ -269,7 +286,6 @@ public class JogiyoMainFrame extends JFrame {
 		userMainPanel_손요셉.setFrame(this);
 		userSignupPanel_손요셉.setFrame(this);
 		userViewDetail_손요셉.setFrame(this);
-		categoriesPanel_이은지.setFrame(this);
 		orderHistoryTabbedPanel_조성동.setFrame(this);
 		orderHistoryDetailTabbedPanel_조성동.setFrame(this);
 
@@ -311,6 +327,11 @@ public class JogiyoMainFrame extends JFrame {
 			parentTabbedPanel.setSelectedIndex(1);
 			productTabbedPanel.setSelectedIndex(3);
 		} else if(panel_no==PRODUCTDETAILPANE){
+			try {
+				transferHansikProduct((Product)data);
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
+			}
 			parentTabbedPanel.setSelectedIndex(1);
 			productTabbedPanel.setSelectedIndex(4);
 		} else if(panel_no==CARTTABBEDPANE_P){
@@ -333,12 +354,21 @@ public class JogiyoMainFrame extends JFrame {
 		userMainPanel_손요셉.setUser(user);
 		userSignupPanel_손요셉.setUser(user);
 		userViewDetail_손요셉.setUser(user);
-		categoriesPanel_이은지.setUser(user);
+		categoriesPanel_이은지2.setUser(user);
+		hansikPanel_이은지.setUser(user);
+		joongsikPanel_이은지.setUser(user);
+		bunsikPanel_이은지.setUser(user);
+		cartListTabbedPanel_정유나.setUser(user);
 		orderHistoryTabbedPanel_조성동.setUser(user);
 		orderHistoryDetailTabbedPanel_조성동.setUser(user);
 	}
 	
+	
 	public void transferOrder(Order order) throws Exception {
 		orderHistoryDetailTabbedPanel_조성동.setOrder(order);
 	}
+	
+	public void transferHansikProduct(Product product) throws Exception{
+		//productDetailPanel_이다은.setProduct(product);
+	}		//한식,중식,분식
 }

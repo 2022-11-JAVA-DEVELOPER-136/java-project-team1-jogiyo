@@ -26,7 +26,6 @@ public class UserLoginPane_손요셉 extends JPanel {
 	public void setFrame(JogiyoMainFrame frame) {
 		this.frame = frame;
 	}
-	
 	private JTextField loginIdTF;
 	private JTextField loginPasswordTF;
 	private JButton loginbutton;
@@ -51,7 +50,6 @@ public class UserLoginPane_손요셉 extends JPanel {
 				
 				try {
 					if(userLogin()==1) {
-						System.out.println("성공");
 						frame.changePanel(21,loginProcess(loginIdTF.getText()));
 					}
 				} catch (Exception e1) {

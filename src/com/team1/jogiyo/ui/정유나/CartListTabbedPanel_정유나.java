@@ -45,6 +45,7 @@ public class CartListTabbedPanel_정유나 extends JPanel {
 		cartListDisplay(loginUser.getM_id());
 	}
 	private JPanel cartListPanel;
+	
 	private JPanel cartPanel;
 	private JLabel productImageLB;
 	private JLabel productDetailLB;
@@ -169,12 +170,9 @@ public class CartListTabbedPanel_정유나 extends JPanel {
 		totalOrderPriceLB = new JLabel("");
 		totalOrderPriceLB.setBounds(163, 445, 135, 15);
 		add(totalOrderPriceLB);
-		
-		
-		
-		/*****************생성자 작성************************/
-
 	}
+		
+		
 	/****************생성자 끝**************/
 	//====> 오류오류!!!!!!!!!!!!!!
 	public void cartListDisplay(String sUserId) throws Exception{
