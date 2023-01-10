@@ -70,7 +70,7 @@ public class JogiyoMainFrame extends JFrame {
 	private JLabel cartLB;
 	private JLabel userInfoLB;
 	private JLabel homeLB;
-	private JLabel orderLB;
+	private JLabel exitLB;
 	private UserMainPane_손요셉 userMainPanel_손요셉;
 	private CartListTabbedPanel_정유나 cartListTabbedPanel_정유나;
 	private OrderHistoryTabbedPanel_조성동 orderHistoryTabbedPanel_조성동;
@@ -127,7 +127,7 @@ public class JogiyoMainFrame extends JFrame {
 		representLB.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				userTabbedPanel.setSelectedComponent(categoriesPanel_이은지);
+				changePanel(11, null);
 			}
 		});
 		NorthPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 30, 5));
@@ -139,7 +139,7 @@ public class JogiyoMainFrame extends JFrame {
 		cartLB.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				userTabbedPanel.setSelectedComponent(cartListTabbedPanel_정유나);
+				changePanel(3, null);
 			}
 		});
 		
@@ -166,7 +166,7 @@ public class JogiyoMainFrame extends JFrame {
 		userInfoLB.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				
+				changePanel(14, null);
 			}
 		});
 		userInfoLB.setHorizontalTextPosition(SwingConstants.CENTER);
@@ -180,7 +180,7 @@ public class JogiyoMainFrame extends JFrame {
 		homeLB.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				userTabbedPanel.setSelectedComponent(userMainPanel_손요셉);
+				changePanel(21, null);
 			}
 		});
 		homeLB.setHorizontalTextPosition(SwingConstants.CENTER);
@@ -189,19 +189,19 @@ public class JogiyoMainFrame extends JFrame {
 		homeLB.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		SouthPanel.add(homeLB);
 		
-		orderLB = new JLabel("");
-		orderLB.addMouseListener(new MouseAdapter() {
+		exitLB = new JLabel("");
+		exitLB.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				
 				System.exit(0);
 			}
 		});
-		orderLB.setVerticalTextPosition(SwingConstants.BOTTOM);
-		orderLB.setHorizontalTextPosition(SwingConstants.CENTER);
-		orderLB.setIcon(new ImageIcon(JogiyoMainFrame.class.getResource("/images/50exit.png")));
-		orderLB.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		SouthPanel.add(orderLB);
+		exitLB.setVerticalTextPosition(SwingConstants.BOTTOM);
+		exitLB.setHorizontalTextPosition(SwingConstants.CENTER);
+		exitLB.setIcon(new ImageIcon(JogiyoMainFrame.class.getResource("/images/50exit.png")));
+		exitLB.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		SouthPanel.add(exitLB);
 		
 		parentTabbedPanel = new JTabbedPane(JTabbedPane.TOP);
 		contentPane.add(parentTabbedPanel, BorderLayout.CENTER);
@@ -213,7 +213,7 @@ public class JogiyoMainFrame extends JFrame {
 		userMainPanel_손요셉.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				userTabbedPanel.setSelectedComponent(userLoginPanel_손요셉);
+				changePanel(12, null);
 			}
 		});
 		userTabbedPanel.addTab("회원메인", null, userMainPanel_손요셉, null);
@@ -263,39 +263,33 @@ public class JogiyoMainFrame extends JFrame {
 		orderHistoryDetailTabbedPanel_조성동.setFrame(this);	
 	}
 	public void changePanel(int panel_no,Object data) {
-		if(panel_no==USERTABBEDPANE_P) {
+		if(panel_no==USERMAINPANE){
 			parentTabbedPanel.setSelectedIndex(0);
 			userTabbedPanel.setSelectedIndex(0);
-		} else if(panel_no==USERMAINPANE){
-			parentTabbedPanel.setSelectedIndex(0);
-			userTabbedPanel.setSelectedIndex(1);
 		} else if(panel_no==USERLOGINPANE){
 			parentTabbedPanel.setSelectedIndex(0);
-			userTabbedPanel.setSelectedIndex(2);
+			userTabbedPanel.setSelectedIndex(1);
 		} else if(panel_no==USERSIGNUPPANE){
 			parentTabbedPanel.setSelectedIndex(0);
-			userTabbedPanel.setSelectedIndex(3);
+			userTabbedPanel.setSelectedIndex(2);
 		} else if(panel_no==USERVIEWDETAILPANE){
 			parentTabbedPanel.setSelectedIndex(0);
-			userTabbedPanel.setSelectedIndex(4);
-		} else if(panel_no==PRODUCTTABBEDPANE_P){
-			parentTabbedPanel.setSelectedIndex(1);
-			productTabbedPanel.setSelectedIndex(0);
+			userTabbedPanel.setSelectedIndex(3);
 		} else if(panel_no==PRODUCTCATEGORYPANE){
 			parentTabbedPanel.setSelectedIndex(1);
-			productTabbedPanel.setSelectedIndex(1);
+			productTabbedPanel.setSelectedIndex(0);
 		} else if(panel_no==HANSIKPANE){
 			parentTabbedPanel.setSelectedIndex(1);
-			productTabbedPanel.setSelectedIndex(2);
+			productTabbedPanel.setSelectedIndex(1);
 		} else if(panel_no==JOONGSIKPANE){
 			parentTabbedPanel.setSelectedIndex(1);
-			productTabbedPanel.setSelectedIndex(3);
+			productTabbedPanel.setSelectedIndex(2);
 		} else if(panel_no==BUNSIKPANE){
 			parentTabbedPanel.setSelectedIndex(1);
-			productTabbedPanel.setSelectedIndex(4);
+			productTabbedPanel.setSelectedIndex(3);
 		} else if(panel_no==PRODUCTDETAILPANE){
 			parentTabbedPanel.setSelectedIndex(1);
-			productTabbedPanel.setSelectedIndex(5);
+			productTabbedPanel.setSelectedIndex(4);
 		} else if(panel_no==CARTTABBEDPANE_P){
 			parentTabbedPanel.setSelectedIndex(2);
 		} else if(panel_no==ORDERTABBEDPANE_P){

@@ -33,13 +33,6 @@ public class UserSignupPane_손요셉 extends JPanel {
 	private JButton cancelBtn;
 	private JButton idcheakBtn;
 
-	/******** userService 객체선언 ****/
-	UserService userService;
-	
-	
-	
-	
-	
 	
 	/**
 	 * Create the panel.
@@ -97,9 +90,10 @@ public class UserSignupPane_손요셉 extends JPanel {
 		idcheakBtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		idcheakBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				System.out.println("눌림");
 					try {
 					String m_id = idTF.getText();
-					boolean isSuccess = userService.isDuplicateId(m_id);
+					boolean isSuccess = frame.userService.isDuplicateId(m_id);
 					if(isSuccess==true) {
 						JOptionPane.showMessageDialog(null, "사용 가능한 아이디입니다");
 						passwordTF.requestFocus();
@@ -124,9 +118,10 @@ public class UserSignupPane_손요셉 extends JPanel {
 					newUser();
 					if(newUser()>0) {
 						JOptionPane.showMessageDialog(null, "가입을 축하드립니다.");
+						frame.changePanel(12, null);
 					}
 				}catch(Exception e1) {
-					
+					System.out.println(e1.getMessage());
 				}
 			}
 		});
@@ -161,7 +156,7 @@ public class UserSignupPane_손요셉 extends JPanel {
 		String m_address = addressTF.getText();
 		String m_phone = phoneTF.getText();
 		System.out.println(m_id);
-		int result=userService.create(new User(m_id,m_password,m_name,m_address,m_phone));
+		int result=frame.create(new User(m_id,m_password,m_name,m_address,m_phone));
 		return result;
 	}
 }
