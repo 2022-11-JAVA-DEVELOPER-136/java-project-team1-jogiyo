@@ -114,7 +114,7 @@ public class UserSignupPane_손요셉 extends JPanel {
 		joinBtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		joinBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//가입시 SQL로 정보 보내고 가입완료시 로그인창으로 화면전환
+				//로그인창으로 화면전환
 				try {
 					newUser();
 					if(newUser()>0) {
