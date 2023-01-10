@@ -343,6 +343,7 @@ public class JogiyoMainFrame extends JFrame {
 		orderHistoryDetailTabbedPanel_조성동.setUser(user);
 	}
 	
+	
 	public void transferOrder(Order order) throws Exception {
 		orderHistoryDetailTabbedPanel_조성동.setOrder(order);
 	}
