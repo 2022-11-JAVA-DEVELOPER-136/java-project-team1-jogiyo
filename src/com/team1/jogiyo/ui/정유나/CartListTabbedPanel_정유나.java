@@ -40,6 +40,7 @@ public class CartListTabbedPanel_정유나 extends JPanel {
 		this.frame = frame;
 	}
 	private JPanel cartListPanel;
+	
 	private JPanel cartPanel;
 	private JLabel productImageLB;
 	private JLabel productDetailLB;
@@ -169,8 +170,7 @@ public class CartListTabbedPanel_정유나 extends JPanel {
 		
 		
 		/*****************생성자 작성************************/
-		frame.userService.findUser(frame.loginUser.getM_id());
-		cartListDisplay(frame.loginUser.getM_id());
+		//cartListDisplay(frame.loginUser.getM_id());
 	}
 	/****************생성자 끝**************/
 	//====> 오류오류!!!!!!!!!!!!!!

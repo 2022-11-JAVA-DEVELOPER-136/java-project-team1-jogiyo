@@ -9,6 +9,7 @@ import javax.swing.SwingConstants;
 
 import com.team1.jogiyo.cart.*;
 import com.team1.jogiyo.product.*;
+import com.team1.jogiyo.ui.JogiyoMainFrame;
 import com.team1.jogiyo.user.*;
 
 import javax.swing.JTextField;
@@ -22,9 +23,10 @@ import java.awt.event.MouseEvent;
 import java.awt.Cursor;
 
 public class HansikPanel_이은지 extends JPanel {
-	ProductService productService;
-	CartService cartService;
-	
+	JogiyoMainFrame frame;
+	public void setFrame(JogiyoMainFrame frame) {
+		this.frame = frame;
+	}
 	User loginUser=null;
 	
 	JComboBox hansikComboBox1;
@@ -53,6 +55,10 @@ public class HansikPanel_이은지 extends JPanel {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				System.out.println("순대국밥 상세보기로 이동");
+				//frame.
+				
+				
+				
 			}
 		});
 		hansikMenuPanel1.setBounds(0, 0, 350, 167);
@@ -68,6 +74,11 @@ public class HansikPanel_이은지 extends JPanel {
 		
 		
 		JLabel hansikNameLB1 = new JLabel("순대국밥");
+		hansikNameLB1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+			}
+		});
 		hansikNameLB1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		hansikNameLB1.setFont(new Font("맑은 고딕", Font.BOLD, 25));
 		hansikNameLB1.setBounds(229, 36, 109, 30);
