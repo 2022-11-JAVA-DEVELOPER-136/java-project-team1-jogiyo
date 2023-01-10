@@ -11,6 +11,7 @@ import javax.swing.ImageIcon;
 import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.Cursor;
 
 public class UserMainPane_손요셉 extends JPanel {
 	private UserService userService;
@@ -26,12 +27,7 @@ public class UserMainPane_손요셉 extends JPanel {
 		setLayout(null);
 		
 		mainLogo = new JLabel("");
-		mainLogo.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				//로그인화면으로 전환
-			}
-		});
+		mainLogo.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		mainLogo.setIcon(new ImageIcon(UserMainPane_손요셉.class.getResource("/com/team1/jogiyo/ui/손요셉/image/1 (1) (2).png")));
 		mainLogo.setBounds(93, 99, 199, 241);
 		add(mainLogo);

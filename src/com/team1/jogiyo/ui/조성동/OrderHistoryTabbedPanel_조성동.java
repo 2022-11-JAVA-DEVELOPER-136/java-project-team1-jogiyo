@@ -17,7 +17,7 @@ import java.awt.event.ActionEvent;
 import java.awt.Color;
 import java.awt.Dimension;
 
-public class OrderHistoryPanel_조성동 extends JPanel {
+public class OrderHistoryTabbedPanel_조성동 extends JPanel {
 	/***************************************/
 	/*
 	 * Sevice객체선언
@@ -34,7 +34,7 @@ public class OrderHistoryPanel_조성동 extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public OrderHistoryPanel_조성동() throws Exception{
+	public OrderHistoryTabbedPanel_조성동() throws Exception{
 		setBackground(new Color(0, 64, 64));
 		setLayout(null);
 		

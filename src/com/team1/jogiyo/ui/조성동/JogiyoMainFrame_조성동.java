@@ -6,7 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import com.team1.jogiyo.ui.정유나.CartListPanel_정유나;
+import com.team1.jogiyo.ui.정유나.CartListTabbedPanel_정유나;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
@@ -95,10 +95,10 @@ public class JogiyoMainFrame_조성동 extends JFrame {
 		tabbedPane.addTab("카트", null, cartListPanel, null);
 		
 		//JTabbedPane orderTabbedPane = new JTabbedPane(JTabbedPane.TOP);
-		OrderHistoryPanel_조성동  orderTabbedPane = new OrderHistoryPanel_조성동();
+		OrderHistoryTabbedPanel_조성동  orderTabbedPane = new OrderHistoryTabbedPanel_조성동();
 		tabbedPane.addTab("주문내역", null, orderTabbedPane, null);
 		
-		OrderHistoryDetailPanel_조성동 orderHistoryDetailPanel_조성동 = new OrderHistoryDetailPanel_조성동();
+		OrderHistoryDetailTabbedPanel_조성동 orderHistoryDetailPanel_조성동 = new OrderHistoryDetailTabbedPanel_조성동();
 		tabbedPane.addTab("주문상세", null,orderHistoryDetailPanel_조성동,null);
 	}
 
