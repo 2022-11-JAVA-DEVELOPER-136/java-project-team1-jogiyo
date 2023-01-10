@@ -10,7 +10,7 @@ public class UserDaoTestMain {
 
 	public static void main(String[] args) throws Exception {
 		
-//		UserDao userDao = new UserDao();
+		UserDao userDao = new UserDao();
 //		
 //		System.out.println("insert"+userDao.insert(
 //								new User("hhhh","1234","송준기","구로","010-2134-2142")));
@@ -23,7 +23,7 @@ public class UserDaoTestMain {
 //		System.out.println("delete"+userDao.delete("gggg"));
 //		
 //		
-//		System.out.println("findByPrimaryKey"+userDao.findByPrimaryKey("ffff"));
+		System.out.println("findByPrimaryKey"+userDao.findByPrimaryKey("ffff"));
 //		
 //		System.out.println("findByName"+userDao.findByName("조성동"));
 //		

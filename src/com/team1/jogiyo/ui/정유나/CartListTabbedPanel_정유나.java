@@ -203,9 +203,9 @@ public class CartListTabbedPanel_정유나 extends JPanel {
 			productImageLB.setVerticalTextPosition(SwingConstants.BOTTOM);
 			productImageLB.setHorizontalTextPosition(SwingConstants.CENTER);
 			productImageLB.setHorizontalAlignment(SwingConstants.CENTER);
-			
+			/*
 			productImageLB.setIcon(new ImageIcon(CartListTabbedPanel_정유나.class.getResource("/images/"+product.getP_image())));
-			
+			*/
 			productImageLB.setBounds(6, 10, 57, 60);
 			cartPanel.add(productImageLB);
 
@@ -263,4 +263,5 @@ public class CartListTabbedPanel_정유나 extends JPanel {
 			System.out.println(e1.getMessage());
 		}
 	}
+	
 }

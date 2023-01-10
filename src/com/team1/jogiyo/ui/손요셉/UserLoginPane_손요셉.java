@@ -50,10 +50,15 @@ public class UserLoginPane_손요셉 extends JPanel {
 		loginbutton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//카테고리 화면으로 전환
+				System.out.println("눌림");
+				String id=loginIdTF.getText();
+				String password=loginPasswordTF.getText();
+				int a=userLogin(id,password);
+				System.out.println(a);
 				try {
-					userLogin();
-					if(userLogin()==1) {
-						loginProcess(loginIdTF.getText());
+					if(a==1) {
+						System.out.println("성공");
+						frame.changePanel(21,loginUser);
 					}
 				} catch (Exception e1) {
 					System.out.println(e1.getMessage());
@@ -110,30 +115,29 @@ public class UserLoginPane_손요셉 extends JPanel {
 	
 		
 	}
-	private int userLogin() {
+	private int userLogin(String id, String password) {
 		int result=0;
 		try {
-			String id=loginIdTF.getText();
-			String password=loginPasswordTF.getText();
 			result=userService.login(id, password);
+			System.out.println("유저로그인");
 			
 			if(result==1) {
 				//로그인 성공시
-				loginProcess(id);
-				loginIdTF.setText("");
-				loginPasswordTF.setText("");
+				loginUser=loginProcess(id);
 			} else {
 				JOptionPane.showMessageDialog(null,"아이디/비밀번호를 확인하세요.");
+				/*
 				loginIdTF.setSelectionStart(0);
 				loginIdTF.setSelectionEnd(id.length());
 				loginIdTF.requestFocus();
+				*/
 			}
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
 		return result;
 	}
-	private void loginProcess(String sUserid) throws Exception{
-		this.loginUser=userService.findUser(sUserid);
+	private User loginProcess(String sUserid) throws Exception{
+		 return userService.findUser(sUserid);
 	}
 }
