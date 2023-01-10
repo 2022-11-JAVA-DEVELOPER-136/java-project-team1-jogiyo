@@ -36,7 +36,7 @@ public class JogiyoMainFrame extends JFrame {
 	private CartService cartService;
 	private OrderService orderService;
 	
-	private User loginUser=null;
+	User loginUser=null;
 	/****************2. tap페이지 상수 선언********************/
 	private static int USERTABBEDPANE_P=1;
 	private static int USERMAINPANE=11; 
@@ -70,6 +70,7 @@ public class JogiyoMainFrame extends JFrame {
 	private CartListTabbedPanel_정유나 cartListTabbedPanel_정유나;
 	private OrderHistoryTabbedPanel_조성동 orderHistoryTabbedPanel_조성동;
 	private OrderHistoryDetailTabbedPanel_조성동 orderHistoryDetailTabbedPanel_조성동;
+	private CategoriesPanel_이은지 categoriesPanel_이은지;
 
 	/**
 	 * Launch the application.
@@ -104,15 +105,15 @@ public class JogiyoMainFrame extends JFrame {
 		JPanel NorthPanel = new JPanel();
 		NorthPanel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		contentPane.add(NorthPanel, BorderLayout.NORTH);
-		NorthPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 75, 5));
 		
 		representLB = new JLabel("");
 		representLB.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				userTabbedPane.setSelectedComponent(userMainPane_손요셉);
+				userTabbedPane.setSelectedComponent(categoriesPanel_이은지);
 			}
 		});
+		NorthPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 75, 5));
 		representLB.setIcon(new ImageIcon(JogiyoMainFrame.class.getResource("/com/team1/jogiyo/ui/손요셉/image/smile (4).png")));
 		representLB.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		NorthPanel.add(representLB);
@@ -121,6 +122,12 @@ public class JogiyoMainFrame extends JFrame {
 		NorthPanel.add(findLB);
 		
 		cartLB = new JLabel("");
+		cartLB.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				userTabbedPane.setSelectedComponent(cartListTabbedPanel_정유나);
+			}
+		});
 		cartLB.setIcon(new ImageIcon(JogiyoMainFrame.class.getResource("/images/3cart_30px.png")));
 		cartLB.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		NorthPanel.add(cartLB);
@@ -139,6 +146,12 @@ public class JogiyoMainFrame extends JFrame {
 		SouthPanel.add(userInfoLB);
 		
 		homeLB = new JLabel("HOME");
+		homeLB.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				userTabbedPane.setSelectedComponent(userMainPane_손요셉);
+			}
+		});
 		homeLB.setHorizontalTextPosition(SwingConstants.CENTER);
 		homeLB.setVerticalTextPosition(SwingConstants.BOTTOM);
 		homeLB.setIcon(new ImageIcon(JogiyoMainFrame.class.getResource("/images/3home_50px.png")));
@@ -146,6 +159,12 @@ public class JogiyoMainFrame extends JFrame {
 		SouthPanel.add(homeLB);
 		
 		orderLB = new JLabel("ORDER");
+		orderLB.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+			}
+		});
 		orderLB.setVerticalTextPosition(SwingConstants.BOTTOM);
 		orderLB.setHorizontalTextPosition(SwingConstants.CENTER);
 		orderLB.setIcon(new ImageIcon(JogiyoMainFrame.class.getResource("/images/3order_50px.png")));
@@ -177,7 +196,7 @@ public class JogiyoMainFrame extends JFrame {
 		productTabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		parentTabbedPane.addTab("제품", null, productTabbedPane, null);
 		
-		CategoriesPanel_이은지 categoriesPanel_이은지 = new CategoriesPanel_이은지();
+		categoriesPanel_이은지 = new CategoriesPanel_이은지();
 		productTabbedPane.addTab("카테고리", null, categoriesPanel_이은지, null);
 		
 		cartListTabbedPanel_정유나 = new CartListTabbedPanel_정유나();
@@ -188,5 +207,14 @@ public class JogiyoMainFrame extends JFrame {
 		
 		orderHistoryDetailTabbedPanel_조성동 = new OrderHistoryDetailTabbedPanel_조성동();
 		parentTabbedPane.addTab("주문상세", null, orderHistoryDetailTabbedPanel_조성동, null);
+		
+		/*
+		 * 3. Service 객체 생성
+		 */
+		userService =new UserService();
+		productService =new ProductService();
+		cartService = new CartService();
+		orderService = new OrderService();
+
 	}	
 }
