@@ -12,7 +12,7 @@ import java.awt.Component;
 import javax.swing.JTextField;
 import javax.swing.JTabbedPane;
 import java.awt.Cursor;
-import com.team1.jogiyo.ui.이다은.ProductDetailPanel;
+import com.team1.jogiyo.ui.이다은.ProductDetailPanel_이다은;
 
 public class JogiyoMainFrame_이은지 extends JFrame {
 
@@ -101,6 +101,9 @@ public class JogiyoMainFrame_이은지 extends JFrame {
 		BunsikPanel_이은지 bunsikPanel = new BunsikPanel_이은지();
 		productTabbedPane.addTab("New tab", null, bunsikPanel, null);
 		
+		ProductDetailPanel_이다은 productDetailPanel_이다은 = new ProductDetailPanel_이다은();
+		productTabbedPane.addTab("New tab", null, productDetailPanel_이다은, null);
+		
 
 		JTabbedPane cartListPanel = new JTabbedPane(JTabbedPane.TOP);
 		tabbedPane.addTab("카트", null, cartListPanel, null);
@@ -110,8 +113,5 @@ public class JogiyoMainFrame_이은지 extends JFrame {
 		
 		JTabbedPane orderHistoryDetail = new JTabbedPane(JTabbedPane.TOP);
 		tabbedPane.addTab("주문상세", null,orderHistoryDetail,null);
-		
-		ProductDetailPanel productDetailPanel = new ProductDetailPanel();
-		tabbedPane.addTab("New tab", null, productDetailPanel, null);
 	}
 }

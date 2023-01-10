@@ -98,4 +98,6 @@ public class CategoriesPanel_이은지2 extends JPanel {
 
 	}
 	
+	
+	
 }
