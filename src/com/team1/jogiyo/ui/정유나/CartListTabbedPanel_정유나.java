@@ -173,7 +173,7 @@ public class CartListTabbedPanel_정유나 extends JPanel {
 	}
 	/****************생성자 끝**************/
 	//====> 오류오류!!!!!!!!!!!!!!
-	private void cartListDisplay(String sUserId) throws Exception{
+	public void cartListDisplay(String sUserId) throws Exception{
 		List<Cart> cartList=cartService.cartListByUserId(sUserId);
 		for (Cart cart : cartList) {
 			Product product=productService.findByPrimaryKey(cart.getProduct().getP_no());
@@ -241,7 +241,7 @@ public class CartListTabbedPanel_정유나 extends JPanel {
 			cartListPanel.add(cartPanel);
 		}
 	}
-	private void orderAllInCart(String sUserId) throws Exception{
+	public void orderAllInCart(String sUserId) throws Exception{
 		try {
 			orderService.create(sUserId);
 		} catch (Exception e1) {
