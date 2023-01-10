@@ -25,18 +25,18 @@ import com.team1.jogiyo.ui.조성동.OrderHistoryTabbedPanel_조성동;
 import com.team1.jogiyo.ui.조성동.OrderHistoryDetailTabbedPanel_조성동;
 import com.team1.jogiyo.ui.정유나.CartListTabbedPanel_정유나;
 import com.team1.jogiyo.ui.손요셉.UserSignupPane_손요셉;
+
+import com.team1.jogiyo.ui.이은지.*;
+
+import com.team1.jogiyo.ui.손요셉.UserViewDetail_손요셉;
 import com.team1.jogiyo.ui.이은지.CategoriesPanel_이은지;
 import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
 import javax.swing.JSplitPane;
 import javax.swing.JTextPane;
 import javax.swing.JComboBox;
-import com.team1.jogiyo.ui.이은지.HansikPanel_이은지;
-/*
-import com.team1.jogiyo.ui.이은지.HansikPanel_이은지;
-import com.team1.jogiyo.ui.이은지.JoongsikPanel_이은지;
-import com.team1.jogiyo.ui.이은지.BunsikPanel_이은지;
-*/
+import java.awt.Color;
+
 
 public class JogiyoMainFrame extends JFrame {
 	/****************1. Service 멤버필드 선언********************/
@@ -50,11 +50,11 @@ public class JogiyoMainFrame extends JFrame {
 	private static int USERTABBEDPANE_P=1;
 	private static int USERMAINPANE=11; 
 	private static int USERLOGINPANE=12; 
-	private static int USERSIGNUPPPANE=13; 
+	private static int USERSIGNUPPANE=13; 
 	private static int USERVIEWDETAILPANE=14; 
 
 	private static int PRODUCTTABBEDPANE_P=2;
-	private static int PRODUCTCATEGOTYPANE=21; 
+	private static int PRODUCTCATEGORYPANE=21; 
 	private static int HANSIKPANE=22; 
 	private static int JOONGSIKPANE=23; 
 	private static int BUNSIKPANE=24;
@@ -62,7 +62,7 @@ public class JogiyoMainFrame extends JFrame {
 
 	private static int CARTTABBEDPANE_P=3;
 	private static int ORDERTABBEDPANE_P=4;
-	private static int ORDERHISTORYDETAILTABBEDPANE_P=5;
+	private static int ORDERDETAILTABBEDPANE_P=5;
 	/***********************************************************/
 	private JPanel contentPane;
 	private UserLoginPane_손요셉 userLoginPanel_손요셉;
@@ -83,7 +83,7 @@ public class JogiyoMainFrame extends JFrame {
 	private JPanel panel;
 	private JTextField findProductTL;
 	private JLabel findProductIconLB;
-	private ProductDetailPanel_이다은 productDetailPanel_이다은;
+	private UserViewDetail_손요셉 userViewDetail_손요셉;
 	/*
 	private HansikPanel_이은지 hansikPanel_이은지;
 	private JoongsikPanel_이은지 joongsikPanel_이은지;
@@ -232,18 +232,13 @@ public class JogiyoMainFrame extends JFrame {
 		categoriesPanel_이은지 = new CategoriesPanel_이은지();
 		productTabbedPanel.addTab("카테고리", null, categoriesPanel_이은지, null);
 		
-		productDetailPanel_이다은 = new ProductDetailPanel_이다은();
+		ProductDetailPanel_이다은 productDetailPanel_이다은 = new ProductDetailPanel_이다은();
+		productDetailPanel_이다은.setBackground(new Color(255, 255, 255));
 		productTabbedPanel.addTab("New tab", null, productDetailPanel_이다은, null);
-		/*
-		hansikPanel_이은지 = new HansikPanel_이은지();
-		productTabbedPanel.addTab("한식", null, hansikPanel_이은지, null);
 		
-		joongsikPanel_이은지 = new JoongsikPanel_이은지();
-		productTabbedPanel.addTab("중식", null, joongsikPanel_이은지, null);
+		HansikPanel_이은지 hansikPanel_이은지 = new HansikPanel_이은지();
+		productTabbedPanel.addTab("New tab", null, hansikPanel_이은지, null);
 		
-		bunsikPanel_이은지 = new BunsikPanel_이은지();
-		productTabbedPanel.addTab("분식", null, bunsikPanel_이은지, null);
-		*/
 		cartListTabbedPanel_정유나 = new CartListTabbedPanel_정유나();
 		parentTabbedPanel.addTab("카트", null, cartListTabbedPanel_정유나, null);
 		
@@ -253,6 +248,9 @@ public class JogiyoMainFrame extends JFrame {
 		orderHistoryDetailTabbedPanel_조성동 = new OrderHistoryDetailTabbedPanel_조성동();
 		parentTabbedPanel.addTab("주문상세", null, orderHistoryDetailTabbedPanel_조성동, null);
 		
+		userViewDetail_손요셉 = new UserViewDetail_손요셉();
+		userTabbedPanel.addTab("회원정보", null, userViewDetail_손요셉, null);
+
 		/*
 		 * 3. Service 객체 생성
 		 */
@@ -260,14 +258,66 @@ public class JogiyoMainFrame extends JFrame {
 		productService =new ProductService();
 		cartService = new CartService();
 		orderService = new OrderService();
-		
+
 		/*
-		 * shopMainFrame 참조를 Panel에 넘겨줌
+		 * JogiyoMainFrame 참조를 Panel에 넘겨줌
+		
+		userLoginPanel_손요셉.setFrame(this);
+		userMainPanel_손요셉.setFrame(this);
+		userSignupPanel_손요셉.setFrame(this);
+		userViewDetail_손요셉.setFrame(this);
+		categoriesPanel_이은지.setFrame(this);
+		orderHistoryTabbedPanel_조성동.setFrame(this);
+		orderHistoryDetailTabbedPanel_조성동.setFrame(this);	
+		
 		 */
+	}
+
 		
-		
-		
-		
-		
+
+	
+	public void changePanel(int panel_no,Object data) {
+		if(panel_no==USERTABBEDPANE_P) {
+			parentTabbedPanel.setSelectedIndex(0);
+			userTabbedPanel.setSelectedIndex(0);
+		} else if(panel_no==USERMAINPANE){
+			parentTabbedPanel.setSelectedIndex(0);
+			userTabbedPanel.setSelectedIndex(1);
+		} else if(panel_no==USERLOGINPANE){
+			parentTabbedPanel.setSelectedIndex(0);
+			userTabbedPanel.setSelectedIndex(2);
+		} else if(panel_no==USERSIGNUPPANE){
+			parentTabbedPanel.setSelectedIndex(0);
+			userTabbedPanel.setSelectedIndex(3);
+		} else if(panel_no==USERVIEWDETAILPANE){
+			parentTabbedPanel.setSelectedIndex(0);
+			userTabbedPanel.setSelectedIndex(4);
+		} else if(panel_no==PRODUCTTABBEDPANE_P){
+			parentTabbedPanel.setSelectedIndex(1);
+			productTabbedPanel.setSelectedIndex(0);
+		} else if(panel_no==PRODUCTCATEGORYPANE){
+			parentTabbedPanel.setSelectedIndex(1);
+			productTabbedPanel.setSelectedIndex(1);
+		} else if(panel_no==HANSIKPANE){
+			parentTabbedPanel.setSelectedIndex(1);
+			productTabbedPanel.setSelectedIndex(2);
+		} else if(panel_no==JOONGSIKPANE){
+			parentTabbedPanel.setSelectedIndex(1);
+			productTabbedPanel.setSelectedIndex(3);
+		} else if(panel_no==BUNSIKPANE){
+			parentTabbedPanel.setSelectedIndex(1);
+			productTabbedPanel.setSelectedIndex(4);
+		} else if(panel_no==PRODUCTDETAILPANE){
+			parentTabbedPanel.setSelectedIndex(1);
+			productTabbedPanel.setSelectedIndex(5);
+		} else if(panel_no==CARTTABBEDPANE_P){
+			parentTabbedPanel.setSelectedIndex(2);
+		} else if(panel_no==ORDERTABBEDPANE_P){
+			parentTabbedPanel.setSelectedIndex(3);
+		} else if(panel_no==ORDERDETAILTABBEDPANE_P){
+			parentTabbedPanel.setSelectedIndex(4);
+		}
 	}
 }
+
+

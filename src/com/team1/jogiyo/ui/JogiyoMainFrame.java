@@ -39,10 +39,10 @@ import javax.swing.JComboBox;
 
 public class JogiyoMainFrame extends JFrame {
 	/****************1. Service 멤버필드 선언********************/
-	private UserService userService;
-	private ProductService productService;
-	private CartService cartService;
-	private OrderService orderService;
+	public UserService userService;
+	public ProductService productService;
+	public CartService cartService;
+	public OrderService orderService;
 	
 	User loginUser=null;
 	/****************2. tap페이지 상수 선언********************/
@@ -275,6 +275,11 @@ public class JogiyoMainFrame extends JFrame {
 		} else if(panel_no==USERVIEWDETAILPANE){
 			parentTabbedPanel.setSelectedIndex(0);
 			userTabbedPanel.setSelectedIndex(3);
+			userTabbedPanel.setSelectedIndex(4);
+		} else if(panel_no==PRODUCTTABBEDPANE_P){
+			loginUser= (User)data;
+			parentTabbedPanel.setSelectedIndex(1);
+			productTabbedPanel.setSelectedIndex(0);
 		} else if(panel_no==PRODUCTCATEGORYPANE){
 			parentTabbedPanel.setSelectedIndex(1);
 			productTabbedPanel.setSelectedIndex(0);

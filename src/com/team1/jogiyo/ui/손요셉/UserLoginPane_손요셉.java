@@ -26,8 +26,6 @@ public class UserLoginPane_손요셉 extends JPanel {
 	public void setFrame(JogiyoMainFrame frame) {
 		this.frame = frame;
 	}
-	private UserService userService;
-	private User loginUser;
 	
 	private JTextField loginIdTF;
 	private JTextField loginPasswordTF;
@@ -50,15 +48,11 @@ public class UserLoginPane_손요셉 extends JPanel {
 		loginbutton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//카테고리 화면으로 전환
-				System.out.println("눌림");
-				String id=loginIdTF.getText();
-				String password=loginPasswordTF.getText();
-				int a=userLogin(id,password);
-				System.out.println(a);
+				
 				try {
-					if(a==1) {
+					if(userLogin()==1) {
 						System.out.println("성공");
-						frame.changePanel(21,loginUser);
+						frame.changePanel(21,loginProcess(loginIdTF.getText()));
 					}
 				} catch (Exception e1) {
 					System.out.println(e1.getMessage());
@@ -115,15 +109,14 @@ public class UserLoginPane_손요셉 extends JPanel {
 	
 		
 	}
-	private int userLogin(String id, String password) {
+	private int userLogin() {
 		int result=0;
 		try {
-			result=userService.login(id, password);
-			System.out.println("유저로그인");
-			
+			String id=loginIdTF.getText();
+			String password=loginPasswordTF.getText();
+			result=frame.userService.login(id, password);
 			if(result==1) {
 				//로그인 성공시
-				loginUser=loginProcess(id);
 			} else {
 				JOptionPane.showMessageDialog(null,"아이디/비밀번호를 확인하세요.");
 				/*
@@ -138,6 +131,6 @@ public class UserLoginPane_손요셉 extends JPanel {
 		return result;
 	}
 	private User loginProcess(String sUserid) throws Exception{
-		 return userService.findUser(sUserid);
+		 return frame.userService.findUser(sUserid);
 	}
 }
