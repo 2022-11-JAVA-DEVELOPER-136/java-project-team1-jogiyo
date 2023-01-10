@@ -32,15 +32,6 @@ public class HansikPanel_이은지 extends JPanel {
 		this.loginUser=loginUser;
 	}
 
-public class HansikPanel_이은지 extends JPanel {
-	JogiyoMainFrame frame;
-	User loginUser=null;
-	public void setFrame(JogiyoMainFrame frame) {
-		this.frame = frame;
-	}
-	public void setUser(User loginUser) {
-		this.loginUser=loginUser;
-	}
 	
 	JComboBox hansikComboBox1;
 	JComboBox hansikComboBox2;
@@ -65,7 +56,6 @@ public class HansikPanel_이은지 extends JPanel {
 		//패널생성
 		JPanel hansikMenuPanel1 = new JPanel();
 		hansikMenuPanel1.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
-<<<<<<< HEAD
 		hansikMenuPanel1.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -76,8 +66,6 @@ public class HansikPanel_이은지 extends JPanel {
 				
 			}
 		});
-=======
->>>>>>> branch 'main' of https://github.com/2022-11-JAVA-DEVELOPER/java-project-team1-jogiyo.git
 		hansikMenuPanel1.setBounds(0, 0, 350, 167);
 		add(hansikMenuPanel1);
 		hansikMenuPanel1.setLayout(null);
@@ -94,8 +82,6 @@ public class HansikPanel_이은지 extends JPanel {
 		hansikNameLB1.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-<<<<<<< HEAD
-=======
 				try {
 					System.out.println("순대국밥 상세보기로 이동");
 					Product clickedProduct=productDetail(hansikNameLB1.getText());
@@ -103,7 +89,6 @@ public class HansikPanel_이은지 extends JPanel {
 				} catch (Exception e1) {
 					System.out.println(e1.getMessage());
 				}
->>>>>>> branch 'main' of https://github.com/2022-11-JAVA-DEVELOPER/java-project-team1-jogiyo.git
 			}
 		});
 		hansikNameLB1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -267,22 +252,9 @@ public class HansikPanel_이은지 extends JPanel {
 		hansikMenuPanel3.add(hansikComboBox3);
 
 		
-		/**********************생성자 끝************************/
-		/*
-		 * Service객체 생성
-		 */
-		frame.productService = new ProductService();
-		frame.cartService =new CartService();
-
-		
-		/*
-		 * loginMember 객체 생성
-		 */
-		loginUser = new User("asas","1111","가가가","제주","012-345-6789");
-		
-		//메소드 사용
 
 	}
+	/**********************생성자 끝************************/
 	
 	/*
 	 * 메소드

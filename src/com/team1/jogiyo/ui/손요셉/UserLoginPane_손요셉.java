@@ -87,6 +87,11 @@ public class UserLoginPane_손요셉 extends JPanel {
 		
 		loginIdTF = new JTextField();
 		loginIdTF.setText("아이디");
+		loginIdTF.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				loginIdTF.setText("");
+			}
+		});
 		loginIdTF.setFont(new Font("굴림", Font.PLAIN, 16));
 		loginIdTF.setBounds(85, 264, 194, 32);
 		add(loginIdTF);
@@ -95,6 +100,11 @@ public class UserLoginPane_손요셉 extends JPanel {
 		loginPasswordTF = new JTextField();
 		loginPasswordTF.setFont(new Font("굴림", Font.PLAIN, 16));
 		loginPasswordTF.setText("비밀번호");
+		loginPasswordTF.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				loginPasswordTF.setText("");
+			}
+		});
 		loginPasswordTF.setBounds(85, 306, 194, 32);
 		add(loginPasswordTF);
 		loginPasswordTF.setColumns(10);

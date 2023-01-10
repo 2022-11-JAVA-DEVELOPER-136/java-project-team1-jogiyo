@@ -71,6 +71,8 @@ public class CartListTabbedPanel_정유나 extends JPanel {
 		cartListPanel = new JPanel();
 		cartListPanel.setPreferredSize(new Dimension(10, 1000));
 		cartScrollPane.setViewportView(cartListPanel);
+		
+		
 		/*		CartListItem Start		*/
 		cartPanel = new JPanel();
 		cartPanel.setPreferredSize(new Dimension(300, 80));
@@ -136,17 +138,21 @@ public class CartListTabbedPanel_정유나 extends JPanel {
 		cartOrderCheck.setBounds(276, 47, 21, 23);
 		cartPanel.add(cartOrderCheck);
 		
-		JButton btnNewButton = new JButton("New button");
-		btnNewButton.setBounds(200, 11, 97, 23);
+		JButton btnNewButton = new JButton("X");
+		btnNewButton.setBounds(276, 8, 18, 20);
 		cartPanel.add(btnNewButton);
 		/* 		CartListItem End	*/
-		
 		orderAllBtn = new JButton("전체주문");
 		orderAllBtn.addMouseListener(new MouseAdapter() {
 			@Override
-			public void mouseClicked(MouseEvent e){
+			public void mouseClicked(MouseEvent e) {
 				//주문상세 페이지로 넘기기
-				
+				try {
+					orderAllInCart(loginUser.getM_id());
+					frame.changePanel(4, null);
+				} catch (Exception e1) {
+					System.out.println(e1.getMessage());
+				}
 			}
 		});
 		orderAllBtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -170,6 +176,8 @@ public class CartListTabbedPanel_정유나 extends JPanel {
 		totalOrderPriceLB = new JLabel("");
 		totalOrderPriceLB.setBounds(163, 445, 135, 15);
 		add(totalOrderPriceLB);
+		
+		
 	}
 		
 		
@@ -191,6 +199,7 @@ public class CartListTabbedPanel_정유나 extends JPanel {
 				@Override
 				public void mouseClicked(MouseEvent e) {
 					//제품상세페이지로 넘어가기
+					frame.changePanel(25, cart.getProduct());
 				}
 			});
 			productImageLB.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -244,8 +253,12 @@ public class CartListTabbedPanel_정유나 extends JPanel {
 
 			cartOrderCheck = new JCheckBox("");
 			cartOrderCheck.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-			cartOrderCheck.setBounds(274, 4, 21, 23);
+			cartOrderCheck.setBounds(276, 40, 21, 23);
 			cartPanel.add(cartOrderCheck);
+			
+			JButton btnNewButton = new JButton("X");
+			btnNewButton.setBounds(276, 8, 18, 20);
+			cartPanel.add(btnNewButton);
 			
 			cartListPanel.add(cartPanel);
 		}
