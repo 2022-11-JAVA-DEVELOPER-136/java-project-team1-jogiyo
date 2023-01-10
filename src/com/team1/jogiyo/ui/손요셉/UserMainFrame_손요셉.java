@@ -5,6 +5,11 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import com.team1.jogiyo.ui.JogiyoMainFrame;
+import com.team1.jogiyo.user.User;
+import com.team1.jogiyo.user.UserService;
+
 import javax.swing.JTabbedPane;
 import java.awt.FlowLayout;
 import java.awt.BorderLayout;
@@ -12,9 +17,13 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 public class UserMainFrame_손요셉 extends JFrame {
-
+	JogiyoMainFrame frame;
+	public void setFrame(JogiyoMainFrame frame) {
+		this.frame = frame;
+	}
 	private JPanel contentPane;
 
+	
 	/**
 	 * Launch the application.
 	 */
@@ -33,8 +42,9 @@ public class UserMainFrame_손요셉 extends JFrame {
 
 	/**
 	 * Create the frame.
+	 * @throws Exception 
 	 */
-	public UserMainFrame_손요셉() {
+	public UserMainFrame_손요셉() throws Exception {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 400, 560);
 		contentPane = new JPanel();

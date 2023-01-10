@@ -19,7 +19,7 @@ public class UserSQL {
 	public static final String USER_SELECT_BY_ID ="select * from userinfo where m_id=?";
 	public static final String USER_SELECT_BY_NAME ="select * from userinfo where m_name=?";
 	public static final String USER_SELECT_ALL ="select * from userinfo";
-	public static final String USER_SELECT_BY_ID_COUNT="select count(*) as cnt  from userinfo where userid=?";
+	public static final String USER_SELECT_BY_ID_COUNT="select count(*) as cnt  from userinfo where m_id=?";
 
 
 }

@@ -82,8 +82,29 @@ public class OrderService {
 	/*
 	 * cart에서 선택주문
 	 */
-	public int create(String sUserId,String[] cart_item_noStr_array) throws Exception{
-		return 0;
+	public int create(String sUserId,int[] c_no_int_array) throws Exception{
+		//cartOrderCheckBox에 해당하는 c_no을 받음
+		//carDao.findByCartNo(c_no)로 반복
+		// OrderItem로 정보 복사
+		List<Cart> cartList = new ArrayList<Cart>();
+		for (int c_no : c_no_int_array) {
+			cartList.add(cartDao.findByCartNo(c_no));
+		}
+		ArrayList<OrderItem> orderItemList=new ArrayList<OrderItem>();
+		int o_tot_price=0;
+		for (Cart cart : cartList) {
+			//Cart -> OrderItem 정보 전이
+			OrderItem orderItem=new OrderItem(0, cart.getC_qty(), 0, cart.getProduct());
+			orderItemList.add(orderItem);
+			o_tot_price+=orderItem.getOi_qty()*orderItem.getProduct().getP_price();
+		}
+		Order newOrders=new Order(0, null, o_tot_price, sUserId);
+		newOrders.setOrderItemList(orderItemList);
+		int rowCount = orderDao.insert(newOrders);
+		for (int c_no : c_no_int_array) {
+			cartDao.deleteByCartNo(c_no);
+		}
+		return rowCount;
 	}
 	
 }
