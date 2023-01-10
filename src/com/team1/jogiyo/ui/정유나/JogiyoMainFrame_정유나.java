@@ -11,9 +11,9 @@ import javax.swing.JLabel;
 import java.awt.Component;
 import javax.swing.JTextField;
 import javax.swing.JTabbedPane;
-import com.team1.jogiyo.ui.정유나.CartListPanel_정유나;
+import com.team1.jogiyo.ui.정유나.CartListTabbedPanel_정유나;
 import java.awt.Cursor;
-import com.team1.jogiyo.ui.조성동.OrderHistoryPanel_조성동;
+import com.team1.jogiyo.ui.조성동.OrderHistoryTabbedPanel_조성동;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -101,7 +101,7 @@ public class JogiyoMainFrame_정유나 extends JFrame{
 		JTabbedPane productTabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		tabbedPane.addTab("제품", null, productTabbedPane, null);
 		
-		CartListPanel_정유나 cartListPanel_정유나 = new CartListPanel_정유나();
+		CartListTabbedPanel_정유나 cartListPanel_정유나 = new CartListTabbedPanel_정유나();
 		cartListPanel_정유나.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -109,7 +109,7 @@ public class JogiyoMainFrame_정유나 extends JFrame{
 		});
 		tabbedPane.addTab("New tab", null, cartListPanel_정유나, null);
 		
-		OrderHistoryPanel_조성동 orderHistoryPanel_조성동 = new OrderHistoryPanel_조성동();
+		OrderHistoryTabbedPanel_조성동 orderHistoryPanel_조성동 = new OrderHistoryTabbedPanel_조성동();
 		tabbedPane.addTab("New tab", null, orderHistoryPanel_조성동, null);
 	}
 }

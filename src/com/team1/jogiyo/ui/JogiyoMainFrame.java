@@ -12,10 +12,62 @@ import java.awt.Component;
 import javax.swing.JTextField;
 import javax.swing.JTabbedPane;
 import java.awt.Cursor;
+import com.team1.jogiyo.ui.손요셉.UserMainPane_손요셉;
+import com.team1.jogiyo.user.User;
+import com.team1.jogiyo.user.UserService;
+import com.team1.jogiyo.cart.CartService;
+import com.team1.jogiyo.order.OrderService;
+import com.team1.jogiyo.product.ProductService;
+import com.team1.jogiyo.ui.손요셉.UserLoginPane_손요셉;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import com.team1.jogiyo.ui.조성동.OrderHistoryTabbedPanel_조성동;
+import com.team1.jogiyo.ui.조성동.OrderHistoryDetailTabbedPanel_조성동;
+import com.team1.jogiyo.ui.정유나.CartListTabbedPanel_정유나;
+import com.team1.jogiyo.ui.손요셉.UserSignupPane_손요셉;
+import com.team1.jogiyo.ui.이은지.CategoriesPanel_이은지;
 
 public class JogiyoMainFrame extends JFrame {
+	/****************1. Service 멤버필드 선언********************/
+	private UserService userService;
+	private ProductService productService;
+	private CartService cartService;
+	private OrderService orderService;
+	
+	private User loginUser=null;
+	/****************2. tap페이지 상수 선언********************/
+	private static int USERTABBEDPANE_P=1;
+	private static int USERMAINPANE=11; 
+	private static int USERLOGINPANE=12; 
+	private static int USERSIGNUPPPANE=13; 
+	private static int USERVIEWDETAILPANE=14; 
 
+	private static int PRODUCTTABBEDPANE_P=2;
+	private static int PRODUCTCATEGOTYPANE=21; 
+	private static int HANSIKPANE=22; 
+	private static int JOONGSIKPANE=23; 
+	private static int BUNSIKPANE=24;
+	private static int PRODUCTDETAILPANE=25;
+
+	private static int CARTTABBEDPANE_P=3;
+	private static int ORDERTABBEDPANE_P=4;
+	private static int ORDERHISTORYDETAILTABBEDPANE_P=5;
+	/***********************************************************/
 	private JPanel contentPane;
+	private UserLoginPane_손요셉 userLoginPane_손요셉;
+	private JTabbedPane userTabbedPane;
+	private JLabel representLB;
+	private JLabel findLB;
+	private JLabel cartLB;
+	private JLabel userInfoLB;
+	private JLabel homeLB;
+	private JLabel orderLB;
+	private JTabbedPane parentTabbedPane;
+	private UserMainPane_손요셉 userMainPane_손요셉;
+	private JTabbedPane productTabbedPane;
+	private CartListTabbedPanel_정유나 cartListTabbedPanel_정유나;
+	private OrderHistoryTabbedPanel_조성동 orderHistoryTabbedPanel_조성동;
+	private OrderHistoryDetailTabbedPanel_조성동 orderHistoryDetailTabbedPanel_조성동;
 
 	/**
 	 * Launch the application.
@@ -35,8 +87,9 @@ public class JogiyoMainFrame extends JFrame {
 
 	/**
 	 * Create the frame.
+	 * @throws Exception 
 	 */
-	public JogiyoMainFrame() {
+	public JogiyoMainFrame() throws Exception {
 		setTitle("JOGIYO");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 399, 700);
@@ -50,14 +103,14 @@ public class JogiyoMainFrame extends JFrame {
 		contentPane.add(NorthPanel, BorderLayout.NORTH);
 		NorthPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 60, 5));
 		
-		JLabel representLB = new JLabel("[조기요]");
+		representLB = new JLabel("[조기요]");
 		representLB.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		NorthPanel.add(representLB);
 		
-		JLabel findLB = new JLabel("검색");
+		findLB = new JLabel("검색");
 		NorthPanel.add(findLB);
 		
-		JLabel cartLB = new JLabel("[CART]");
+		cartLB = new JLabel("[CART]");
 		cartLB.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		NorthPanel.add(cartLB);
 		
@@ -66,36 +119,53 @@ public class JogiyoMainFrame extends JFrame {
 		contentPane.add(SouthPanel, BorderLayout.SOUTH);
 		SouthPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 70, 5));
 		
-		JLabel userInfoLB = new JLabel("MY");
+		userInfoLB = new JLabel("MY");
 		userInfoLB.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		SouthPanel.add(userInfoLB);
 		
-		JLabel homeLB = new JLabel("HOME");
+		homeLB = new JLabel("HOME");
 		homeLB.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		SouthPanel.add(homeLB);
 		
-		JLabel orderLB = new JLabel("ORDER");
+		orderLB = new JLabel("ORDER");
 		orderLB.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		SouthPanel.add(orderLB);
 		
-		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
-		contentPane.add(tabbedPane, BorderLayout.CENTER);
+		parentTabbedPane = new JTabbedPane(JTabbedPane.TOP);
+		contentPane.add(parentTabbedPane, BorderLayout.CENTER);
 		
-		JTabbedPane userTabbedPane = new JTabbedPane(JTabbedPane.TOP);
-		tabbedPane.addTab("회원", null, userTabbedPane, null);
+		userTabbedPane = new JTabbedPane(JTabbedPane.TOP);
+		parentTabbedPane.addTab("회원", null, userTabbedPane, null);
 		
-		JTabbedPane productTabbedPane = new JTabbedPane(JTabbedPane.TOP);
-		tabbedPane.addTab("제품", null, productTabbedPane, null);
+		userMainPane_손요셉 = new UserMainPane_손요셉();
+		userMainPane_손요셉.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				userTabbedPane.setSelectedComponent(userLoginPane_손요셉);
+			}
+		});
+		userTabbedPane.addTab("회원메인", null, userMainPane_손요셉, null);
 		
-
-		JTabbedPane cartListPanel = new JTabbedPane(JTabbedPane.TOP);
-		tabbedPane.addTab("카트", null, cartListPanel, null);
+		userLoginPane_손요셉 = new UserLoginPane_손요셉();
 		
-		JTabbedPane orderTabbedPane = new JTabbedPane(JTabbedPane.TOP);
-		tabbedPane.addTab("주문내역", null, orderTabbedPane, null);
+		userTabbedPane.addTab("로그인", null, userLoginPane_손요셉, null);
 		
-		JTabbedPane orderHistoryDetail = new JTabbedPane(JTabbedPane.TOP);
-		tabbedPane.addTab("주문상세", null,orderHistoryDetail,null);
-	}
-
+		UserSignupPane_손요셉 userSignupPane_손요셉 = new UserSignupPane_손요셉();
+		userTabbedPane.addTab("회원가입", null, userSignupPane_손요셉, null);
+		
+		productTabbedPane = new JTabbedPane(JTabbedPane.TOP);
+		parentTabbedPane.addTab("제품", null, productTabbedPane, null);
+		
+		CategoriesPanel_이은지 categoriesPanel_이은지 = new CategoriesPanel_이은지();
+		productTabbedPane.addTab("카테고리", null, categoriesPanel_이은지, null);
+		
+		cartListTabbedPanel_정유나 = new CartListTabbedPanel_정유나();
+		parentTabbedPane.addTab("카트", null, cartListTabbedPanel_정유나, null);
+		
+		orderHistoryTabbedPanel_조성동 = new OrderHistoryTabbedPanel_조성동();
+		parentTabbedPane.addTab("주문내역", null, orderHistoryTabbedPanel_조성동, null);
+		
+		orderHistoryDetailTabbedPanel_조성동 = new OrderHistoryDetailTabbedPanel_조성동();
+		parentTabbedPane.addTab("주문상세", null, orderHistoryDetailTabbedPanel_조성동, null);
+	}	
 }

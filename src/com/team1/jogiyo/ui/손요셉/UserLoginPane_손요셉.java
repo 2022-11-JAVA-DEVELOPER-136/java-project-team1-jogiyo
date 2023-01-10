@@ -1,4 +1,4 @@
-package com.team1.jogiyo.ui.손요셉;
+ package com.team1.jogiyo.ui.손요셉;
 
 import javax.swing.JPanel;
 import java.awt.Color;
@@ -7,14 +7,31 @@ import javax.swing.ImageIcon;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
+
+import com.team1.jogiyo.user.User;
+import com.team1.jogiyo.user.UserService;
+
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
+import javax.swing.JPasswordField;
+import java.awt.Cursor;
 
 
 
 public class UserLoginPane_손요셉 extends JPanel {
-	private JTextField textField;
-	private JTextField textField_1;
+	private UserService userService;
+	private User loginUser;
+	
+	private JTextField loginIdTF;
+	private JTextField loginPasswordTF;
+	private JButton loginbutton;
+	private JButton signupbutton;
+	private JButton idfindbutton;
+	
+	//객체 선언
+	
 	/**
 	 * Create the panel.
 	 */
@@ -23,10 +40,19 @@ public class UserLoginPane_손요셉 extends JPanel {
 		setBackground(Color.WHITE);
 		setLayout(null);
 		
-		JButton loginbutton = new JButton("");//로그인버튼
+		loginbutton = new JButton("");//로그인버튼
+		loginbutton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		loginbutton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//카테고리 화면 전환
+				//카테고리 화면으로 전환
+				try {
+					userLogin();
+					if(userLogin()==1) {
+						loginProcess(loginIdTF.getText());
+					}
+				} catch (Exception e1) {
+					System.out.println(e1.getMessage());
+				}
 				
 			}
 		});
@@ -34,39 +60,42 @@ public class UserLoginPane_손요셉 extends JPanel {
 		loginbutton.setBounds(0, 369, 350, 42);
 		add(loginbutton);
 		
-		JButton signupbutton = new JButton("회원가입");
+		signupbutton = new JButton("회원가입");
+		signupbutton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		signupbutton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//회원가입으로 화면 전환
+				//회원가입 화면으로 전환
+				
 			}
 		});
 		signupbutton.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
 		signupbutton.setBounds(25, 439, 97, 23);
 		add(signupbutton);
 		
-		JButton idfindbutton = new JButton("아이디/비밀번호찾기");
+		idfindbutton = new JButton("아이디/비밀번호찾기");
+		idfindbutton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		idfindbutton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//??
+				//안살릴듯?
 			}
 		});
 		idfindbutton.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
 		idfindbutton.setBounds(167, 439, 163, 23);
 		add(idfindbutton);
 		
-		textField = new JTextField();
-		textField.setText("아이디");
-		textField.setFont(new Font("굴림", Font.PLAIN, 16));
-		textField.setBounds(85, 264, 194, 32);
-		add(textField);
-		textField.setColumns(10);
+		loginIdTF = new JTextField();
+		loginIdTF.setText("아이디");
+		loginIdTF.setFont(new Font("굴림", Font.PLAIN, 16));
+		loginIdTF.setBounds(85, 264, 194, 32);
+		add(loginIdTF);
+		loginIdTF.setColumns(10);
 		
-		textField_1 = new JTextField();
-		textField_1.setFont(new Font("굴림", Font.PLAIN, 16));
-		textField_1.setText("비밀번호");
-		textField_1.setBounds(85, 306, 194, 32);
-		add(textField_1);
-		textField_1.setColumns(10);
+		loginPasswordTF = new JTextField();
+		loginPasswordTF.setFont(new Font("굴림", Font.PLAIN, 16));
+		loginPasswordTF.setText("비밀번호");
+		loginPasswordTF.setBounds(85, 306, 194, 32);
+		add(loginPasswordTF);
+		loginPasswordTF.setColumns(10);
 		
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon(UserLoginPane_손요셉.class.getResource("/com/team1/jogiyo/ui/손요셉/image/1 (1) (2).png")));
@@ -75,5 +104,31 @@ public class UserLoginPane_손요셉 extends JPanel {
 		
 	
 		
+	}
+	private int userLogin() {
+		int result=0;
+		try {
+			String id=loginIdTF.getText();
+			String password=loginPasswordTF.getText();
+			result=userService.login(id, password);
+			
+			if(result==1) {
+				//로그인 성공시
+				loginProcess(id);
+				loginIdTF.setText("");
+				loginPasswordTF.setText("");
+			} else {
+				JOptionPane.showMessageDialog(null,"아이디/비밀번호를 확인하세요.");
+				loginIdTF.setSelectionStart(0);
+				loginIdTF.setSelectionEnd(id.length());
+				loginIdTF.requestFocus();
+			}
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		return result;
+	}
+	private void loginProcess(String sUserid) throws Exception{
+		this.loginUser=userService.findUser(sUserid);
 	}
 }

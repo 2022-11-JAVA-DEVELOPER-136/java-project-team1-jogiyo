@@ -5,9 +5,9 @@ import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
 
 import com.team1.jogiyo.order.Order;
+import com.team1.jogiyo.order.OrderItem;
 import com.team1.jogiyo.order.OrderService;
 import com.team1.jogiyo.user.User;
-import com.team1.jogiyo.user.UserService;
 
 import javax.swing.JLabel;
 import javax.swing.JButton;
@@ -17,29 +17,29 @@ import java.awt.event.ActionEvent;
 import java.awt.Color;
 import java.awt.Dimension;
 
-public class OrderHistoryPanel_조성동 extends JPanel {
+public class OrderHistoryTabbedPanel_조성동 extends JPanel {
 	/***************************************/
 	/*
 	 * Sevice객체선언
 	 */
+	
 	OrderService orderService=null;
-	UserService userService=null;
 	/*
 	 * loginMember객체선언
 	 */
-	User user=null;
-	private JPanel OrderHistoryListPanel;
+	User loginUser=null;
 	/***************************************/
+	private JPanel OrderHistoryListPanel;
 	
 	/**
 	 * Create the panel.
 	 */
-	public OrderHistoryPanel_조성동() throws Exception{
+	public OrderHistoryTabbedPanel_조성동() throws Exception{
 		setBackground(new Color(0, 64, 64));
 		setLayout(null);
 		
 		JScrollPane OrderHistoryScrollPane = new JScrollPane();
-		OrderHistoryScrollPane.setBounds(0, 0, 350, 502);
+		OrderHistoryScrollPane.setBounds(0, 0, 371, 502);
 		add(OrderHistoryScrollPane);
 		
 		OrderHistoryListPanel = new JPanel();
@@ -47,20 +47,25 @@ public class OrderHistoryPanel_조성동 extends JPanel {
 		OrderHistoryScrollPane.setViewportView(OrderHistoryListPanel);
 		/******패널 생성자*******/
 		JPanel OrderHistoryPanel = new JPanel();
-		OrderHistoryPanel.setPreferredSize(new Dimension(300, 65));
+		OrderHistoryPanel.setPreferredSize(new Dimension(325, 65));
 		OrderHistoryPanel.setLayout(null);
 		OrderHistoryListPanel.add(OrderHistoryPanel);
 		
 		JLabel DisplayProductNameLabel = new JLabel("");
-		DisplayProductNameLabel.setBounds(99, 30, 66, 33);
+		DisplayProductNameLabel.setBounds(96, 30, 75, 33);
 		OrderHistoryPanel.add(DisplayProductNameLabel);
 		
 		JButton OrderHistoryDetailBtn = new JButton("");
-		OrderHistoryDetailBtn.setBounds(247, 30, 25, 23);
+		OrderHistoryDetailBtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.out.println("주문상세 페이지 전환");
+			}
+		});
+		OrderHistoryDetailBtn.setBounds(255, 30, 25, 23);
 		OrderHistoryPanel.add(OrderHistoryDetailBtn);
 		
 		JLabel DisplayTotalPriceLabel = new JLabel("");
-		DisplayTotalPriceLabel.setBounds(167, 32, 68, 29);
+		DisplayTotalPriceLabel.setBounds(175, 32, 68, 29);
 		OrderHistoryPanel.add(DisplayTotalPriceLabel);
 		
 		JLabel lblNewLabel_2 = new JLabel("주문날짜");
@@ -72,11 +77,11 @@ public class OrderHistoryPanel_조성동 extends JPanel {
 		OrderHistoryPanel.add(lblNewLabel_3);
 		
 		JLabel lblNewLabel_4 = new JLabel("총가격");
-		lblNewLabel_4.setBounds(174, 10, 44, 15);
+		lblNewLabel_4.setBounds(182, 10, 44, 15);
 		OrderHistoryPanel.add(lblNewLabel_4);
 		
 		JLabel lblNewLabel_5 = new JLabel("주문상세");
-		lblNewLabel_5.setBounds(237, 10, 57, 15);
+		lblNewLabel_5.setBounds(245, 10, 57, 15);
 		OrderHistoryPanel.add(lblNewLabel_5);
 		
 		JLabel DisplayDateLabel = new JLabel("");
@@ -86,30 +91,41 @@ public class OrderHistoryPanel_조성동 extends JPanel {
 		
 		/*******************************************/
 		orderService = new OrderService();
-		userService = new UserService();
-		user = new User("bbbb", null, "csd", "지역", "폰넘버");
+		loginUser = new User("bbbb", null, "csd", "지역", "폰넘버");
 		
-		OrderListPrint("bbbb");
+		OrderListPrint(loginUser.getM_id());
 	}
 	
 	private void OrderListPrint(String sUserId) throws Exception {
 		List<Order> orderList =  orderService.list(sUserId);
 		
 		for (Order order : orderList) {
+			List<OrderItem> orderItems= orderService.detail(sUserId, order.getO_no()).getOrderItemList();
+			int o_tot_price=0;
+			int p_tot_qty=0;
+			for (OrderItem orderItem : orderItems) {
+				p_tot_qty+= orderItem.getOi_qty();
+				o_tot_price+= orderItem.getProduct().getP_price()*orderItem.getOi_qty();
+			}
 			JPanel OrderHistoryPanel = new JPanel();
 			OrderHistoryPanel.setPreferredSize(new Dimension(300, 65));
 			OrderHistoryPanel.setLayout(null);
 			OrderHistoryListPanel.add(OrderHistoryPanel);
-			//JLabel DisplayProductNameLabel = new JLabel("<html>"+order.getOrderItemList().get(0).getProduct().getP_name()+"</html>");
-			JLabel DisplayProductNameLabel = new JLabel("<html>"+"1111"+"<br>"+"asfasf"+"</html>");
+			
+			JLabel DisplayProductNameLabel = new JLabel("<html>"+orderItems.get(0).getProduct().getP_name()+"<br>외"+p_tot_qty+"종</html>");
 			DisplayProductNameLabel.setBounds(99, 30, 66, 33);
 			OrderHistoryPanel.add(DisplayProductNameLabel);
 			
 			JButton OrderHistoryDetailBtn = new JButton("");
 			OrderHistoryDetailBtn.setBounds(247, 30, 25, 23);
+			OrderHistoryDetailBtn.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					System.out.println("주문상세 페이지 전환");
+				}
+			});
 			OrderHistoryPanel.add(OrderHistoryDetailBtn);
 			
-			JLabel DisplayTotalPriceLabel = new JLabel("<html>"+order.getO_total()+"</html>");
+			JLabel DisplayTotalPriceLabel = new JLabel("<html>"+o_tot_price+"</html>");
 			DisplayTotalPriceLabel.setBounds(167, 32, 68, 29);
 			OrderHistoryPanel.add(DisplayTotalPriceLabel);
 			
@@ -129,14 +145,10 @@ public class OrderHistoryPanel_조성동 extends JPanel {
 			lblNewLabel_5.setBounds(237, 10, 57, 15);
 			OrderHistoryPanel.add(lblNewLabel_5);
 			
-			JLabel DisplayDateLabel = new JLabel("<html>"+"asf"+"</html>");
+			JLabel DisplayDateLabel = new JLabel("<html>"+order.getO_date()+"</html>");
 			DisplayDateLabel.setBounds(0, 39, 81, 24);
 			OrderHistoryPanel.add(DisplayDateLabel);
 			
-			//변수에 값넣
-			//DisplayDateLabel.setText(order.getOrderItemList().get(0).getO_no()+"");
-			//DisplayProductNameLabel.setText(order.getOrderItemList().get(0).getProduct().getP_name());
-			//DisplayTotalPriceLabel
 		}
 	}
 }

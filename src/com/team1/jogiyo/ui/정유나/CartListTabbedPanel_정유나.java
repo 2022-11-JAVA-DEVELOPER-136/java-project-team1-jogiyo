@@ -14,6 +14,7 @@ import com.team1.jogiyo.cart.CartService;
 import com.team1.jogiyo.order.OrderService;
 import com.team1.jogiyo.product.Product;
 import com.team1.jogiyo.product.ProductService;
+import com.team1.jogiyo.ui.조성동.OrderHistoryTabbedPanel_조성동;
 import com.team1.jogiyo.user.User;
 import com.team1.jogiyo.user.UserService;
 
@@ -32,7 +33,7 @@ import java.util.List;
 import javax.swing.JCheckBox;
 import javax.swing.DefaultComboBoxModel;
 
-public class CartListPanel_정유나 extends JPanel {
+public class CartListTabbedPanel_정유나 extends JPanel {
 	private JScrollPane scrollPane;
 	private JPanel cartListPanel;
 	private JPanel cartPanel;
@@ -56,7 +57,7 @@ public class CartListPanel_정유나 extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public CartListPanel_정유나() throws Exception {
+	public CartListTabbedPanel_정유나() throws Exception {
 		setLayout(null);
 		
 		scrollPane = new JScrollPane();
@@ -83,7 +84,7 @@ public class CartListPanel_정유나 extends JPanel {
 		productImageLB.setVerticalTextPosition(SwingConstants.BOTTOM);
 		productImageLB.setHorizontalTextPosition(SwingConstants.CENTER);
 		productImageLB.setHorizontalAlignment(SwingConstants.CENTER);
-		productImageLB.setIcon(new ImageIcon(CartListPanel_정유나.class.getResource("/images/cart2 (1).png")));
+		productImageLB.setIcon(new ImageIcon(CartListTabbedPanel_정유나.class.getResource("/images/cart2 (1).png")));
 		productImageLB.setBounds(6, 10, 57, 60);
 		cartPanel.add(productImageLB);
 		
@@ -131,19 +132,13 @@ public class CartListPanel_정유나 extends JPanel {
 		cartOrderCheck.setBounds(274, 4, 21, 23);
 		cartPanel.add(cartOrderCheck);
 		
-		cartList();
-		
 		
 		orderAllBtn = new JButton("전체주문");
 		orderAllBtn.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e){
 				//주문상세 페이지로 넘기기
-				try {
-					orderService.create(loginUser.getM_id());
-				} catch (Exception e1) {
-					System.out.println(e1.getMessage());
-				}
+				
 			}
 		});
 		orderAllBtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -167,12 +162,19 @@ public class CartListPanel_정유나 extends JPanel {
 		totalOrderPriceLB = new JLabel("");
 		totalOrderPriceLB.setBounds(163, 513, 135, 15);
 		add(totalOrderPriceLB);
-
+		
+		
+		
+		/*****************생성자 작성************************/
+		cartService = new CartService();
+		productService=new ProductService();
+		loginUser=new User("bbbb",null,null,null,null);
+		cartListDisplay(loginUser.getM_id());
 	}
 	/****************생성자 끝**************/
 	//====> 오류오류!!!!!!!!!!!!!!
-	private void cartList() throws Exception{
-		List<Cart> cartList=cartService.cartListByUserId("aaaa");
+	private void cartListDisplay(String sUserId) throws Exception{
+		List<Cart> cartList=cartService.cartListByUserId(sUserId);
 		for (Cart cart : cartList) {
 			Product product=productService.findByPrimaryKey(cart.getProduct().getP_no());
 			
@@ -186,7 +188,9 @@ public class CartListPanel_정유나 extends JPanel {
 			productImageLB.setVerticalTextPosition(SwingConstants.BOTTOM);
 			productImageLB.setHorizontalTextPosition(SwingConstants.CENTER);
 			productImageLB.setHorizontalAlignment(SwingConstants.CENTER);
-			productImageLB.setIcon(new ImageIcon(CartListPanel_정유나.class.getResource(product.getP_image())));
+			/* 나중에 처리
+			productImageLB.setIcon(new ImageIcon(CartListPanel_정유나.class.getResource("/images/"+product.getP_image())));
+			*/
 			productImageLB.setBounds(6, 10, 57, 60);
 			cartPanel.add(productImageLB);
 
@@ -235,6 +239,13 @@ public class CartListPanel_정유나 extends JPanel {
 			cartPanel.add(cartOrderCheck);
 			
 			cartListPanel.add(cartPanel);
+		}
+	}
+	private void orderAllInCart(String sUserId) throws Exception{
+		try {
+			orderService.create(sUserId);
+		} catch (Exception e1) {
+			System.out.println(e1.getMessage());
 		}
 	}
 }
