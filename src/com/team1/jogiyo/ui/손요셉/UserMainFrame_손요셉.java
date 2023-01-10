@@ -17,14 +17,10 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 public class UserMainFrame_손요셉 extends JFrame {
-<<<<<<< HEAD
-	
-=======
 	JogiyoMainFrame frame;
 	public void setFrame(JogiyoMainFrame frame) {
 		this.frame = frame;
 	}
->>>>>>> branch 'main' of https://github.com/2022-11-JAVA-DEVELOPER/java-project-team1-jogiyo.git
 	private JPanel contentPane;
 
 	
