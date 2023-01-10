@@ -29,6 +29,7 @@ public class CategoriesPanel_이은지2 extends JPanel {
 		categoriesListScrollPane.setBounds(0, 503, 350, -501);
 		add(categoriesListScrollPane);
 		
+		//패널생성
 		/*
 		 * 해당 패널 클릭 시 한식리스트 보기
 		 */

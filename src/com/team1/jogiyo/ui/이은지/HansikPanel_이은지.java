@@ -24,11 +24,14 @@ import java.awt.Cursor;
 public class HansikPanel_이은지 extends JPanel {
 	/**************************************/
 	/*
-	 * 객체선언
+	 * Service 객체선언
 	 */
 	ProductService productService;
 	CartService cartService;
 	
+	/*
+	 * loginMember 객체선언
+	 */
 	User loginUser=null;
 	
 	JComboBox hansikComboBox1;
@@ -43,8 +46,6 @@ public class HansikPanel_이은지 extends JPanel {
 	 * Create the panel.
 	 */
 	
-	private final JPanel hansikMenuPanel1 = new JPanel();
-	
 	public HansikPanel_이은지() throws Exception {
 		
 		setLayout(null);
@@ -52,6 +53,9 @@ public class HansikPanel_이은지 extends JPanel {
 		JScrollPane hansikListScrollPane = new JScrollPane();
 		hansikListScrollPane.setBounds(0, 498, 350, -496);
 		add(hansikListScrollPane);
+		
+		//패널생성
+		JPanel hansikMenuPanel1 = new JPanel();
 		hansikMenuPanel1.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 		hansikMenuPanel1.addMouseListener(new MouseAdapter() {
 			@Override
@@ -216,36 +220,40 @@ public class HansikPanel_이은지 extends JPanel {
 
 		
 		/**********************생성자 끝************************/
+		/*
+		 * Service객체 생성
+		 */
+		productService = new ProductService();
+		cartService =new CartService();
+		
+		/*
+		 * loginMember 객체 생성
+		 */
 		loginUser = new User("asas","1111","가가가","제주","012-345-6789");
 		
 		//메소드 사용
 
 	}
 	
-	/*메소드*/
+	/*
+	 * 메소드
+	 */
+	
+	/*
+	 * hansikMenuPanel1, hansikMenuPanel2, hansikMenuPanel3 각각 선택 시, 각 상품 상세페이지로 이동
+	 */
+	
+	
+	/*
+	 * 콤보박스로 선택한 수량만큼 상품을 카트에 담기
+	 */
 	private void menuToCart1(String p_name) throws Exception {
-		/* 
-		 * 제품 수량으로 카트에 넣고싶음
-		 * insert cart 필요함
-		 * 근데 UI에선 service 사용해야지
-		 * cartService 봤더니 addCartInProduct 메소드가 있네
-		 * 인자를 Cart 객체로 받네?
-		 * Cart 객체를 만들자 
-		 * Cart 객체 만드는 재료는 뭐였더라 
-		 * private int c_no;
-			private int c_qty;
-			private String m_id;
-			//private int p_no;
-			private Product product;
-			
-			c_no은 시퀀스라 그냥 0넣어도 되겠네
-			나머지 재료 다 있네
-			 시작 
-		 */
 		
 		Cart cartInMenu1 = new Cart(0, (int)hansikComboBox1.getSelectedItem(), loginUser.getM_id(), productService.findByName(p_name));
 		if(hansikNameLB1.getText().equals(p_name)) {
 			cartService.addCartInProduct(cartInMenu1);
 		}
 	}
+	
+	
 }

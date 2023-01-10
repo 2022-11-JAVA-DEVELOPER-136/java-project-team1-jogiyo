@@ -12,6 +12,7 @@ import java.awt.Component;
 import javax.swing.JTextField;
 import javax.swing.JTabbedPane;
 import java.awt.Cursor;
+import com.team1.jogiyo.ui.이다은.ProductDetailPanel;
 
 public class JogiyoMainFrame_이은지 extends JFrame {
 
@@ -109,5 +110,8 @@ public class JogiyoMainFrame_이은지 extends JFrame {
 		
 		JTabbedPane orderHistoryDetail = new JTabbedPane(JTabbedPane.TOP);
 		tabbedPane.addTab("주문상세", null,orderHistoryDetail,null);
+		
+		ProductDetailPanel productDetailPanel = new ProductDetailPanel();
+		tabbedPane.addTab("New tab", null, productDetailPanel, null);
 	}
 }
