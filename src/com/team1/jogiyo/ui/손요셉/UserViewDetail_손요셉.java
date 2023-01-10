@@ -120,20 +120,8 @@ public class UserViewDetail_손요셉 extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				//수정클릭시 SQL 정보 업데이트 ==> 메쏘드 불러오기
 				// 수정클릭시 SQL 정보 업데이트
-				try {
-					String id = detailIdTF.getText();
-					String password = new String(detailpasswordTF.getText());
-					String name = detailnameTF.getText();
-					String loc = detailAddressTF.getText();
-					String phone = detailPhoneTF.getText();
-					
-					User updateUser = new User(id, password, name, loc, phone);
-					frame.userService.update(updateUser);
-					loginUser = frame.userService.findUser(id);
-					
-				} catch (Exception e1) {
-					System.out.println(e1.getMessage());
-				}
+				changeUpdateBtn(true);
+				editUserInfo();
 				
 			}
 		});
@@ -146,6 +134,7 @@ public class UserViewDetail_손요셉 extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				// 취소시 로그인 화면으로 전환
 				userInfo(loginUser);
+				frame.changePanel(12, null);
 			}
 		});
 		userViewCancelBtn.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
@@ -158,14 +147,7 @@ public class UserViewDetail_손요셉 extends JPanel {
 		add(lblNewLabel_5);
 
 		/********************************************************/
-		
-		
-		
-		
-		
 }
-	
-/*
 	/*메소드*/
 	public void userInfo(User user) {
 		detailIdTF.setText(user.getM_id());		
@@ -174,6 +156,40 @@ public class UserViewDetail_손요셉 extends JPanel {
 		detailAddressTF.setText(user.getM_loc());				
 		detailPhoneTF.setText(user.getM_phone());
 		
+	}
+	
+	public void editUserInfo() {
+		try {
+			String id = detailIdTF.getText();
+			String password = new String(detailpasswordTF.getText());
+			String name = detailnameTF.getText();
+			String loc = detailAddressTF.getText();
+			String phone = detailPhoneTF.getText();
+			
+			User updateUser = new User(id, password, name, loc, phone);
+			frame.userService.update(updateUser);
+			loginUser = frame.userService.findUser(id);
+			
+		} catch (Exception e1) {
+			System.out.println(e1.getMessage());
+		}
+	}
+	
+	public void changeUpdateBtn(boolean b) {
+		if(b) {
+			detailIdTF.setEditable(true);
+			detailpasswordTF.setEditable(true);
+			detailnameTF.setEditable(true);
+			detailAddressTF.setEditable(true);
+			detailPhoneTF.setEditable(true);
+			userViewUpdateBtn.setText("수정완료");
+		} else {
+			detailIdTF.setEditable(false);
+			detailpasswordTF.setEditable(false);
+			detailnameTF.setEditable(false);
+			detailAddressTF.setEditable(false);
+			detailPhoneTF.setEditable(false);
+		}
 	}
 }
 
