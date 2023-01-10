@@ -297,13 +297,14 @@ public class HansikPanel_이은지 extends JPanel {
 	 * 콤보박스로 선택한 수량만큼 카트에 상품 담기
 	 */
 	private void menuToCart1(String p_name) throws Exception {
-		/*
-		 * 오류
-		Cart cartInMenu1 = new Cart(0, (int)hansikComboBox1.getSelectedItem(), loginUser.getM_id(), productService.findByName(p_name));
+		
+		Cart cartInMenu1 = new Cart(0, (int)hansikComboBox1.getSelectedItem(), loginUser.getM_id(), frame.productService.findByName(p_name));
 		if(hansikNameLB1.getText().equals(p_name)) {
-			cartService.addCartInProduct(cartInMenu1);
-		*/
+			frame.cartService.addCartInProduct(cartInMenu1);
+		}
+		
 	}
+		
 	
 	
 }
