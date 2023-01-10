@@ -1,4 +1,4 @@
-package com.team1.jogiyo.ui;
+package com.team1.jogiyo.ui.이다은;
 
 import java.awt.EventQueue;
 
@@ -25,17 +25,18 @@ import com.team1.jogiyo.ui.조성동.OrderHistoryTabbedPanel_조성동;
 import com.team1.jogiyo.ui.조성동.OrderHistoryDetailTabbedPanel_조성동;
 import com.team1.jogiyo.ui.정유나.CartListTabbedPanel_정유나;
 import com.team1.jogiyo.ui.손요셉.UserSignupPane_손요셉;
-
-import com.team1.jogiyo.ui.이은지.*;
-
-import com.team1.jogiyo.ui.손요셉.UserViewDetail_손요셉;
 import com.team1.jogiyo.ui.이은지.CategoriesPanel_이은지;
 import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
 import javax.swing.JSplitPane;
 import javax.swing.JTextPane;
 import javax.swing.JComboBox;
-
+import com.team1.jogiyo.ui.이은지.HansikPanel_이은지;
+/*
+import com.team1.jogiyo.ui.이은지.HansikPanel_이은지;
+import com.team1.jogiyo.ui.이은지.JoongsikPanel_이은지;
+import com.team1.jogiyo.ui.이은지.BunsikPanel_이은지;
+*/
 
 public class JogiyoMainFrame extends JFrame {
 	/****************1. Service 멤버필드 선언********************/
@@ -82,7 +83,7 @@ public class JogiyoMainFrame extends JFrame {
 	private JPanel panel;
 	private JTextField findProductTL;
 	private JLabel findProductIconLB;
-	private UserViewDetail_손요셉 userViewDetail_손요셉;
+	private ProductDetailPanel_이다은 productDetailPanel_이다은;
 	/*
 	private HansikPanel_이은지 hansikPanel_이은지;
 	private JoongsikPanel_이은지 joongsikPanel_이은지;
@@ -231,6 +232,18 @@ public class JogiyoMainFrame extends JFrame {
 		categoriesPanel_이은지 = new CategoriesPanel_이은지();
 		productTabbedPanel.addTab("카테고리", null, categoriesPanel_이은지, null);
 		
+		productDetailPanel_이다은 = new ProductDetailPanel_이다은();
+		productTabbedPanel.addTab("New tab", null, productDetailPanel_이다은, null);
+		/*
+		hansikPanel_이은지 = new HansikPanel_이은지();
+		productTabbedPanel.addTab("한식", null, hansikPanel_이은지, null);
+		
+		joongsikPanel_이은지 = new JoongsikPanel_이은지();
+		productTabbedPanel.addTab("중식", null, joongsikPanel_이은지, null);
+		
+		bunsikPanel_이은지 = new BunsikPanel_이은지();
+		productTabbedPanel.addTab("분식", null, bunsikPanel_이은지, null);
+		*/
 		cartListTabbedPanel_정유나 = new CartListTabbedPanel_정유나();
 		parentTabbedPanel.addTab("카트", null, cartListTabbedPanel_정유나, null);
 		
@@ -247,31 +260,11 @@ public class JogiyoMainFrame extends JFrame {
 		productService =new ProductService();
 		cartService = new CartService();
 		orderService = new OrderService();
-
-	}
-	/*
-	 * 패널 변경 메쏘드
-	 */
-//	public void changePanel(int panel_no) {
-//		if(panel_no==) {
-//			
-//		} else if(panel_no==)
-//		
-//	}
-
 		
 		/*
 		 * shopMainFrame 참조를 Panel에 넘겨줌
 		 */
-		userLoginPanel_손요셉.setFrame(this);
-		userMainPanel_손요셉.setFrame(this);
-		userSignupPanel_손요셉.setFrame(this);
-		userViewDetail.setFrame(this);
-		userLoginPanel_손요셉.setFrame(this);
-		userLoginPanel_손요셉.setFrame(this);
 		
-		userViewDetail_손요셉 = new UserViewDetail_손요셉();
-		userTabbedPanel.addTab("회원정보", null, userViewDetail_손요셉, null);
 		
 		
 		
