@@ -6,6 +6,9 @@ import javax.swing.JEditorPane;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
+
+import com.team1.jogiyo.ui.JogiyoMainFrame;
+
 import javax.swing.JTextField;
 import java.awt.Font;
 import java.awt.SystemColor;
@@ -15,7 +18,14 @@ import javax.swing.JScrollPane;
 import java.awt.Component;
 
 public class CategoriesPanel_이은지 extends JPanel {
+	JogiyoMainFrame frame;
+	public void setFrame(JogiyoMainFrame frame) {
+		this.frame = frame;
+	}
 	private JScrollPane categoriesListScrollPane;
+	private JLabel hansikLB;
+	private JLabel joongsikLB;
+	private JLabel bunsikLB;
 
 	/**
 	 * Create the panel.
@@ -42,7 +52,7 @@ public class CategoriesPanel_이은지 extends JPanel {
 		add(hansikPanel);
 		hansikPanel.setLayout(null);
 		
-		JLabel hansikLB = new JLabel("  한식");
+		hansikLB = new JLabel("  한식");
 		hansikLB.setBounds(0, 0, 350, 166);
 		hansikLB.setHorizontalAlignment(SwingConstants.CENTER);
 		hansikPanel.add(hansikLB);
@@ -63,7 +73,7 @@ public class CategoriesPanel_이은지 extends JPanel {
 		add(joongsikPanel);
 		joongsikPanel.setLayout(null);
 		
-		JLabel joongsikLB = new JLabel("   중식");
+		joongsikLB = new JLabel("   중식");
 		joongsikLB.setBounds(0, 0, 350, 166);
 		joongsikLB.setIcon(new ImageIcon("C:\\Users\\itwill\\Downloads\\1중식.png"));
 		joongsikLB.setHorizontalAlignment(SwingConstants.CENTER);
@@ -84,7 +94,7 @@ public class CategoriesPanel_이은지 extends JPanel {
 		add(bunsikPanel);
 		bunsikPanel.setLayout(null);
 		
-		JLabel bunsikLB = new JLabel("  분식");
+		bunsikLB = new JLabel("  분식");
 		bunsikLB.setBounds(0, 0, 350, 166);
 		bunsikLB.setIcon(new ImageIcon("C:\\Users\\itwill\\Downloads\\1분식.png"));
 		bunsikLB.setHorizontalAlignment(SwingConstants.CENTER);

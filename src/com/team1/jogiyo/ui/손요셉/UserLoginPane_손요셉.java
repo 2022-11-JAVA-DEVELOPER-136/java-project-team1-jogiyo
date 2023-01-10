@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
 
+import com.team1.jogiyo.ui.JogiyoMainFrame;
 import com.team1.jogiyo.user.User;
 import com.team1.jogiyo.user.UserService;
 
@@ -21,6 +22,10 @@ import java.awt.Cursor;
 
 
 public class UserLoginPane_손요셉 extends JPanel {
+	JogiyoMainFrame frame;
+	public void setFrame(JogiyoMainFrame frame) {
+		this.frame = frame;
+	}
 	private UserService userService;
 	private User loginUser;
 	

@@ -25,13 +25,26 @@ import com.team1.jogiyo.ui.조성동.OrderHistoryTabbedPanel_조성동;
 import com.team1.jogiyo.ui.조성동.OrderHistoryDetailTabbedPanel_조성동;
 import com.team1.jogiyo.ui.정유나.CartListTabbedPanel_정유나;
 import com.team1.jogiyo.ui.손요셉.UserSignupPane_손요셉;
+<<<<<<< HEAD
 import com.team1.jogiyo.ui.이은지.*;
 
+=======
+import com.team1.jogiyo.ui.손요셉.UserViewDetail_손요셉;
+import com.team1.jogiyo.ui.이은지.CategoriesPanel_이은지;
+>>>>>>> branch 'main' of https://github.com/2022-11-JAVA-DEVELOPER/java-project-team1-jogiyo.git
 import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
 import javax.swing.JSplitPane;
 import javax.swing.JTextPane;
 import javax.swing.JComboBox;
+<<<<<<< HEAD
+=======
+/*
+import com.team1.jogiyo.ui.이은지.HansikPanel_이은지;
+import com.team1.jogiyo.ui.이은지.JoongsikPanel_이은지;
+import com.team1.jogiyo.ui.이은지.BunsikPanel_이은지;
+*/
+>>>>>>> branch 'main' of https://github.com/2022-11-JAVA-DEVELOPER/java-project-team1-jogiyo.git
 
 public class JogiyoMainFrame extends JFrame {
 	/****************1. Service 멤버필드 선언********************/
@@ -72,10 +85,18 @@ public class JogiyoMainFrame extends JFrame {
 	private OrderHistoryTabbedPanel_조성동 orderHistoryTabbedPanel_조성동;
 	private OrderHistoryDetailTabbedPanel_조성동 orderHistoryDetailTabbedPanel_조성동;
 	private CategoriesPanel_이은지 categoriesPanel_이은지;
-	private JTextField textField;
 	private JTabbedPane parentTabbedPanel;
 	private JTabbedPane productTabbedPanel;
 	private UserSignupPane_손요셉 userSignupPanel_손요셉;
+	private JPanel panel;
+	private JTextField findProductTL;
+	private JLabel findProductIconLB;
+	private UserViewDetail_손요셉 userViewDetail_손요셉;
+	/*
+	private HansikPanel_이은지 hansikPanel_이은지;
+	private JoongsikPanel_이은지 joongsikPanel_이은지;
+	private BunsikPanel_이은지 bunsikPanel_이은지;
+	*/
 
 	/**
 	 * Launch the application.
@@ -131,9 +152,16 @@ public class JogiyoMainFrame extends JFrame {
 			}
 		});
 		
-		textField = new JTextField();
-		NorthPanel.add(textField);
-		textField.setColumns(10);
+		panel = new JPanel();
+		NorthPanel.add(panel);
+		
+		findProductTL = new JTextField();
+		panel.add(findProductTL);
+		findProductTL.setColumns(10);
+		
+		findProductIconLB = new JLabel("");
+		findProductIconLB.setIcon(new ImageIcon(JogiyoMainFrame.class.getResource("/images/search_20px.png")));
+		panel.add(findProductIconLB);
 		cartLB.setIcon(new ImageIcon(JogiyoMainFrame.class.getResource("/images/3cart_30px.png")));
 		cartLB.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		NorthPanel.add(cartLB);
@@ -143,7 +171,13 @@ public class JogiyoMainFrame extends JFrame {
 		contentPane.add(SouthPanel, BorderLayout.SOUTH);
 		SouthPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 70, 5));
 		
-		userInfoLB = new JLabel("MY");
+		userInfoLB = new JLabel("");
+		userInfoLB.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+			}
+		});
 		userInfoLB.setHorizontalTextPosition(SwingConstants.CENTER);
 		userInfoLB.setVerticalTextPosition(SwingConstants.BOTTOM);
 		userInfoLB.setHorizontalAlignment(SwingConstants.CENTER);
@@ -151,7 +185,7 @@ public class JogiyoMainFrame extends JFrame {
 		userInfoLB.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		SouthPanel.add(userInfoLB);
 		
-		homeLB = new JLabel("HOME");
+		homeLB = new JLabel("");
 		homeLB.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -164,16 +198,17 @@ public class JogiyoMainFrame extends JFrame {
 		homeLB.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		SouthPanel.add(homeLB);
 		
-		orderLB = new JLabel("ORDER");
+		orderLB = new JLabel("");
 		orderLB.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				
+				System.exit(0);
 			}
 		});
 		orderLB.setVerticalTextPosition(SwingConstants.BOTTOM);
 		orderLB.setHorizontalTextPosition(SwingConstants.CENTER);
-		orderLB.setIcon(new ImageIcon(JogiyoMainFrame.class.getResource("/images/3order_50px.png")));
+		orderLB.setIcon(new ImageIcon(JogiyoMainFrame.class.getResource("/images/50exit.png")));
 		orderLB.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		SouthPanel.add(orderLB);
 		
@@ -204,16 +239,30 @@ public class JogiyoMainFrame extends JFrame {
 		
 		categoriesPanel_이은지 = new CategoriesPanel_이은지();
 		productTabbedPanel.addTab("카테고리", null, categoriesPanel_이은지, null);
+		/*
+		hansikPanel_이은지 = new HansikPanel_이은지();
+		productTabbedPanel.addTab("한식", null, hansikPanel_이은지, null);
 		
+<<<<<<< HEAD
 		HansikPanel_이은지 hansikPanel = new HansikPanel_이은지();
 		productTabbedPanel.addTab("한식", null, hansikPanel, null);
+=======
+		joongsikPanel_이은지 = new JoongsikPanel_이은지();
+		productTabbedPanel.addTab("중식", null, joongsikPanel_이은지, null);
+>>>>>>> branch 'main' of https://github.com/2022-11-JAVA-DEVELOPER/java-project-team1-jogiyo.git
 		
+<<<<<<< HEAD
 		JoongsikPanel_이은지 joongsikPanel = new JoongsikPanel_이은지();
 		productTabbedPanel.addTab("중식", null, joongsikPanel, null);
 		
 		BunsikPanel_이은지 bunsikPanel = new BunsikPanel_이은지();
 		productTabbedPanel.addTab("분식", null, bunsikPanel, null);
 		
+=======
+		bunsikPanel_이은지 = new BunsikPanel_이은지();
+		productTabbedPanel.addTab("분식", null, bunsikPanel_이은지, null);
+		*/
+>>>>>>> branch 'main' of https://github.com/2022-11-JAVA-DEVELOPER/java-project-team1-jogiyo.git
 		cartListTabbedPanel_정유나 = new CartListTabbedPanel_정유나();
 		parentTabbedPanel.addTab("카트", null, cartListTabbedPanel_정유나, null);
 		
@@ -230,6 +279,7 @@ public class JogiyoMainFrame extends JFrame {
 		productService =new ProductService();
 		cartService = new CartService();
 		orderService = new OrderService();
+<<<<<<< HEAD
 
 	}
 	/*
@@ -241,4 +291,24 @@ public class JogiyoMainFrame extends JFrame {
 //		} else if(panel_no==)
 //		
 //	}
+=======
+		
+		/*
+		 * shopMainFrame 참조를 Panel에 넘겨줌
+		 */
+		userLoginPanel_손요셉.setFrame(this);
+		userMainPanel_손요셉.setFrame(this);
+		userSignupPanel_손요셉.setFrame(this);
+		userViewDetail.setFrame(this);
+		userLoginPanel_손요셉.setFrame(this);
+		userLoginPanel_손요셉.setFrame(this);
+		
+		userViewDetail_손요셉 = new UserViewDetail_손요셉();
+		userTabbedPanel.addTab("회원정보", null, userViewDetail_손요셉, null);
+		
+		
+		
+		
+	}
+>>>>>>> branch 'main' of https://github.com/2022-11-JAVA-DEVELOPER/java-project-team1-jogiyo.git
 }

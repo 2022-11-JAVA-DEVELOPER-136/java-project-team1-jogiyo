@@ -14,6 +14,7 @@ import com.team1.jogiyo.cart.CartService;
 import com.team1.jogiyo.order.OrderService;
 import com.team1.jogiyo.product.Product;
 import com.team1.jogiyo.product.ProductService;
+import com.team1.jogiyo.ui.JogiyoMainFrame;
 import com.team1.jogiyo.ui.조성동.OrderHistoryTabbedPanel_조성동;
 import com.team1.jogiyo.user.User;
 import com.team1.jogiyo.user.UserService;
@@ -34,7 +35,10 @@ import javax.swing.JCheckBox;
 import javax.swing.DefaultComboBoxModel;
 
 public class CartListTabbedPanel_정유나 extends JPanel {
-	private JScrollPane scrollPane;
+	JogiyoMainFrame frame;
+	public void setFrame(JogiyoMainFrame frame) {
+		this.frame = frame;
+	}
 	private JPanel cartListPanel;
 	private JPanel cartPanel;
 	private JLabel productImageLB;
@@ -60,14 +64,14 @@ public class CartListTabbedPanel_정유나 extends JPanel {
 	public CartListTabbedPanel_정유나() throws Exception {
 		setLayout(null);
 		
-		scrollPane = new JScrollPane();
-		scrollPane.setBounds(12, 36, 326, 453);
-		add(scrollPane);
+		JScrollPane cartScrollPane = new JScrollPane();
+		cartScrollPane.setBounds(12, 36, 326, 372);
+		add(cartScrollPane);
 		
 		cartListPanel = new JPanel();
 		cartListPanel.setPreferredSize(new Dimension(10, 1000));
-		scrollPane.setViewportView(cartListPanel);
-		
+		cartScrollPane.setViewportView(cartListPanel);
+		/*		CartListItem Start		*/
 		cartPanel = new JPanel();
 		cartPanel.setPreferredSize(new Dimension(300, 80));
 		cartListPanel.add(cartPanel);
@@ -129,9 +133,13 @@ public class CartListTabbedPanel_정유나 extends JPanel {
 		
 		cartOrderCheck = new JCheckBox("");
 		cartOrderCheck.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		cartOrderCheck.setBounds(274, 4, 21, 23);
+		cartOrderCheck.setBounds(276, 47, 21, 23);
 		cartPanel.add(cartOrderCheck);
 		
+		JButton btnNewButton = new JButton("New button");
+		btnNewButton.setBounds(200, 11, 97, 23);
+		cartPanel.add(btnNewButton);
+		/* 		CartListItem End	*/
 		
 		orderAllBtn = new JButton("전체주문");
 		orderAllBtn.addMouseListener(new MouseAdapter() {
@@ -147,20 +155,20 @@ public class CartListTabbedPanel_정유나 extends JPanel {
 				
 			}
 		});
-		orderAllBtn.setBounds(75, 538, 97, 23);
+		orderAllBtn.setBounds(75, 470, 97, 23);
 		add(orderAllBtn);
 		
 		orderSelectionBtn = new JButton("선택주문");
 		orderSelectionBtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		orderSelectionBtn.setBounds(201, 538, 97, 23);
+		orderSelectionBtn.setBounds(201, 470, 97, 23);
 		add(orderSelectionBtn);
 		
 		JLabel lblNewLabel_2 = new JLabel("주문금액 :");
-		lblNewLabel_2.setBounds(75, 513, 63, 15);
+		lblNewLabel_2.setBounds(75, 445, 63, 15);
 		add(lblNewLabel_2);
 		
 		totalOrderPriceLB = new JLabel("");
-		totalOrderPriceLB.setBounds(163, 513, 135, 15);
+		totalOrderPriceLB.setBounds(163, 445, 135, 15);
 		add(totalOrderPriceLB);
 		
 		
@@ -174,6 +182,7 @@ public class CartListTabbedPanel_정유나 extends JPanel {
 	/****************생성자 끝**************/
 	//====> 오류오류!!!!!!!!!!!!!!
 	public void cartListDisplay(String sUserId) throws Exception{
+		cartListPanel.removeAll();
 		List<Cart> cartList=cartService.cartListByUserId(sUserId);
 		for (Cart cart : cartList) {
 			Product product=productService.findByPrimaryKey(cart.getProduct().getP_no());
@@ -184,13 +193,19 @@ public class CartListTabbedPanel_정유나 extends JPanel {
 			cartPanel.setLayout(null);
 
 			productImageLB = new JLabel("");
+			productImageLB.addMouseListener(new MouseAdapter() {
+				@Override
+				public void mouseClicked(MouseEvent e) {
+					//제품상세페이지로 넘어가기
+				}
+			});
 			productImageLB.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 			productImageLB.setVerticalTextPosition(SwingConstants.BOTTOM);
 			productImageLB.setHorizontalTextPosition(SwingConstants.CENTER);
 			productImageLB.setHorizontalAlignment(SwingConstants.CENTER);
-			/* 나중에 처리
-			productImageLB.setIcon(new ImageIcon(CartListPanel_정유나.class.getResource("/images/"+product.getP_image())));
-			*/
+			
+			productImageLB.setIcon(new ImageIcon(CartListTabbedPanel_정유나.class.getResource("/images/"+product.getP_image())));
+			
 			productImageLB.setBounds(6, 10, 57, 60);
 			cartPanel.add(productImageLB);
 

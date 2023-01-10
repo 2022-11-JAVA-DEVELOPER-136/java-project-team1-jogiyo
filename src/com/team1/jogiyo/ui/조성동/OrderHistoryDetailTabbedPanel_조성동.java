@@ -6,6 +6,7 @@ import com.team1.jogiyo.order.Order;
 import com.team1.jogiyo.order.OrderItem;
 import com.team1.jogiyo.order.OrderService;
 import com.team1.jogiyo.product.Product;
+import com.team1.jogiyo.ui.JogiyoMainFrame;
 import com.team1.jogiyo.user.User;
 
 import java.awt.Color;
@@ -17,6 +18,10 @@ import java.util.List;
 import javax.swing.JButton;
 
 public class OrderHistoryDetailTabbedPanel_조성동 extends JPanel {
+	JogiyoMainFrame frame;
+	public void setFrame(JogiyoMainFrame frame) {
+		this.frame = frame;
+	}
 
 	/***************************************/
 	/*
