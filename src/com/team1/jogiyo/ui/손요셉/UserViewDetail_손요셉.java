@@ -108,12 +108,12 @@ public class UserViewDetail_손요셉 extends JPanel {
 //		detailPhoneTF.setBounds(89, 336, 146, 21);
 //		add(detailPhoneTF);
 		
-//		userViewUpdateBtn = new JButton("수정");
-//		userViewUpdateBtn.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				//수정클릭시 SQL 정보 업데이트
-//			}
-//		});
+		userViewUpdateBtn = new JButton("수정");
+		userViewUpdateBtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//수정클릭시 SQL 정보 업데이트
+			}
+		});
 		userViewUpdateBtn.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
 		userViewUpdateBtn.setBounds(40, 406, 97, 23);
 		add(userViewUpdateBtn);
@@ -135,7 +135,7 @@ public class UserViewDetail_손요셉 extends JPanel {
 		
 		/********************************************************/
 		
-		frame.userService=new UserService();
+		//frame.userService=new UserService();
 	/*****생성자끝****/
 		loginUser=frame.userService.findUser("aaaa");
 		
@@ -207,6 +207,8 @@ public class UserViewDetail_손요셉 extends JPanel {
 
 		public void updateFormEnable(boolean b) {
 			if(b) {
+				//detailIdTF.setEditable(false);
+				//detailpasswordTF.setEditable(false);
 				detailnameTF.setEditable(true);
 				detailAddressTF.setEditable(true);
 				detailPhoneTF.setEditable(true);
@@ -216,6 +218,8 @@ public class UserViewDetail_손요셉 extends JPanel {
 			
 				
 			}else {
+				detailIdTF.setEditable(false);
+				detailpasswordTF.setEditable(false);
 				detailnameTF.setEditable(false);
 				detailAddressTF.setEditable(false);
 				detailPhoneTF.setEditable(false);
