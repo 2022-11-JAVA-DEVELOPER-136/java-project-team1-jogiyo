@@ -7,6 +7,7 @@ import javax.swing.JTabbedPane;
 import com.team1.jogiyo.order.Order;
 import com.team1.jogiyo.order.OrderItem;
 import com.team1.jogiyo.order.OrderService;
+import com.team1.jogiyo.ui.JogiyoMainFrame;
 import com.team1.jogiyo.user.User;
 
 import javax.swing.JLabel;
@@ -18,6 +19,10 @@ import java.awt.Color;
 import java.awt.Dimension;
 
 public class OrderHistoryTabbedPanel_조성동 extends JPanel {
+	JogiyoMainFrame frame;
+	public void setFrame(JogiyoMainFrame frame) {
+		this.frame = frame;
+	}
 	/***************************************/
 	/*
 	 * Sevice객체선언

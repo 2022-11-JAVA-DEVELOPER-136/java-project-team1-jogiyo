@@ -255,5 +255,14 @@ public class JogiyoMainFrame extends JFrame {
 		productService =new ProductService();
 		cartService = new CartService();
 		orderService = new OrderService();
+		
+		/*
+		 * shopMainFrame 참조를 Panel에 넘겨줌
+		 */
+		
+		
+		
+		
+		
 	}
 }

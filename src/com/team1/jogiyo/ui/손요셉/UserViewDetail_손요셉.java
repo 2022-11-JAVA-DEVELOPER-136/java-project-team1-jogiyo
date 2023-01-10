@@ -4,6 +4,9 @@ import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import javax.swing.JTextField;
+
+import com.team1.jogiyo.ui.JogiyoMainFrame;
+
 import java.awt.Font;
 import javax.swing.JButton;
 import java.awt.Color;
@@ -11,6 +14,10 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class UserViewDetail_손요셉 extends JPanel {
+	JogiyoMainFrame frame;
+	public void setFrame(JogiyoMainFrame frame) {
+		this.frame = frame;
+	}
 	private JTextField txtVjvjdid;
 	private JTextField detailpasswordTF;
 	private JTextField detailIdTF;

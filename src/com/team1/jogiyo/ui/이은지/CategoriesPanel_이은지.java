@@ -6,6 +6,9 @@ import javax.swing.JEditorPane;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
+
+import com.team1.jogiyo.ui.JogiyoMainFrame;
+
 import javax.swing.JTextField;
 import java.awt.Font;
 import java.awt.SystemColor;
@@ -15,6 +18,10 @@ import javax.swing.JScrollPane;
 import java.awt.Component;
 
 public class CategoriesPanel_이은지 extends JPanel {
+	JogiyoMainFrame frame;
+	public void setFrame(JogiyoMainFrame frame) {
+		this.frame = frame;
+	}
 	private JScrollPane categoriesListScrollPane;
 	private JLabel hansikLB;
 	private JLabel joongsikLB;

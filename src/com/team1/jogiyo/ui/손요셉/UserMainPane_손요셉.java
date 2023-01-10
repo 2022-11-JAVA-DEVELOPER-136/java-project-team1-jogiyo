@@ -3,6 +3,7 @@ package com.team1.jogiyo.ui.손요셉;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 
+import com.team1.jogiyo.ui.JogiyoMainFrame;
 import com.team1.jogiyo.user.User;
 import com.team1.jogiyo.user.UserService;
 
@@ -14,6 +15,10 @@ import java.awt.event.MouseEvent;
 import java.awt.Cursor;
 
 public class UserMainPane_손요셉 extends JPanel {
+	JogiyoMainFrame frame;
+	public void setFrame(JogiyoMainFrame frame) {
+		this.frame = frame;
+	}
 	private UserService userService;
 	private User loginUser=null;
 	private int selected_index;
