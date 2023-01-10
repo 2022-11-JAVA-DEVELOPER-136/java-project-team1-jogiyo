@@ -120,11 +120,13 @@ public class HansikPanel_이은지 extends JPanel {
 		add(hansikMenuPanel2);
 		
 		JLabel hansikImageLB2 = new JLabel("");
+		hansikImageLB2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		hansikImageLB2.setIcon(new ImageIcon("C:\\Users\\itwill\\Downloads\\p_image2.jpg"));
 		hansikImageLB2.setBounds(0, 0, 251, 167);
 		hansikMenuPanel2.add(hansikImageLB2);
 		
 		JLabel hansikNameLB2 = new JLabel("김치찜");
+		hansikNameLB2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		hansikNameLB2.setHorizontalAlignment(SwingConstants.RIGHT);
 		hansikNameLB2.setFont(new Font("맑은 고딕", Font.BOLD, 25));
 		hansikNameLB2.setBounds(229, 36, 109, 30);
@@ -140,6 +142,7 @@ public class HansikPanel_이은지 extends JPanel {
 		 * 해당 라벨 클릭 시 장바구니에 상품 추가
 		 */
 		JLabel hansikCartLB2 = new JLabel("");
+		hansikCartLB2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		hansikCartLB2.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -169,11 +172,13 @@ public class HansikPanel_이은지 extends JPanel {
 		add(hansikMenuPanel3);
 		
 		JLabel hansikImageLB3 = new JLabel("");
+		hansikImageLB3.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		hansikImageLB3.setIcon(new ImageIcon("C:\\Users\\itwill\\Downloads\\p_image3.jpg"));
 		hansikImageLB3.setBounds(0, 0, 251, 167);
 		hansikMenuPanel3.add(hansikImageLB3);
 		
 		JLabel hansikNameLB3 = new JLabel("삼겹살");
+		hansikNameLB3.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		hansikNameLB3.setHorizontalAlignment(SwingConstants.RIGHT);
 		hansikNameLB3.setFont(new Font("맑은 고딕", Font.BOLD, 25));
 		hansikNameLB3.setBounds(229, 36, 109, 30);
@@ -189,6 +194,7 @@ public class HansikPanel_이은지 extends JPanel {
 		 * 해당 라벨 클릭 시 장바구니에 상품 추가
 		 */
 		JLabel hansikCartLB3 = new JLabel("");
+		hansikCartLB3.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		hansikCartLB3.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {

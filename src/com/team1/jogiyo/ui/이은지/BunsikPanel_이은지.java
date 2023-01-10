@@ -14,6 +14,7 @@ import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.Cursor;
 
 public class BunsikPanel_이은지 extends JPanel {
 	private final JPanel bunsikPanel1 = new JPanel();
@@ -23,6 +24,9 @@ public class BunsikPanel_이은지 extends JPanel {
 	private JComboBox bunsikComboBox2;
 	private JLabel bunsikCartLB3;
 	private JComboBox bunsikComboBox3;
+	private JLabel bunsikCartLB1_1;
+	private JLabel bunsikCartLB2_1;
+	private JLabel bunsikCartLB3_1;
 
 	/**
 	 * Create the panel.
@@ -47,11 +51,13 @@ public class BunsikPanel_이은지 extends JPanel {
 		bunsikPanel1.setLayout(null);
 		
 		JLabel bunsikImageLB1 = new JLabel("");
+		bunsikImageLB1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		bunsikImageLB1.setBounds(0, 0, 236, 167);
 		bunsikImageLB1.setIcon(new ImageIcon("C:\\Users\\itwill\\Downloads\\p_image7.jpg"));
 		bunsikPanel1.add(bunsikImageLB1);
 		
 		JLabel bunsikNameLB1 = new JLabel("떡볶이");
+		bunsikNameLB1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		bunsikNameLB1.setHorizontalAlignment(SwingConstants.RIGHT);
 		bunsikNameLB1.setFont(new Font("맑은 고딕", Font.BOLD, 25));
 		bunsikNameLB1.setBounds(229, 35, 109, 30);
@@ -72,10 +78,11 @@ public class BunsikPanel_이은지 extends JPanel {
 			public void mouseClicked(MouseEvent e) {
 			}
 		});
-		bunsikCartLB1 = new JLabel("");
-		bunsikCartLB1.setIcon(new ImageIcon("C:\\Users\\itwill\\Downloads\\cart.png"));
-		bunsikCartLB1.setBounds(311, 113, 27, 27);
-		bunsikPanel1.add(bunsikCartLB1);
+		bunsikCartLB1_1 = new JLabel("");
+		bunsikCartLB1_1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		bunsikCartLB1_1.setIcon(new ImageIcon("C:\\Users\\itwill\\Downloads\\cart.png"));
+		bunsikCartLB1_1.setBounds(311, 113, 27, 27);
+		bunsikPanel1.add(bunsikCartLB1_1);
 		
 		bunsikComboBox1 = new JComboBox();
 		bunsikComboBox1.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5"}));
@@ -97,11 +104,13 @@ public class BunsikPanel_이은지 extends JPanel {
 		add(bunsikPanel2);
 		
 		JLabel bunsikImageLB2 = new JLabel("");
+		bunsikImageLB2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		bunsikImageLB2.setIcon(new ImageIcon("C:\\Users\\itwill\\Downloads\\p_image8.jpg"));
 		bunsikImageLB2.setBounds(0, 0, 236, 167);
 		bunsikPanel2.add(bunsikImageLB2);
 		
 		JLabel bunsikNameLB2 = new JLabel("어묵");
+		bunsikNameLB2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		bunsikNameLB2.setHorizontalAlignment(SwingConstants.RIGHT);
 		bunsikNameLB2.setFont(new Font("맑은 고딕", Font.BOLD, 25));
 		bunsikNameLB2.setBounds(229, 35, 109, 30);
@@ -122,10 +131,11 @@ public class BunsikPanel_이은지 extends JPanel {
 			public void mouseClicked(MouseEvent e) {
 			}
 		});
-		bunsikCartLB2 = new JLabel("");
-		bunsikCartLB2.setIcon(new ImageIcon("C:\\Users\\itwill\\Downloads\\cart.png"));
-		bunsikCartLB2.setBounds(311, 113, 27, 27);
-		bunsikPanel2.add(bunsikCartLB2);
+		bunsikCartLB2_1 = new JLabel("");
+		bunsikCartLB2_1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		bunsikCartLB2_1.setIcon(new ImageIcon("C:\\Users\\itwill\\Downloads\\cart.png"));
+		bunsikCartLB2_1.setBounds(311, 113, 27, 27);
+		bunsikPanel2.add(bunsikCartLB2_1);
 		
 		bunsikComboBox2 = new JComboBox();
 		bunsikComboBox2.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5"}));
@@ -147,11 +157,13 @@ public class BunsikPanel_이은지 extends JPanel {
 		add(bunsikPanel3);
 		
 		JLabel bunsikImageLB3 = new JLabel("");
+		bunsikImageLB3.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		bunsikImageLB3.setIcon(new ImageIcon("C:\\Users\\itwill\\Downloads\\p_image9.jpg"));
 		bunsikImageLB3.setBounds(0, 0, 236, 167);
 		bunsikPanel3.add(bunsikImageLB3);
 		
 		JLabel bunsikNameLB3 = new JLabel("순대");
+		bunsikNameLB3.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		bunsikNameLB3.setHorizontalAlignment(SwingConstants.RIGHT);
 		bunsikNameLB3.setFont(new Font("맑은 고딕", Font.BOLD, 25));
 		bunsikNameLB3.setBounds(229, 35, 109, 30);
@@ -172,10 +184,11 @@ public class BunsikPanel_이은지 extends JPanel {
 			public void mouseClicked(MouseEvent e) {
 			}
 		});
-		bunsikCartLB3 = new JLabel("");
-		bunsikCartLB3.setIcon(new ImageIcon("C:\\Users\\itwill\\Downloads\\cart.png"));
-		bunsikCartLB3.setBounds(311, 113, 27, 27);
-		bunsikPanel3.add(bunsikCartLB3);
+		bunsikCartLB3_1 = new JLabel("");
+		bunsikCartLB3_1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		bunsikCartLB3_1.setIcon(new ImageIcon("C:\\Users\\itwill\\Downloads\\cart.png"));
+		bunsikCartLB3_1.setBounds(311, 113, 27, 27);
+		bunsikPanel3.add(bunsikCartLB3_1);
 		
 		bunsikComboBox3 = new JComboBox();
 		bunsikComboBox3.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5"}));
