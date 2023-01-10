@@ -47,6 +47,7 @@ public class CartListPanel_정유나 extends JPanel {
 	private JButton orderSelectionBtn;
 	private JLabel totalOrderPriceLB;
 	
+	//private Product product;
 	private OrderService orderService;
 	private CartService cartService;
 	private ProductService productService;
@@ -131,8 +132,6 @@ public class CartListPanel_정유나 extends JPanel {
 		cartOrderCheck.setBounds(274, 4, 21, 23);
 		cartPanel.add(cartOrderCheck);
 		
-		cartList();
-		
 		
 		orderAllBtn = new JButton("전체주문");
 		orderAllBtn.addMouseListener(new MouseAdapter() {
@@ -167,12 +166,20 @@ public class CartListPanel_정유나 extends JPanel {
 		totalOrderPriceLB = new JLabel("");
 		totalOrderPriceLB.setBounds(163, 513, 135, 15);
 		add(totalOrderPriceLB);
-
+		
+		
+		
+		/*****************생성자 작성************************/
+		cartService = new CartService();
+		productService=new ProductService();
+		loginUser=new User("bbbb",null,null,null,null);
+		//product=new Product();
+		cartListDisplay(loginUser.getM_id());
 	}
 	/****************생성자 끝**************/
 	//====> 오류오류!!!!!!!!!!!!!!
-	private void cartList() throws Exception{
-		List<Cart> cartList=cartService.cartListByUserId("aaaa");
+	private void cartListDisplay(String m_id) throws Exception{
+		List<Cart> cartList=cartService.cartListByUserId(m_id);
 		for (Cart cart : cartList) {
 			Product product=productService.findByPrimaryKey(cart.getProduct().getP_no());
 			
@@ -186,7 +193,9 @@ public class CartListPanel_정유나 extends JPanel {
 			productImageLB.setVerticalTextPosition(SwingConstants.BOTTOM);
 			productImageLB.setHorizontalTextPosition(SwingConstants.CENTER);
 			productImageLB.setHorizontalAlignment(SwingConstants.CENTER);
-			productImageLB.setIcon(new ImageIcon(CartListPanel_정유나.class.getResource(product.getP_image())));
+			//productImageLB.setIcon(new ImageIcon(CartListPanel_정유나.class.getResource(product.getP_image())));
+			productImageLB.setIcon(new ImageIcon(CartListPanel_정유나.class.getResource(cartService.cartListByCartNo(cart.getC_no()).getProduct().getP_image())));
+			
 			productImageLB.setBounds(6, 10, 57, 60);
 			cartPanel.add(productImageLB);
 
@@ -221,11 +230,11 @@ public class CartListPanel_정유나 extends JPanel {
 			productPrice.setBounds(65, 55, 25, 15);
 			cartPanel.add(productPrice);
 
-			productPriceLB = new JLabel(""+product.getP_price());
+			productPriceLB = new JLabel(""+cart.getProduct().getP_price());
 			productPriceLB.setBounds(94, 55, 32, 15);
 			cartPanel.add(productPriceLB);
 
-			totalProductPriceLB = new JLabel(""+(product.getP_price()*cart.getC_qty()));
+			totalProductPriceLB = new JLabel(""+(cart.getProduct().getP_price()*cart.getC_qty()));
 			totalProductPriceLB.setBounds(248, 56, 49, 15);
 			cartPanel.add(totalProductPriceLB);
 
