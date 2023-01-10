@@ -84,11 +84,7 @@ public class JogiyoMainFrame extends JFrame {
 	private JTextField findProductTL;
 	private JLabel findProductIconLB;
 	private UserViewDetail_손요셉 userViewDetail_손요셉;
-	/*
-	private HansikPanel_이은지 hansikPanel_이은지;
-	private JoongsikPanel_이은지 joongsikPanel_이은지;
-	private BunsikPanel_이은지 bunsikPanel_이은지;
-	*/
+	
 
 	/**
 	 * Launch the application.
@@ -262,6 +258,7 @@ public class JogiyoMainFrame extends JFrame {
 		productService =new ProductService();
 		cartService = new CartService();
 		orderService = new OrderService();
+		loginUser=new User();
 
 		/*
 		 * JogiyoMainFrame 참조를 Panel에 넘겨줌
