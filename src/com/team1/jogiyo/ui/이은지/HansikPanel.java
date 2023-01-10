@@ -6,23 +6,33 @@ import javax.swing.JEditorPane;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
+
+import com.team1.jogiyo.cart.*;
+import com.team1.jogiyo.product.*;
+import com.team1.jogiyo.user.*;
+
 import javax.swing.JTextField;
 import java.awt.Font;
 import java.awt.SystemColor;
 import javax.swing.JScrollPane;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class HansikPanel extends JPanel {
 	/*
 	 * 해당 패널 클릭 시 순대국밥 상세보기로 이동
 	 */
-	private final JPanel hansikMenuPanel1 = new JPanel();
-
+	ProductService productService;
+	CartService cartService;
+	
+	User loginUser=null;
 	/**
 	 * Create the panel.
 	 */
 	
+	private final JPanel hansikMenuPanel1 = new JPanel();
 	
 	public HansikPanel() {
 		setLayout(null);
@@ -36,7 +46,7 @@ public class HansikPanel extends JPanel {
 		
 		
 		JLabel hansikImageLB1 = new JLabel("");
-		hansikImageLB1.setBounds(0, 0, 251, 167);
+		hansikImageLB1.setBounds(0, 0, 234, 167);
 		hansikImageLB1.setIcon(new ImageIcon("C:\\Users\\itwill\\Downloads\\p_image1 (2).jpg"));
 		hansikMenuPanel1.add(hansikImageLB1);
 		
@@ -57,6 +67,11 @@ public class HansikPanel extends JPanel {
 		 * 해당 라벨 클릭 시 장바구니에 상품 추가
 		 */
 		JLabel hansikCartLB1 = new JLabel("");
+		hansikCartLB1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+			}
+		});
 		hansikCartLB1.setBounds(311, 114, 27, 27);
 		hansikMenuPanel1.add(hansikCartLB1);
 		hansikCartLB1.setIcon(new ImageIcon("C:\\Users\\itwill\\Downloads\\cart.png"));
@@ -98,6 +113,11 @@ public class HansikPanel extends JPanel {
 		 * 해당 라벨 클릭 시 장바구니에 상품 추가
 		 */
 		JLabel hansikCartLB2 = new JLabel("");
+		hansikCartLB2.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+			}
+		});
 		hansikCartLB2.setIcon(new ImageIcon("C:\\Users\\itwill\\Downloads\\cart.png"));
 		hansikCartLB2.setBounds(311, 114, 27, 27);
 		hansikMenuPanel2.add(hansikCartLB2);
@@ -105,10 +125,10 @@ public class HansikPanel extends JPanel {
 		/*
 		 * 수량 지정 후 장바구니 추가 시, 장바구니 수량 변경
 		 */
-		JComboBox bunsikComboBox2 = new JComboBox();
-		bunsikComboBox2.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5"}));
-		bunsikComboBox2.setBounds(263, 118, 32, 23);
-		hansikMenuPanel2.add(bunsikComboBox2);
+		JComboBox hansikComboBox2 = new JComboBox();
+		hansikComboBox2.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5"}));
+		hansikComboBox2.setBounds(263, 118, 32, 23);
+		hansikMenuPanel2.add(hansikComboBox2);
 		
 		/*
 		 * 해당 패널 클릭 시 삼겹살 상세보기로 이동
@@ -139,6 +159,11 @@ public class HansikPanel extends JPanel {
 		 * 해당 라벨 클릭 시 장바구니에 상품 추가
 		 */
 		JLabel hansikCartLB3 = new JLabel("");
+		hansikCartLB3.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+			}
+		});
 		hansikCartLB3.setIcon(new ImageIcon("C:\\Users\\itwill\\Downloads\\cart.png"));
 		hansikCartLB3.setBounds(311, 114, 27, 27);
 		hansikMenuPanel3.add(hansikCartLB3);
@@ -146,10 +171,44 @@ public class HansikPanel extends JPanel {
 		/*
 		 * 수량 지정 후 장바구니 추가 시, 장바구니 수량 변경
 		 */
-		JComboBox bunsikComboBox3 = new JComboBox();
-		bunsikComboBox3.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5"}));
-		bunsikComboBox3.setBounds(263, 118, 32, 23);
-		hansikMenuPanel3.add(bunsikComboBox3);
+		JComboBox hansikComboBox3 = new JComboBox();
+		hansikComboBox3.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5"}));
+		hansikComboBox3.setBounds(263, 118, 32, 23);
+		hansikMenuPanel3.add(hansikComboBox3);
 
+		/**********************************************/
+		loginUser = new User("aaaa","","","","");
+		
+		//메소드 사용
+		menuToCart();
+	}
+	
+	/*메소드*/
+	private void menuToCart() {
+		/* 
+		 * 제품 수량으로 카트에 넣고싶음
+		 * insert cart 필요함
+		 * 근데 UI에선 service 사용해야지
+		 * cartService 봤더니 addCartInProduct 메소드가 있네
+		 * 인자를 Cart 객체로 받네?
+		 * Cart 객체를 만들자 
+		 * Cart 객체 만드는 재료는 뭐였더라 
+		 * private int c_no;
+			private int c_qty;
+			private String m_id;
+			//private int p_no;
+			private Product product;
+			
+			c_no은 시퀀스라 그냥 0넣어도 되겠네
+			나머지 재료 다 있네
+			 시작 
+		 */
+		
+		Cart cartInMenu = new Cart();
+		
+		
+		
+		
+		
 	}
 }

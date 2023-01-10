@@ -12,6 +12,8 @@ import java.awt.SystemColor;
 import javax.swing.JScrollPane;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class JoongsikPanel extends JPanel {
 	/*
@@ -53,6 +55,11 @@ public class JoongsikPanel extends JPanel {
 		 * 해당 라벨 클릭 시 장바구니에 상품 추가
 		 */
 		JLabel joongsikCartLB1 = new JLabel("");
+		joongsikCartLB1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+			}
+		});
 		joongsikCartLB1.setIcon(new ImageIcon("C:\\Users\\itwill\\Downloads\\cart.png"));
 		joongsikCartLB1.setBounds(311, 114, 27, 27);
 		joongsikMenuPanel1.add(joongsikCartLB1);
@@ -94,6 +101,11 @@ public class JoongsikPanel extends JPanel {
 		 * 해당 라벨 클릭 시 장바구니에 상품 추가
 		 */
 		JLabel joongsikCartLB2 = new JLabel("");
+		joongsikCartLB2.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+			}
+		});
 		joongsikCartLB2.setIcon(new ImageIcon("C:\\Users\\itwill\\Downloads\\cart.png"));
 		joongsikCartLB2.setBounds(311, 114, 27, 27);
 		joongsikMenuPanel2.add(joongsikCartLB2);
@@ -135,6 +147,11 @@ public class JoongsikPanel extends JPanel {
 		 * 해당 라벨 클릭 시 장바구니에 상품 추가
 		 */
 		JLabel joongsikCartLB3 = new JLabel("");
+		joongsikCartLB3.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+			}
+		});
 		joongsikCartLB3.setIcon(new ImageIcon("C:\\Users\\itwill\\Downloads\\cart.png"));
 		joongsikCartLB3.setBounds(311, 114, 27, 27);
 		joongsikMenuPanel3.add(joongsikCartLB3);
