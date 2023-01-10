@@ -90,14 +90,13 @@ public class UserSignupPane_손요셉 extends JPanel {
 		idcheakBtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		idcheakBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				System.out.println("눌림");
 					try {
 					String m_id = idTF.getText();
 					boolean isSuccess = frame.userService.isDuplicateId(m_id);
-					if(isSuccess==true) {
+					if(isSuccess==false) {
 						JOptionPane.showMessageDialog(null, "사용 가능한 아이디입니다");
 						passwordTF.requestFocus();
-						}else if(isSuccess==false) {
+						}else if(isSuccess==true) {
 						JOptionPane.showMessageDialog(null, "존재하는 아이디입니다.");
 						}
 					}catch(Exception e1) {
@@ -115,7 +114,7 @@ public class UserSignupPane_손요셉 extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				//로그인창으로 화면전환
 				try {
-					newUser();
+					System.out.println(newUser());
 					if(newUser()>0) {
 						JOptionPane.showMessageDialog(null, "가입을 축하드립니다.");
 						frame.changePanel(12, null);
@@ -149,14 +148,14 @@ public class UserSignupPane_손요셉 extends JPanel {
 	
 
 	public int newUser() throws Exception {
-
+		int result=0;
 		String m_id = idTF.getText();
 		String m_password = passwordTF.getText();
 		String m_name = nameTF.getText();
 		String m_address = addressTF.getText();
 		String m_phone = phoneTF.getText();
 		System.out.println(m_id);
-		int result=frame.create(new User(m_id,m_password,m_name,m_address,m_phone));
+		result=frame.userService.create(new User(m_id,m_password,m_name,m_address,m_phone));
 		return result;
 	}
 }
