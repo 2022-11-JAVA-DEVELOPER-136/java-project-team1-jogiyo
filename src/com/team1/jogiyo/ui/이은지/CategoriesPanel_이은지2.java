@@ -60,6 +60,7 @@ public class CategoriesPanel_이은지2 extends JPanel {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				System.out.println("한식리스트로 이동");
+				frame.changePanel(22, null);
 			}
 		});
 		hansikLB.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -83,6 +84,7 @@ public class CategoriesPanel_이은지2 extends JPanel {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				System.out.println("중식리스트로 이동");
+				frame.changePanel(23,null);
 			}
 		});
 		joongsikLB.setBounds(0, 0, 350, 166);
@@ -104,6 +106,7 @@ public class CategoriesPanel_이은지2 extends JPanel {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				System.out.println("분식리스트로 이동");
+				frame.changePanel(24, null);
 			}
 		});
 		bunsikLB.setBounds(0, 0, 350, 166);
