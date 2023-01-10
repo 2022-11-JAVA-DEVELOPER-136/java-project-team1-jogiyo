@@ -24,6 +24,8 @@ import java.awt.event.MouseEvent;
 import com.team1.jogiyo.ui.조성동.OrderHistoryTabbedPanel_조성동;
 import com.team1.jogiyo.ui.조성동.OrderHistoryDetailTabbedPanel_조성동;
 import com.team1.jogiyo.ui.정유나.CartListTabbedPanel_정유나;
+import com.team1.jogiyo.ui.손요셉.UserSignupPane_손요셉;
+import com.team1.jogiyo.ui.이은지.CategoriesPanel_이은지;
 
 public class JogiyoMainFrame extends JFrame {
 	/****************1. Service 멤버필드 선언********************/
@@ -153,8 +155,14 @@ public class JogiyoMainFrame extends JFrame {
 		});
 		userTabbedPane.addTab("로그인", null, userLoginPane_손요셉, null);
 		
+		UserSignupPane_손요셉 userSignupPane_손요셉 = new UserSignupPane_손요셉();
+		userTabbedPane.addTab("회원가입", null, userSignupPane_손요셉, null);
+		
 		productTabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		parentTabbedPane.addTab("제품", null, productTabbedPane, null);
+		
+		CategoriesPanel_이은지 categoriesPanel_이은지 = new CategoriesPanel_이은지();
+		productTabbedPane.addTab("카테고리", null, categoriesPanel_이은지, null);
 		
 		OrderHistoryTabbedPanel_조성동 orderHistoryPanel_조성동 = new OrderHistoryTabbedPanel_조성동();
 		parentTabbedPane.addTab("주문내역", null, orderHistoryPanel_조성동, null);

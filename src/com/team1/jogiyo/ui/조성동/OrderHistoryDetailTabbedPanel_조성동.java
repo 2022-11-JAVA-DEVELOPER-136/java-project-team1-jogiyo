@@ -16,7 +16,7 @@ import java.util.List;
 
 import javax.swing.JButton;
 
-public class OrderHistoryDetailPanel_조성동 extends JPanel {
+public class OrderHistoryDetailTabbedPanel_조성동 extends JPanel {
 
 	/***************************************/
 	/*
@@ -39,7 +39,7 @@ public class OrderHistoryDetailPanel_조성동 extends JPanel {
 	 * Create the panel.
 	 * @throws Exception 
 	 */
-	public OrderHistoryDetailPanel_조성동() throws Exception {
+	public OrderHistoryDetailTabbedPanel_조성동() throws Exception {
 		setBackground(new Color(0, 0, 160));
 		setLayout(null);
 		
