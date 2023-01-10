@@ -33,9 +33,12 @@ public class UserDaoTestMain {
 //		
 		
 		UserService userService=new UserService();
-		int result = userService.create(new User("kjljlkkj","1234","유재석","조기요","010-1241-1240"));
+		//int result = userService.create(new User("kjljlkkj","1234","유재석","조기요","010-1241-1240"));
 		
-		System.out.println(result);
+		//System.out.println(result);
+		
+		int result = userService.update(new User("aaaa", "13413", "김지수", "ㅇ어", "0105464"));
+		 System.out.println(result);
 
 	}
 

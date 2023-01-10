@@ -62,12 +62,12 @@ public class UserViewDetail_손요셉 extends JPanel {
 		lblNewLabel_4.setBounds(51, 193, 27, 15);
 		add(lblNewLabel_4);
 		
-		detailIdTF = new JTextField();
-		detailIdTF.setFont(new Font("Arial Black", Font.BOLD, 20));
-		detailIdTF.setText("vjvjdid");
-		detailIdTF.setBounds(132, 94, 146, 52);
-		add(detailIdTF);
-		detailIdTF.setColumns(10);
+//		detailIdTF = new JTextField();
+//		detailIdTF.setFont(new Font("Arial Black", Font.BOLD, 20));
+//		detailIdTF.setText("vjvjdid");
+//		detailIdTF.setBounds(132, 94, 146, 52);
+//		add(detailIdTF);
+//		detailIdTF.setColumns(10);
 		
 //		detailpasswordTF = new JTextField();
 //		detailpasswordTF.setText("비밀번호");
@@ -93,12 +93,12 @@ public class UserViewDetail_손요셉 extends JPanel {
 //		detailPhoneTF.setBounds(89, 336, 146, 21);
 //		add(detailPhoneTF);
 		
-		userViewUpdateBtn = new JButton("수정");
-		userViewUpdateBtn.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				//수정클릭시 SQL 정보 업데이트
-			}
-		});
+//		userViewUpdateBtn = new JButton("수정");
+//		userViewUpdateBtn.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				//수정클릭시 SQL 정보 업데이트
+//			}
+//		});
 		userViewUpdateBtn.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
 		userViewUpdateBtn.setBounds(40, 406, 97, 23);
 		add(userViewUpdateBtn);
@@ -121,6 +121,7 @@ public class UserViewDetail_손요셉 extends JPanel {
 		/********************************************************/
 		
 	userService=new UserService();
+	/*****생성자끝****/
 		loginUser=userService.findUser("aaaa");
 		
 		
@@ -128,23 +129,30 @@ public class UserViewDetail_손요셉 extends JPanel {
 //		String userName=User.getM_id()
 		
 		/*메소드 사용*/
-//		userInfo(loginUser);
-//		userUpdate(loginUser);
+		userInfo(loginUser);
+		
 }
 
 	/*메소드*/
-	private void userInfo(User user) {
+	public void userInfo(User user) {
+		detailIdTF = new JTextField();
+		detailIdTF.setFont(new Font("Arial Black", Font.BOLD, 20));
+		detailIdTF.setText(user.getM_id());
+		detailIdTF.setBounds(132, 94, 146, 52);
+		add(detailIdTF);
+		detailIdTF.setColumns(10);
+		
 		detailpasswordTF = new JTextField();
 		detailpasswordTF.setText(user.getM_password());
 		detailpasswordTF.setBounds(89, 187, 146, 21);
 		add(detailpasswordTF);
 		detailpasswordTF.setColumns(10);
 		
-		detailIdTF = new JTextField();
-		detailIdTF.setText(user.getM_name());
-		detailIdTF.setColumns(10);
-		detailIdTF.setBounds(89, 237, 146, 21);
-		add(detailIdTF);
+		detailnameTF = new JTextField();
+		detailnameTF.setText(user.getM_name());
+		detailnameTF.setColumns(10);
+		detailnameTF.setBounds(89, 237, 146, 21);
+		add(detailnameTF);
 		
 		detailAddressTF = new JTextField();
 		detailAddressTF.setText(user.getM_loc());
@@ -157,16 +165,19 @@ public class UserViewDetail_손요셉 extends JPanel {
 		detailPhoneTF.setColumns(10);
 		detailPhoneTF.setBounds(89, 336, 146, 21);
 		add(detailPhoneTF);
-		/*****/
-//	private void userUpdate(User user) {
-//		userViewUpdateBtn = new JButton("수정");
-//		userViewUpdateBtn.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				//수정클릭시 SQL 정보 업데이트
-//			}
-//		});
-//		 
-//	}
+		
+		
+			
+		}
+		
+	
+	
+				
+			
+		}
+		
+	 
+	
 
-	}
-}
+	
+
