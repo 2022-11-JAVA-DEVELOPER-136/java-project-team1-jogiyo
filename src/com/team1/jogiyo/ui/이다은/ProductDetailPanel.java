@@ -11,6 +11,10 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 
 public class ProductDetailPanel extends JPanel {
+	private JComboBox productCountInProductCB;
+	private JLabel productPriceLB;
+	private JButton cartinProductBtn;
+	private JButton orderinProductBtn;
 
 	/**
 	 * Create the panel.
@@ -36,13 +40,13 @@ public class ProductDetailPanel extends JPanel {
 		add(productDescLB);
 		
 		//선택한 수량 만큼 장바구니에 담김
-		JComboBox comboBox = new JComboBox();
-		comboBox.setToolTipText("");
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5"}));
-		comboBox.setBounds(277, 388, 32, 23);
-		add(comboBox);
+		productCountInProductCB = new JComboBox();
+		productCountInProductCB.setToolTipText("");
+		productCountInProductCB.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5"}));
+		productCountInProductCB.setBounds(277, 388, 32, 23);
+		add(productCountInProductCB);
 		
-		JLabel productPriceLB = new JLabel("9000");
+		productPriceLB = new JLabel("9000");
 		productPriceLB.setFont(new Font("굴림", Font.PLAIN, 15));
 		productPriceLB.setHorizontalAlignment(SwingConstants.RIGHT);
 		productPriceLB.setBounds(228, 338, 81, 18);
@@ -57,14 +61,14 @@ public class ProductDetailPanel extends JPanel {
 		add(countLB);
 		
 		//클릭 시 주문 페이지로 이동
-		JButton orderLB = new JButton("바로주문");
-		orderLB.setBounds(61, 460, 97, 23);
-		add(orderLB);
+		orderinProductBtn = new JButton("바로주문");
+		orderinProductBtn.setBounds(61, 460, 97, 23);
+		add(orderinProductBtn);
 		
 		//클릭 시 장바구니로 이동
-		JButton cartLB = new JButton("장바구니");
-		cartLB.setBounds(208, 460, 97, 23);
-		add(cartLB);
+		cartinProductBtn = new JButton("장바구니");
+		cartinProductBtn.setBounds(208, 460, 97, 23);
+		add(cartinProductBtn);
 
 	}
 }

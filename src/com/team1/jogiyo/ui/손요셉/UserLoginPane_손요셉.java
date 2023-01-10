@@ -1,4 +1,4 @@
-package com.team1.jogiyo.ui.손요셉;
+ package com.team1.jogiyo.ui.손요셉;
 
 import javax.swing.JPanel;
 import java.awt.Color;
