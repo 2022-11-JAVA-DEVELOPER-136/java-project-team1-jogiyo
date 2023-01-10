@@ -194,7 +194,7 @@ public class CartListPanel_정유나 extends JPanel {
 			productImageLB.setHorizontalTextPosition(SwingConstants.CENTER);
 			productImageLB.setHorizontalAlignment(SwingConstants.CENTER);
 			//productImageLB.setIcon(new ImageIcon(CartListPanel_정유나.class.getResource(product.getP_image())));
-			productImageLB.setIcon(new ImageIcon(CartListPanel_정유나.class.getResource(cartService.cartListByCartNo(cart.getC_no()).getProduct().getP_image())));
+			productImageLB.setIcon(new ImageIcon(CartListPanel_정유나.class.getResource(product.getP_image())));
 			
 			productImageLB.setBounds(6, 10, 57, 60);
 			cartPanel.add(productImageLB);
@@ -230,11 +230,11 @@ public class CartListPanel_정유나 extends JPanel {
 			productPrice.setBounds(65, 55, 25, 15);
 			cartPanel.add(productPrice);
 
-			productPriceLB = new JLabel(""+cart.getProduct().getP_price());
+			productPriceLB = new JLabel(""+product.getP_price());
 			productPriceLB.setBounds(94, 55, 32, 15);
 			cartPanel.add(productPriceLB);
 
-			totalProductPriceLB = new JLabel(""+(cart.getProduct().getP_price()*cart.getC_qty()));
+			totalProductPriceLB = new JLabel(""+(product.getP_price()*cart.getC_qty()));
 			totalProductPriceLB.setBounds(248, 56, 49, 15);
 			cartPanel.add(totalProductPriceLB);
 
