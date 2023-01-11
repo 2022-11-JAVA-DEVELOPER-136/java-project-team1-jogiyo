@@ -144,9 +144,11 @@ public class CartListTabbedPanel_정유나 extends JPanel {
 		cartOrderCheck.setBounds(276, 47, 21, 23);
 		cartPanel.add(cartOrderCheck);
 		
-		JButton deleteItemBtn = new JButton("X");
+		JButton deleteItemBtn = new JButton("");
+		deleteItemBtn.setForeground(Color.WHITE);
+		deleteItemBtn.setIcon(new ImageIcon(CartListTabbedPanel_정유나.class.getResource("/images/cross (1).png")));
 		
-		deleteItemBtn.setBounds(248, 8, 46, 20);
+		deleteItemBtn.setBounds(276, 0, 22, 20);
 		cartPanel.add(deleteItemBtn);
 		
 		/* 		CartListItem End	*/
