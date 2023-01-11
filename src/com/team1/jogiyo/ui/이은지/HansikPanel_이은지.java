@@ -53,6 +53,7 @@ public class HansikPanel_이은지 extends JPanel {
 	 */
 	
 	public HansikPanel_이은지() throws Exception {
+		setBackground(Color.WHITE);
 		
 		setLayout(null);
 		
@@ -63,7 +64,7 @@ public class HansikPanel_이은지 extends JPanel {
 		//패널생성
 		JPanel hansikMenuPanel1 = new JPanel();
 		hansikMenuPanel1.setBackground(new Color(255, 255, 255));
-		hansikMenuPanel1.setBounds(0, 0, 370, 167);
+		hansikMenuPanel1.setBounds(8, 10, 348, 150);
 		add(hansikMenuPanel1);
 		hansikMenuPanel1.setLayout(null);
 		
@@ -93,21 +94,21 @@ public class HansikPanel_이은지 extends JPanel {
 		});
 		hansikNameLB1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		hansikNameLB1.setFont(new Font("맑은 고딕", Font.BOLD, 25));
-		hansikNameLB1.setBounds(233, 52, 109, 30);
+		hansikNameLB1.setBounds(237, 52, 109, 30);
 		hansikNameLB1.setHorizontalAlignment(SwingConstants.RIGHT);
 		hansikMenuPanel1.add(hansikNameLB1);
 		
 		JLabel hansikPriceLB1 = new JLabel("\\ 9,000");
 		hansikPriceLB1.setFont(new Font("맑은 고딕", Font.PLAIN, 17));
 		hansikPriceLB1.setHorizontalAlignment(SwingConstants.RIGHT);
-		hansikPriceLB1.setBounds(267, 92, 75, 24);
+		hansikPriceLB1.setBounds(271, 92, 75, 24);
 		hansikMenuPanel1.add(hansikPriceLB1);
 		
 		
 		JPanel hansikMenuPanel2 = new JPanel();
 		hansikMenuPanel2.setBackground(new Color(255, 255, 255));
 		hansikMenuPanel2.setLayout(null);
-		hansikMenuPanel2.setBounds(0, 166, 370, 167);
+		hansikMenuPanel2.setBounds(8, 172, 348, 150);
 		add(hansikMenuPanel2);
 		
 		/*
@@ -148,7 +149,7 @@ public class HansikPanel_이은지 extends JPanel {
 		JPanel hansikMenuPanel3 = new JPanel();
 		hansikMenuPanel3.setBackground(new Color(255, 255, 255));
 		hansikMenuPanel3.setLayout(null);
-		hansikMenuPanel3.setBounds(0, 333, 370, 167);
+		hansikMenuPanel3.setBounds(8, 333, 348, 150);
 		add(hansikMenuPanel3);
 		
 		JLabel hansikImageLB3 = new JLabel("");

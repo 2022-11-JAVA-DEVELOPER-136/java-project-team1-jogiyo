@@ -33,7 +33,6 @@ public class UserLoginPane_손요셉 extends JPanel {
 	private JTextField loginPasswordTF;
 	private JButton loginbutton;
 	private JButton signupbutton;
-	private JButton idfindbutton;
 	
 	//객체 선언
 	
@@ -63,11 +62,13 @@ public class UserLoginPane_손요셉 extends JPanel {
 				
 			}
 		});
-		loginbutton.setIcon(new ImageIcon(UserLoginPane_손요셉.class.getResource("/com/team1/jogiyo/ui/손요셉/image/smile (3) (1).png")));
-		loginbutton.setBounds(42, 367, 291, 42);
+		loginbutton.setIcon(new ImageIcon(UserLoginPane_손요셉.class.getResource("/images/로그인1.png")));
+		loginbutton.setBounds(36, 368, 292, 41);
 		add(loginbutton);
 		
-		signupbutton = new JButton("회원가입");
+		signupbutton = new JButton("");
+		signupbutton.setBackground(new Color(255, 255, 255));
+		signupbutton.setIcon(new ImageIcon(UserLoginPane_손요셉.class.getResource("/images/새계정4.png")));
 		signupbutton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		signupbutton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -77,19 +78,10 @@ public class UserLoginPane_손요셉 extends JPanel {
 			}
 		});
 		signupbutton.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
-		signupbutton.setBounds(42, 439, 97, 23);
+		signupbutton.setBounds(85, 442, 194, 32);
 		add(signupbutton);
 		
-		idfindbutton = new JButton("로그아웃");
-		idfindbutton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		idfindbutton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}	
-				
-		});
-		idfindbutton.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
-		idfindbutton.setBounds(220, 439, 113, 23);
-		add(idfindbutton);
+
 		
 		loginIdTF = new JTextField();
 		loginIdTF.setText("아이디");
@@ -152,10 +144,5 @@ public class UserLoginPane_손요셉 extends JPanel {
 		 return frame.userService.findUser(sUserid);
 	}
 	
-	private void logoutProcess() throws Exception {
-		
-		
-		
-		
-	}
+	
 }
