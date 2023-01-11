@@ -18,6 +18,7 @@ import java.awt.event.*;
 
 import javax.swing.JScrollPane;
 import java.awt.Component;
+import java.awt.Color;
 
 public class CategoriesPanel_이은지 extends JPanel {
 	JogiyoMainFrame frame;
@@ -47,6 +48,7 @@ public class CategoriesPanel_이은지 extends JPanel {
 		 * 해당 패널 클릭 시 한식리스트 보기
 		 */
 		JPanel hansikPanel = new JPanel();
+		hansikPanel.setBackground(new Color(255, 255, 255));
 		hansikPanel.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -69,6 +71,7 @@ public class CategoriesPanel_이은지 extends JPanel {
 		 * 해당 패널 클릭 시 중식리스트 보기
 		 */
 		JPanel joongsikPanel = new JPanel();
+		joongsikPanel.setBackground(new Color(255, 255, 255));
 		joongsikPanel.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -90,6 +93,7 @@ public class CategoriesPanel_이은지 extends JPanel {
 		 * 해당 패널 클릭 시 분식리스트 보기
 		 */
 		JPanel bunsikPanel = new JPanel();
+		bunsikPanel.setBackground(new Color(255, 255, 255));
 		bunsikPanel.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -101,6 +105,7 @@ public class CategoriesPanel_이은지 extends JPanel {
 		bunsikPanel.setLayout(null);
 		
 		bunsikLB = new JLabel("  분식");
+		bunsikLB.setBackground(new Color(255, 255, 255));
 		bunsikLB.setBounds(0, 0, 350, 166);
 		bunsikLB.setIcon(new ImageIcon("C:\\Users\\itwill\\Downloads\\1분식.png"));
 		bunsikLB.setHorizontalAlignment(SwingConstants.CENTER);

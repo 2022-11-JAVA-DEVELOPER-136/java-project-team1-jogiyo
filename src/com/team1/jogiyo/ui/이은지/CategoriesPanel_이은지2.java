@@ -18,6 +18,7 @@ import java.awt.Component;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.Cursor;
+import java.awt.Color;
 
 public class CategoriesPanel_이은지2 extends JPanel {
 	/**************************************/
@@ -39,6 +40,7 @@ public class CategoriesPanel_이은지2 extends JPanel {
 	 * Create the panel.
 	 */
 	public CategoriesPanel_이은지2() {
+		setBackground(new Color(255, 255, 255));
 		setLayout(null);
 		
 		categoriesListScrollPane = new JScrollPane();
@@ -47,6 +49,7 @@ public class CategoriesPanel_이은지2 extends JPanel {
 		
 		//패널생성
 		JPanel hansikPanel = new JPanel();
+		hansikPanel.setBackground(new Color(255, 255, 255));
 		hansikPanel.setBounds(0, 0, 350, 166);
 		add(hansikPanel);
 		hansikPanel.setLayout(null);
@@ -72,6 +75,7 @@ public class CategoriesPanel_이은지2 extends JPanel {
 		
 		
 		JPanel joongsikPanel = new JPanel();
+		joongsikPanel.setBackground(new Color(255, 255, 255));
 		joongsikPanel.setBounds(0, 166, 350, 171);
 		add(joongsikPanel);
 		joongsikPanel.setLayout(null);
@@ -80,6 +84,7 @@ public class CategoriesPanel_이은지2 extends JPanel {
 		 * 클릭 시 중식리스트로 이동
 		 */
 		JLabel joongsikLB = new JLabel("   중식");
+		joongsikLB.setBackground(new Color(255, 255, 255));
 		joongsikLB.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		joongsikLB.addMouseListener(new MouseAdapter() {
 			@Override
@@ -95,6 +100,7 @@ public class CategoriesPanel_이은지2 extends JPanel {
 		joongsikPanel.add(joongsikLB);
 		
 		JPanel bunsikPanel = new JPanel();
+		bunsikPanel.setBackground(new Color(255, 255, 255));
 		bunsikPanel.setBounds(0, 334, 350, 166);
 		add(bunsikPanel);
 		bunsikPanel.setLayout(null);
@@ -103,6 +109,7 @@ public class CategoriesPanel_이은지2 extends JPanel {
 		 * 클릭 시 분식리스트로 이동
 		 */
 		JLabel bunsikLB = new JLabel("  분식");
+		bunsikLB.setBackground(new Color(255, 255, 255));
 		bunsikLB.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		bunsikLB.addMouseListener(new MouseAdapter() {
 			@Override

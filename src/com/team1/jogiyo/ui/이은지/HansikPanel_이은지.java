@@ -23,6 +23,7 @@ import javax.swing.DefaultComboBoxModel;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.Cursor;
+import java.awt.Color;
 public class HansikPanel_이은지 extends JPanel {
 	JogiyoMainFrame frame;
 	public void setFrame(JogiyoMainFrame frame) {
@@ -55,12 +56,13 @@ public class HansikPanel_이은지 extends JPanel {
 		setLayout(null);
 		
 		JScrollPane hansikListScrollPane = new JScrollPane();
-		hansikListScrollPane.setBounds(0, 496, 400, -494);
+		hansikListScrollPane.setBounds(0, 496, 370, -494);
 		add(hansikListScrollPane);
 		
 		//패널생성
 		JPanel hansikMenuPanel1 = new JPanel();
-		hansikMenuPanel1.setBounds(0, 0, 400, 167);
+		hansikMenuPanel1.setBackground(new Color(255, 255, 255));
+		hansikMenuPanel1.setBounds(0, 0, 370, 167);
 		add(hansikMenuPanel1);
 		hansikMenuPanel1.setLayout(null);
 		
@@ -89,26 +91,28 @@ public class HansikPanel_이은지 extends JPanel {
 		});
 		hansikNameLB1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		hansikNameLB1.setFont(new Font("맑은 고딕", Font.BOLD, 25));
-		hansikNameLB1.setBounds(261, 52, 109, 30);
+		hansikNameLB1.setBounds(233, 52, 109, 30);
 		hansikNameLB1.setHorizontalAlignment(SwingConstants.RIGHT);
 		hansikMenuPanel1.add(hansikNameLB1);
 		
 		JLabel hansikPriceLB1 = new JLabel("\\ 9,000");
 		hansikPriceLB1.setFont(new Font("맑은 고딕", Font.PLAIN, 17));
 		hansikPriceLB1.setHorizontalAlignment(SwingConstants.RIGHT);
-		hansikPriceLB1.setBounds(295, 92, 75, 24);
+		hansikPriceLB1.setBounds(267, 92, 75, 24);
 		hansikMenuPanel1.add(hansikPriceLB1);
 		
 		
 		JPanel hansikMenuPanel2 = new JPanel();
+		hansikMenuPanel2.setBackground(new Color(255, 255, 255));
 		hansikMenuPanel2.setLayout(null);
-		hansikMenuPanel2.setBounds(0, 166, 400, 167);
+		hansikMenuPanel2.setBounds(0, 166, 370, 167);
 		add(hansikMenuPanel2);
 		
 		/*
 		 * 클릭 시 상세보기로 이동
 		 */
 		JLabel hansikNameLB2 = new JLabel("김치찜");
+		hansikNameLB2.setBackground(new Color(255, 255, 255));
 		hansikNameLB2.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -124,13 +128,13 @@ public class HansikPanel_이은지 extends JPanel {
 		hansikNameLB2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		hansikNameLB2.setHorizontalAlignment(SwingConstants.RIGHT);
 		hansikNameLB2.setFont(new Font("맑은 고딕", Font.BOLD, 25));
-		hansikNameLB2.setBounds(261, 52, 109, 30);
+		hansikNameLB2.setBounds(237, 50, 109, 30);
 		hansikMenuPanel2.add(hansikNameLB2);
 		
 		JLabel hansikPriceLB2 = new JLabel("\\ 24,000");
 		hansikPriceLB2.setHorizontalAlignment(SwingConstants.RIGHT);
 		hansikPriceLB2.setFont(new Font("맑은 고딕", Font.PLAIN, 17));
-		hansikPriceLB2.setBounds(295, 92, 75, 24);
+		hansikPriceLB2.setBounds(271, 93, 75, 24);
 		hansikMenuPanel2.add(hansikPriceLB2);
 		
 		JLabel hansikImageLB2 = new JLabel("");
@@ -140,8 +144,9 @@ public class HansikPanel_이은지 extends JPanel {
 		
 		
 		JPanel hansikMenuPanel3 = new JPanel();
+		hansikMenuPanel3.setBackground(new Color(255, 255, 255));
 		hansikMenuPanel3.setLayout(null);
-		hansikMenuPanel3.setBounds(0, 333, 400, 167);
+		hansikMenuPanel3.setBounds(0, 333, 370, 167);
 		add(hansikMenuPanel3);
 		
 		JLabel hansikImageLB3 = new JLabel("");
@@ -169,13 +174,13 @@ public class HansikPanel_이은지 extends JPanel {
 		hansikNameLB3.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		hansikNameLB3.setHorizontalAlignment(SwingConstants.RIGHT);
 		hansikNameLB3.setFont(new Font("맑은 고딕", Font.BOLD, 25));
-		hansikNameLB3.setBounds(261, 51, 109, 30);
+		hansikNameLB3.setBounds(236, 50, 109, 30);
 		hansikMenuPanel3.add(hansikNameLB3);
 		
 		JLabel hansikPriceLB3 = new JLabel("\\ 15,000");
 		hansikPriceLB3.setHorizontalAlignment(SwingConstants.RIGHT);
 		hansikPriceLB3.setFont(new Font("맑은 고딕", Font.PLAIN, 17));
-		hansikPriceLB3.setBounds(295, 91, 75, 24);
+		hansikPriceLB3.setBounds(270, 90, 75, 24);
 		hansikMenuPanel3.add(hansikPriceLB3);
 
 		
