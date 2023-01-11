@@ -236,7 +236,6 @@ public class CartListTabbedPanel_정유나 extends JPanel {
 		cartListPanel.removeAll();
 		System.out.println(sUserId);
 		List<Cart> cartList=frame.cartService.cartListByUserId(sUserId);
-		//nullpointexception
 		for (Cart cart : cartList) {
 			Product product=frame.productService.findByPrimaryKey(cart.getProduct().getP_no());
 			
@@ -250,9 +249,7 @@ public class CartListTabbedPanel_정유나 extends JPanel {
 			productImageLB.setVerticalTextPosition(SwingConstants.BOTTOM);
 			productImageLB.setHorizontalTextPosition(SwingConstants.CENTER);
 			productImageLB.setHorizontalAlignment(SwingConstants.CENTER);
-			/*
-			productImageLB.setIcon(new ImageIcon(CartListTabbedPanel_정유나.class.getResource("/images/"+product.getP_image())));
-			*/
+			productImageLB.setIcon(new ImageIcon(CartListTabbedPanel_정유나.class.getResource("/images/cart/50"+product.getP_image())));
 			productImageLB.setBounds(6, 10, 57, 60);
 			cartPanel.add(productImageLB);
 
