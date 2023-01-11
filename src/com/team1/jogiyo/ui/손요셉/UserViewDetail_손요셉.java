@@ -36,8 +36,7 @@ public class UserViewDetail_손요셉 extends JPanel {
 
 	private JTextField txtVjvjdid;
 	private JTextField detailpasswordTF;
-
-	private JTextField detailIdTF;
+	private JTextField detailIdTF_1;
 
 	private JTextField detailnameTF;
 	private JTextField detailAddressTF;
@@ -84,31 +83,29 @@ public class UserViewDetail_손요셉 extends JPanel {
 				UserViewDetail_손요셉.class.getResource("/com/team1/jogiyo/ui/손요셉/image/free-icon-password-6772359.png")));
 		lblNewLabel_4.setBounds(51, 193, 27, 15);
 		add(lblNewLabel_4);
-
-		detailIdTF = new JTextField();
-		detailIdTF.setFont(new Font("Arial Black", Font.BOLD, 20));
-		detailIdTF.setBounds(132, 94, 146, 52);
-		add(detailIdTF);
-		detailIdTF.setColumns(10);
 		detailpasswordTF = new JTextField();
+		detailpasswordTF.setEditable(false);
 		detailpasswordTF.setText("비밀번호");
 		detailpasswordTF.setBounds(89, 187, 146, 21);
 		add(detailpasswordTF);
 		detailpasswordTF.setColumns(10);
 		
-		detailIdTF = new JTextField();
-		detailIdTF.setText("이름");
-		detailIdTF.setColumns(10);
-		detailIdTF.setBounds(89, 237, 146, 21);
-		add(detailIdTF);
+		detailIdTF_1 = new JTextField();
+		detailIdTF_1.setEditable(false);
+		detailIdTF_1.setText("이름");
+		detailIdTF_1.setColumns(10);
+		detailIdTF_1.setBounds(89, 237, 146, 21);
+		add(detailIdTF_1);
 		
 		detailAddressTF = new JTextField();
+		detailAddressTF.setEditable(false);
 		detailAddressTF.setText("주소");
 		detailAddressTF.setColumns(10);
 		detailAddressTF.setBounds(89, 284, 146, 21);
 		add(detailAddressTF);
 		
 		detailPhoneTF = new JTextField();
+		detailPhoneTF.setEditable(false);
 		detailPhoneTF.setText("핸드폰번호");
 		detailPhoneTF.setColumns(10);
 		detailPhoneTF.setBounds(89, 336, 146, 21);
@@ -150,7 +147,7 @@ public class UserViewDetail_손요셉 extends JPanel {
 }
 	/*메소드*/
 	public void userInfo(User user) {
-		detailIdTF.setText(user.getM_id());		
+		detailIdTF_1.setText(user.getM_id());		
 		detailpasswordTF.setText(user.getM_password());				
 		detailnameTF.setText(user.getM_name());				
 		detailAddressTF.setText(user.getM_loc());				
@@ -161,8 +158,8 @@ public class UserViewDetail_손요셉 extends JPanel {
 	public void editUserInfo() {
 		try {
 			String id = detailIdTF.getText();
+			String name = detailIdTF_1.getText();
 			String password = new String(detailpasswordTF.getText());
-			String name = detailnameTF.getText();
 			String loc = detailAddressTF.getText();
 			String phone = detailPhoneTF.getText();
 			
@@ -177,14 +174,13 @@ public class UserViewDetail_손요셉 extends JPanel {
 	
 	public void changeUpdateBtn(boolean b) {
 		if(b) {
-			detailIdTF.setEditable(true);
 			detailpasswordTF.setEditable(true);
 			detailnameTF.setEditable(true);
 			detailAddressTF.setEditable(true);
 			detailPhoneTF.setEditable(true);
 			userViewUpdateBtn.setText("수정완료");
 		} else {
-			detailIdTF.setEditable(false);
+			detailIdTF_1.setEditable(false);
 			detailpasswordTF.setEditable(false);
 			detailnameTF.setEditable(false);
 			detailAddressTF.setEditable(false);
