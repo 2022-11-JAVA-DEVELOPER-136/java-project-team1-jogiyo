@@ -38,9 +38,6 @@ public class BunsikPanel_이은지 extends JPanel {
 	JPanel bunsikMenuPanel1;
 	JPanel bunsikMenuPanel2;
 	JPanel bunsikMenuPanel3;
-	JComboBox bunsikComboBox1;
-	JComboBox bunsikComboBox2;
-	JComboBox bunsikComboBox3;
 	JLabel bunsikNameLB1;
 	JLabel bunsikNameLB2;
 	JLabel bunsikNameLB3;
@@ -63,8 +60,8 @@ public class BunsikPanel_이은지 extends JPanel {
 		
 		JLabel bunsikImageLB1 = new JLabel("");
 		bunsikImageLB1.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
-		bunsikImageLB1.setBounds(0, 0, 236, 167);
-		bunsikImageLB1.setIcon(new ImageIcon("C:\\2022-11-JAVA-DEVELOPER\\git-repositories-home\\java-project-team1-jogiyo\\src\\images\\productList\\p_image7.jpg"));
+		bunsikImageLB1.setBounds(0, 0, 208, 167);
+		bunsikImageLB1.setIcon(new ImageIcon(BunsikPanel_이은지.class.getResource("/images/productList/p_image7.jpg")));
 		bunsikPanel1.add(bunsikImageLB1);
 		
 		/*
@@ -86,13 +83,13 @@ public class BunsikPanel_이은지 extends JPanel {
 		bunsikNameLB1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		bunsikNameLB1.setHorizontalAlignment(SwingConstants.RIGHT);
 		bunsikNameLB1.setFont(new Font("맑은 고딕", Font.BOLD, 25));
-		bunsikNameLB1.setBounds(263, 36, 109, 30);
+		bunsikNameLB1.setBounds(261, 52, 109, 30);
 		bunsikPanel1.add(bunsikNameLB1);
 		
 		JLabel bunsikPriceLB1 = new JLabel("\\ 5,000");
 		bunsikPriceLB1.setHorizontalAlignment(SwingConstants.RIGHT);
 		bunsikPriceLB1.setFont(new Font("맑은 고딕", Font.PLAIN, 17));
-		bunsikPriceLB1.setBounds(297, 76, 75, 24);
+		bunsikPriceLB1.setBounds(295, 92, 75, 24);
 		bunsikPanel1.add(bunsikPriceLB1);
 		
 		/*
@@ -105,16 +102,6 @@ public class BunsikPanel_이은지 extends JPanel {
 				//장바구니에 상품 추가
 			}
 		});
-		bunsikCartLB1 = new JLabel("");
-		bunsikCartLB1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		bunsikCartLB1.setIcon(new ImageIcon("C:\\Users\\itwill\\Downloads\\cart.png"));
-		bunsikCartLB1.setBounds(345, 114, 27, 27);
-		bunsikPanel1.add(bunsikCartLB1);
-		
-		bunsikComboBox1 = new JComboBox();
-		bunsikComboBox1.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5"}));
-		bunsikComboBox1.setBounds(297, 118, 32, 23);
-		bunsikPanel1.add(bunsikComboBox1);
 		
 		
 		JPanel bunsikPanel2 = new JPanel();
@@ -124,8 +111,8 @@ public class BunsikPanel_이은지 extends JPanel {
 		
 		JLabel bunsikImageLB2 = new JLabel("");
 		bunsikImageLB2.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
-		bunsikImageLB2.setIcon(new ImageIcon("C:\\2022-11-JAVA-DEVELOPER\\git-repositories-home\\java-project-team1-jogiyo\\src\\images\\productList\\p_image8.jpg"));
-		bunsikImageLB2.setBounds(0, 0, 236, 167);
+		bunsikImageLB2.setIcon(new ImageIcon(BunsikPanel_이은지.class.getResource("/images/productList/p_image8.jpg")));
+		bunsikImageLB2.setBounds(0, 0, 208, 167);
 		bunsikPanel2.add(bunsikImageLB2);
 		
 		/*
@@ -147,13 +134,13 @@ public class BunsikPanel_이은지 extends JPanel {
 		bunsikNameLB2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		bunsikNameLB2.setHorizontalAlignment(SwingConstants.RIGHT);
 		bunsikNameLB2.setFont(new Font("맑은 고딕", Font.BOLD, 25));
-		bunsikNameLB2.setBounds(263, 35, 109, 30);
+		bunsikNameLB2.setBounds(261, 52, 109, 30);
 		bunsikPanel2.add(bunsikNameLB2);
 		
 		JLabel bunsikPriceLB2 = new JLabel("\\ 4,000");
 		bunsikPriceLB2.setHorizontalAlignment(SwingConstants.RIGHT);
 		bunsikPriceLB2.setFont(new Font("맑은 고딕", Font.PLAIN, 17));
-		bunsikPriceLB2.setBounds(297, 75, 75, 24);
+		bunsikPriceLB2.setBounds(295, 92, 75, 24);
 		bunsikPanel2.add(bunsikPriceLB2);
 		
 		/*
@@ -166,16 +153,6 @@ public class BunsikPanel_이은지 extends JPanel {
 				//장바구니에 상품 추가
 			}
 		});
-		bunsikCartLB2 = new JLabel("");
-		bunsikCartLB2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		bunsikCartLB2.setIcon(new ImageIcon("C:\\Users\\itwill\\Downloads\\cart.png"));
-		bunsikCartLB2.setBounds(345, 113, 27, 27);
-		bunsikPanel2.add(bunsikCartLB2);
-		
-		bunsikComboBox2 = new JComboBox();
-		bunsikComboBox2.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5"}));
-		bunsikComboBox2.setBounds(297, 117, 32, 23);
-		bunsikPanel2.add(bunsikComboBox2);
 		
 		
 		JPanel bunsikPanel3 = new JPanel();
@@ -185,8 +162,8 @@ public class BunsikPanel_이은지 extends JPanel {
 		
 		JLabel bunsikImageLB3 = new JLabel("");
 		bunsikImageLB3.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
-		bunsikImageLB3.setIcon(new ImageIcon("C:\\2022-11-JAVA-DEVELOPER\\git-repositories-home\\java-project-team1-jogiyo\\src\\images\\productList\\p_image9.jpg"));
-		bunsikImageLB3.setBounds(0, 0, 236, 167);
+		bunsikImageLB3.setIcon(new ImageIcon(BunsikPanel_이은지.class.getResource("/images/productList/p_image9.jpg")));
+		bunsikImageLB3.setBounds(0, 0, 208, 167);
 		bunsikPanel3.add(bunsikImageLB3);
 		
 		/*
@@ -208,13 +185,13 @@ public class BunsikPanel_이은지 extends JPanel {
 		bunsikNameLB3.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		bunsikNameLB3.setHorizontalAlignment(SwingConstants.RIGHT);
 		bunsikNameLB3.setFont(new Font("맑은 고딕", Font.BOLD, 25));
-		bunsikNameLB3.setBounds(263, 36, 109, 30);
+		bunsikNameLB3.setBounds(261, 52, 109, 30);
 		bunsikPanel3.add(bunsikNameLB3);
 		
 		JLabel bunsikPriceLB3 = new JLabel("\\ 6,000");
 		bunsikPriceLB3.setHorizontalAlignment(SwingConstants.RIGHT);
 		bunsikPriceLB3.setFont(new Font("맑은 고딕", Font.PLAIN, 17));
-		bunsikPriceLB3.setBounds(297, 76, 75, 24);
+		bunsikPriceLB3.setBounds(295, 92, 75, 24);
 		bunsikPanel3.add(bunsikPriceLB3);
 		
 		/*
@@ -227,16 +204,6 @@ public class BunsikPanel_이은지 extends JPanel {
 				//장바구니에 상품 추가
 			}
 		});
-		bunsikCartLB3 = new JLabel("");
-		bunsikCartLB3.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		bunsikCartLB3.setIcon(new ImageIcon("C:\\Users\\itwill\\Downloads\\cart.png"));
-		bunsikCartLB3.setBounds(345, 114, 27, 27);
-		bunsikPanel3.add(bunsikCartLB3);
-		
-		bunsikComboBox3 = new JComboBox();
-		bunsikComboBox3.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5"}));
-		bunsikComboBox3.setBounds(297, 118, 32, 23);
-		bunsikPanel3.add(bunsikComboBox3);
 
 		
 		/**********************생성자 끝************************/
@@ -250,91 +217,4 @@ public class BunsikPanel_이은지 extends JPanel {
 		return frame.productService.findByName(p_name);
 	}
 	
-	
-	/*
-	 * 콤보박스로 선택한 수량만큼 카트에 상품 담기
-	 */
-	private void bunsikToCart1(String p_name) throws Exception {
-		
-		Cart cartInMenu7 = new Cart(0, (int)bunsikComboBox1.getSelectedItem(), loginUser.getM_id(), frame.productService.findByName(p_name));
-		if(bunsikNameLB1.getText().equals(p_name)) {
-			frame.cartService.addCartInProduct(cartInMenu7);
-		}
-		
-		JLabel bunsikCartLB1 = new JLabel("");
-		bunsikCartLB1.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				try {
-					bunsikToCart1(bunsikNameLB1.getText());
-				} catch (Exception e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-			}
-		});
-		bunsikCartLB1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		
-		bunsikCartLB1.setBounds(343, 114, 27, 27);
-		bunsikMenuPanel1.add(bunsikCartLB1);
-		bunsikCartLB1.setIcon(new ImageIcon("C:\\Users\\itwill\\Downloads\\cart.png"));
-		
-		
-	}
-	
-	private void bunsikToCart2(String p_name) throws Exception {
-		
-		Cart cartInMenu8 = new Cart(0, (int)bunsikComboBox2.getSelectedItem(), loginUser.getM_id(), frame.productService.findByName(p_name));
-		if(bunsikNameLB2.getText().equals(p_name)) {
-			frame.cartService.addCartInProduct(cartInMenu8);
-		}
-		
-		JLabel bunsikCartLB2 = new JLabel("");
-		bunsikCartLB2.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				try {
-					bunsikToCart2(bunsikNameLB2.getText());
-				} catch (Exception e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-			}
-		});
-		bunsikCartLB2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		
-		bunsikCartLB2.setBounds(343, 114, 27, 27);
-		bunsikMenuPanel2.add(bunsikCartLB2);
-		bunsikCartLB2.setIcon(new ImageIcon("C:\\Users\\itwill\\Downloads\\cart.png"));
-		
-		
-	}
-	
-		private void bunsikToCart3(String p_name) throws Exception {
-		
-		Cart cartInMenu9 = new Cart(0, (int)bunsikComboBox3.getSelectedItem(), loginUser.getM_id(), frame.productService.findByName(p_name));
-		if(bunsikNameLB3.getText().equals(p_name)) {
-			frame.cartService.addCartInProduct(cartInMenu9);
-		}
-		
-		JLabel bunsikCartLB3 = new JLabel("");
-		bunsikCartLB3.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				try {
-					bunsikToCart3(bunsikNameLB3.getText());
-				} catch (Exception e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-			}
-		});
-		bunsikCartLB3.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		
-		bunsikCartLB3.setBounds(343, 114, 27, 27);
-		bunsikMenuPanel3.add(bunsikCartLB3);
-		bunsikCartLB3.setIcon(new ImageIcon("C:\\Users\\itwill\\Downloads\\cart.png"));
-		
-		
-	}
 }

@@ -11,6 +11,7 @@ import com.team1.jogiyo.cart.*;
 import com.team1.jogiyo.product.*;
 import com.team1.jogiyo.ui.*;
 import com.team1.jogiyo.ui.JogiyoMainFrame;
+import com.team1.jogiyo.ui.이다은.*;
 import com.team1.jogiyo.user.*;
 
 import javax.swing.JTextField;
@@ -31,6 +32,8 @@ public class HansikPanel_이은지 extends JPanel {
 	public void setUser(User loginUser) {
 		this.loginUser=loginUser;
 	}
+	
+	ProductDetailPanel_이다은 displayProductDetail;
 
 	JPanel hansikMenuPanel1;
 	JPanel hansikMenuPanel2;
@@ -65,7 +68,7 @@ public class HansikPanel_이은지 extends JPanel {
 		JLabel hansikImageLB1 = new JLabel("");
 		hansikImageLB1.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 		hansikImageLB1.setBounds(0, 0, 208, 167);
-		hansikImageLB1.setIcon(new ImageIcon("C:\\Users\\itwill\\Downloads\\p_image1.jpg"));
+		hansikImageLB1.setIcon(new ImageIcon(HansikPanel_이은지.class.getResource("/images/productList/p_image1.jpg")));
 		hansikMenuPanel1.add(hansikImageLB1);
 		
 		/*
@@ -86,48 +89,21 @@ public class HansikPanel_이은지 extends JPanel {
 		});
 		hansikNameLB1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		hansikNameLB1.setFont(new Font("맑은 고딕", Font.BOLD, 25));
-		hansikNameLB1.setBounds(261, 36, 109, 30);
+		hansikNameLB1.setBounds(261, 52, 109, 30);
 		hansikNameLB1.setHorizontalAlignment(SwingConstants.RIGHT);
 		hansikMenuPanel1.add(hansikNameLB1);
 		
 		JLabel hansikPriceLB1 = new JLabel("\\ 9,000");
 		hansikPriceLB1.setFont(new Font("맑은 고딕", Font.PLAIN, 17));
 		hansikPriceLB1.setHorizontalAlignment(SwingConstants.RIGHT);
-		hansikPriceLB1.setBounds(295, 76, 75, 24);
+		hansikPriceLB1.setBounds(295, 92, 75, 24);
 		hansikMenuPanel1.add(hansikPriceLB1);
-		
-		/*
-		 * 해당 라벨 클릭 시 장바구니에 상품 추가
-		 */
-		JLabel hansikCartLB1 = new JLabel("");
-		hansikCartLB1.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				//장바구니에 상품 추가
-			}
-		});
-		hansikCartLB1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		
-		hansikCartLB1.setBounds(343, 114, 27, 27);
-		hansikMenuPanel1.add(hansikCartLB1);
-		hansikCartLB1.setIcon(new ImageIcon("C:\\Users\\itwill\\Downloads\\cart.png"));
-		
-		JComboBox hansikComboBox1 = new JComboBox();
-		hansikComboBox1.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5"}));
-		hansikComboBox1.setBounds(295, 118, 32, 23);
-		hansikMenuPanel1.add(hansikComboBox1);
 		
 		
 		JPanel hansikMenuPanel2 = new JPanel();
 		hansikMenuPanel2.setLayout(null);
 		hansikMenuPanel2.setBounds(0, 166, 400, 167);
 		add(hansikMenuPanel2);
-		
-		JLabel hansikImageLB2 = new JLabel("");
-		hansikImageLB2.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
-		hansikImageLB2.setIcon(new ImageIcon(HansikPanel_이은지.class.getResource("/images/productList/p_image2.jpg")));
-		hansikImageLB2.setBounds(0, 0, 251, 167);
-		hansikMenuPanel2.add(hansikImageLB2);
 		
 		/*
 		 * 클릭 시 상세보기로 이동
@@ -148,34 +124,19 @@ public class HansikPanel_이은지 extends JPanel {
 		hansikNameLB2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		hansikNameLB2.setHorizontalAlignment(SwingConstants.RIGHT);
 		hansikNameLB2.setFont(new Font("맑은 고딕", Font.BOLD, 25));
-		hansikNameLB2.setBounds(263, 36, 109, 30);
+		hansikNameLB2.setBounds(261, 52, 109, 30);
 		hansikMenuPanel2.add(hansikNameLB2);
 		
 		JLabel hansikPriceLB2 = new JLabel("\\ 24,000");
 		hansikPriceLB2.setHorizontalAlignment(SwingConstants.RIGHT);
 		hansikPriceLB2.setFont(new Font("맑은 고딕", Font.PLAIN, 17));
-		hansikPriceLB2.setBounds(297, 76, 75, 24);
+		hansikPriceLB2.setBounds(295, 92, 75, 24);
 		hansikMenuPanel2.add(hansikPriceLB2);
 		
-		/*
-		 * 해당 라벨 클릭 시 장바구니에 상품 추가
-		 */
-		JLabel hansikCartLB2 = new JLabel("");
-		hansikCartLB2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		hansikCartLB2.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				//장바구니에 상품 추가
-			}
-		});
-		hansikCartLB2.setIcon(new ImageIcon("C:\\Users\\itwill\\Downloads\\cart.png"));
-		hansikCartLB2.setBounds(345, 114, 27, 27);
-		hansikMenuPanel2.add(hansikCartLB2);
-		
-		JComboBox hansikComboBox2 = new JComboBox();
-		hansikComboBox2.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5"}));
-		hansikComboBox2.setBounds(297, 118, 32, 23);
-		hansikMenuPanel2.add(hansikComboBox2);
+		JLabel hansikImageLB2 = new JLabel("");
+		hansikImageLB2.setIcon(new ImageIcon(HansikPanel_이은지.class.getResource("/images/productList/p_image2.jpg")));
+		hansikImageLB2.setBounds(0, 0, 209, 167);
+		hansikMenuPanel2.add(hansikImageLB2);
 		
 		
 		JPanel hansikMenuPanel3 = new JPanel();
@@ -186,7 +147,7 @@ public class HansikPanel_이은지 extends JPanel {
 		JLabel hansikImageLB3 = new JLabel("");
 		hansikImageLB3.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 		hansikImageLB3.setIcon(new ImageIcon(HansikPanel_이은지.class.getResource("/images/productList/p_image3.jpg")));
-		hansikImageLB3.setBounds(0, 0, 251, 167);
+		hansikImageLB3.setBounds(0, 0, 208, 167);
 		hansikMenuPanel3.add(hansikImageLB3);
 		
 		/*
@@ -208,34 +169,14 @@ public class HansikPanel_이은지 extends JPanel {
 		hansikNameLB3.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		hansikNameLB3.setHorizontalAlignment(SwingConstants.RIGHT);
 		hansikNameLB3.setFont(new Font("맑은 고딕", Font.BOLD, 25));
-		hansikNameLB3.setBounds(263, 36, 109, 30);
+		hansikNameLB3.setBounds(261, 51, 109, 30);
 		hansikMenuPanel3.add(hansikNameLB3);
 		
 		JLabel hansikPriceLB3 = new JLabel("\\ 15,000");
 		hansikPriceLB3.setHorizontalAlignment(SwingConstants.RIGHT);
 		hansikPriceLB3.setFont(new Font("맑은 고딕", Font.PLAIN, 17));
-		hansikPriceLB3.setBounds(297, 76, 75, 24);
+		hansikPriceLB3.setBounds(295, 91, 75, 24);
 		hansikMenuPanel3.add(hansikPriceLB3);
-		
-		/*
-		 * 해당 라벨 클릭 시 장바구니에 상품 추가
-		 */
-		JLabel hansikCartLB3 = new JLabel("");
-		hansikCartLB3.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		hansikCartLB3.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				//장바구니에 상품 추가
-			}
-		});
-		hansikCartLB3.setIcon(new ImageIcon("C:\\Users\\itwill\\Downloads\\cart.png"));
-		hansikCartLB3.setBounds(345, 114, 27, 27);
-		hansikMenuPanel3.add(hansikCartLB3);
-		
-		JComboBox hansikComboBox3 = new JComboBox();
-		hansikComboBox3.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5"}));
-		hansikComboBox3.setBounds(297, 118, 32, 23);
-		hansikMenuPanel3.add(hansikComboBox3);
 
 		
 
@@ -251,6 +192,7 @@ public class HansikPanel_이은지 extends JPanel {
 	 */
 	public Product productDetail(String p_name) throws Exception{
 		return frame.productService.findByName(p_name);
+		//return frame.productDetailPanel_이다은.displayProductDetail(p_name);
 	}
 	
 	
@@ -259,7 +201,7 @@ public class HansikPanel_이은지 extends JPanel {
 	 * 콤보박스로 선택한 수량만큼 카트에 상품 담기
 	 */
 	
-	private void hansikToCart1(String p_name) throws Exception {
+	public void hansikToCart1(String p_name) throws Exception {
 		
 		Cart menuToCart1 = new Cart(0, (int)hansikComboBox1.getSelectedItem(), loginUser.getM_id(), frame.productService.findByName(p_name));
 		if(hansikNameLB1.getText().equals(p_name)) {
@@ -285,6 +227,7 @@ public class HansikPanel_이은지 extends JPanel {
 		hansikCartLB1.setIcon(new ImageIcon("C:\\Users\\itwill\\Downloads\\cart.png"));
 		
 	}
+	
 	
 	private void hansikToCart2(String p_name) throws Exception {
 		
