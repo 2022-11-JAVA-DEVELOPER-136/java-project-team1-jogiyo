@@ -122,6 +122,7 @@ public class JogiyoMainFrame extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 399, 700);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(255, 255, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
@@ -182,6 +183,7 @@ public class JogiyoMainFrame extends JFrame {
 		northPanel.add(cartLB);
 		
 		JPanel southPanel = new JPanel();
+		southPanel.setBackground(new Color(255, 255, 255));
 		southPanel.setAlignmentX(Component.RIGHT_ALIGNMENT);
 		contentPane.add(southPanel, BorderLayout.SOUTH);
 		southPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 70, 5));
@@ -228,6 +230,7 @@ public class JogiyoMainFrame extends JFrame {
 		southPanel.add(exitLB);
 		
 		parentTabbedPanel = new JTabbedPane(JTabbedPane.TOP);
+		parentTabbedPanel.setBackground(new Color(255, 255, 255));
 		contentPane.add(parentTabbedPanel, BorderLayout.CENTER);
 		
 		userTabbedPanel = new JTabbedPane(JTabbedPane.TOP);
