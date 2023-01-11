@@ -35,25 +35,29 @@ import java.awt.Cursor;
 
 public class ProductDetailPanel_이다은 extends JPanel {
 	JogiyoMainFrame frame;
-	User loginUser = null;
+	User loginUser;
+	Product product;
 	public void setFrame(JogiyoMainFrame frame) {
 		this.frame = frame;
 	}
 	public void setUser(User loginUser) throws Exception {
 		this.loginUser=loginUser;
 	}
-	public void setProduct(String p_name) throws Exception{
-		displayProductDetail(p_name);
-	}
+	
 	
 	private JComboBox productcomboBox;
 	private JButton orderBtn;
 	private JButton cartBtn;
+
+
+
+	private JogiyoMainFrame jogiyoMainFrame;
 	private JLabel productImageLB;
 	private JLabel productNameLB;
 	private JLabel productDescLB;
 	private JLabel productPriceLB;
-	private JogiyoMainFrame jogiyoMainFrame;
+	private JLabel priceLB;
+	private JLabel countLB;
 	
 	/**
 	 * Create the panel.
@@ -64,26 +68,26 @@ public class ProductDetailPanel_이다은 extends JPanel {
 		setBackground(new Color(255, 255, 255));
 		setLayout(null);
 		
-		JLabel productImageLB = new JLabel("");
+		productImageLB = new JLabel("");
 		productImageLB.setIcon(new ImageIcon(ProductDetailPanel_이다은.class.getResource("/images/productDetail/p_no_01.jpg")));
 		productImageLB.setBounds(0, 0, 350, 200);
 		add(productImageLB);
 		
 		
-		JLabel productNameLB = new JLabel("순대국밥");
+		productNameLB = new JLabel("순대국밥");
 		productNameLB.setHorizontalAlignment(SwingConstants.CENTER);
 		productNameLB.setFont(new Font("굴림", Font.BOLD, 25));
 		productNameLB.setBounds(0, 223, 350, 38);
 		add(productNameLB);
 		
-		JLabel productDescLB = new JLabel("순대가 들어간 국밥");
+		productDescLB = new JLabel("순대가 들어간 국밥");
 		productDescLB.setBackground(new Color(255, 255, 255));
 		productDescLB.setHorizontalAlignment(SwingConstants.CENTER);
 		productDescLB.setFont(new Font("굴림", Font.PLAIN, 15));
 		productDescLB.setBounds(0, 271, 350, 47);
 		add(productDescLB);
 		
-		JLabel productPriceLB = new JLabel("9000");
+		productPriceLB = new JLabel("9000");
 		productPriceLB.setHorizontalAlignment(SwingConstants.RIGHT);
 		productPriceLB.setFont(new Font("굴림", Font.BOLD, 15));
 		productPriceLB.setBounds(208, 340, 101, 15);
@@ -99,11 +103,11 @@ public class ProductDetailPanel_이다은 extends JPanel {
 		add(productcomboBox);
 		
 		
-		JLabel priceLB = new JLabel("가격");
+		priceLB = new JLabel("가격");
 		priceLB.setBounds(172, 340, 57, 15);
 		add(priceLB);
 		
-		JLabel countLB = new JLabel("수량");
+		countLB = new JLabel("수량");
 		countLB.setBounds(172, 390, 57, 15);
 		add(countLB);
 		
@@ -113,6 +117,12 @@ public class ProductDetailPanel_이다은 extends JPanel {
 		orderBtn.setBackground(new Color(255, 255, 255));
 		orderBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				try {
+					productToOrder();
+				} catch (Exception e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}
 		});
 		orderBtn.setBounds(61, 460, 97, 23);
@@ -139,12 +149,16 @@ public class ProductDetailPanel_이다은 extends JPanel {
 	/************************************************/
 	
 	// 제품정보 불러오기
-	public void displayProductDetail(String p_name) {
+	public void displayProductDetail(Product product) {
+		System.out.println(product);
 		try {
-		productImageLB.setIcon(new ImageIcon(ProductDetailPanel_이다은.class.getResource("/image/" + frame.productService.findByName(p_name).getP_image())));
-			productNameLB.setText(frame.productService.findByName(p_name).getP_name()+"");
-		productDescLB.setText(frame.productService.findByName(p_name).getP_desc()+"");
-		productPriceLB.setText(frame.productService.findByName(p_name).getP_price()+"");	
+			productImageLB.setIcon(new ImageIcon(ProductDetailPanel_이다은.class.getResource("/image/productDetail/"+product.getP_image())));
+			productNameLB.setText(product.getP_name()+"");
+			productDescLB.setText(product.getP_desc()+"");
+			productPriceLB.setText(product.getP_price()+"");	
+			
+		
+		
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -153,9 +167,12 @@ public class ProductDetailPanel_이다은 extends JPanel {
 	 * ===> 은지님 해당 버튼에 productDetailPanel_이다은.displayProductdetail(p_name) 넣어주세요
 	 */
 	
-	public void productToOrder(int p_no) throws Exception {
-		frame.orderService.create(loginUser.getM_id(), p_no,(int)productcomboBox.getSelectedItem());
+	public void productToOrder() throws Exception {
+		Product product;
+		product = frame.productService.findByPrimaryKey(0);
+		frame.orderService.create(loginUser.getM_id(), product.getCt_no(),(int)productcomboBox.getSelectedItem());
 	}
+
 	
 	public void productToCart (String p_name) throws Exception {
 		Cart producttocart  = new Cart(0, (int)productcomboBox.getSelectedItem(), loginUser.getM_id(), frame.productService.findByName(p_name));
@@ -163,6 +180,11 @@ public class ProductDetailPanel_이다은 extends JPanel {
 		frame.cartService.addCartInProduct(producttocart);		
 		}
 		
+	}
+	public void setProduct(Product product) {
+		// TODO Auto-generated method stub
+		this.product=product;
+		displayProductDetail(product);
 	}
 	
 	
