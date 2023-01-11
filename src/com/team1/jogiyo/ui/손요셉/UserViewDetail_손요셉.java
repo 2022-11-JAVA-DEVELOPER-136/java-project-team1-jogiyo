@@ -173,9 +173,9 @@ public class UserViewDetail_손요셉 extends JPanel {
 		userViewCancelBtn.setBounds(202, 406, 97, 23);
 		add(userViewCancelBtn);
 
-		JLabel lblNewLabel_5 = new JLabel("회원정보/수정");
-		lblNewLabel_5.setFont(new Font("한컴 고딕", Font.BOLD, 17));
-		lblNewLabel_5.setBounds(119, 21, 122, 23);
+		JLabel lblNewLabel_5 = new JLabel("회원정보");
+		lblNewLabel_5.setFont(new Font("맑은 고딕", Font.BOLD, 20));
+		lblNewLabel_5.setBounds(120, 22, 91, 23);
 		add(lblNewLabel_5);
 		
 		detailmainTF = new JTextField();
