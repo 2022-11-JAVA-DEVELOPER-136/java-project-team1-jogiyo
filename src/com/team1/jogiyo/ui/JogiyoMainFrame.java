@@ -40,6 +40,7 @@ import javax.swing.JComboBox;
 import com.team1.jogiyo.ui.이다은.ProductDetailPanel_이다은;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.Color;
 
 
 public class JogiyoMainFrame extends JFrame {
@@ -126,6 +127,7 @@ public class JogiyoMainFrame extends JFrame {
 		contentPane.setLayout(new BorderLayout(0, 0));
 		
 		JPanel northPanel = new JPanel();
+		northPanel.setBackground(new Color(255, 255, 255));
 		northPanel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		contentPane.add(northPanel, BorderLayout.NORTH);
 		
@@ -153,6 +155,7 @@ public class JogiyoMainFrame extends JFrame {
 		});
 		
 		panel = new JPanel();
+		panel.setBackground(new Color(255, 0, 0));
 		northPanel.add(panel);
 		
 		findProductTL = new JTextField();
