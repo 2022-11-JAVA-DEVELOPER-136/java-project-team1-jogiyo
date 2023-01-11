@@ -355,13 +355,16 @@ public class JogiyoMainFrame extends JFrame {
 			parentTabbedPanel.setSelectedIndex(1);
 			productTabbedPanel.setSelectedIndex(3);
 		} else if(panel_no==PRODUCTDETAILPANE){
+			
+			parentTabbedPanel.setSelectedIndex(1);
+			productTabbedPanel.setSelectedIndex(4);
+			
 			try {
 				transferHansikProduct((Product)data);
+				
 			} catch (Exception e) {
 				System.out.println(e.getMessage());
 			}
-			parentTabbedPanel.setSelectedIndex(1);
-			productTabbedPanel.setSelectedIndex(4);
 		} else if(panel_no==CARTTABBEDPANE_P){
 			parentTabbedPanel.setSelectedIndex(2);
 		} else if(panel_no==ORDERTABBEDPANE_P){
@@ -397,6 +400,6 @@ public class JogiyoMainFrame extends JFrame {
 	}
 	
 	public void transferHansikProduct(Product product) throws Exception{
-		//productDetailPanel_이다은.setProduct(product);
+		productDetailPanel_이다은.setProduct(product);
 	}		//한식,중식,분식
 }

@@ -59,7 +59,7 @@ public class BunsikPanel_이은지 extends JPanel {
 		//패널생성
 		JPanel bunsikPanel1 = new JPanel();
 		bunsikPanel1.setBackground(new Color(255, 255, 255));
-		bunsikPanel1.setBounds(0, 0, 371, 167);
+		bunsikPanel1.setBounds(10, 10, 349, 144);
 		add(bunsikPanel1);
 		bunsikPanel1.setLayout(null);
 		
@@ -101,7 +101,7 @@ public class BunsikPanel_이은지 extends JPanel {
 		JPanel bunsikPanel2 = new JPanel();
 		bunsikPanel2.setBackground(new Color(255, 255, 255));
 		bunsikPanel2.setLayout(null);
-		bunsikPanel2.setBounds(0, 167, 371, 167);
+		bunsikPanel2.setBounds(20, 167, 339, 123);
 		add(bunsikPanel2);
 		
 		JLabel bunsikImageLB2 = new JLabel("");

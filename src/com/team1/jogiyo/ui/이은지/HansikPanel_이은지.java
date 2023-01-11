@@ -85,6 +85,7 @@ public class HansikPanel_이은지 extends JPanel {
 					System.out.println("순대국밥 상세보기로 이동");
 					Product clickedProduct=productDetail(hansikNameLB1.getText());
 					frame.changePanel(frame.PRODUCTDETAILPANE,clickedProduct);
+					System.out.println(clickedProduct);
 				} catch (Exception e1) {
 					System.out.println(e1.getMessage());
 				}
