@@ -186,11 +186,7 @@ public class UserViewDetail_손요셉 extends JPanel {
 		detailmainTF.setColumns(10);
 
 		/********************************************************/
-		/*
-		if(loginUser!=null) {
-			userInfo(loginUser);
-		}
-		*/
+	
 		
 		
 }
