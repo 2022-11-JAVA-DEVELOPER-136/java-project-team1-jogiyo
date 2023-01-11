@@ -64,14 +64,12 @@ public class ProductDetailPanel_이다은 extends JPanel {
 		setLayout(null);
 		
 		productImageLB = new JLabel("");
-		JLabel productImageLB = new JLabel("순대국밥");
 		productImageLB.setIcon(new ImageIcon(ProductDetailPanel_이다은.class.getResource("/images/productDetail/p_no_01.jpg")));
 		productImageLB.setBounds(0, 0, 350, 200);
 		add(productImageLB);
 		
 		
 		productNameLB = new JLabel("순대국밥");
-		JLabel productNameLB = new JLabel();
 		productNameLB.setHorizontalAlignment(SwingConstants.CENTER);
 		productNameLB.setFont(new Font("굴림", Font.BOLD, 25));
 		productNameLB.setBounds(0, 223, 350, 38);
@@ -136,13 +134,12 @@ public class ProductDetailPanel_이다은 extends JPanel {
 		cartBtn.setBounds(208, 460, 97, 23);
 		add(cartBtn);
 		
-		
 	}
 	// 제품정보 불러오기
 	public void displayProductDetail(Product product) {
 		System.out.println(product);
 		try {
-			productImageLB.setIcon(new ImageIcon(ProductDetailPanel_이다은.class.getResource(""+product.getP_image())));
+			productImageLB.setIcon(new ImageIcon(ProductDetailPanel_이다은.class.getResource("/images/productDetail/"+product.getP_image())));
 			productNameLB.setText(product.getP_name()+"");
 			productDescLB.setText(product.getP_desc()+"");
 			productPriceLB.setText(product.getP_price()+"");	
