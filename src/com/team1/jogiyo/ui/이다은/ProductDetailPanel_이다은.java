@@ -114,6 +114,7 @@ public class ProductDetailPanel_이다은 extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				try {
 					productToOrder(product);
+					frame.changePanel(frame.ORDERTABBEDPANE_P, null);
 				} catch (Exception e1) {
 					e1.printStackTrace();
 				}
@@ -129,6 +130,8 @@ public class ProductDetailPanel_이다은 extends JPanel {
 		cartBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
+					productToCart(frame.productService.findByName(productNameLB.getText()));
+					frame.changePanel(frame.CARTTABBEDPANE_P, null);
 				} catch (Exception e1) {
 					e1.printStackTrace();
 				}
@@ -157,7 +160,7 @@ public class ProductDetailPanel_이다은 extends JPanel {
 
 	
 	public void productToCart (Product product) throws Exception {
-		Cart producttocart = new Cart();
+		Cart producttocart = new Cart(0,productcomboBox.getSelectedIndex()+1,loginUser.getM_id(),product);
 		frame.cartService.addCartInProduct(producttocart);		
 		}
 		
