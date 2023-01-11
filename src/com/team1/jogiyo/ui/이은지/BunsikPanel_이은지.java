@@ -13,6 +13,7 @@ import com.team1.jogiyo.ui.*;
 import com.team1.jogiyo.user.*;
 
 import com.team1.jogiyo.ui.JogiyoMainFrame;
+import com.team1.jogiyo.ui.이다은.*;
 import com.team1.jogiyo.user.User;
 import javax.swing.JTextField;
 import java.awt.Font;
@@ -34,6 +35,7 @@ public class BunsikPanel_이은지 extends JPanel {
 	public void setUser(User loginUser) {
 		this.loginUser=loginUser;
 	}
+	
 	
 
 	JPanel bunsikMenuPanel1;
@@ -116,7 +118,7 @@ public class BunsikPanel_이은지 extends JPanel {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				try {
-					System.out.println("순대국밥 상세보기로 이동");
+					System.out.println("어묵 상세보기로 이동");
 					Product clickedProduct=productDetail(bunsikNameLB2.getText());
 					frame.changePanel(frame.PRODUCTDETAILPANE,clickedProduct);
 				} catch (Exception e1) {
@@ -157,7 +159,7 @@ public class BunsikPanel_이은지 extends JPanel {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				try {
-					System.out.println("순대국밥 상세보기로 이동");
+					System.out.println("순대 상세보기로 이동");
 					Product clickedProduct=productDetail(bunsikNameLB3.getText());
 					frame.changePanel(frame.PRODUCTDETAILPANE,clickedProduct);
 				} catch (Exception e1) {
@@ -188,5 +190,6 @@ public class BunsikPanel_이은지 extends JPanel {
 	public Product productDetail(String p_name) throws Exception{
 		return frame.productService.findByName(p_name);
 	}
+	
 	
 }
