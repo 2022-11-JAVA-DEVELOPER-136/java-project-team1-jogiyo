@@ -60,7 +60,7 @@ public class BunsikPanel_이은지 extends JPanel {
 		
 		JLabel bunsikImageLB1 = new JLabel("");
 		bunsikImageLB1.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
-		bunsikImageLB1.setBounds(0, 0, 208, 167);
+		bunsikImageLB1.setBounds(0, 0, 236, 167);
 		bunsikImageLB1.setIcon(new ImageIcon(BunsikPanel_이은지.class.getResource("/images/productList/p_image7.jpg")));
 		bunsikPanel1.add(bunsikImageLB1);
 		
@@ -92,17 +92,6 @@ public class BunsikPanel_이은지 extends JPanel {
 		bunsikPriceLB1.setBounds(295, 92, 75, 24);
 		bunsikPanel1.add(bunsikPriceLB1);
 		
-		/*
-		 * 해당 라벨 클릭 시 장바구니에 상품 추가
-		 */
-		JLabel bunsikCartLB1 = new JLabel("");
-		bunsikCartLB1.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				//장바구니에 상품 추가
-			}
-		});
-		
 		
 		JPanel bunsikPanel2 = new JPanel();
 		bunsikPanel2.setLayout(null);
@@ -112,7 +101,7 @@ public class BunsikPanel_이은지 extends JPanel {
 		JLabel bunsikImageLB2 = new JLabel("");
 		bunsikImageLB2.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 		bunsikImageLB2.setIcon(new ImageIcon(BunsikPanel_이은지.class.getResource("/images/productList/p_image8.jpg")));
-		bunsikImageLB2.setBounds(0, 0, 208, 167);
+		bunsikImageLB2.setBounds(0, 0, 236, 167);
 		bunsikPanel2.add(bunsikImageLB2);
 		
 		/*
@@ -142,17 +131,6 @@ public class BunsikPanel_이은지 extends JPanel {
 		bunsikPriceLB2.setFont(new Font("맑은 고딕", Font.PLAIN, 17));
 		bunsikPriceLB2.setBounds(295, 92, 75, 24);
 		bunsikPanel2.add(bunsikPriceLB2);
-		
-		/*
-		 * 해당 라벨 클릭 시 장바구니에 상품 추가
-		 */
-		JLabel bunsikCartLB2 = new JLabel("");
-		bunsikCartLB2.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				//장바구니에 상품 추가
-			}
-		});
 		
 		
 		JPanel bunsikPanel3 = new JPanel();
@@ -193,17 +171,6 @@ public class BunsikPanel_이은지 extends JPanel {
 		bunsikPriceLB3.setFont(new Font("맑은 고딕", Font.PLAIN, 17));
 		bunsikPriceLB3.setBounds(295, 92, 75, 24);
 		bunsikPanel3.add(bunsikPriceLB3);
-		
-		/*
-		 * 해당 라벨 클릭 시 장바구니에 상품 추가
-		 */
-		JLabel bunsikCartLB3 = new JLabel("");
-		bunsikCartLB3.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				//장바구니에 상품 추가
-			}
-		});
 
 		
 		/**********************생성자 끝************************/
