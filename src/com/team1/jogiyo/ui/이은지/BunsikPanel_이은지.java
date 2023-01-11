@@ -79,7 +79,7 @@ public class BunsikPanel_이은지 extends JPanel {
 				try {
 					System.out.println("순대국밥 상세보기로 이동");
 					Product clickedProduct=productDetail(bunsikNameLB1.getText());
-					frame.changePanel(25,clickedProduct);
+					frame.changePanel(frame.PRODUCTDETAILPANE,clickedProduct);
 				} catch (Exception e1) {
 					System.out.println(e1.getMessage());
 				}
@@ -138,7 +138,7 @@ public class BunsikPanel_이은지 extends JPanel {
 				try {
 					System.out.println("순대국밥 상세보기로 이동");
 					Product clickedProduct=productDetail(bunsikNameLB2.getText());
-					frame.changePanel(25,clickedProduct);
+					frame.changePanel(frame.PRODUCTDETAILPANE,clickedProduct);
 				} catch (Exception e1) {
 					System.out.println(e1.getMessage());
 				}
@@ -197,7 +197,7 @@ public class BunsikPanel_이은지 extends JPanel {
 				try {
 					System.out.println("순대국밥 상세보기로 이동");
 					Product clickedProduct=productDetail(bunsikNameLB3.getText());
-					frame.changePanel(25,clickedProduct);
+					frame.changePanel(frame.PRODUCTDETAILPANE,clickedProduct);
 				} catch (Exception e1) {
 					System.out.println(e1.getMessage());
 				}

@@ -38,6 +38,8 @@ import javax.swing.JSplitPane;
 import javax.swing.JTextPane;
 import javax.swing.JComboBox;
 import com.team1.jogiyo.ui.이다은.ProductDetailPanel_이다은;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 
 public class JogiyoMainFrame extends JFrame {
@@ -50,22 +52,22 @@ public class JogiyoMainFrame extends JFrame {
 	public User loginUser=null;
 
 	/****************2. tap페이지 상수 선언********************/
-	private static int USERTABBEDPANE_P=1;
-	private static int USERMAINPANE=11; 
-	private static int USERLOGINPANE=12; 
-	private static int USERSIGNUPPANE=13; 
-	private static int USERVIEWDETAILPANE=14; 
+	public static int USERTABBEDPANE_P=1;
+	public static int USERMAINPANE=11; 
+	public static int USERLOGINPANE=12; 
+	public static int USERSIGNUPPANE=13; 
+	public static int USERVIEWDETAILPANE=14; 
 
-	private static int PRODUCTTABBEDPANE_P=2;
-	private static int PRODUCTCATEGORYPANE=21; 
-	private static int HANSIKPANE=22; 
-	private static int JOONGSIKPANE=23; 
-	private static int BUNSIKPANE=24;
-	private static int PRODUCTDETAILPANE=25;
+	public static int PRODUCTTABBEDPANE_P=2;
+	public static int PRODUCTCATEGORYPANE=21; 
+	public static int HANSIKPANE=22; 
+	public static int JOONGSIKPANE=23; 
+	public static int BUNSIKPANE=24;
+	public static int PRODUCTDETAILPANE=25;
 
-	private static int CARTTABBEDPANE_P=3;
-	private static int ORDERTABBEDPANE_P=4;
-	private static int ORDERDETAILTABBEDPANE_P=5;
+	public static int CARTTABBEDPANE_P=3;
+	public static int ORDERTABBEDPANE_P=4;
+	public static int ORDERDETAILTABBEDPANE_P=5;
 	/***********************************************************/
 	private JPanel contentPane;
 	private UserLoginPane_손요셉 userLoginPanel_손요셉;
@@ -128,10 +130,13 @@ public class JogiyoMainFrame extends JFrame {
 		contentPane.add(NorthPanel, BorderLayout.NORTH);
 		
 		representLB = new JLabel("");
+
 		representLB.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				changePanel(11, null);
+				System.out.print("발생");
+				changePanel(USERMAINPANE, null);
+				
 			}
 		});
 		NorthPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 30, 5));
@@ -143,7 +148,7 @@ public class JogiyoMainFrame extends JFrame {
 		cartLB.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				changePanel(3, null);
+				changePanel(CARTTABBEDPANE_P, null);
 			}
 		});
 		
@@ -160,7 +165,7 @@ public class JogiyoMainFrame extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 				try {
 					Product searchedProduct=productService.findByName(findProductTL.getText());
-					changePanel(25,searchedProduct);
+					changePanel(PRODUCTDETAILPANE,searchedProduct);
 				} catch(Exception e1) {
 					System.out.println(e1.getMessage());
 				}
@@ -181,7 +186,7 @@ public class JogiyoMainFrame extends JFrame {
 		userInfoLB.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				changePanel(14, null);
+				changePanel(USERVIEWDETAILPANE, null);
 			}
 		});
 		userInfoLB.setHorizontalTextPosition(SwingConstants.CENTER);
@@ -195,7 +200,7 @@ public class JogiyoMainFrame extends JFrame {
 		homeLB.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				changePanel(21, null);
+				changePanel(PRODUCTCATEGORYPANE, null);
 			}
 		});
 		homeLB.setHorizontalTextPosition(SwingConstants.CENTER);
@@ -228,7 +233,7 @@ public class JogiyoMainFrame extends JFrame {
 		userMainPanel_손요셉.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				changePanel(12, null);
+				changePanel(USERLOGINPANE, null);
 			}
 		});
 		userTabbedPanel.addTab("회원메인", null, userMainPanel_손요셉, null);
@@ -293,6 +298,8 @@ public class JogiyoMainFrame extends JFrame {
 	public void changePanel(int panel_no,Object data){
 		if(panel_no==USERTABBEDPANE_P) {
 			parentTabbedPanel.setSelectedIndex(0);
+		} else if(panel_no==USERMAINPANE) {
+			parentTabbedPanel.setSelectedIndex(0);
 			userTabbedPanel.setSelectedIndex(0);
 		} else if(panel_no==USERLOGINPANE){
 			parentTabbedPanel.setSelectedIndex(0);
@@ -306,7 +313,6 @@ public class JogiyoMainFrame extends JFrame {
 			userTabbedPanel.setSelectedIndex(4);
 		} else if(panel_no==PRODUCTTABBEDPANE_P){
 			parentTabbedPanel.setSelectedIndex(1);
-			productTabbedPanel.setSelectedIndex(0);
 		} else if(panel_no==PRODUCTCATEGORYPANE){
 			loginUser= (User)data;
 			try {
@@ -337,7 +343,6 @@ public class JogiyoMainFrame extends JFrame {
 		} else if(panel_no==CARTTABBEDPANE_P){
 			parentTabbedPanel.setSelectedIndex(2);
 		} else if(panel_no==ORDERTABBEDPANE_P){
-			
 			parentTabbedPanel.setSelectedIndex(3);
 		} else if(panel_no==ORDERDETAILTABBEDPANE_P){
 			try {
