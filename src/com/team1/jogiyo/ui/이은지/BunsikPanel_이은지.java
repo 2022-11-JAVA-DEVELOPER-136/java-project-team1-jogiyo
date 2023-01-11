@@ -23,6 +23,7 @@ import javax.swing.DefaultComboBoxModel;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.Cursor;
+import java.awt.Color;
 
 public class BunsikPanel_이은지 extends JPanel {
 	JogiyoMainFrame frame;
@@ -46,6 +47,7 @@ public class BunsikPanel_이은지 extends JPanel {
 	 * Create the panel.
 	 */
 	public BunsikPanel_이은지() throws Exception {
+		setBackground(new Color(255, 255, 255));
 		setLayout(null);
 		
 		JScrollPane bunsikListScrollPane = new JScrollPane();
@@ -54,7 +56,8 @@ public class BunsikPanel_이은지 extends JPanel {
 		
 		//패널생성
 		JPanel bunsikPanel1 = new JPanel();
-		bunsikPanel1.setBounds(0, 0, 400, 167);
+		bunsikPanel1.setBackground(new Color(255, 255, 255));
+		bunsikPanel1.setBounds(0, 0, 371, 167);
 		add(bunsikPanel1);
 		bunsikPanel1.setLayout(null);
 		
@@ -83,19 +86,20 @@ public class BunsikPanel_이은지 extends JPanel {
 		bunsikNameLB1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		bunsikNameLB1.setHorizontalAlignment(SwingConstants.RIGHT);
 		bunsikNameLB1.setFont(new Font("맑은 고딕", Font.BOLD, 25));
-		bunsikNameLB1.setBounds(261, 52, 109, 30);
+		bunsikNameLB1.setBounds(237, 51, 109, 30);
 		bunsikPanel1.add(bunsikNameLB1);
 		
 		JLabel bunsikPriceLB1 = new JLabel("\\ 5,000");
 		bunsikPriceLB1.setHorizontalAlignment(SwingConstants.RIGHT);
 		bunsikPriceLB1.setFont(new Font("맑은 고딕", Font.PLAIN, 17));
-		bunsikPriceLB1.setBounds(295, 92, 75, 24);
+		bunsikPriceLB1.setBounds(271, 91, 75, 24);
 		bunsikPanel1.add(bunsikPriceLB1);
 		
 		
 		JPanel bunsikPanel2 = new JPanel();
+		bunsikPanel2.setBackground(new Color(255, 255, 255));
 		bunsikPanel2.setLayout(null);
-		bunsikPanel2.setBounds(0, 167, 400, 167);
+		bunsikPanel2.setBounds(0, 167, 371, 167);
 		add(bunsikPanel2);
 		
 		JLabel bunsikImageLB2 = new JLabel("");
@@ -123,19 +127,20 @@ public class BunsikPanel_이은지 extends JPanel {
 		bunsikNameLB2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		bunsikNameLB2.setHorizontalAlignment(SwingConstants.RIGHT);
 		bunsikNameLB2.setFont(new Font("맑은 고딕", Font.BOLD, 25));
-		bunsikNameLB2.setBounds(261, 52, 109, 30);
+		bunsikNameLB2.setBounds(238, 50, 109, 30);
 		bunsikPanel2.add(bunsikNameLB2);
 		
 		JLabel bunsikPriceLB2 = new JLabel("\\ 4,000");
 		bunsikPriceLB2.setHorizontalAlignment(SwingConstants.RIGHT);
 		bunsikPriceLB2.setFont(new Font("맑은 고딕", Font.PLAIN, 17));
-		bunsikPriceLB2.setBounds(295, 92, 75, 24);
+		bunsikPriceLB2.setBounds(272, 90, 75, 24);
 		bunsikPanel2.add(bunsikPriceLB2);
 		
 		
 		JPanel bunsikPanel3 = new JPanel();
+		bunsikPanel3.setBackground(new Color(255, 255, 255));
 		bunsikPanel3.setLayout(null);
-		bunsikPanel3.setBounds(0, 333, 400, 167);
+		bunsikPanel3.setBounds(0, 333, 371, 167);
 		add(bunsikPanel3);
 		
 		JLabel bunsikImageLB3 = new JLabel("");
@@ -163,13 +168,13 @@ public class BunsikPanel_이은지 extends JPanel {
 		bunsikNameLB3.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		bunsikNameLB3.setHorizontalAlignment(SwingConstants.RIGHT);
 		bunsikNameLB3.setFont(new Font("맑은 고딕", Font.BOLD, 25));
-		bunsikNameLB3.setBounds(261, 52, 109, 30);
+		bunsikNameLB3.setBounds(237, 52, 109, 30);
 		bunsikPanel3.add(bunsikNameLB3);
 		
 		JLabel bunsikPriceLB3 = new JLabel("\\ 6,000");
 		bunsikPriceLB3.setHorizontalAlignment(SwingConstants.RIGHT);
 		bunsikPriceLB3.setFont(new Font("맑은 고딕", Font.PLAIN, 17));
-		bunsikPriceLB3.setBounds(295, 92, 75, 24);
+		bunsikPriceLB3.setBounds(271, 92, 75, 24);
 		bunsikPanel3.add(bunsikPriceLB3);
 
 		
