@@ -75,7 +75,7 @@ public class CartListTabbedPanel_정유나 extends JPanel {
 		
 		/*		CartListItem Start		*/
 		cartPanel = new JPanel();
-		cartPanel.setPreferredSize(new Dimension(300, 80));
+		cartPanel.setPreferredSize(new Dimension(300, 120));
 		cartListPanel.add(cartPanel);
 		cartPanel.setLayout(null);
 		
@@ -100,7 +100,7 @@ public class CartListTabbedPanel_정유나 extends JPanel {
 				try {
 					frame.changePanel(25,frame.productService.findByName(productNameLB.getText()));
 				} catch (Exception e1) {
-					System.out.println(e1.getMessage());
+					e1.printStackTrace();
 				}
 			}
 		});
@@ -111,31 +111,31 @@ public class CartListTabbedPanel_정유나 extends JPanel {
 		JLabel productCount = new JLabel("수량");
 		productCount.setPreferredSize(new Dimension(22, 15));
 		productCount.setHorizontalAlignment(SwingConstants.CENTER);
-		productCount.setBounds(127, 56, 32, 15);
+		productCount.setBounds(65, 78, 32, 15);
 		cartPanel.add(productCount);
 		
 		productCountCB = new JComboBox();
 		productCountCB.setEditable(true);
 		productCountCB.setModel(new DefaultComboBoxModel(new String[] {"", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"}));
 		productCountCB.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		productCountCB.setBounds(167, 55, 25, 15);
+		productCountCB.setBounds(129, 78, 62, 15);
 		cartPanel.add(productCountCB);
 		
 		JLabel productTotalPriceLB = new JLabel("총 금액");
-		productTotalPriceLB.setBounds(202, 56, 40, 15);
+		productTotalPriceLB.setBounds(65, 102, 40, 15);
 		cartPanel.add(productTotalPriceLB);
 		
 		JLabel productPrice = new JLabel("가격");
 		productPrice.setHorizontalAlignment(SwingConstants.CENTER);
-		productPrice.setBounds(65, 55, 25, 15);
+		productPrice.setBounds(65, 55, 32, 15);
 		cartPanel.add(productPrice);
 		
 		productPriceLB = new JLabel("");
-		productPriceLB.setBounds(94, 55, 32, 15);
+		productPriceLB.setBounds(127, 55, 104, 15);
 		cartPanel.add(productPriceLB);
 		
 		totalProductPriceLB = new JLabel("");
-		totalProductPriceLB.setBounds(248, 56, 49, 15);
+		totalProductPriceLB.setBounds(139, 101, 52, 15);
 		cartPanel.add(totalProductPriceLB);
 		
 		cartOrderCheck = new JCheckBox("");
@@ -143,9 +143,15 @@ public class CartListTabbedPanel_정유나 extends JPanel {
 		cartOrderCheck.setBounds(276, 47, 21, 23);
 		cartPanel.add(cartOrderCheck);
 		
-		JButton btnNewButton = new JButton("X");
-		btnNewButton.setBounds(248, 8, 46, 20);
-		cartPanel.add(btnNewButton);
+		JButton deleteItemBtn = new JButton("X");
+		deleteItemBtn.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				//deleteCartItem(frame.cartService.);
+			}
+		});
+		deleteItemBtn.setBounds(248, 8, 46, 20);
+		cartPanel.add(deleteItemBtn);
 		/* 		CartListItem End	*/
 		orderAllBtn = new JButton("전체주문");
 		orderAllBtn.addMouseListener(new MouseAdapter() {
@@ -156,7 +162,7 @@ public class CartListTabbedPanel_정유나 extends JPanel {
 					orderAllInCart(loginUser.getM_id());
 					frame.changePanel(4, null);
 				} catch (Exception e1) {
-					System.out.println(e1.getMessage());
+					e1.printStackTrace();
 				}
 			}
 		});
@@ -247,7 +253,7 @@ public class CartListTabbedPanel_정유나 extends JPanel {
 			productPriceLB.setBounds(94, 55, 32, 15);
 			cartPanel.add(productPriceLB);
 
-			totalProductPriceLB = new JLabel(""+(product.getP_price()*cart.getC_qty()));
+			totalProductPriceLB = new JLabel(""+product.getP_price()*(int)(productCountCB.getSelectedItem()));
 			totalProductPriceLB.setBounds(248, 56, 49, 15);
 			cartPanel.add(totalProductPriceLB);
 
@@ -256,9 +262,19 @@ public class CartListTabbedPanel_정유나 extends JPanel {
 			cartOrderCheck.setBounds(276, 40, 21, 23);
 			cartPanel.add(cartOrderCheck);
 			
-			JButton btnNewButton = new JButton("X");
-			btnNewButton.setBounds(276, 8, 18, 20);
-			cartPanel.add(btnNewButton);
+			JButton deleteItemBtn = new JButton("X");
+			deleteItemBtn.addMouseListener(new MouseAdapter() {
+				@Override
+				public void mouseClicked(MouseEvent e) {
+					try {
+						deleteCartItem(cart.getC_no());
+					} catch (Exception e1) {
+						e1.printStackTrace();
+					}
+				}
+			});
+			deleteItemBtn.setBounds(248, 8, 46, 20);
+			cartPanel.add(deleteItemBtn);
 			
 			cartListPanel.add(cartPanel);
 		}
@@ -267,8 +283,11 @@ public class CartListTabbedPanel_정유나 extends JPanel {
 		try {
 			frame.orderService.create(sUserId);
 		} catch (Exception e1) {
-			System.out.println(e1.getMessage());
+			e1.printStackTrace();
 		}
+	}
+	public void deleteCartItem(int c_no) throws Exception {
+		frame.cartService.deleteCartItem(c_no);
 	}
 	
 }
