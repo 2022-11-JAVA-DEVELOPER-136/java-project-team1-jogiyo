@@ -37,12 +37,13 @@ import java.awt.Color;
 
 public class CartListTabbedPanel_정유나 extends JPanel {
 	JogiyoMainFrame frame;
-	private User loginUser=null;
 	public void setFrame(JogiyoMainFrame frame) {
 		this.frame = frame;
 	}
+	User loginUser=null;
 	public void setUser(User loginUser) throws Exception {
 		this.loginUser=loginUser;
+		cartListDisplay(loginUser.getM_id());
 	}
 	private JPanel cartListPanel;
 	
@@ -77,8 +78,12 @@ public class CartListTabbedPanel_정유나 extends JPanel {
 		
 		/*		CartListItem Start		*/
 		cartPanel = new JPanel();
+<<<<<<< HEAD
 		cartPanel.setBackground(new Color(255, 255, 255));
 		cartPanel.setPreferredSize(new Dimension(300, 80));
+=======
+		cartPanel.setPreferredSize(new Dimension(300, 120));
+>>>>>>> branch 'main' of https://github.com/2022-11-JAVA-DEVELOPER/java-project-team1-jogiyo.git
 		cartListPanel.add(cartPanel);
 		cartPanel.setLayout(null);
 		
@@ -103,7 +108,7 @@ public class CartListTabbedPanel_정유나 extends JPanel {
 				try {
 					frame.changePanel(25,frame.productService.findByName(productNameLB.getText()));
 				} catch (Exception e1) {
-					System.out.println(e1.getMessage());
+					e1.printStackTrace();
 				}
 			}
 		});
@@ -115,33 +120,37 @@ public class CartListTabbedPanel_정유나 extends JPanel {
 		productCount.setFont(new Font("굴림", Font.PLAIN, 10));
 		productCount.setPreferredSize(new Dimension(22, 15));
 		productCount.setHorizontalAlignment(SwingConstants.CENTER);
-		productCount.setBounds(127, 56, 32, 15);
+		productCount.setBounds(65, 78, 32, 15);
 		cartPanel.add(productCount);
 		
 		productCountCB = new JComboBox();
 		productCountCB.setEditable(true);
 		productCountCB.setModel(new DefaultComboBoxModel(new String[] {"", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"}));
 		productCountCB.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		productCountCB.setBounds(167, 55, 25, 15);
+		productCountCB.setBounds(129, 78, 62, 15);
 		cartPanel.add(productCountCB);
 		
 		JLabel productTotalPriceLB = new JLabel("총 금액");
+<<<<<<< HEAD
 		productTotalPriceLB.setFont(new Font("굴림", Font.PLAIN, 10));
 		productTotalPriceLB.setBounds(202, 56, 40, 15);
+=======
+		productTotalPriceLB.setBounds(65, 102, 40, 15);
+>>>>>>> branch 'main' of https://github.com/2022-11-JAVA-DEVELOPER/java-project-team1-jogiyo.git
 		cartPanel.add(productTotalPriceLB);
 		
 		JLabel productPrice = new JLabel("가격");
 		productPrice.setFont(new Font("굴림", Font.PLAIN, 10));
 		productPrice.setHorizontalAlignment(SwingConstants.CENTER);
-		productPrice.setBounds(65, 55, 25, 15);
+		productPrice.setBounds(65, 55, 32, 15);
 		cartPanel.add(productPrice);
 		
 		productPriceLB = new JLabel("");
-		productPriceLB.setBounds(94, 55, 32, 15);
+		productPriceLB.setBounds(127, 55, 104, 15);
 		cartPanel.add(productPriceLB);
 		
 		totalProductPriceLB = new JLabel("");
-		totalProductPriceLB.setBounds(248, 56, 49, 15);
+		totalProductPriceLB.setBounds(139, 101, 52, 15);
 		cartPanel.add(totalProductPriceLB);
 		
 		cartOrderCheck = new JCheckBox("");
@@ -149,10 +158,22 @@ public class CartListTabbedPanel_정유나 extends JPanel {
 		cartOrderCheck.setBounds(276, 47, 21, 23);
 		cartPanel.add(cartOrderCheck);
 		
+<<<<<<< HEAD
 		JButton btnNewButton = new JButton("X");
 		btnNewButton.setBackground(new Color(255, 255, 255));
 		btnNewButton.setBounds(276, 8, 18, 20);
 		cartPanel.add(btnNewButton);
+=======
+		JButton deleteItemBtn = new JButton("X");
+		deleteItemBtn.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				//deleteCartItem(frame.cartService.);
+			}
+		});
+		deleteItemBtn.setBounds(248, 8, 46, 20);
+		cartPanel.add(deleteItemBtn);
+>>>>>>> branch 'main' of https://github.com/2022-11-JAVA-DEVELOPER/java-project-team1-jogiyo.git
 		/* 		CartListItem End	*/
 		orderAllBtn = new JButton("전체주문");
 		orderAllBtn.addMouseListener(new MouseAdapter() {
@@ -163,7 +184,7 @@ public class CartListTabbedPanel_정유나 extends JPanel {
 					orderAllInCart(loginUser.getM_id());
 					frame.changePanel(4, null);
 				} catch (Exception e1) {
-					System.out.println(e1.getMessage());
+					e1.printStackTrace();
 				}
 			}
 		});
@@ -189,7 +210,7 @@ public class CartListTabbedPanel_정유나 extends JPanel {
 		totalOrderPriceLB.setBounds(163, 445, 135, 15);
 		add(totalOrderPriceLB);
 		
-		setUser(loginUser);
+
 	}
 		
 		
@@ -254,7 +275,7 @@ public class CartListTabbedPanel_정유나 extends JPanel {
 			productPriceLB.setBounds(94, 55, 32, 15);
 			cartPanel.add(productPriceLB);
 
-			totalProductPriceLB = new JLabel(""+(product.getP_price()*cart.getC_qty()));
+			totalProductPriceLB = new JLabel(""+(product.getP_price()*(int)(productCountCB.getSelectedItem())));
 			totalProductPriceLB.setBounds(248, 56, 49, 15);
 			cartPanel.add(totalProductPriceLB);
 
@@ -263,9 +284,19 @@ public class CartListTabbedPanel_정유나 extends JPanel {
 			cartOrderCheck.setBounds(276, 40, 21, 23);
 			cartPanel.add(cartOrderCheck);
 			
-			JButton btnNewButton = new JButton("X");
-			btnNewButton.setBounds(276, 8, 18, 20);
-			cartPanel.add(btnNewButton);
+			JButton deleteItemBtn = new JButton("X");
+			deleteItemBtn.addMouseListener(new MouseAdapter() {
+				@Override
+				public void mouseClicked(MouseEvent e) {
+					try {
+						deleteCartItem(cart.getC_no());
+					} catch (Exception e1) {
+						e1.printStackTrace();
+					}
+				}
+			});
+			deleteItemBtn.setBounds(248, 8, 46, 20);
+			cartPanel.add(deleteItemBtn);
 			
 			cartListPanel.add(cartPanel);
 		}
@@ -274,8 +305,11 @@ public class CartListTabbedPanel_정유나 extends JPanel {
 		try {
 			frame.orderService.create(sUserId);
 		} catch (Exception e1) {
-			System.out.println(e1.getMessage());
+			e1.printStackTrace();
 		}
+	}
+	public void deleteCartItem(int c_no) throws Exception {
+		frame.cartService.deleteCartItem(c_no);
 	}
 	
 }

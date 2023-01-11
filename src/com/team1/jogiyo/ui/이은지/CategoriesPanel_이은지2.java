@@ -68,7 +68,7 @@ public class CategoriesPanel_이은지2 extends JPanel {
 		hansikLB.setHorizontalAlignment(SwingConstants.CENTER);
 		hansikPanel.add(hansikLB);
 		hansikLB.setFont(new Font("맑은 고딕", Font.BOLD, 60));
-		hansikLB.setIcon(new ImageIcon("C:\\2022-11-JAVA-DEVELOPER\\git-repositories-home\\java-project-team1-jogiyo\\src\\images\\categories\\1한식 (2).png"));
+		hansikLB.setIcon(new ImageIcon(CategoriesPanel_이은지2.class.getResource("/images/categories/1한식 (2).png")));
 		
 		
 		JPanel joongsikPanel = new JPanel();
@@ -89,7 +89,7 @@ public class CategoriesPanel_이은지2 extends JPanel {
 			}
 		});
 		joongsikLB.setBounds(0, 0, 350, 166);
-		joongsikLB.setIcon(new ImageIcon("C:\\2022-11-JAVA-DEVELOPER\\git-repositories-home\\java-project-team1-jogiyo\\src\\images\\categories\\1중식.png"));
+		joongsikLB.setIcon(new ImageIcon(CategoriesPanel_이은지2.class.getResource("/images/categories/1중식.png")));
 		joongsikLB.setHorizontalAlignment(SwingConstants.CENTER);
 		joongsikLB.setFont(new Font("맑은 고딕", Font.BOLD, 60));
 		joongsikPanel.add(joongsikLB);
@@ -112,7 +112,7 @@ public class CategoriesPanel_이은지2 extends JPanel {
 			}
 		});
 		bunsikLB.setBounds(0, 0, 350, 166);
-		bunsikLB.setIcon(new ImageIcon("C:\\2022-11-JAVA-DEVELOPER\\git-repositories-home\\java-project-team1-jogiyo\\src\\images\\categories\\1분식.png"));
+		bunsikLB.setIcon(new ImageIcon(CategoriesPanel_이은지2.class.getResource("/images/categories/1분식.png")));
 		bunsikLB.setHorizontalAlignment(SwingConstants.CENTER);
 		bunsikLB.setFont(new Font("맑은 고딕", Font.BOLD, 60));
 		bunsikPanel.add(bunsikLB);
