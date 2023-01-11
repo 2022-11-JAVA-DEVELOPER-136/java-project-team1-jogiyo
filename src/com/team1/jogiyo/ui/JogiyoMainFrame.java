@@ -41,6 +41,7 @@ import com.team1.jogiyo.ui.이다은.ProductDetailPanel_이다은;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.Color;
+import javax.swing.JPasswordField;
 
 
 public class JogiyoMainFrame extends JFrame {

@@ -83,7 +83,7 @@ public class CategoriesPanel_이은지2 extends JPanel {
 		/*
 		 * 클릭 시 중식리스트로 이동
 		 */
-		JLabel joongsikLB = new JLabel("   중식");
+		JLabel joongsikLB = new JLabel("  중식");
 		joongsikLB.setBackground(new Color(255, 255, 255));
 		joongsikLB.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		joongsikLB.addMouseListener(new MouseAdapter() {
@@ -93,7 +93,7 @@ public class CategoriesPanel_이은지2 extends JPanel {
 				frame.changePanel(frame.JOONGSIKPANE,null);
 			}
 		});
-		joongsikLB.setBounds(0, 0, 350, 166);
+		joongsikLB.setBounds(0, 0, 350, 171);
 		joongsikLB.setIcon(new ImageIcon(CategoriesPanel_이은지2.class.getResource("/images/categories/1중식.png")));
 		joongsikLB.setHorizontalAlignment(SwingConstants.CENTER);
 		joongsikLB.setFont(new Font("맑은 고딕", Font.BOLD, 60));

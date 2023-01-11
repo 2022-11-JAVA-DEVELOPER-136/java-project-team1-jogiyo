@@ -37,20 +37,16 @@ public class ProductDetailPanel_이다은 extends JPanel {
 	JogiyoMainFrame frame;
 	User loginUser;
 	Product product;
+	
 	public void setFrame(JogiyoMainFrame frame) {
 		this.frame = frame;
 	}
 	public void setUser(User loginUser) throws Exception {
 		this.loginUser=loginUser;
 	}
-	
-	
 	private JComboBox productcomboBox;
 	private JButton orderBtn;
 	private JButton cartBtn;
-
-
-
 	private JogiyoMainFrame jogiyoMainFrame;
 	private JLabel productImageLB;
 	private JLabel productNameLB;
@@ -58,23 +54,25 @@ public class ProductDetailPanel_이다은 extends JPanel {
 	private JLabel productPriceLB;
 	private JLabel priceLB;
 	private JLabel countLB;
-	
+
 	/**
 	 * Create the panel.
 	 */
 
-	
 	public ProductDetailPanel_이다은 () throws Exception {
 		setBackground(new Color(255, 255, 255));
 		setLayout(null);
 		
 		productImageLB = new JLabel("");
+		JLabel productImageLB = new JLabel("순대국밥");
 		productImageLB.setIcon(new ImageIcon(ProductDetailPanel_이다은.class.getResource("/images/productDetail/p_no_01.jpg")));
 		productImageLB.setBounds(0, 0, 350, 200);
 		add(productImageLB);
 		
 		
 		productNameLB = new JLabel("순대국밥");
+		JLabel productNameLB = new JLabel();
+		productNameLB.setText(product.getP_name());
 		productNameLB.setHorizontalAlignment(SwingConstants.CENTER);
 		productNameLB.setFont(new Font("굴림", Font.BOLD, 25));
 		productNameLB.setBounds(0, 223, 350, 38);
@@ -92,7 +90,6 @@ public class ProductDetailPanel_이다은 extends JPanel {
 		productPriceLB.setFont(new Font("굴림", Font.BOLD, 15));
 		productPriceLB.setBounds(208, 340, 101, 15);
 		add(productPriceLB);
-		
 		
 		//선택한 수량 만큼 바로주문 and 장바구니에 담김
 		
@@ -140,14 +137,8 @@ public class ProductDetailPanel_이다은 extends JPanel {
 		cartBtn.setBounds(208, 460, 97, 23);
 		add(cartBtn);
 		
-	
-		/**************************/
-		
 		
 	}
-	
-	/************************************************/
-	
 	// 제품정보 불러오기
 	public void displayProductDetail(Product product) {
 		System.out.println(product);
@@ -156,16 +147,10 @@ public class ProductDetailPanel_이다은 extends JPanel {
 			productNameLB.setText(product.getP_name()+"");
 			productDescLB.setText(product.getP_desc()+"");
 			productPriceLB.setText(product.getP_price()+"");	
-			
-		
-		
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-	/*
-	 * ===> 은지님 해당 버튼에 productDetailPanel_이다은.displayProductdetail(p_name) 넣어주세요
-	 */
 	
 	public void productToOrder() throws Exception {
 		Product product;
@@ -182,11 +167,9 @@ public class ProductDetailPanel_이다은 extends JPanel {
 		
 	}
 	public void setProduct(Product product) {
-		// TODO Auto-generated method stub
 		this.product=product;
 		displayProductDetail(product);
 	}
-	
 	
 	
 }
