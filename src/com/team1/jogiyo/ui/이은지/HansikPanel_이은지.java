@@ -84,7 +84,7 @@ public class HansikPanel_이은지 extends JPanel {
 			public void mouseClicked(MouseEvent e) {
 				try {
 					System.out.println("순대국밥 상세보기로 이동");
-					Product clickedProduct=frame.productService.findByName(hansikNameLB1.getText());
+					Product clickedProduct=productDetail(hansikNameLB1.getText());
 					frame.changePanel(frame.PRODUCTDETAILPANE,clickedProduct);
 				} catch (Exception e1) {
 					System.out.println(e1.getMessage());
@@ -148,7 +148,7 @@ public class HansikPanel_이은지 extends JPanel {
 			public void mouseClicked(MouseEvent e) {
 				try {
 					System.out.println("김치찜 상세보기로 이동");
-					Product clickedProduct=frame.productService.findByName(hansikNameLB2.getText());
+					Product clickedProduct=productDetail(hansikNameLB2.getText());
 					frame.changePanel(frame.PRODUCTDETAILPANE,clickedProduct);
 				} catch (Exception e1) {
 					System.out.println(e1.getMessage());
@@ -263,7 +263,9 @@ public class HansikPanel_이은지 extends JPanel {
 	/*
 	 * 메뉴 이름 클릭 시, 각 상품 상세 페이지로 이동
 	 */
-	
+	public Product productDetail(String p_name) throws Exception{
+		return frame.productService.findByName(p_name);
+	}
 	
 	
 	
