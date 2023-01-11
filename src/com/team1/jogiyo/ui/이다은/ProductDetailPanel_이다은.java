@@ -34,7 +34,6 @@ import java.awt.SystemColor;
 import java.awt.Cursor;
 
 public class ProductDetailPanel_이다은 extends JPanel {
-	
 	JogiyoMainFrame frame;
 	User loginUser = null;
 	public void setFrame(JogiyoMainFrame frame) {
@@ -46,7 +45,6 @@ public class ProductDetailPanel_이다은 extends JPanel {
 	public void setProduct(String p_name) throws Exception{
 		displayProductDetail(p_name);
 	}
-	
 	
 	private JComboBox productcomboBox;
 	private JButton orderBtn;
@@ -60,6 +58,7 @@ public class ProductDetailPanel_이다은 extends JPanel {
 	/**
 	 * Create the panel.
 	 */
+
 	
 	public ProductDetailPanel_이다은 () throws Exception {
 		setBackground(new Color(255, 255, 255));
@@ -130,7 +129,11 @@ public class ProductDetailPanel_이다은 extends JPanel {
 		});
 		cartBtn.setBounds(208, 460, 97, 23);
 		add(cartBtn);
+		
 	
+		/**************************/
+		
+		
 	}
 	
 	/************************************************/
@@ -146,7 +149,6 @@ public class ProductDetailPanel_이다은 extends JPanel {
 			e.printStackTrace();
 		}
 	}
-	
 	/*
 	 * ===> 은지님 해당 버튼에 productDetailPanel_이다은.displayProductdetail(p_name) 넣어주세요
 	 */
@@ -160,6 +162,7 @@ public class ProductDetailPanel_이다은 extends JPanel {
 		if(cartBtn.getText().equals(p_name)) {
 		frame.cartService.addCartInProduct(producttocart);		
 		}
+		
 	}
 	
 	
