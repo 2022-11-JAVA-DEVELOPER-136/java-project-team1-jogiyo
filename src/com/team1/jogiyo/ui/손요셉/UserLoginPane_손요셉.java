@@ -55,8 +55,6 @@ public class UserLoginPane_손요셉 extends JPanel {
 						frame.changePanel(frame.PRODUCTCATEGORYPANE,loginProcess(loginIdTF.getText()));
 						loginIdTF.setText("아이디");
 						loginPasswordTF.setText("비밀번호");
-					} else {
-						loginPasswordTF.setText("");
 					}
 				} catch (Exception e1) {
 					e1.getMessage();
@@ -138,9 +136,11 @@ public class UserLoginPane_손요셉 extends JPanel {
 				frame.setTitle(id+"님 로그인");
 			} else {
 				JOptionPane.showMessageDialog(null,"아이디/비밀번호를 확인하세요.");
+				loginIdTF.setText("아이디");
 				loginIdTF.setSelectionStart(0);
 				loginIdTF.setSelectionEnd(id.length());
 				loginIdTF.requestFocus();
+				loginPasswordTF.setText("비밀번호");
 			}
 		} catch (Exception e) {
 			e.getMessage();
