@@ -99,7 +99,6 @@ public class UserViewDetail_손요셉 extends JPanel {
 		lblNewLabel_4.setBounds(51, 193, 27, 15);
 		add(lblNewLabel_4);
 		detailpasswordTF = new JTextField();
-		detailpasswordTF.setEditable(false);
 		detailpasswordTF.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -112,7 +111,6 @@ public class UserViewDetail_손요셉 extends JPanel {
 		detailpasswordTF.setColumns(10);
 		
 		detailIdTF_1 = new JTextField();
-		detailIdTF_1.setEditable(false);
 		detailIdTF_1.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -125,7 +123,6 @@ public class UserViewDetail_손요셉 extends JPanel {
 		add(detailIdTF_1);
 		
 		detailAddressTF = new JTextField();
-		detailAddressTF.setEditable(false);
 		detailAddressTF.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -138,7 +135,6 @@ public class UserViewDetail_손요셉 extends JPanel {
 		add(detailAddressTF);
 		
 		detailPhoneTF = new JTextField();
-		detailPhoneTF.setEditable(false);
 		detailPhoneTF.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -156,7 +152,7 @@ public class UserViewDetail_손요셉 extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				//수정클릭시 SQL 정보 업데이트 ==> 메쏘드 불러오기
 				// 수정클릭시 SQL 정보 업데이트
-				changeUpdateBtn(true);
+				changeUpdateBtn(false);
 				editUserInfo();
 				
 			}
@@ -190,10 +186,11 @@ public class UserViewDetail_손요셉 extends JPanel {
 		detailmainTF.setColumns(10);
 
 		/********************************************************/
+		/*
 		if(loginUser!=null) {
 			userInfo(loginUser);
 		}
-		
+		*/
 		
 		
 }
@@ -229,19 +226,23 @@ public class UserViewDetail_손요셉 extends JPanel {
 	
 	public void changeUpdateBtn(boolean b) {
 		if(b) {
-			
 			userViewUpdateBtn.setText("수정완료");
-			detailIdTF_1.setEditable(true);
-			detailpasswordTF.setEditable(true);
-			detailIdTF_1.setEditable(true);
-			detailAddressTF.setEditable(true);
-			detailPhoneTF.setEditable(true);
-		} else {
+			detailIdTF_1.setEnabled(false);
+			detailpasswordTF.setEditable(false);
+			detailIdTF_1.setEditable(false);
+			detailAddressTF.setEditable(false);
+			detailPhoneTF.setEditable(false);
 			detailIdTF_1.setEditable(false);
 			detailpasswordTF.setEditable(false);
 			detailIdTF_1.setEditable(false);
 			detailAddressTF.setEditable(false);
 			detailPhoneTF.setEditable(false);
+		} else {
+			detailIdTF_1.setEditable(true);
+			detailpasswordTF.setEditable(true);
+			detailIdTF_1.setEditable(true);
+			detailAddressTF.setEditable(true);
+			detailPhoneTF.setEditable(true);
 		}
 	}
 }

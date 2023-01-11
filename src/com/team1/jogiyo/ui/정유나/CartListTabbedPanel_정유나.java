@@ -192,10 +192,10 @@ public class CartListTabbedPanel_정유나 extends JPanel {
 	/****************생성자 끝**************/
 	public void cartListDisplay(String sUserId) throws Exception{
 		
-		/*cartListPanel = new JPanel();
+		cartListPanel = new JPanel();
 		cartListPanel.setBackground(new Color(255, 255, 255));
 		cartListPanel.setPreferredSize(new Dimension(10, 1000));
-		cartScrollPane.setViewportView(cartListPanel);*/
+		cartScrollPane.setViewportView(cartListPanel);
 		cartListPanel.removeAll();
 		System.out.println(sUserId);
 		List<Cart> cartList=frame.cartService.cartListByUserId(sUserId);
@@ -274,16 +274,6 @@ public class CartListTabbedPanel_정유나 extends JPanel {
 			productCountCB.setSelectedItem(cart.getC_qty()+"");
 			System.out.println(cart.getC_qty());
 			cartPanel.add(productCountCB);
-			/*
-			 * productCountCB.setSelectedIndex(cart.getC_qty());
-			카트에 있는 기본 값으로 콤보박스 설정 하기
-			 */
-			
-			
-			
-			
-		
-			
 			
 			JLabel productTotalPriceLB = new JLabel("총 금액");
 			productTotalPriceLB.setFont(new Font("굴림", Font.PLAIN, 10));
