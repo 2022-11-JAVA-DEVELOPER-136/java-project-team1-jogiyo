@@ -58,7 +58,7 @@ public class UserLoginPane_손요셉 extends JPanel {
 						
 					}
 				} catch (Exception e1) {
-					System.out.println(e1.getMessage());
+					e1.getMessage();
 				}
 				
 			}
@@ -144,7 +144,7 @@ public class UserLoginPane_손요셉 extends JPanel {
 				*/
 			}
 		} catch (Exception e) {
-			System.out.println(e.getMessage());
+			e.getMessage();
 		}
 		return result;
 	}

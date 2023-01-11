@@ -295,7 +295,9 @@ public class JogiyoMainFrame extends JFrame {
 		orderHistoryTabbedPanel_조성동.setFrame(this);
 		orderHistoryDetailTabbedPanel_조성동.setFrame(this);
 		*/
+		
 		userMainPanel_손요셉.setFrame(this);
+		userLoginPanel_손요셉.setFrame(this);
 		userSignupPanel_손요셉.setFrame(this);
 		userViewDetail_손요셉.setFrame(this);
 		categoriesPanel_이은지2.setFrame(this);
@@ -306,7 +308,7 @@ public class JogiyoMainFrame extends JFrame {
 		cartListTabbedPanel_정유나.setFrame(this);
 		orderHistoryTabbedPanel_조성동.setFrame(this);
 		orderHistoryDetailTabbedPanel_조성동.setFrame(this);
-
+		
 	}
 	public void changePanel(int panel_no,Object data){
 		if(panel_no==USERTABBEDPANE_P) {
