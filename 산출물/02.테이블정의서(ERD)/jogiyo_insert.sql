@@ -24,6 +24,10 @@ insert into userinfo(m_id,m_password,m_name,m_loc,m_phone) values('cccc','1234',
 insert into userinfo(m_id,m_password,m_name,m_loc,m_phone) values('dddd','1234','이은지','천호','010-4444-4444');
 insert into userinfo(m_id,m_password,m_name,m_loc,m_phone) values('ffff','1234','유승근','역삼','010-5555-5555');
 insert into userinfo(m_id,m_password,m_name,m_loc,m_phone) values('gggg','1234','이다은','삼성','010-6666-6666');
+insert into userinfo(m_id,m_password,m_name,m_loc,m_phone) values('hhhh','1234','원빈','대전','010-7777-7777');
+insert into userinfo(m_id,m_password,m_name,m_loc,m_phone) values('iiii','1234','현빈','논현','010-8888-8888');
+insert into userinfo(m_id,m_password,m_name,m_loc,m_phone) values('jjjj','1234','장동건','분당','010-9999-9999');
+insert into userinfo(m_id,m_password,m_name,m_loc,m_phone) values('kkkk','1234','전지현','삼성','010-2352-2573');
 
 /**********************cart insert************************/
 --Cart insert

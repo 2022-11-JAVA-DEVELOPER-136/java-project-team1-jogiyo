@@ -42,6 +42,8 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.Color;
 import javax.swing.JPasswordField;
+import javax.swing.event.ChangeListener;
+import javax.swing.event.ChangeEvent;
 
 
 public class JogiyoMainFrame extends JFrame {
@@ -63,7 +65,7 @@ public class JogiyoMainFrame extends JFrame {
 	public static int PRODUCTTABBEDPANE_P=2;
 	public static int PRODUCTCATEGORYPANE=21; 
 	public static int HANSIKPANE=22; 
-	public static int JOONGSIKPANE=23; 
+	public static int JOONGSIKPANE=23;  
 	public static int BUNSIKPANE=24;
 	public static int PRODUCTDETAILPANE=25;
 
@@ -157,7 +159,7 @@ public class JogiyoMainFrame extends JFrame {
 		});
 		
 		panel = new JPanel();
-		panel.setBackground(new Color(255, 255, 255));
+		panel.setBackground(new Color(255, 0, 0));
 		northPanel.add(panel);
 		
 		findProductTL = new JTextField();
@@ -178,7 +180,7 @@ public class JogiyoMainFrame extends JFrame {
 		});
 		findProductIconLB.setIcon(new ImageIcon(JogiyoMainFrame.class.getResource("/images/search_20px.png")));
 		panel.add(findProductIconLB);
-		cartLB.setIcon(new ImageIcon(JogiyoMainFrame.class.getResource("/images/newcart.png")));
+		cartLB.setIcon(new ImageIcon(JogiyoMainFrame.class.getResource("/images/3cart_30px.png")));
 		cartLB.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		northPanel.add(cartLB);
 		
@@ -198,7 +200,7 @@ public class JogiyoMainFrame extends JFrame {
 		userInfoLB.setHorizontalTextPosition(SwingConstants.CENTER);
 		userInfoLB.setVerticalTextPosition(SwingConstants.BOTTOM);
 		userInfoLB.setHorizontalAlignment(SwingConstants.CENTER);
-		userInfoLB.setIcon(new ImageIcon(JogiyoMainFrame.class.getResource("/images/user.png")));
+		userInfoLB.setIcon(new ImageIcon(JogiyoMainFrame.class.getResource("/images/3my_50px.png")));
 		userInfoLB.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		southPanel.add(userInfoLB);
 		
@@ -211,7 +213,7 @@ public class JogiyoMainFrame extends JFrame {
 		});
 		homeLB.setHorizontalTextPosition(SwingConstants.CENTER);
 		homeLB.setVerticalTextPosition(SwingConstants.BOTTOM);
-		homeLB.setIcon(new ImageIcon(JogiyoMainFrame.class.getResource("/images/free1.png")));
+		homeLB.setIcon(new ImageIcon(JogiyoMainFrame.class.getResource("/images/3home_50px.png")));
 		homeLB.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		southPanel.add(homeLB);
 		
@@ -225,11 +227,38 @@ public class JogiyoMainFrame extends JFrame {
 		});
 		exitLB.setVerticalTextPosition(SwingConstants.BOTTOM);
 		exitLB.setHorizontalTextPosition(SwingConstants.CENTER);
-		exitLB.setIcon(new ImageIcon(JogiyoMainFrame.class.getResource("/images/exit1.png")));
+		exitLB.setIcon(new ImageIcon(JogiyoMainFrame.class.getResource("/images/50exit.png")));
 		exitLB.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		southPanel.add(exitLB);
 		
 		parentTabbedPanel = new JTabbedPane(JTabbedPane.TOP);
+		parentTabbedPanel.addChangeListener(new ChangeListener() {
+			public void stateChanged(ChangeEvent e) {
+				int selectedIndex=parentTabbedPanel.getSelectedIndex();
+				if(selectedIndex==2) {
+					try {
+						cartListTabbedPanel_정유나.cartListDisplay(loginUser.getM_id());
+					} catch (Exception e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+				} else if(selectedIndex==3) {
+					try {
+						orderHistoryTabbedPanel_조성동.OrderListPrint(loginUser.getM_id());
+					} catch(Exception e1){
+						e1.printStackTrace();
+					}
+				}
+				try {
+					if(loginUser!=null) {
+						userTabbedPanel.setEnabledAt(1, false);
+						
+					} 
+				} catch (Exception e2) {
+					e2.printStackTrace();
+				}
+			}
+		});
 		parentTabbedPanel.setBackground(new Color(255, 255, 255));
 		contentPane.add(parentTabbedPanel, BorderLayout.CENTER);
 		
@@ -294,14 +323,6 @@ public class JogiyoMainFrame extends JFrame {
 		/*
 		 * JogiyoMainFrame 참조를 Panel에 넘겨줌
 		 */
-		/*
-		userLoginPanel_손요셉.setFrame(this);
-		userMainPanel_손요셉.setFrame(this);
-		userSignupPanel_손요셉.setFrame(this);
-		userViewDetail_손요셉.setFrame(this);
-		orderHistoryTabbedPanel_조성동.setFrame(this);
-		orderHistoryDetailTabbedPanel_조성동.setFrame(this);
-		*/
 		
 		userMainPanel_손요셉.setFrame(this);
 		userLoginPanel_손요셉.setFrame(this);
@@ -315,6 +336,8 @@ public class JogiyoMainFrame extends JFrame {
 		cartListTabbedPanel_정유나.setFrame(this);
 		orderHistoryTabbedPanel_조성동.setFrame(this);
 		orderHistoryDetailTabbedPanel_조성동.setFrame(this);
+		
+		
 		
 	}
 	public void changePanel(int panel_no,Object data){
@@ -402,4 +425,6 @@ public class JogiyoMainFrame extends JFrame {
 	public void transferHansikProduct(Product product) throws Exception{
 		productDetailPanel_이다은.setProduct(product);
 	}		//한식,중식,분식
+	
+	
 }

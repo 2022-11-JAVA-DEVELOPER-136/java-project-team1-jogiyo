@@ -99,6 +99,7 @@ public class UserViewDetail_손요셉 extends JPanel {
 		lblNewLabel_4.setBounds(51, 193, 27, 15);
 		add(lblNewLabel_4);
 		detailpasswordTF = new JTextField();
+		detailpasswordTF.setEditable(false);
 		detailpasswordTF.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -111,6 +112,7 @@ public class UserViewDetail_손요셉 extends JPanel {
 		detailpasswordTF.setColumns(10);
 		
 		detailIdTF_1 = new JTextField();
+		detailIdTF_1.setEditable(false);
 		detailIdTF_1.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -123,6 +125,7 @@ public class UserViewDetail_손요셉 extends JPanel {
 		add(detailIdTF_1);
 		
 		detailAddressTF = new JTextField();
+		detailAddressTF.setEditable(false);
 		detailAddressTF.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -135,6 +138,7 @@ public class UserViewDetail_손요셉 extends JPanel {
 		add(detailAddressTF);
 		
 		detailPhoneTF = new JTextField();
+		detailPhoneTF.setEditable(false);
 		detailPhoneTF.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -166,16 +170,16 @@ public class UserViewDetail_손요셉 extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				// 취소시 로그인 화면으로 전환
 				userInfo(loginUser);
-				frame.changePanel(12, null);
+				frame.changePanel(frame.PRODUCTCATEGORYPANE, null);
 			}
 		});
 		userViewCancelBtn.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
 		userViewCancelBtn.setBounds(202, 406, 97, 23);
 		add(userViewCancelBtn);
 
-		JLabel lblNewLabel_5 = new JLabel("회원정보/수정");
-		lblNewLabel_5.setFont(new Font("한컴 고딕", Font.BOLD, 17));
-		lblNewLabel_5.setBounds(119, 21, 122, 23);
+		JLabel lblNewLabel_5 = new JLabel("회원정보");
+		lblNewLabel_5.setFont(new Font("맑은 고딕", Font.BOLD, 20));
+		lblNewLabel_5.setBounds(120, 22, 91, 23);
 		add(lblNewLabel_5);
 		
 		detailmainTF = new JTextField();
@@ -186,6 +190,12 @@ public class UserViewDetail_손요셉 extends JPanel {
 		detailmainTF.setColumns(10);
 
 		/********************************************************/
+		if(loginUser!=null) {
+			userInfo(loginUser);
+		}
+		
+		
+		
 }
 	/*메소드*/
 	
@@ -219,16 +229,13 @@ public class UserViewDetail_손요셉 extends JPanel {
 	
 	public void changeUpdateBtn(boolean b) {
 		if(b) {
+			
+			userViewUpdateBtn.setText("수정완료");
+			detailIdTF_1.setEditable(true);
 			detailpasswordTF.setEditable(true);
 			detailIdTF_1.setEditable(true);
 			detailAddressTF.setEditable(true);
 			detailPhoneTF.setEditable(true);
-			userViewUpdateBtn.setText("수정완료");
-			detailIdTF_1.setEditable(false);
-			detailpasswordTF.setEditable(false);
-			detailIdTF_1.setEditable(false);
-			detailAddressTF.setEditable(false);
-			detailPhoneTF.setEditable(false);
 		} else {
 			detailIdTF_1.setEditable(false);
 			detailpasswordTF.setEditable(false);
