@@ -116,8 +116,9 @@ public class CartListTabbedPanel_정유나 extends JPanel {
 		productCountCB = new JComboBox();
 		
 		
+		
 		productCountCB.setEditable(true);
-		productCountCB.setModel(new DefaultComboBoxModel(new String[] {"", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"}));
+		productCountCB.setModel(new DefaultComboBoxModel(new String[] {"선택", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"}));
 		productCountCB.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		productCountCB.setBounds(129, 78, 62, 15);
 		cartPanel.add(productCountCB);
@@ -248,9 +249,18 @@ public class CartListTabbedPanel_정유나 extends JPanel {
 			productCountCB = new JComboBox();
 			
 			productCountCB.setEditable(false);
-			productCountCB.insertItemAt((Object)updateProductQtyInCart(cart.getC_no()), 0);
-			productCountCB.setModel(new DefaultComboBoxModel(new String[] {"", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"}));
 			//카트에 있는 기본 값으로 콤보박스 설정 하기
+			productCountCB.addItemListener(new ItemListener() {
+				public void itemStateChanged(ItemEvent e) {
+					try {
+						int newQty=productCountCB.getSelectedIndex();
+						updateProductQtyInCart(cart.getC_no(),newQty);
+					} catch (Exception e1) {
+						e1.printStackTrace();
+					}
+				}
+			});
+			productCountCB.setModel(new DefaultComboBoxModel(new String[] {"선택", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"}));
 			
 			
 			productCountCB.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -287,6 +297,7 @@ public class CartListTabbedPanel_정유나 extends JPanel {
 				public void mouseClicked(MouseEvent e) {
 					try {
 						deleteCartItem(cart.getC_no());
+						cartPanel.remove(cartPanel);
 					} catch (Exception e1) {
 						e1.printStackTrace();
 					}
@@ -311,12 +322,12 @@ public class CartListTabbedPanel_정유나 extends JPanel {
 			e1.printStackTrace();
 		}
 	}
+	//카트패널 하나 삭제
 	public void deleteCartItem(int c_no) throws Exception {
 		frame.cartService.deleteCartItem(c_no);
 	}
-	public int updateProductQtyInCart(int c_no) throws Exception{
-		int result =frame.cartService.cartListByCartNo(c_no).getC_qty();
-		return result;
+	public void updateProductQtyInCart(int c_no, int c_qty) throws Exception{
+		frame.cartService.updateByCartNo(c_no, c_qty);
 	}
 
 	
