@@ -13,6 +13,7 @@ import com.team1.jogiyo.ui.*;
 import com.team1.jogiyo.user.*;
 
 import com.team1.jogiyo.ui.JogiyoMainFrame;
+import com.team1.jogiyo.ui.이다은.*;
 import com.team1.jogiyo.user.User;
 import javax.swing.JTextField;
 import java.awt.Font;
@@ -34,6 +35,7 @@ public class BunsikPanel_이은지 extends JPanel {
 	public void setUser(User loginUser) {
 		this.loginUser=loginUser;
 	}
+	
 	
 
 	JPanel bunsikMenuPanel1;
@@ -63,7 +65,7 @@ public class BunsikPanel_이은지 extends JPanel {
 		
 		JLabel bunsikImageLB1 = new JLabel("");
 		bunsikImageLB1.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
-		bunsikImageLB1.setBounds(0, 0, 208, 167);
+		bunsikImageLB1.setBounds(0, 0, 236, 167);
 		bunsikImageLB1.setIcon(new ImageIcon(BunsikPanel_이은지.class.getResource("/images/productList/p_image7.jpg")));
 		bunsikPanel1.add(bunsikImageLB1);
 		
@@ -95,17 +97,6 @@ public class BunsikPanel_이은지 extends JPanel {
 		bunsikPriceLB1.setBounds(271, 91, 75, 24);
 		bunsikPanel1.add(bunsikPriceLB1);
 		
-		/*
-		 * 해당 라벨 클릭 시 장바구니에 상품 추가
-		 */
-		JLabel bunsikCartLB1 = new JLabel("");
-		bunsikCartLB1.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				//장바구니에 상품 추가
-			}
-		});
-		
 		
 		JPanel bunsikPanel2 = new JPanel();
 		bunsikPanel2.setBackground(new Color(255, 255, 255));
@@ -116,7 +107,7 @@ public class BunsikPanel_이은지 extends JPanel {
 		JLabel bunsikImageLB2 = new JLabel("");
 		bunsikImageLB2.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 		bunsikImageLB2.setIcon(new ImageIcon(BunsikPanel_이은지.class.getResource("/images/productList/p_image8.jpg")));
-		bunsikImageLB2.setBounds(0, 0, 208, 167);
+		bunsikImageLB2.setBounds(0, 0, 236, 167);
 		bunsikPanel2.add(bunsikImageLB2);
 		
 		/*
@@ -127,7 +118,7 @@ public class BunsikPanel_이은지 extends JPanel {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				try {
-					System.out.println("순대국밥 상세보기로 이동");
+					System.out.println("어묵 상세보기로 이동");
 					Product clickedProduct=productDetail(bunsikNameLB2.getText());
 					frame.changePanel(frame.PRODUCTDETAILPANE,clickedProduct);
 				} catch (Exception e1) {
@@ -146,17 +137,6 @@ public class BunsikPanel_이은지 extends JPanel {
 		bunsikPriceLB2.setFont(new Font("맑은 고딕", Font.PLAIN, 17));
 		bunsikPriceLB2.setBounds(272, 90, 75, 24);
 		bunsikPanel2.add(bunsikPriceLB2);
-		
-		/*
-		 * 해당 라벨 클릭 시 장바구니에 상품 추가
-		 */
-		JLabel bunsikCartLB2 = new JLabel("");
-		bunsikCartLB2.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				//장바구니에 상품 추가
-			}
-		});
 		
 		
 		JPanel bunsikPanel3 = new JPanel();
@@ -179,7 +159,7 @@ public class BunsikPanel_이은지 extends JPanel {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				try {
-					System.out.println("순대국밥 상세보기로 이동");
+					System.out.println("순대 상세보기로 이동");
 					Product clickedProduct=productDetail(bunsikNameLB3.getText());
 					frame.changePanel(frame.PRODUCTDETAILPANE,clickedProduct);
 				} catch (Exception e1) {
@@ -198,17 +178,6 @@ public class BunsikPanel_이은지 extends JPanel {
 		bunsikPriceLB3.setFont(new Font("맑은 고딕", Font.PLAIN, 17));
 		bunsikPriceLB3.setBounds(271, 92, 75, 24);
 		bunsikPanel3.add(bunsikPriceLB3);
-		
-		/*
-		 * 해당 라벨 클릭 시 장바구니에 상품 추가
-		 */
-		JLabel bunsikCartLB3 = new JLabel("");
-		bunsikCartLB3.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				//장바구니에 상품 추가
-			}
-		});
 
 		
 		/**********************생성자 끝************************/
@@ -221,5 +190,6 @@ public class BunsikPanel_이은지 extends JPanel {
 	public Product productDetail(String p_name) throws Exception{
 		return frame.productService.findByName(p_name);
 	}
+	
 	
 }

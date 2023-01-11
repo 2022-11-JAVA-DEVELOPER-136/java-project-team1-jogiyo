@@ -26,19 +26,14 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 
 public class HansikPanel_이은지2 extends JPanel {
-	/**************************************/
-	/*
-	 * Service 객체선언
-	 */
 	JogiyoMainFrame frame;
 	public void setFrame(JogiyoMainFrame frame) {
 		this.frame = frame;
 	}
-	
-	/*
-	 * loginMember 객체선언
-	 */
 	User loginUser=null;
+	public void setUser(User loginUser) {
+		this.loginUser=loginUser;
+	}
 	
 	JComboBox hansikComboBox1;
 	JComboBox hansikComboBox2;
@@ -72,11 +67,11 @@ public class HansikPanel_이은지2 extends JPanel {
 		hansikImageLB1.setBounds(0, 0, 234, 167);
 		hansikMenuPanel1.add(hansikImageLB1);
 		
-		JLabel hansikNameLB1_1 = new JLabel("순대국밥");
-		hansikNameLB1_1.setHorizontalAlignment(SwingConstants.RIGHT);
-		hansikNameLB1_1.setFont(new Font("맑은 고딕", Font.BOLD, 25));
-		hansikNameLB1_1.setBounds(246, 36, 109, 30);
-		hansikMenuPanel1.add(hansikNameLB1_1);
+		JLabel hansikNameLB1 = new JLabel("순대국밥");
+		hansikNameLB1.setHorizontalAlignment(SwingConstants.RIGHT);
+		hansikNameLB1.setFont(new Font("맑은 고딕", Font.BOLD, 25));
+		hansikNameLB1.setBounds(246, 36, 109, 30);
+		hansikMenuPanel1.add(hansikNameLB1);
 		
 		JLabel hansikPriceLB1 = new JLabel("\\ 9,000");
 		hansikPriceLB1.setHorizontalAlignment(SwingConstants.RIGHT);
@@ -88,9 +83,9 @@ public class HansikPanel_이은지2 extends JPanel {
 		hansikCartLB1.setBounds(328, 114, 27, 27);
 		hansikMenuPanel1.add(hansikCartLB1);
 		
-		JComboBox hansikComboBox1_1 = new JComboBox();
-		hansikComboBox1_1.setBounds(280, 118, 32, 23);
-		hansikMenuPanel1.add(hansikComboBox1_1);
+		JComboBox hansikComboBox1 = new JComboBox();
+		hansikComboBox1.setBounds(280, 118, 32, 23);
+		hansikMenuPanel1.add(hansikComboBox1);
 
 		
 		/**********************생성자 끝************************/

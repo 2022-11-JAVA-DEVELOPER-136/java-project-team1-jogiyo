@@ -1,6 +1,7 @@
 package com.team1.jogiyo.ui.이은지;
 
 import javax.swing.JPanel;
+
 import javax.swing.JTabbedPane;
 import javax.swing.JEditorPane;
 import javax.swing.JLabel;
@@ -24,6 +25,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.Cursor;
 import java.awt.Color;
+
 public class HansikPanel_이은지 extends JPanel {
 	JogiyoMainFrame frame;
 	public void setFrame(JogiyoMainFrame frame) {
@@ -33,8 +35,7 @@ public class HansikPanel_이은지 extends JPanel {
 	public void setUser(User loginUser) {
 		this.loginUser=loginUser;
 	}
-	
-	ProductDetailPanel_이다은 displayProductDetail;
+
 
 	JPanel hansikMenuPanel1;
 	JPanel hansikMenuPanel2;
@@ -197,8 +198,10 @@ public class HansikPanel_이은지 extends JPanel {
 	 */
 	public Product productDetail(String p_name) throws Exception{
 		return frame.productService.findByName(p_name);
-		//return frame.productDetailPanel_이다은.displayProductDetail(p_name);
+		//return ProductDetailPanel_이다은.displayProductDetail(p_name);
 	}
+	
+	
 		
 	
 }

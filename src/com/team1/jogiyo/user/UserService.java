@@ -2,6 +2,8 @@ package com.team1.jogiyo.user;
 
 import java.util.List;
 
+import com.team1.jogiyo.ui.JogiyoMainFrame;
+
 
 
 public class UserService {

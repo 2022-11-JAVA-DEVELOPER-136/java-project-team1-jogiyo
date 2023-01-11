@@ -54,7 +54,7 @@ public class ProductDetailPanel_이다은 extends JPanel {
 	private JLabel productDescLB;
 	private JLabel productPriceLB;
 	private JogiyoMainFrame jogiyoMainFrame;
-	
+	Product product;
 	/**
 	 * Create the panel.
 	 */
@@ -64,13 +64,14 @@ public class ProductDetailPanel_이다은 extends JPanel {
 		setBackground(new Color(255, 255, 255));
 		setLayout(null);
 		
-		JLabel productImageLB = new JLabel("");
+		JLabel productImageLB = new JLabel("순대국밥");
 		productImageLB.setIcon(new ImageIcon(ProductDetailPanel_이다은.class.getResource("/images/productDetail/p_no_01.jpg")));
 		productImageLB.setBounds(0, 0, 350, 200);
 		add(productImageLB);
 		
 		
-		JLabel productNameLB = new JLabel("순대국밥");
+		JLabel productNameLB = new JLabel();
+		productNameLB.setText(product.getP_name());
 		productNameLB.setHorizontalAlignment(SwingConstants.CENTER);
 		productNameLB.setFont(new Font("굴림", Font.BOLD, 25));
 		productNameLB.setBounds(0, 223, 350, 38);
@@ -135,7 +136,6 @@ public class ProductDetailPanel_이다은 extends JPanel {
 		
 		
 	}
-	
 	/************************************************/
 	
 	// 제품정보 불러오기
