@@ -64,8 +64,8 @@ public class HansikPanel_이은지 extends JPanel {
 		
 		JLabel hansikImageLB1 = new JLabel("");
 		hansikImageLB1.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
-		hansikImageLB1.setBounds(0, 0, 234, 167);
-		hansikImageLB1.setIcon(new ImageIcon(HansikPanel_이은지.class.getResource("/images/productList/p_image1.jpg")));
+		hansikImageLB1.setBounds(0, 0, 208, 167);
+		hansikImageLB1.setIcon(new ImageIcon("C:\\Users\\itwill\\Downloads\\p_image1.jpg"));
 		hansikMenuPanel1.add(hansikImageLB1);
 		
 		/*
