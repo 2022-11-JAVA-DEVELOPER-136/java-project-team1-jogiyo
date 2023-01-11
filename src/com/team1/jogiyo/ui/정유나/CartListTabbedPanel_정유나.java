@@ -78,12 +78,9 @@ public class CartListTabbedPanel_정유나 extends JPanel {
 		
 		/*		CartListItem Start		*/
 		cartPanel = new JPanel();
-<<<<<<< HEAD
 		cartPanel.setBackground(new Color(255, 255, 255));
 		cartPanel.setPreferredSize(new Dimension(300, 80));
-=======
 		cartPanel.setPreferredSize(new Dimension(300, 120));
->>>>>>> branch 'main' of https://github.com/2022-11-JAVA-DEVELOPER/java-project-team1-jogiyo.git
 		cartListPanel.add(cartPanel);
 		cartPanel.setLayout(null);
 		
@@ -131,12 +128,9 @@ public class CartListTabbedPanel_정유나 extends JPanel {
 		cartPanel.add(productCountCB);
 		
 		JLabel productTotalPriceLB = new JLabel("총 금액");
-<<<<<<< HEAD
 		productTotalPriceLB.setFont(new Font("굴림", Font.PLAIN, 10));
 		productTotalPriceLB.setBounds(202, 56, 40, 15);
-=======
 		productTotalPriceLB.setBounds(65, 102, 40, 15);
->>>>>>> branch 'main' of https://github.com/2022-11-JAVA-DEVELOPER/java-project-team1-jogiyo.git
 		cartPanel.add(productTotalPriceLB);
 		
 		JLabel productPrice = new JLabel("가격");
@@ -158,12 +152,10 @@ public class CartListTabbedPanel_정유나 extends JPanel {
 		cartOrderCheck.setBounds(276, 47, 21, 23);
 		cartPanel.add(cartOrderCheck);
 		
-<<<<<<< HEAD
 		JButton btnNewButton = new JButton("X");
 		btnNewButton.setBackground(new Color(255, 255, 255));
 		btnNewButton.setBounds(276, 8, 18, 20);
 		cartPanel.add(btnNewButton);
-=======
 		JButton deleteItemBtn = new JButton("X");
 		deleteItemBtn.addMouseListener(new MouseAdapter() {
 			@Override
@@ -173,7 +165,6 @@ public class CartListTabbedPanel_정유나 extends JPanel {
 		});
 		deleteItemBtn.setBounds(248, 8, 46, 20);
 		cartPanel.add(deleteItemBtn);
->>>>>>> branch 'main' of https://github.com/2022-11-JAVA-DEVELOPER/java-project-team1-jogiyo.git
 		/* 		CartListItem End	*/
 		orderAllBtn = new JButton("전체주문");
 		orderAllBtn.addMouseListener(new MouseAdapter() {
