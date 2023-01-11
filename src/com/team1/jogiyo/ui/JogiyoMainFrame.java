@@ -63,7 +63,7 @@ public class JogiyoMainFrame extends JFrame {
 	public static int PRODUCTTABBEDPANE_P=2;
 	public static int PRODUCTCATEGORYPANE=21; 
 	public static int HANSIKPANE=22; 
-	public static int JOONGSIKPANE=23; 
+	public static int JOONGSIKPANE=23;  
 	public static int BUNSIKPANE=24;
 	public static int PRODUCTDETAILPANE=25;
 
