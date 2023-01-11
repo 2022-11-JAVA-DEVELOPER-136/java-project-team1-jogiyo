@@ -20,6 +20,7 @@ import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.*;
 import java.awt.Cursor;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -64,7 +65,7 @@ public class HansikPanel_이은지2 extends JPanel {
 		
 		JPanel hansikMenuPanel1 = new JPanel();
 		hansikMenuPanel1.setLayout(null);
-		hansikMenuPanel1.setBounds(12, 10, 350, 167);
+		hansikMenuPanel1.setBounds(0, 0, 381, 167);
 		HansikList.add(hansikMenuPanel1);
 		
 		JLabel hansikImageLB1 = new JLabel("");
@@ -74,21 +75,21 @@ public class HansikPanel_이은지2 extends JPanel {
 		JLabel hansikNameLB1_1 = new JLabel("순대국밥");
 		hansikNameLB1_1.setHorizontalAlignment(SwingConstants.RIGHT);
 		hansikNameLB1_1.setFont(new Font("맑은 고딕", Font.BOLD, 25));
-		hansikNameLB1_1.setBounds(229, 36, 109, 30);
+		hansikNameLB1_1.setBounds(246, 36, 109, 30);
 		hansikMenuPanel1.add(hansikNameLB1_1);
 		
 		JLabel hansikPriceLB1 = new JLabel("\\ 9,000");
 		hansikPriceLB1.setHorizontalAlignment(SwingConstants.RIGHT);
 		hansikPriceLB1.setFont(new Font("맑은 고딕", Font.PLAIN, 17));
-		hansikPriceLB1.setBounds(263, 76, 75, 24);
+		hansikPriceLB1.setBounds(280, 76, 75, 24);
 		hansikMenuPanel1.add(hansikPriceLB1);
 		
 		JLabel hansikCartLB1 = new JLabel("");
-		hansikCartLB1.setBounds(311, 114, 27, 27);
+		hansikCartLB1.setBounds(328, 114, 27, 27);
 		hansikMenuPanel1.add(hansikCartLB1);
 		
 		JComboBox hansikComboBox1_1 = new JComboBox();
-		hansikComboBox1_1.setBounds(263, 118, 32, 23);
+		hansikComboBox1_1.setBounds(280, 118, 32, 23);
 		hansikMenuPanel1.add(hansikComboBox1_1);
 
 		
@@ -128,9 +129,9 @@ public class HansikPanel_이은지2 extends JPanel {
 			cartService.addCartInProduct(cartInMenu1);
 		}
 	}
-	
-	public void menuListInProduct() {
+	public void ProductList() {
 		List<Product>
+		
 		JPanel hansikMenuPanel1 = new JPanel();
 		hansikMenuPanel1.setLayout(null);
 		hansikMenuPanel1.setBounds(12, 10, 350, 167);
@@ -159,18 +160,6 @@ public class HansikPanel_이은지2 extends JPanel {
 		JComboBox hansikComboBox1_1 = new JComboBox();
 		hansikComboBox1_1.setBounds(263, 118, 32, 23);
 		hansikMenuPanel1.add(hansikComboBox1_1);
-	*/
-		
+		*/
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }
