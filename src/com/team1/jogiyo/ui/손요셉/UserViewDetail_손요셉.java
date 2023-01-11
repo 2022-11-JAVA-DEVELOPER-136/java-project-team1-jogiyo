@@ -170,7 +170,7 @@ public class UserViewDetail_손요셉 extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				// 취소시 로그인 화면으로 전환
 				userInfo(loginUser);
-				frame.changePanel(12, null);
+				frame.changePanel(frame.PRODUCTCATEGORYPANE, null);
 			}
 		});
 		userViewCancelBtn.setFont(new Font("맑은 고딕", Font.PLAIN, 12));

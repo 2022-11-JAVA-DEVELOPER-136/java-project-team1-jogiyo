@@ -242,6 +242,12 @@ public class JogiyoMainFrame extends JFrame {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}
+				} else if(selectedIndex==3) {
+					try {
+						orderHistoryTabbedPanel_조성동.OrderListPrint(loginUser.getM_id());
+					} catch(Exception e1){
+						e1.printStackTrace();
+					}
 				}
 			}
 		});
@@ -309,14 +315,6 @@ public class JogiyoMainFrame extends JFrame {
 		/*
 		 * JogiyoMainFrame 참조를 Panel에 넘겨줌
 		 */
-		/*
-		userLoginPanel_손요셉.setFrame(this);
-		userMainPanel_손요셉.setFrame(this);
-		userSignupPanel_손요셉.setFrame(this);
-		userViewDetail_손요셉.setFrame(this);
-		orderHistoryTabbedPanel_조성동.setFrame(this);
-		orderHistoryDetailTabbedPanel_조성동.setFrame(this);
-		*/
 		
 		userMainPanel_손요셉.setFrame(this);
 		userLoginPanel_손요셉.setFrame(this);
@@ -330,6 +328,8 @@ public class JogiyoMainFrame extends JFrame {
 		cartListTabbedPanel_정유나.setFrame(this);
 		orderHistoryTabbedPanel_조성동.setFrame(this);
 		orderHistoryDetailTabbedPanel_조성동.setFrame(this);
+		
+		
 		
 	}
 	public void changePanel(int panel_no,Object data){
@@ -417,4 +417,6 @@ public class JogiyoMainFrame extends JFrame {
 	public void transferHansikProduct(Product product) throws Exception{
 		productDetailPanel_이다은.setProduct(product);
 	}		//한식,중식,분식
+	
+	
 }

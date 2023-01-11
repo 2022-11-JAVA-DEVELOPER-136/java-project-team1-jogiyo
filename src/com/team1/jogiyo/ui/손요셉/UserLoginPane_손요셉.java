@@ -127,6 +127,7 @@ public class UserLoginPane_손요셉 extends JPanel {
 				//로그인 성공시
 				frame.loginUser=frame.userService.findUser(id);
 				frame.setTitle(id+"님 로그인");
+				
 			} else {
 				JOptionPane.showMessageDialog(null,"아이디/비밀번호를 확인하세요.");
 				loginIdTF.setText("아이디");
