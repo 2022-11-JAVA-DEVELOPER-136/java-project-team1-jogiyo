@@ -197,6 +197,11 @@ public class UserViewDetail_손요셉 extends JPanel {
 			detailAddressTF.setEditable(true);
 			detailPhoneTF.setEditable(true);
 			userViewUpdateBtn.setText("수정완료");
+			detailIdTF_1.setEditable(false);
+			detailpasswordTF.setEditable(false);
+			detailIdTF_1.setEditable(false);
+			detailAddressTF.setEditable(false);
+			detailPhoneTF.setEditable(false);
 		} else {
 			detailIdTF_1.setEditable(false);
 			detailpasswordTF.setEditable(false);
