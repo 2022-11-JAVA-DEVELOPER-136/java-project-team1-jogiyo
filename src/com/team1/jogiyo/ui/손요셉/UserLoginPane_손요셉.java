@@ -41,7 +41,7 @@ public class UserLoginPane_손요셉 extends JPanel {
 	 */
 	public UserLoginPane_손요셉() {
 		setForeground(Color.BLACK);
-		setBackground(Color.WHITE);
+		setBackground(new Color(255, 255, 255));
 		setLayout(null);
 		
 		loginbutton = new JButton("");//로그인버튼
@@ -65,7 +65,7 @@ public class UserLoginPane_손요셉 extends JPanel {
 			}
 		});
 		loginbutton.setIcon(new ImageIcon(UserLoginPane_손요셉.class.getResource("/com/team1/jogiyo/ui/손요셉/image/smile (3) (1).png")));
-		loginbutton.setBounds(0, 369, 350, 42);
+		loginbutton.setBounds(25, 368, 291, 42);
 		add(loginbutton);
 		
 		signupbutton = new JButton("회원가입");

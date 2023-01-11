@@ -33,6 +33,7 @@ import java.util.List;
 
 import javax.swing.JCheckBox;
 import javax.swing.DefaultComboBoxModel;
+import java.awt.Color;
 
 public class CartListTabbedPanel_정유나 extends JPanel {
 	JogiyoMainFrame frame;
@@ -61,19 +62,22 @@ public class CartListTabbedPanel_정유나 extends JPanel {
 	 * Create the panel.
 	 */
 	public CartListTabbedPanel_정유나() throws Exception {
+		setBackground(new Color(255, 255, 255));
 		setLayout(null);
 		
 		JScrollPane cartScrollPane = new JScrollPane();
-		cartScrollPane.setBounds(12, 36, 326, 372);
+		cartScrollPane.setBounds(12, 36, 358, 372);
 		add(cartScrollPane);
 		
 		cartListPanel = new JPanel();
+		cartListPanel.setBackground(new Color(255, 255, 255));
 		cartListPanel.setPreferredSize(new Dimension(10, 1000));
 		cartScrollPane.setViewportView(cartListPanel);
 		
 		
 		/*		CartListItem Start		*/
 		cartPanel = new JPanel();
+		cartPanel.setBackground(new Color(255, 255, 255));
 		cartPanel.setPreferredSize(new Dimension(300, 80));
 		cartListPanel.add(cartPanel);
 		cartPanel.setLayout(null);
@@ -108,6 +112,7 @@ public class CartListTabbedPanel_정유나 extends JPanel {
 		cartPanel.add(productNameLB);
 		
 		JLabel productCount = new JLabel("수량");
+		productCount.setFont(new Font("굴림", Font.PLAIN, 10));
 		productCount.setPreferredSize(new Dimension(22, 15));
 		productCount.setHorizontalAlignment(SwingConstants.CENTER);
 		productCount.setBounds(127, 56, 32, 15);
@@ -121,10 +126,12 @@ public class CartListTabbedPanel_정유나 extends JPanel {
 		cartPanel.add(productCountCB);
 		
 		JLabel productTotalPriceLB = new JLabel("총 금액");
+		productTotalPriceLB.setFont(new Font("굴림", Font.PLAIN, 10));
 		productTotalPriceLB.setBounds(202, 56, 40, 15);
 		cartPanel.add(productTotalPriceLB);
 		
 		JLabel productPrice = new JLabel("가격");
+		productPrice.setFont(new Font("굴림", Font.PLAIN, 10));
 		productPrice.setHorizontalAlignment(SwingConstants.CENTER);
 		productPrice.setBounds(65, 55, 25, 15);
 		cartPanel.add(productPrice);
@@ -143,6 +150,7 @@ public class CartListTabbedPanel_정유나 extends JPanel {
 		cartPanel.add(cartOrderCheck);
 		
 		JButton btnNewButton = new JButton("X");
+		btnNewButton.setBackground(new Color(255, 255, 255));
 		btnNewButton.setBounds(276, 8, 18, 20);
 		cartPanel.add(btnNewButton);
 		/* 		CartListItem End	*/
