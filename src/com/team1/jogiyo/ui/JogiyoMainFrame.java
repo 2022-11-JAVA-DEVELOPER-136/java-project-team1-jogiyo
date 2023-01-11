@@ -173,6 +173,7 @@ public class JogiyoMainFrame extends JFrame {
 				try {
 					Product searchedProduct=productService.findByName(findProductTL.getText());
 					changePanel(PRODUCTDETAILPANE,searchedProduct);
+					findProductTL.setText("");
 				} catch(Exception e1) {
 					System.out.println(e1.getMessage());
 				}
