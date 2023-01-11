@@ -253,7 +253,7 @@ public class CartListTabbedPanel_정유나 extends JPanel {
 			productPriceLB.setBounds(94, 55, 32, 15);
 			cartPanel.add(productPriceLB);
 
-			totalProductPriceLB = new JLabel(""+product.getP_price()*(int)(productCountCB.getSelectedItem()));
+			totalProductPriceLB = new JLabel(""+(product.getP_price()*(int)(productCountCB.getSelectedItem())));
 			totalProductPriceLB.setBounds(248, 56, 49, 15);
 			cartPanel.add(totalProductPriceLB);
 
