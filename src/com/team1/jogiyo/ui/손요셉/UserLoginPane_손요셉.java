@@ -78,7 +78,7 @@ public class UserLoginPane_손요셉 extends JPanel {
 			}
 		});
 		signupbutton.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
-		signupbutton.setBounds(85, 442, 194, 32);
+		signupbutton.setBounds(85, 430, 194, 32);
 		add(signupbutton);
 		
 
