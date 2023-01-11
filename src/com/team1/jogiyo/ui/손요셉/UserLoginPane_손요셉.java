@@ -41,7 +41,7 @@ public class UserLoginPane_손요셉 extends JPanel {
 	 */
 	public UserLoginPane_손요셉() {
 		setForeground(Color.BLACK);
-		setBackground(Color.WHITE);
+		setBackground(new Color(255, 255, 255));
 		setLayout(null);
 		
 		loginbutton = new JButton("");//로그인버튼
@@ -55,7 +55,8 @@ public class UserLoginPane_손요셉 extends JPanel {
 						frame.changePanel(frame.PRODUCTCATEGORYPANE,loginProcess(loginIdTF.getText()));
 						loginIdTF.setText("아이디");
 						loginPasswordTF.setText("비밀번호");
-						
+					} else {
+						loginPasswordTF.setText("");
 					}
 				} catch (Exception e1) {
 					e1.getMessage();
@@ -64,7 +65,7 @@ public class UserLoginPane_손요셉 extends JPanel {
 			}
 		});
 		loginbutton.setIcon(new ImageIcon(UserLoginPane_손요셉.class.getResource("/com/team1/jogiyo/ui/손요셉/image/smile (3) (1).png")));
-		loginbutton.setBounds(0, 369, 350, 42);
+		loginbutton.setBounds(25, 368, 291, 42);
 		add(loginbutton);
 		
 		signupbutton = new JButton("회원가입");
@@ -137,11 +138,9 @@ public class UserLoginPane_손요셉 extends JPanel {
 				frame.setTitle(id+"님 로그인");
 			} else {
 				JOptionPane.showMessageDialog(null,"아이디/비밀번호를 확인하세요.");
-				/*
 				loginIdTF.setSelectionStart(0);
 				loginIdTF.setSelectionEnd(id.length());
 				loginIdTF.requestFocus();
-				*/
 			}
 		} catch (Exception e) {
 			e.getMessage();

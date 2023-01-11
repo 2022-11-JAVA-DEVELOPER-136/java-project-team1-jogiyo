@@ -51,6 +51,7 @@ public class OrderHistoryDetailTabbedPanel_조성동 extends JPanel {
 		setLayout(null);
 		
 		panel = new JPanel();
+		panel.setBackground(new Color(255, 255, 255));
 		panel.setBounds(0, 0, 370, 589);
 		add(panel);
 		panel.setLayout(null);
@@ -72,10 +73,11 @@ public class OrderHistoryDetailTabbedPanel_조성동 extends JPanel {
 		panel.add(lblNewLabel_5);
 		
 		JScrollPane OrderHProductScrollPane = new JScrollPane();
-		OrderHProductScrollPane.setBounds(0, 134, 346, 253);
+		OrderHProductScrollPane.setBounds(0, 134, 370, 253);
 		panel.add(OrderHProductScrollPane);
 		
 		OrderProductListPanel = new JPanel();
+		OrderProductListPanel.setBackground(new Color(255, 255, 255));
 		OrderProductListPanel.setPreferredSize(new Dimension(325, 500));
 		OrderHProductScrollPane.setViewportView(OrderProductListPanel);
 		/****************판넬 생성자**************************/

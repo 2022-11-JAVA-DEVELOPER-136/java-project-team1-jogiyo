@@ -17,6 +17,7 @@ import java.util.List;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 
 public class OrderHistoryTabbedPanel_조성동 extends JPanel {
 	JogiyoMainFrame frame;
@@ -39,12 +40,14 @@ public class OrderHistoryTabbedPanel_조성동 extends JPanel {
 		setLayout(null);
 		
 		JScrollPane OrderHistoryScrollPane = new JScrollPane();
-		OrderHistoryScrollPane.setBounds(0, 0, 400, 500);
+		OrderHistoryScrollPane.setBounds(0, 0, 370, 530);
 		add(OrderHistoryScrollPane);
 		
 		OrderHistoryListPanel = new JPanel();
+		OrderHistoryListPanel.setBackground(new Color(255, 255, 255));
 		OrderHistoryListPanel.setPreferredSize(new Dimension(300, 700));
 		OrderHistoryScrollPane.setViewportView(OrderHistoryListPanel);
+		OrderHistoryListPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		/******패널 생성자*******/
 //		JPanel OrderHistoryPanel = new JPanel();
 //		OrderHistoryPanel.setPreferredSize(new Dimension(325, 65));
