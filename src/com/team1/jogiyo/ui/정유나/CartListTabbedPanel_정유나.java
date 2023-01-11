@@ -236,7 +236,6 @@ public class CartListTabbedPanel_정유나 extends JPanel {
 		cartListPanel.removeAll();
 		System.out.println(sUserId);
 		List<Cart> cartList=frame.cartService.cartListByUserId(sUserId);
-		//nullpointexception
 		for (Cart cart : cartList) {
 			Product product=frame.productService.findByPrimaryKey(cart.getProduct().getP_no());
 			
