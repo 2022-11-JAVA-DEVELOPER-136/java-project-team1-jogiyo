@@ -42,7 +42,6 @@ public class CartListTabbedPanel_정유나 extends JPanel {
 	}
 	public void setUser(User loginUser) throws Exception {
 		this.loginUser=loginUser;
-		cartListDisplay(loginUser.getM_id());
 	}
 	private JPanel cartListPanel;
 	
@@ -182,7 +181,7 @@ public class CartListTabbedPanel_정유나 extends JPanel {
 		totalOrderPriceLB.setBounds(163, 445, 135, 15);
 		add(totalOrderPriceLB);
 		
-		
+		setUser(loginUser);
 	}
 		
 		
@@ -190,6 +189,7 @@ public class CartListTabbedPanel_정유나 extends JPanel {
 	//====> 오류오류!!!!!!!!!!!!!!
 	public void cartListDisplay(String sUserId) throws Exception{
 		cartListPanel.removeAll();
+		System.out.println(sUserId);
 		List<Cart> cartList=frame.cartService.cartListByUserId(sUserId);
 		//nullpointexception
 		for (Cart cart : cartList) {

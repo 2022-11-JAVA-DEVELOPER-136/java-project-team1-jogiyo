@@ -125,9 +125,9 @@ public class JogiyoMainFrame extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(new BorderLayout(0, 0));
 		
-		JPanel NorthPanel = new JPanel();
-		NorthPanel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		contentPane.add(NorthPanel, BorderLayout.NORTH);
+		JPanel northPanel = new JPanel();
+		northPanel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		contentPane.add(northPanel, BorderLayout.NORTH);
 		
 		representLB = new JLabel("");
 
@@ -139,10 +139,10 @@ public class JogiyoMainFrame extends JFrame {
 				
 			}
 		});
-		NorthPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 30, 5));
+		northPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 30, 5));
 		representLB.setIcon(new ImageIcon(JogiyoMainFrame.class.getResource("/com/team1/jogiyo/ui/손요셉/image/smile (4).png")));
 		representLB.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		NorthPanel.add(representLB);
+		northPanel.add(representLB);
 		
 		cartLB = new JLabel("");
 		cartLB.addMouseListener(new MouseAdapter() {
@@ -153,7 +153,7 @@ public class JogiyoMainFrame extends JFrame {
 		});
 		
 		panel = new JPanel();
-		NorthPanel.add(panel);
+		northPanel.add(panel);
 		
 		findProductTL = new JTextField();
 		panel.add(findProductTL);
@@ -175,12 +175,12 @@ public class JogiyoMainFrame extends JFrame {
 		panel.add(findProductIconLB);
 		cartLB.setIcon(new ImageIcon(JogiyoMainFrame.class.getResource("/images/3cart_30px.png")));
 		cartLB.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		NorthPanel.add(cartLB);
+		northPanel.add(cartLB);
 		
-		JPanel SouthPanel = new JPanel();
-		SouthPanel.setAlignmentX(Component.RIGHT_ALIGNMENT);
-		contentPane.add(SouthPanel, BorderLayout.SOUTH);
-		SouthPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 70, 5));
+		JPanel southPanel = new JPanel();
+		southPanel.setAlignmentX(Component.RIGHT_ALIGNMENT);
+		contentPane.add(southPanel, BorderLayout.SOUTH);
+		southPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 70, 5));
 		
 		userInfoLB = new JLabel("");
 		userInfoLB.addMouseListener(new MouseAdapter() {
@@ -194,7 +194,7 @@ public class JogiyoMainFrame extends JFrame {
 		userInfoLB.setHorizontalAlignment(SwingConstants.CENTER);
 		userInfoLB.setIcon(new ImageIcon(JogiyoMainFrame.class.getResource("/images/3my_50px.png")));
 		userInfoLB.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		SouthPanel.add(userInfoLB);
+		southPanel.add(userInfoLB);
 		
 		homeLB = new JLabel("");
 		homeLB.addMouseListener(new MouseAdapter() {
@@ -207,7 +207,7 @@ public class JogiyoMainFrame extends JFrame {
 		homeLB.setVerticalTextPosition(SwingConstants.BOTTOM);
 		homeLB.setIcon(new ImageIcon(JogiyoMainFrame.class.getResource("/images/3home_50px.png")));
 		homeLB.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		SouthPanel.add(homeLB);
+		southPanel.add(homeLB);
 		
 		exitLB = new JLabel("");
 		exitLB.addMouseListener(new MouseAdapter() {
@@ -221,7 +221,7 @@ public class JogiyoMainFrame extends JFrame {
 		exitLB.setHorizontalTextPosition(SwingConstants.CENTER);
 		exitLB.setIcon(new ImageIcon(JogiyoMainFrame.class.getResource("/images/50exit.png")));
 		exitLB.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		SouthPanel.add(exitLB);
+		southPanel.add(exitLB);
 		
 		parentTabbedPanel = new JTabbedPane(JTabbedPane.TOP);
 		contentPane.add(parentTabbedPanel, BorderLayout.CENTER);
@@ -287,10 +287,23 @@ public class JogiyoMainFrame extends JFrame {
 		/*
 		 * JogiyoMainFrame 참조를 Panel에 넘겨줌
 		 */
+		/*
 		userLoginPanel_손요셉.setFrame(this);
 		userMainPanel_손요셉.setFrame(this);
 		userSignupPanel_손요셉.setFrame(this);
 		userViewDetail_손요셉.setFrame(this);
+		orderHistoryTabbedPanel_조성동.setFrame(this);
+		orderHistoryDetailTabbedPanel_조성동.setFrame(this);
+		*/
+		userMainPanel_손요셉.setFrame(this);
+		userSignupPanel_손요셉.setFrame(this);
+		userViewDetail_손요셉.setFrame(this);
+		categoriesPanel_이은지2.setFrame(this);
+		hansikPanel_이은지.setFrame(this);
+		joongsikPanel_이은지.setFrame(this);
+		bunsikPanel_이은지.setFrame(this);
+		productDetailPanel_이다은.setFrame(this);
+		cartListTabbedPanel_정유나.setFrame(this);
 		orderHistoryTabbedPanel_조성동.setFrame(this);
 		orderHistoryDetailTabbedPanel_조성동.setFrame(this);
 
@@ -363,6 +376,7 @@ public class JogiyoMainFrame extends JFrame {
 		hansikPanel_이은지.setUser(user);
 		joongsikPanel_이은지.setUser(user);
 		bunsikPanel_이은지.setUser(user);
+		productDetailPanel_이다은.setUser(user);
 		cartListTabbedPanel_정유나.setUser(user);
 		orderHistoryTabbedPanel_조성동.setUser(user);
 		orderHistoryDetailTabbedPanel_조성동.setUser(user);

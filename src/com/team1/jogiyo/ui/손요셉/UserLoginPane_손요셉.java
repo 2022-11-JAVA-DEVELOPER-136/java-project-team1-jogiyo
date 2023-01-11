@@ -52,9 +52,10 @@ public class UserLoginPane_손요셉 extends JPanel {
 				
 				try {
 					if(userLogin()==1) {
-						frame.changePanel(21,loginProcess(loginIdTF.getText()));
+						frame.changePanel(frame.PRODUCTCATEGORYPANE,loginProcess(loginIdTF.getText()));
 						loginIdTF.setText("아이디");
 						loginPasswordTF.setText("비밀번호");
+						
 					}
 				} catch (Exception e1) {
 					System.out.println(e1.getMessage());
@@ -71,7 +72,7 @@ public class UserLoginPane_손요셉 extends JPanel {
 		signupbutton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//회원가입 화면으로 전환
-				frame.changePanel(13, null);
+				frame.changePanel(frame.USERSIGNUPPANE, null);
 				
 			}
 		});

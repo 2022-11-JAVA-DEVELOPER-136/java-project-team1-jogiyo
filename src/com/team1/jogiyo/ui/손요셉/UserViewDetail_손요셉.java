@@ -17,6 +17,8 @@ import javax.swing.JButton;
 import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 
 public class UserViewDetail_손요셉 extends JPanel {
 
@@ -34,15 +36,13 @@ public class UserViewDetail_손요셉 extends JPanel {
 		this.loginUser = loginUser;
 	}
 
-	private JTextField txtVjvjdid;
-	private JTextField detailpasswordTF;
 	private JTextField detailIdTF_1;
-
-	private JTextField detailnameTF;
+	private JTextField detailpasswordTF;
 	private JTextField detailAddressTF;
 	private JTextField detailPhoneTF;
 	private JButton userViewUpdateBtn;
 	private JButton userViewCancelBtn;
+	private JTextField detailmainTF;
 
 	/**
 	 * Create the panel.
@@ -50,6 +50,18 @@ public class UserViewDetail_손요셉 extends JPanel {
 	 * @throws Exception
 	 */
 	public UserViewDetail_손요셉() throws Exception {
+		addComponentListener(new ComponentAdapter() {
+			@Override
+			public void componentShown(ComponentEvent e) {
+				detailmainTF.setText(frame.loginUser.getM_id());
+				detailpasswordTF.setText(frame.loginUser.getM_password());
+				detailIdTF_1.setText(frame.loginUser.getM_name());
+				detailAddressTF.setText(frame.loginUser.getM_loc());
+				detailPhoneTF.setText(frame.loginUser.getM_phone());
+				
+				
+			}
+		});
 		setBackground(Color.WHITE);
 		setLayout(null);
 
@@ -84,28 +96,24 @@ public class UserViewDetail_손요셉 extends JPanel {
 		lblNewLabel_4.setBounds(51, 193, 27, 15);
 		add(lblNewLabel_4);
 		detailpasswordTF = new JTextField();
-		detailpasswordTF.setEditable(false);
 		detailpasswordTF.setText("비밀번호");
 		detailpasswordTF.setBounds(89, 187, 146, 21);
 		add(detailpasswordTF);
 		detailpasswordTF.setColumns(10);
 		
 		detailIdTF_1 = new JTextField();
-		detailIdTF_1.setEditable(false);
 		detailIdTF_1.setText("이름");
 		detailIdTF_1.setColumns(10);
 		detailIdTF_1.setBounds(89, 237, 146, 21);
 		add(detailIdTF_1);
 		
 		detailAddressTF = new JTextField();
-		detailAddressTF.setEditable(false);
 		detailAddressTF.setText("주소");
 		detailAddressTF.setColumns(10);
 		detailAddressTF.setBounds(89, 284, 146, 21);
 		add(detailAddressTF);
 		
 		detailPhoneTF = new JTextField();
-		detailPhoneTF.setEditable(false);
 		detailPhoneTF.setText("핸드폰번호");
 		detailPhoneTF.setColumns(10);
 		detailPhoneTF.setBounds(89, 336, 146, 21);
@@ -142,14 +150,24 @@ public class UserViewDetail_손요셉 extends JPanel {
 		lblNewLabel_5.setFont(new Font("맑은 고딕", Font.BOLD, 17));
 		lblNewLabel_5.setBounds(119, 21, 122, 23);
 		add(lblNewLabel_5);
+		
+		detailmainTF = new JTextField();
+		detailmainTF.setEditable(false);
+		detailmainTF.setText("아이디");
+		detailmainTF.setBounds(125, 129, 116, 21);
+		add(detailmainTF);
+		detailmainTF.setColumns(10);
 
 		/********************************************************/
 }
 	/*메소드*/
+	
+	
+	
 	public void userInfo(User user) {
-		detailIdTF_1.setText(user.getM_id());		
+		detailmainTF.setText(user.getM_id());		
 		detailpasswordTF.setText(user.getM_password());				
-		detailnameTF.setText(user.getM_name());				
+		detailIdTF_1.setText(user.getM_name());				
 		detailAddressTF.setText(user.getM_loc());				
 		detailPhoneTF.setText(user.getM_phone());
 		
@@ -157,7 +175,7 @@ public class UserViewDetail_손요셉 extends JPanel {
 	
 	public void editUserInfo() {
 		try {
-			String id = detailIdTF.getText();
+			String id = detailmainTF.getText();
 			String name = detailIdTF_1.getText();
 			String password = new String(detailpasswordTF.getText());
 			String loc = detailAddressTF.getText();
@@ -175,14 +193,14 @@ public class UserViewDetail_손요셉 extends JPanel {
 	public void changeUpdateBtn(boolean b) {
 		if(b) {
 			detailpasswordTF.setEditable(true);
-			detailnameTF.setEditable(true);
+			detailIdTF_1.setEditable(true);
 			detailAddressTF.setEditable(true);
 			detailPhoneTF.setEditable(true);
 			userViewUpdateBtn.setText("수정완료");
 		} else {
 			detailIdTF_1.setEditable(false);
 			detailpasswordTF.setEditable(false);
-			detailnameTF.setEditable(false);
+			detailIdTF_1.setEditable(false);
 			detailAddressTF.setEditable(false);
 			detailPhoneTF.setEditable(false);
 		}
