@@ -80,12 +80,7 @@ public class CartListTabbedPanel_정유나 extends JPanel {
 		cartPanel.setLayout(null);
 		
 		productImageLB = new JLabel("");
-		productImageLB.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				//제품상세페이지로 넘어가기
-			}
-		});
+	
 		productImageLB.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		productImageLB.setVerticalTextPosition(SwingConstants.BOTTOM);
 		productImageLB.setHorizontalTextPosition(SwingConstants.CENTER);
@@ -99,6 +94,16 @@ public class CartListTabbedPanel_정유나 extends JPanel {
 		cartPanel.add(productDetailLB);
 		
 		productNameLB = new JLabel("김치찜");
+		productNameLB.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				try {
+					frame.changePanel(25,frame.productService.findByName(productNameLB.getText()));
+				} catch (Exception e1) {
+					System.out.println(e1.getMessage());
+				}
+			}
+		});
 		productNameLB.setHorizontalAlignment(SwingConstants.CENTER);
 		productNameLB.setBounds(125, 9, 57, 15);
 		cartPanel.add(productNameLB);
@@ -186,6 +191,7 @@ public class CartListTabbedPanel_정유나 extends JPanel {
 	public void cartListDisplay(String sUserId) throws Exception{
 		cartListPanel.removeAll();
 		List<Cart> cartList=frame.cartService.cartListByUserId(sUserId);
+		//nullpointexception
 		for (Cart cart : cartList) {
 			Product product=frame.productService.findByPrimaryKey(cart.getProduct().getP_no());
 			
@@ -195,13 +201,6 @@ public class CartListTabbedPanel_정유나 extends JPanel {
 			cartPanel.setLayout(null);
 
 			productImageLB = new JLabel("");
-			productImageLB.addMouseListener(new MouseAdapter() {
-				@Override
-				public void mouseClicked(MouseEvent e) {
-					//제품상세페이지로 넘어가기
-					frame.changePanel(25, cart.getProduct());
-				}
-			});
 			productImageLB.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 			productImageLB.setVerticalTextPosition(SwingConstants.BOTTOM);
 			productImageLB.setHorizontalTextPosition(SwingConstants.CENTER);

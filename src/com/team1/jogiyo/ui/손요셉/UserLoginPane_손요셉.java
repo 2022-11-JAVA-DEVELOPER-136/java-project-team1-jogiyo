@@ -18,6 +18,8 @@ import javax.swing.JOptionPane;
 import java.awt.Font;
 import javax.swing.JPasswordField;
 import java.awt.Cursor;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 
 
@@ -87,8 +89,9 @@ public class UserLoginPane_손요셉 extends JPanel {
 		
 		loginIdTF = new JTextField();
 		loginIdTF.setText("아이디");
-		loginIdTF.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		loginIdTF.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
 				loginIdTF.setText("");
 			}
 		});
@@ -98,13 +101,14 @@ public class UserLoginPane_손요셉 extends JPanel {
 		loginIdTF.setColumns(10);
 		
 		loginPasswordTF = new JTextField();
-		loginPasswordTF.setFont(new Font("굴림", Font.PLAIN, 16));
 		loginPasswordTF.setText("비밀번호");
-		loginPasswordTF.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		loginPasswordTF.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
 				loginPasswordTF.setText("");
 			}
 		});
+		loginPasswordTF.setFont(new Font("굴림", Font.PLAIN, 16));
 		loginPasswordTF.setBounds(85, 306, 194, 32);
 		add(loginPasswordTF);
 		loginPasswordTF.setColumns(10);

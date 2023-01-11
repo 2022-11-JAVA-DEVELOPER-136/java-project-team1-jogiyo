@@ -80,6 +80,7 @@ public class CategoriesPanel_이은지2 extends JPanel {
 		 * 클릭 시 중식리스트로 이동
 		 */
 		JLabel joongsikLB = new JLabel("   중식");
+		joongsikLB.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		joongsikLB.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -102,6 +103,7 @@ public class CategoriesPanel_이은지2 extends JPanel {
 		 * 클릭 시 분식리스트로 이동
 		 */
 		JLabel bunsikLB = new JLabel("  분식");
+		bunsikLB.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		bunsikLB.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
