@@ -72,7 +72,6 @@ public class ProductDetailPanel_이다은 extends JPanel {
 		
 		productNameLB = new JLabel("순대국밥");
 		JLabel productNameLB = new JLabel();
-		productNameLB.setText(product.getP_name());
 		productNameLB.setHorizontalAlignment(SwingConstants.CENTER);
 		productNameLB.setFont(new Font("굴림", Font.BOLD, 25));
 		productNameLB.setBounds(0, 223, 350, 38);
@@ -143,7 +142,7 @@ public class ProductDetailPanel_이다은 extends JPanel {
 	public void displayProductDetail(Product product) {
 		System.out.println(product);
 		try {
-			productImageLB.setIcon(new ImageIcon(ProductDetailPanel_이다은.class.getResource("/image/productDetail/"+product.getP_image())));
+			productImageLB.setIcon(new ImageIcon(ProductDetailPanel_이다은.class.getResource(""+product.getP_image())));
 			productNameLB.setText(product.getP_name()+"");
 			productDescLB.setText(product.getP_desc()+"");
 			productPriceLB.setText(product.getP_price()+"");	
