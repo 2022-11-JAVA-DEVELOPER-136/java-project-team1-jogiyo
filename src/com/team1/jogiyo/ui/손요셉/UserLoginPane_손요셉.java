@@ -84,12 +84,8 @@ public class UserLoginPane_손요셉 extends JPanel {
 		idfindbutton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		idfindbutton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-<<<<<<< HEAD
 			}	
-=======
 				
-			}
->>>>>>> branch 'main' of https://github.com/2022-11-JAVA-DEVELOPER/java-project-team1-jogiyo.git
 		});
 		idfindbutton.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
 		idfindbutton.setBounds(220, 439, 113, 23);
@@ -125,10 +121,10 @@ public class UserLoginPane_손요셉 extends JPanel {
 		lblNewLabel.setIcon(new ImageIcon(UserLoginPane_손요셉.class.getResource("/com/team1/jogiyo/ui/손요셉/image/1 (1) (2).png")));
 		lblNewLabel.setBounds(85, 0, 194, 216);
 		add(lblNewLabel);
-		
-	
-		
+
 	}
+	
+	
 	private int userLogin() {
 		int result=0;
 		try {
@@ -156,13 +152,10 @@ public class UserLoginPane_손요셉 extends JPanel {
 		 return frame.userService.findUser(sUserid);
 	}
 	
-<<<<<<< HEAD
-=======
 	private void logoutProcess() throws Exception {
 		
 		
 		
 		
 	}
->>>>>>> branch 'main' of https://github.com/2022-11-JAVA-DEVELOPER/java-project-team1-jogiyo.git
 }
