@@ -70,7 +70,7 @@ public class JoongsikPanel_이은지 extends JPanel {
 				try {
 					System.out.println("자장면 상세보기로 이동");
 					Product clickedProduct=productDetail(joongsikNameLB1.getText());
-					frame.changePanel(25,clickedProduct);
+					frame.changePanel(frame.PRODUCTDETAILPANE,clickedProduct);
 				} catch (Exception e1) {
 					System.out.println(e1.getMessage());
 				}
@@ -122,6 +122,18 @@ public class JoongsikPanel_이은지 extends JPanel {
 		joongsikMenuPanel2.add(joongsikImageLB2);
 		
 		JLabel joongsikNameLB2 = new JLabel("삼선짬뽕");
+		joongsikNameLB2.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				try {
+					System.out.println("삼선짬뽕 상세보기로 이동");
+					Product clickedProduct=productDetail(joongsikNameLB2.getText());
+					frame.changePanel(frame.PRODUCTDETAILPANE,clickedProduct);
+				} catch (Exception e1) {
+					System.out.println(e1.getMessage());
+				}
+			}
+		});
 		joongsikNameLB2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		joongsikNameLB2.setHorizontalAlignment(SwingConstants.RIGHT);
 		joongsikNameLB2.setFont(new Font("맑은 고딕", Font.BOLD, 25));
@@ -168,6 +180,18 @@ public class JoongsikPanel_이은지 extends JPanel {
 		joongsikMenuPanel3.add(joongsikImageLB3);
 		
 		JLabel joongsikNameLB3 = new JLabel("탕수육");
+		joongsikNameLB3.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				try {
+					System.out.println("탕수육 상세보기로 이동");
+					Product clickedProduct=productDetail(joongsikNameLB3.getText());
+					frame.changePanel(frame.PRODUCTDETAILPANE,clickedProduct);
+				} catch (Exception e1) {
+					System.out.println(e1.getMessage());
+				}
+			}
+		});
 		joongsikNameLB3.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		joongsikNameLB3.setHorizontalAlignment(SwingConstants.RIGHT);
 		joongsikNameLB3.setFont(new Font("맑은 고딕", Font.BOLD, 25));
