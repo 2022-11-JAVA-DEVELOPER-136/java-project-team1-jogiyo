@@ -19,6 +19,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import javax.swing.JPasswordField;
 
 public class UserViewDetail_손요셉 extends JPanel {
 
@@ -96,25 +99,49 @@ public class UserViewDetail_손요셉 extends JPanel {
 		lblNewLabel_4.setBounds(51, 193, 27, 15);
 		add(lblNewLabel_4);
 		detailpasswordTF = new JTextField();
-		detailpasswordTF.setText("비밀번호");
+		detailpasswordTF.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				detailpasswordTF.setText("");
+			}
+		});
+		detailpasswordTF.setText("비밀번호 입력");
 		detailpasswordTF.setBounds(89, 187, 146, 21);
 		add(detailpasswordTF);
 		detailpasswordTF.setColumns(10);
 		
 		detailIdTF_1 = new JTextField();
+		detailIdTF_1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				detailIdTF_1.setText("");
+			}
+		});
 		detailIdTF_1.setText("이름");
 		detailIdTF_1.setColumns(10);
 		detailIdTF_1.setBounds(89, 237, 146, 21);
 		add(detailIdTF_1);
 		
 		detailAddressTF = new JTextField();
+		detailAddressTF.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				detailAddressTF.setText("");
+			}
+		});
 		detailAddressTF.setText("주소");
 		detailAddressTF.setColumns(10);
 		detailAddressTF.setBounds(89, 284, 146, 21);
 		add(detailAddressTF);
 		
 		detailPhoneTF = new JTextField();
-		detailPhoneTF.setText("핸드폰번호");
+		detailPhoneTF.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				detailPhoneTF.setText("");
+			}
+		});
+		detailPhoneTF.setText("핸드폰 번호");
 		detailPhoneTF.setColumns(10);
 		detailPhoneTF.setBounds(89, 336, 146, 21);
 		add(detailPhoneTF);
