@@ -60,42 +60,35 @@ public class ProductDetailPanel_이다은 extends JPanel {
 	 */
 
 	public ProductDetailPanel_이다은 () throws Exception {
+		setSize(370, 550);
 		setBackground(new Color(255, 255, 255));
 		setLayout(null);
 		
 		productImageLB = new JLabel("");
+		productImageLB.setHorizontalAlignment(SwingConstants.CENTER);
 		productImageLB.setIcon(new ImageIcon(ProductDetailPanel_이다은.class.getResource("/images/productDetail/p_no_01.jpg")));
-		productImageLB.setBounds(0, 0, 350, 200);
+		productImageLB.setBounds(-3, 0, 370, 200);
 		add(productImageLB);
 		
 		
 		productNameLB = new JLabel("순대국밥");
 		productNameLB.setHorizontalAlignment(SwingConstants.CENTER);
 		productNameLB.setFont(new Font("굴림", Font.BOLD, 25));
-		productNameLB.setBounds(0, 223, 350, 38);
+		productNameLB.setBounds(0, 223, 370, 38);
 		add(productNameLB);
 		
 		productDescLB = new JLabel("순대가 들어간 국밥");
 		productDescLB.setBackground(new Color(255, 255, 255));
 		productDescLB.setHorizontalAlignment(SwingConstants.CENTER);
 		productDescLB.setFont(new Font("굴림", Font.PLAIN, 15));
-		productDescLB.setBounds(0, 271, 350, 47);
+		productDescLB.setBounds(0, 271, 370, 47);
 		add(productDescLB);
 		
 		productPriceLB = new JLabel("9000");
 		productPriceLB.setHorizontalAlignment(SwingConstants.RIGHT);
 		productPriceLB.setFont(new Font("굴림", Font.BOLD, 15));
-		productPriceLB.setBounds(208, 340, 101, 15);
+		productPriceLB.setBounds(208, 340, 100, 15);
 		add(productPriceLB);
-		
-		//선택한 수량 만큼 바로주문 and 장바구니에 담김
-		
-		productcomboBox = new JComboBox();
-		productcomboBox.setToolTipText("");
-		productcomboBox.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5"}));
-		productcomboBox.setBounds(268, 388, 41, 23);
-		add(productcomboBox);
-		
 		
 		priceLB = new JLabel("가격");
 		priceLB.setBounds(172, 340, 57, 15);
@@ -105,6 +98,14 @@ public class ProductDetailPanel_이다은 extends JPanel {
 		countLB.setBounds(172, 390, 57, 15);
 		add(countLB);
 		
+		
+		//선택한 수량 만큼 바로주문 and 장바구니에 담김
+		productcomboBox = new JComboBox();
+		productcomboBox.setToolTipText("");
+		productcomboBox.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5"}));
+		productcomboBox.setBounds(268, 388, 40, 23);
+		add(productcomboBox);
+		
 		//클릭 시 주문 페이지로 이동
 		orderBtn = new JButton("바로주문");
 		orderBtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -112,9 +113,8 @@ public class ProductDetailPanel_이다은 extends JPanel {
 		orderBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					productToOrder();
+					productToOrder(product);
 				} catch (Exception e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 			}
@@ -125,10 +125,13 @@ public class ProductDetailPanel_이다은 extends JPanel {
 		//클릭 시 장바구니로 이동
 		cartBtn = new JButton("장바구니");
 		cartBtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		cartBtn.setForeground(new Color(0, 0, 0));
 		cartBtn.setBackground(new Color(255, 255, 255));
 		cartBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				try {
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
 			}
 		});
 		cartBtn.setBounds(208, 460, 97, 23);
@@ -137,7 +140,6 @@ public class ProductDetailPanel_이다은 extends JPanel {
 	}
 	// 제품정보 불러오기
 	public void displayProductDetail(Product product) {
-		System.out.println(product);
 		try {
 			productImageLB.setIcon(new ImageIcon(ProductDetailPanel_이다은.class.getResource("/images/productDetail/"+product.getP_image())));
 			productNameLB.setText(product.getP_name()+"");
@@ -148,24 +150,20 @@ public class ProductDetailPanel_이다은 extends JPanel {
 		}
 	}
 	
-	public void productToOrder() throws Exception {
-		Product product;
-		product = frame.productService.findByPrimaryKey(0);
-		frame.orderService.create(loginUser.getM_id(), product.getCt_no(),(int)productcomboBox.getSelectedItem());
+	public void productToOrder(Product product) throws Exception {
+		frame.orderService.create(loginUser.getM_id(),product.getP_no(),productcomboBox.getSelectedIndex()+1);
 	}
+	
 
 	
-	public void productToCart (String p_name) throws Exception {
-		Cart producttocart  = new Cart(0, (int)productcomboBox.getSelectedItem(), loginUser.getM_id(), frame.productService.findByName(p_name));
-		if(cartBtn.getText().equals(p_name)) {
+	public void productToCart (Product product) throws Exception {
+		Cart producttocart = new Cart();
 		frame.cartService.addCartInProduct(producttocart);		
 		}
 		
-	}
+	
 	public void setProduct(Product product) {
 		this.product=product;
 		displayProductDetail(product);
 	}
-	
-	
 }
