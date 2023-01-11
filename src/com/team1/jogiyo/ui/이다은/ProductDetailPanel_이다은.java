@@ -114,12 +114,6 @@ public class ProductDetailPanel_이다은 extends JPanel {
 		orderBtn.setBackground(new Color(255, 255, 255));
 		orderBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// 오더패널로전환
-				try {
-					productInOrder();
-				} catch (Exception e1) {
-					e1.printStackTrace();
-				} 
 			}
 		});
 		orderBtn.setBounds(61, 460, 97, 23);
@@ -132,7 +126,6 @@ public class ProductDetailPanel_이다은 extends JPanel {
 		cartBtn.setBackground(new Color(255, 255, 255));
 		cartBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// 카트패널로전환
 			}
 		});
 		cartBtn.setBounds(208, 460, 97, 23);
@@ -160,18 +153,15 @@ public class ProductDetailPanel_이다은 extends JPanel {
 	 * ===> 은지님 해당 버튼에 productDetailPanel_이다은.displayProductdetail(p_name) 넣어주세요
 	 */
 	
-	private void productInOrder() throws Exception {
-		
-			//orderService.create(loginUser.getM_id(), product.getP_no(), (int)productcomboBox.getSelectedItem());
-	    
-	    // 콤보박스에서 받은 수량 > 오더로 넘기
-		// 수량은 콤보박스에서
-		// P_no >product에서 
-		//orderService.create(id, p_no, 수량);
+	public void productToOrder(int p_no) throws Exception {
+		frame.orderService.create(loginUser.getM_id(), p_no,(int)productcomboBox.getSelectedItem());
 	}
-	private void productInCart() throws Exception {
-		Cart productincart  = new Cart(0, (int)productcomboBox.getSelectedItem(), loginUser.getM_id(), frame.productService.findByPrimaryKey(0));
-		frame.cartService.addCartInProduct(productincart);
+	
+	public void productToCart (String p_name) throws Exception {
+		Cart producttocart  = new Cart(0, (int)productcomboBox.getSelectedItem(), loginUser.getM_id(), frame.productService.findByName(p_name));
+		if(cartBtn.getText().equals(p_name)) {
+		frame.cartService.addCartInProduct(producttocart);		
+		}
 		
 	}
 	

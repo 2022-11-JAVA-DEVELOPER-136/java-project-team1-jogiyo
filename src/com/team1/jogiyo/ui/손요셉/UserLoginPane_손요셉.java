@@ -55,8 +55,6 @@ public class UserLoginPane_손요셉 extends JPanel {
 						frame.changePanel(frame.PRODUCTCATEGORYPANE,loginProcess(loginIdTF.getText()));
 						loginIdTF.setText("아이디");
 						loginPasswordTF.setText("비밀번호");
-					} else {
-						loginPasswordTF.setText("");
 					}
 				} catch (Exception e1) {
 					e1.getMessage();
@@ -85,7 +83,7 @@ public class UserLoginPane_손요셉 extends JPanel {
 		idfindbutton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		idfindbutton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//안살릴듯?
+				
 			}
 		});
 		idfindbutton.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
@@ -138,9 +136,11 @@ public class UserLoginPane_손요셉 extends JPanel {
 				frame.setTitle(id+"님 로그인");
 			} else {
 				JOptionPane.showMessageDialog(null,"아이디/비밀번호를 확인하세요.");
+				loginIdTF.setText("아이디");
 				loginIdTF.setSelectionStart(0);
 				loginIdTF.setSelectionEnd(id.length());
 				loginIdTF.requestFocus();
+				loginPasswordTF.setText("비밀번호");
 			}
 		} catch (Exception e) {
 			e.getMessage();
@@ -149,5 +149,12 @@ public class UserLoginPane_손요셉 extends JPanel {
 	}
 	private User loginProcess(String sUserid) throws Exception{
 		 return frame.userService.findUser(sUserid);
+	}
+	
+	private void logoutProcess() throws Exception {
+		
+		
+		
+		
 	}
 }
