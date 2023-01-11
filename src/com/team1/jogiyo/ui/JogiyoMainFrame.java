@@ -42,6 +42,8 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.Color;
 import javax.swing.JPasswordField;
+import javax.swing.event.ChangeListener;
+import javax.swing.event.ChangeEvent;
 
 
 public class JogiyoMainFrame extends JFrame {
@@ -157,7 +159,7 @@ public class JogiyoMainFrame extends JFrame {
 		});
 		
 		panel = new JPanel();
-		panel.setBackground(new Color(255, 255, 255));
+		panel.setBackground(new Color(255, 0, 0));
 		northPanel.add(panel);
 		
 		findProductTL = new JTextField();
@@ -178,7 +180,7 @@ public class JogiyoMainFrame extends JFrame {
 		});
 		findProductIconLB.setIcon(new ImageIcon(JogiyoMainFrame.class.getResource("/images/search_20px.png")));
 		panel.add(findProductIconLB);
-		cartLB.setIcon(new ImageIcon(JogiyoMainFrame.class.getResource("/images/newcart.png")));
+		cartLB.setIcon(new ImageIcon(JogiyoMainFrame.class.getResource("/images/3cart_30px.png")));
 		cartLB.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		northPanel.add(cartLB);
 		
@@ -198,7 +200,7 @@ public class JogiyoMainFrame extends JFrame {
 		userInfoLB.setHorizontalTextPosition(SwingConstants.CENTER);
 		userInfoLB.setVerticalTextPosition(SwingConstants.BOTTOM);
 		userInfoLB.setHorizontalAlignment(SwingConstants.CENTER);
-		userInfoLB.setIcon(new ImageIcon(JogiyoMainFrame.class.getResource("/images/user.png")));
+		userInfoLB.setIcon(new ImageIcon(JogiyoMainFrame.class.getResource("/images/3my_50px.png")));
 		userInfoLB.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		southPanel.add(userInfoLB);
 		
@@ -211,7 +213,7 @@ public class JogiyoMainFrame extends JFrame {
 		});
 		homeLB.setHorizontalTextPosition(SwingConstants.CENTER);
 		homeLB.setVerticalTextPosition(SwingConstants.BOTTOM);
-		homeLB.setIcon(new ImageIcon(JogiyoMainFrame.class.getResource("/images/free1.png")));
+		homeLB.setIcon(new ImageIcon(JogiyoMainFrame.class.getResource("/images/3home_50px.png")));
 		homeLB.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		southPanel.add(homeLB);
 		
@@ -225,11 +227,24 @@ public class JogiyoMainFrame extends JFrame {
 		});
 		exitLB.setVerticalTextPosition(SwingConstants.BOTTOM);
 		exitLB.setHorizontalTextPosition(SwingConstants.CENTER);
-		exitLB.setIcon(new ImageIcon(JogiyoMainFrame.class.getResource("/images/exit1.png")));
+		exitLB.setIcon(new ImageIcon(JogiyoMainFrame.class.getResource("/images/50exit.png")));
 		exitLB.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		southPanel.add(exitLB);
 		
 		parentTabbedPanel = new JTabbedPane(JTabbedPane.TOP);
+		parentTabbedPanel.addChangeListener(new ChangeListener() {
+			public void stateChanged(ChangeEvent e) {
+				int selectedIndex=parentTabbedPanel.getSelectedIndex();
+				if(selectedIndex==2) {
+					try {
+						cartListTabbedPanel_정유나.cartListDisplay(loginUser.getM_id());
+					} catch (Exception e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+				}
+			}
+		});
 		parentTabbedPanel.setBackground(new Color(255, 255, 255));
 		contentPane.add(parentTabbedPanel, BorderLayout.CENTER);
 		
