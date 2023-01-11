@@ -78,9 +78,19 @@ public class CartListTabbedPanel_정유나 extends JPanel {
 		
 		/*		CartListItem Start		*/
 		cartPanel = new JPanel();
+
+
+
 		cartPanel.setBackground(new Color(255, 255, 255));
 		cartPanel.setPreferredSize(new Dimension(300, 80));
+
+
+
+
 		cartPanel.setPreferredSize(new Dimension(300, 120));
+
+
+
 		cartListPanel.add(cartPanel);
 		cartPanel.setLayout(null);
 		
@@ -128,9 +138,16 @@ public class CartListTabbedPanel_정유나 extends JPanel {
 		cartPanel.add(productCountCB);
 		
 		JLabel productTotalPriceLB = new JLabel("총 금액");
+
+
 		productTotalPriceLB.setFont(new Font("굴림", Font.PLAIN, 10));
 		productTotalPriceLB.setBounds(202, 56, 40, 15);
+
+
 		productTotalPriceLB.setBounds(65, 102, 40, 15);
+
+		productTotalPriceLB.setBounds(65, 102, 40, 15);
+
 		cartPanel.add(productTotalPriceLB);
 		
 		JLabel productPrice = new JLabel("가격");
@@ -152,10 +169,16 @@ public class CartListTabbedPanel_정유나 extends JPanel {
 		cartOrderCheck.setBounds(276, 47, 21, 23);
 		cartPanel.add(cartOrderCheck);
 		
+
+
+
 		JButton btnNewButton = new JButton("X");
 		btnNewButton.setBackground(new Color(255, 255, 255));
 		btnNewButton.setBounds(276, 8, 18, 20);
 		cartPanel.add(btnNewButton);
+
+
+
 		JButton deleteItemBtn = new JButton("X");
 		deleteItemBtn.addMouseListener(new MouseAdapter() {
 			@Override
@@ -165,6 +188,8 @@ public class CartListTabbedPanel_정유나 extends JPanel {
 		});
 		deleteItemBtn.setBounds(248, 8, 46, 20);
 		cartPanel.add(deleteItemBtn);
+
+
 		/* 		CartListItem End	*/
 		orderAllBtn = new JButton("전체주문");
 		orderAllBtn.addMouseListener(new MouseAdapter() {
@@ -211,7 +236,6 @@ public class CartListTabbedPanel_정유나 extends JPanel {
 		cartListPanel.removeAll();
 		System.out.println(sUserId);
 		List<Cart> cartList=frame.cartService.cartListByUserId(sUserId);
-		//nullpointexception
 		for (Cart cart : cartList) {
 			Product product=frame.productService.findByPrimaryKey(cart.getProduct().getP_no());
 			
@@ -225,9 +249,7 @@ public class CartListTabbedPanel_정유나 extends JPanel {
 			productImageLB.setVerticalTextPosition(SwingConstants.BOTTOM);
 			productImageLB.setHorizontalTextPosition(SwingConstants.CENTER);
 			productImageLB.setHorizontalAlignment(SwingConstants.CENTER);
-			/*
-			productImageLB.setIcon(new ImageIcon(CartListTabbedPanel_정유나.class.getResource("/images/"+product.getP_image())));
-			*/
+			productImageLB.setIcon(new ImageIcon(CartListTabbedPanel_정유나.class.getResource("/images/cart/50"+product.getP_image())));
 			productImageLB.setBounds(6, 10, 57, 60);
 			cartPanel.add(productImageLB);
 
