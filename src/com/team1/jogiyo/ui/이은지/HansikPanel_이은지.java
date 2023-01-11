@@ -57,17 +57,6 @@ public class HansikPanel_이은지 extends JPanel {
 		
 		//패널생성
 		JPanel hansikMenuPanel1 = new JPanel();
-		hansikMenuPanel1.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
-		hansikMenuPanel1.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				System.out.println("순대국밥 상세보기로 이동");
-				//frame.
-				
-				
-				
-			}
-		});
 		hansikMenuPanel1.setBounds(0, 0, 400, 167);
 		add(hansikMenuPanel1);
 		hansikMenuPanel1.setLayout(null);
@@ -76,10 +65,12 @@ public class HansikPanel_이은지 extends JPanel {
 		JLabel hansikImageLB1 = new JLabel("");
 		hansikImageLB1.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 		hansikImageLB1.setBounds(0, 0, 234, 167);
-		hansikImageLB1.setIcon(new ImageIcon("C:\\2022-11-JAVA-DEVELOPER\\git-repositories-home\\java-project-team1-jogiyo\\src\\images\\productList\\p_image1.jpg"));
+		hansikImageLB1.setIcon(new ImageIcon(HansikPanel_이은지.class.getResource("/images/productList/p_image1.jpg")));
 		hansikMenuPanel1.add(hansikImageLB1);
 		
-		
+		/*
+		 * 클릭 시 상세보기로 이동
+		 */
 		JLabel hansikNameLB1 = new JLabel("순대국밥");
 		hansikNameLB1.addMouseListener(new MouseAdapter() {
 			@Override
@@ -126,9 +117,7 @@ public class HansikPanel_이은지 extends JPanel {
 		hansikComboBox1.setBounds(295, 118, 32, 23);
 		hansikMenuPanel1.add(hansikComboBox1);
 		
-		/*
-		 * 해당 패널 클릭 시 김치찜 상세보기로 이동
-		 */
+		
 		JPanel hansikMenuPanel2 = new JPanel();
 		hansikMenuPanel2.setLayout(null);
 		hansikMenuPanel2.setBounds(0, 166, 400, 167);
@@ -136,10 +125,13 @@ public class HansikPanel_이은지 extends JPanel {
 		
 		JLabel hansikImageLB2 = new JLabel("");
 		hansikImageLB2.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
-		hansikImageLB2.setIcon(new ImageIcon("C:\\2022-11-JAVA-DEVELOPER\\git-repositories-home\\java-project-team1-jogiyo\\src\\images\\productList\\p_image2.jpg"));
+		hansikImageLB2.setIcon(new ImageIcon(HansikPanel_이은지.class.getResource("/images/productList/p_image2.jpg")));
 		hansikImageLB2.setBounds(0, 0, 251, 167);
 		hansikMenuPanel2.add(hansikImageLB2);
 		
+		/*
+		 * 클릭 시 상세보기로 이동
+		 */
 		JLabel hansikNameLB2 = new JLabel("김치찜");
 		hansikNameLB2.addMouseListener(new MouseAdapter() {
 			@Override
@@ -185,26 +177,21 @@ public class HansikPanel_이은지 extends JPanel {
 		hansikComboBox2.setBounds(297, 118, 32, 23);
 		hansikMenuPanel2.add(hansikComboBox2);
 		
-		/*
-		 * 해당 패널 클릭 시 삼겹살 상세보기로 이동
-		 */
+		
 		JPanel hansikMenuPanel3 = new JPanel();
-		hansikMenuPanel3.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				System.out.println("삼겹살 상세보기로 이동");
-			}
-		});
 		hansikMenuPanel3.setLayout(null);
 		hansikMenuPanel3.setBounds(0, 333, 400, 167);
 		add(hansikMenuPanel3);
 		
 		JLabel hansikImageLB3 = new JLabel("");
 		hansikImageLB3.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
-		hansikImageLB3.setIcon(new ImageIcon("C:\\2022-11-JAVA-DEVELOPER\\git-repositories-home\\java-project-team1-jogiyo\\src\\images\\productList\\p_image3.jpg"));
+		hansikImageLB3.setIcon(new ImageIcon(HansikPanel_이은지.class.getResource("/images/productList/p_image3.jpg")));
 		hansikImageLB3.setBounds(0, 0, 251, 167);
 		hansikMenuPanel3.add(hansikImageLB3);
 		
+		/*
+		 * 클릭 시 상세보기로 이동
+		 */
 		JLabel hansikNameLB3 = new JLabel("삼겹살");
 		hansikNameLB3.addMouseListener(new MouseAdapter() {
 			@Override

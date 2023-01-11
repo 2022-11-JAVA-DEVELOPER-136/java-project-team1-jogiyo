@@ -40,7 +40,9 @@ public class JoongsikPanel_이은지 extends JPanel {
 		this.loginUser=loginUser;
 	}
 	
-	
+	JPanel joongsikMenuPanel1;
+	JPanel joongsikMenuPanel2;
+	JPanel joongsikMenuPanel3;
 	JComboBox joongsikComboBox1;
 	JComboBox joongsikComboBox2;
 	JComboBox joongsikComboBox3;
@@ -71,6 +73,9 @@ public class JoongsikPanel_이은지 extends JPanel {
 		joongsikImageLB1.setIcon(new ImageIcon("C:\\2022-11-JAVA-DEVELOPER\\git-repositories-home\\java-project-team1-jogiyo\\src\\images\\productList\\p_image4.jpg"));
 		joongsikMenuPanel1.add(joongsikImageLB1);
 		
+		/*
+		 * 클릭 시 상세보기로 이동
+		 */
 		JLabel joongsikNameLB1 = new JLabel("자장면");
 		joongsikNameLB1.addMouseListener(new MouseAdapter() {
 			@Override
@@ -104,6 +109,7 @@ public class JoongsikPanel_이은지 extends JPanel {
 		joongsikCartLB1.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				//장바구니에 상품 추가
 			}
 		});
 		joongsikCartLB1.setIcon(new ImageIcon("C:\\Users\\itwill\\Downloads\\cart.png"));
@@ -115,9 +121,7 @@ public class JoongsikPanel_이은지 extends JPanel {
 		joongsikComboBox1.setBounds(297, 118, 32, 23);
 		joongsikMenuPanel1.add(joongsikComboBox1);
 		
-		/*
-		 * 해당 패널 클릭 시 삼선짬뽕 상세보기로 이동
-		 */
+		
 		JPanel joongsikMenuPanel2 = new JPanel();
 		joongsikMenuPanel2.setLayout(null);
 		joongsikMenuPanel2.setBounds(0, 166, 400, 167);
@@ -129,6 +133,9 @@ public class JoongsikPanel_이은지 extends JPanel {
 		joongsikImageLB2.setBounds(0, 0, 229, 167);
 		joongsikMenuPanel2.add(joongsikImageLB2);
 		
+		/*
+		 * 클릭 시 상세보기로 이동
+		 */
 		JLabel joongsikNameLB2 = new JLabel("삼선짬뽕");
 		joongsikNameLB2.addMouseListener(new MouseAdapter() {
 			@Override
@@ -162,6 +169,7 @@ public class JoongsikPanel_이은지 extends JPanel {
 		joongsikCartLB2.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				//장바구니에 상품 추가
 			}
 		});
 		joongsikCartLB2.setIcon(new ImageIcon("C:\\Users\\itwill\\Downloads\\cart.png"));
@@ -173,9 +181,7 @@ public class JoongsikPanel_이은지 extends JPanel {
 		joongsikComboBox2.setBounds(295, 118, 32, 23);
 		joongsikMenuPanel2.add(joongsikComboBox2);
 		
-		/*
-		 * 해당 패널 클릭 시 탕수육 상세보기로 이동
-		 */
+		
 		JPanel joongsikMenuPanel3 = new JPanel();
 		joongsikMenuPanel3.setLayout(null);
 		joongsikMenuPanel3.setBounds(0, 333, 400, 167);
@@ -187,6 +193,9 @@ public class JoongsikPanel_이은지 extends JPanel {
 		joongsikImageLB3.setBounds(0, 0, 229, 167);
 		joongsikMenuPanel3.add(joongsikImageLB3);
 		
+		/*
+		 * 클릭 시 상세보기로 이동
+		 */
 		JLabel joongsikNameLB3 = new JLabel("탕수육");
 		joongsikNameLB3.addMouseListener(new MouseAdapter() {
 			@Override
@@ -220,6 +229,7 @@ public class JoongsikPanel_이은지 extends JPanel {
 		joongsikCartLB3.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				//장바구니에 상품 추가
 			}
 		});
 		joongsikCartLB3.setIcon(new ImageIcon("C:\\Users\\itwill\\Downloads\\cart.png"));
@@ -253,6 +263,25 @@ public class JoongsikPanel_이은지 extends JPanel {
 			frame.cartService.addCartInProduct(cartInMenu4);
 		}
 		
+		JLabel joongsikCartLB1 = new JLabel("");
+		joongsikCartLB1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				try {
+					joongsikToCart1(joongsikNameLB1.getText());
+				} catch (Exception e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		});
+		joongsikCartLB1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		
+		joongsikCartLB1.setBounds(343, 114, 27, 27);
+		joongsikMenuPanel1.add(joongsikCartLB1);
+		joongsikCartLB1.setIcon(new ImageIcon("C:\\Users\\itwill\\Downloads\\cart.png"));
+		
+		
 	}
 	
 	private void joongsikToCart2(String p_name) throws Exception {
@@ -262,6 +291,25 @@ public class JoongsikPanel_이은지 extends JPanel {
 			frame.cartService.addCartInProduct(cartInMenu5);
 		}
 		
+		JLabel joongsikCartLB2 = new JLabel("");
+		joongsikCartLB2.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				try {
+					joongsikToCart2(joongsikNameLB2.getText());
+				} catch (Exception e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		});
+		joongsikCartLB2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		
+		joongsikCartLB2.setBounds(343, 114, 27, 27);
+		joongsikMenuPanel2.add(joongsikCartLB2);
+		joongsikCartLB2.setIcon(new ImageIcon("C:\\Users\\itwill\\Downloads\\cart.png"));
+		
+		
 	}
 	
 		private void joongsikToCart3(String p_name) throws Exception {
@@ -270,6 +318,25 @@ public class JoongsikPanel_이은지 extends JPanel {
 		if(joongsikNameLB3.getText().equals(p_name)) {
 			frame.cartService.addCartInProduct(cartInMenu6);
 		}
+		
+		JLabel joongsikCartLB3 = new JLabel("");
+		joongsikCartLB3.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				try {
+					joongsikToCart3(joongsikNameLB3.getText());
+				} catch (Exception e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		});
+		joongsikCartLB3.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		
+		joongsikCartLB3.setBounds(343, 114, 27, 27);
+		joongsikMenuPanel1.add(joongsikCartLB3);
+		joongsikCartLB3.setIcon(new ImageIcon("C:\\Users\\itwill\\Downloads\\cart.png"));
+		
 		
 	}
 	
