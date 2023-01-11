@@ -55,6 +55,7 @@ public class UserLoginPane_손요셉 extends JPanel {
 						frame.changePanel(frame.PRODUCTCATEGORYPANE,loginProcess(loginIdTF.getText()));
 						loginIdTF.setText("아이디");
 						loginPasswordTF.setText("비밀번호");
+						
 					}
 				} catch (Exception e1) {
 					System.out.println(e1.getMessage());
