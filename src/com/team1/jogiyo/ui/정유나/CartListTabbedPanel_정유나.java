@@ -249,12 +249,16 @@ public class CartListTabbedPanel_정유나 extends JPanel {
 			productCountCB = new JComboBox();
 			
 			productCountCB.setEditable(false);
-			//카트에 있는 기본 값으로 콤보박스 설정 하기
+			/*
+			 * productCountCB.setSelectedIndex(cart.getC_qty());
+			카트에 있는 기본 값으로 콤보박스 설정 하기
+			 */
 			productCountCB.addItemListener(new ItemListener() {
 				public void itemStateChanged(ItemEvent e) {
 					try {
 						int newQty=productCountCB.getSelectedIndex();
 						updateProductQtyInCart(cart.getC_no(),newQty);
+						totalProductPriceLB.setText(""+(cart.getC_qty()*product.getP_price()));
 					} catch (Exception e1) {
 						e1.printStackTrace();
 					}
@@ -312,6 +316,10 @@ public class CartListTabbedPanel_정유나 extends JPanel {
 			
 			cartListPanel.add(cartPanel);
 			}
+		
+		totalOrderPriceLB = new JLabel("");
+		totalOrderPriceLB.setBounds(163, 445, 135, 15);
+		add(totalOrderPriceLB);
 		}
 		
 		
