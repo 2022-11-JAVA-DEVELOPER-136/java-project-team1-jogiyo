@@ -204,7 +204,6 @@ public class CartListTabbedPanel_정유나 extends JPanel {
 		cartScrollPane.setViewportView(cartListPanel);
 		cartListPanel.removeAll();
 		System.out.println(sUserId);
-		int result=0;
 		List<Cart> cartList=frame.cartService.cartListByUserId(sUserId);
 		for (Cart cart : cartList) {
 			Product product=frame.productService.findByPrimaryKey(cart.getProduct().getP_no());
@@ -298,6 +297,7 @@ public class CartListTabbedPanel_정유나 extends JPanel {
 			cartPanel.add(productPriceLB);
 			
 			JCheckBox cartOrderCheck = new JCheckBox("");
+			//cartOrderCheck.isSelected()=true;
 			cartOrderCheck.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 			cartOrderCheck.setBounds(276, 47, 21, 23);
 			cartPanel.add(cartOrderCheck);
