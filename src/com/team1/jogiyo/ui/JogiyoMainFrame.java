@@ -249,6 +249,14 @@ public class JogiyoMainFrame extends JFrame {
 						e1.printStackTrace();
 					}
 				}
+				try {
+					if(loginUser!=null) {
+						userTabbedPanel.setEnabledAt(1, false);
+						
+					} 
+				} catch (Exception e2) {
+					e2.printStackTrace();
+				}
 			}
 		});
 		parentTabbedPanel.setBackground(new Color(255, 255, 255));
