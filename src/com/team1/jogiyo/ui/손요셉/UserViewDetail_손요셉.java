@@ -106,7 +106,7 @@ public class UserViewDetail_손요셉 extends JPanel {
 			}
 		});
 		detailpasswordTF.setText("비밀번호 입력");
-		detailpasswordTF.setBounds(89, 187, 146, 21);
+		detailpasswordTF.setBounds(89, 187, 152, 21);
 		add(detailpasswordTF);
 		detailpasswordTF.setColumns(10);
 		
@@ -119,7 +119,7 @@ public class UserViewDetail_손요셉 extends JPanel {
 		});
 		detailIdTF_1.setText("이름");
 		detailIdTF_1.setColumns(10);
-		detailIdTF_1.setBounds(89, 237, 146, 21);
+		detailIdTF_1.setBounds(89, 237, 152, 21);
 		add(detailIdTF_1);
 		
 		detailAddressTF = new JTextField();
@@ -131,7 +131,7 @@ public class UserViewDetail_손요셉 extends JPanel {
 		});
 		detailAddressTF.setText("주소");
 		detailAddressTF.setColumns(10);
-		detailAddressTF.setBounds(89, 284, 146, 21);
+		detailAddressTF.setBounds(89, 284, 152, 21);
 		add(detailAddressTF);
 		
 		detailPhoneTF = new JTextField();
@@ -143,7 +143,7 @@ public class UserViewDetail_손요셉 extends JPanel {
 		});
 		detailPhoneTF.setText("핸드폰 번호");
 		detailPhoneTF.setColumns(10);
-		detailPhoneTF.setBounds(89, 336, 146, 21);
+		detailPhoneTF.setBounds(89, 336, 152, 21);
 		add(detailPhoneTF);
  
 		
@@ -174,7 +174,7 @@ public class UserViewDetail_손요셉 extends JPanel {
 		add(userViewCancelBtn);
 
 		JLabel lblNewLabel_5 = new JLabel("회원정보/수정");
-		lblNewLabel_5.setFont(new Font("맑은 고딕", Font.BOLD, 17));
+		lblNewLabel_5.setFont(new Font("한컴 고딕", Font.BOLD, 17));
 		lblNewLabel_5.setBounds(119, 21, 122, 23);
 		add(lblNewLabel_5);
 		

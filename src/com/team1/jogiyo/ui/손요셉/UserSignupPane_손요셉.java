@@ -110,7 +110,7 @@ public class UserSignupPane_손요셉 extends JPanel {
 		});
 		
 	
-		idcheakBtn.setBounds(256, 127, 82, 23);
+		idcheakBtn.setBounds(256, 127, 91, 23);
 		add(idcheakBtn);
 		
 		joinBtn = new JButton("가입");

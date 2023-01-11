@@ -98,7 +98,7 @@ public class UserLoginPane_손요셉 extends JPanel {
 				loginIdTF.setText("");
 			}
 		});
-		loginIdTF.setFont(new Font("굴림", Font.PLAIN, 16));
+		loginIdTF.setFont(new Font("맑은 고딕", Font.PLAIN, 16));
 		loginIdTF.setBounds(85, 264, 194, 32);
 		add(loginIdTF);
 		loginIdTF.setColumns(10);
@@ -111,7 +111,7 @@ public class UserLoginPane_손요셉 extends JPanel {
 				loginPasswordTF.setText("");
 			}
 		});
-		loginPasswordTF.setFont(new Font("굴림", Font.PLAIN, 16));
+		loginPasswordTF.setFont(new Font("맑은 고딕", Font.PLAIN, 16));
 		loginPasswordTF.setBounds(85, 306, 194, 32);
 		add(loginPasswordTF);
 		loginPasswordTF.setColumns(10);
