@@ -40,6 +40,14 @@ public class JoongsikPanel_이은지 extends JPanel {
 		this.loginUser=loginUser;
 	}
 	
+	
+	JComboBox joongsikComboBox1;
+	JComboBox joongsikComboBox2;
+	JComboBox joongsikComboBox3;
+	JLabel joongsikNameLB1;
+	JLabel joongsikNameLB2;
+	JLabel joongsikNameLB3;
+	
 
 	/**
 	 * Create the panel.
@@ -53,7 +61,7 @@ public class JoongsikPanel_이은지 extends JPanel {
 		
 		//패널생성
 		JPanel joongsikMenuPanel1 = new JPanel();
-		joongsikMenuPanel1.setBounds(0, 0, 350, 167);
+		joongsikMenuPanel1.setBounds(0, 0, 400, 167);
 		add(joongsikMenuPanel1);
 		joongsikMenuPanel1.setLayout(null);
 		
@@ -70,7 +78,7 @@ public class JoongsikPanel_이은지 extends JPanel {
 				try {
 					System.out.println("자장면 상세보기로 이동");
 					Product clickedProduct=productDetail(joongsikNameLB1.getText());
-					frame.changePanel(25,clickedProduct);
+					frame.changePanel(frame.PRODUCTDETAILPANE,clickedProduct);
 				} catch (Exception e1) {
 					System.out.println(e1.getMessage());
 				}
@@ -79,13 +87,13 @@ public class JoongsikPanel_이은지 extends JPanel {
 		joongsikNameLB1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		joongsikNameLB1.setHorizontalAlignment(SwingConstants.RIGHT);
 		joongsikNameLB1.setFont(new Font("맑은 고딕", Font.BOLD, 25));
-		joongsikNameLB1.setBounds(229, 36, 109, 30);
+		joongsikNameLB1.setBounds(263, 36, 109, 30);
 		joongsikMenuPanel1.add(joongsikNameLB1);
 		
 		JLabel joongsikPriceLB1 = new JLabel("\\ 8,000");
 		joongsikPriceLB1.setHorizontalAlignment(SwingConstants.RIGHT);
 		joongsikPriceLB1.setFont(new Font("맑은 고딕", Font.PLAIN, 17));
-		joongsikPriceLB1.setBounds(263, 76, 75, 24);
+		joongsikPriceLB1.setBounds(297, 76, 75, 24);
 		joongsikMenuPanel1.add(joongsikPriceLB1);
 		
 		/*
@@ -99,12 +107,12 @@ public class JoongsikPanel_이은지 extends JPanel {
 			}
 		});
 		joongsikCartLB1.setIcon(new ImageIcon("C:\\Users\\itwill\\Downloads\\cart.png"));
-		joongsikCartLB1.setBounds(311, 114, 27, 27);
+		joongsikCartLB1.setBounds(345, 114, 27, 27);
 		joongsikMenuPanel1.add(joongsikCartLB1);
 		
 		JComboBox joongsikComboBox1 = new JComboBox();
 		joongsikComboBox1.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5"}));
-		joongsikComboBox1.setBounds(263, 118, 32, 23);
+		joongsikComboBox1.setBounds(297, 118, 32, 23);
 		joongsikMenuPanel1.add(joongsikComboBox1);
 		
 		/*
@@ -112,7 +120,7 @@ public class JoongsikPanel_이은지 extends JPanel {
 		 */
 		JPanel joongsikMenuPanel2 = new JPanel();
 		joongsikMenuPanel2.setLayout(null);
-		joongsikMenuPanel2.setBounds(0, 166, 350, 167);
+		joongsikMenuPanel2.setBounds(0, 166, 400, 167);
 		add(joongsikMenuPanel2);
 		
 		JLabel joongsikImageLB2 = new JLabel("");
@@ -122,16 +130,28 @@ public class JoongsikPanel_이은지 extends JPanel {
 		joongsikMenuPanel2.add(joongsikImageLB2);
 		
 		JLabel joongsikNameLB2 = new JLabel("삼선짬뽕");
+		joongsikNameLB2.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				try {
+					System.out.println("삼선짬뽕 상세보기로 이동");
+					Product clickedProduct=productDetail(joongsikNameLB2.getText());
+					frame.changePanel(frame.PRODUCTDETAILPANE,clickedProduct);
+				} catch (Exception e1) {
+					System.out.println(e1.getMessage());
+				}
+			}
+		});
 		joongsikNameLB2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		joongsikNameLB2.setHorizontalAlignment(SwingConstants.RIGHT);
 		joongsikNameLB2.setFont(new Font("맑은 고딕", Font.BOLD, 25));
-		joongsikNameLB2.setBounds(229, 36, 109, 30);
+		joongsikNameLB2.setBounds(261, 36, 109, 30);
 		joongsikMenuPanel2.add(joongsikNameLB2);
 		
 		JLabel joongsikPriceLB2 = new JLabel("\\ 12,000");
 		joongsikPriceLB2.setHorizontalAlignment(SwingConstants.RIGHT);
 		joongsikPriceLB2.setFont(new Font("맑은 고딕", Font.PLAIN, 17));
-		joongsikPriceLB2.setBounds(263, 76, 75, 24);
+		joongsikPriceLB2.setBounds(295, 76, 75, 24);
 		joongsikMenuPanel2.add(joongsikPriceLB2);
 		
 		/*
@@ -145,12 +165,12 @@ public class JoongsikPanel_이은지 extends JPanel {
 			}
 		});
 		joongsikCartLB2.setIcon(new ImageIcon("C:\\Users\\itwill\\Downloads\\cart.png"));
-		joongsikCartLB2.setBounds(311, 114, 27, 27);
+		joongsikCartLB2.setBounds(343, 114, 27, 27);
 		joongsikMenuPanel2.add(joongsikCartLB2);
 		
 		JComboBox joongsikComboBox2 = new JComboBox();
 		joongsikComboBox2.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5"}));
-		joongsikComboBox2.setBounds(263, 118, 32, 23);
+		joongsikComboBox2.setBounds(295, 118, 32, 23);
 		joongsikMenuPanel2.add(joongsikComboBox2);
 		
 		/*
@@ -158,7 +178,7 @@ public class JoongsikPanel_이은지 extends JPanel {
 		 */
 		JPanel joongsikMenuPanel3 = new JPanel();
 		joongsikMenuPanel3.setLayout(null);
-		joongsikMenuPanel3.setBounds(0, 333, 350, 167);
+		joongsikMenuPanel3.setBounds(0, 333, 400, 167);
 		add(joongsikMenuPanel3);
 		
 		JLabel joongsikImageLB3 = new JLabel("");
@@ -168,16 +188,28 @@ public class JoongsikPanel_이은지 extends JPanel {
 		joongsikMenuPanel3.add(joongsikImageLB3);
 		
 		JLabel joongsikNameLB3 = new JLabel("탕수육");
+		joongsikNameLB3.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				try {
+					System.out.println("탕수육 상세보기로 이동");
+					Product clickedProduct=productDetail(joongsikNameLB3.getText());
+					frame.changePanel(frame.PRODUCTDETAILPANE,clickedProduct);
+				} catch (Exception e1) {
+					System.out.println(e1.getMessage());
+				}
+			}
+		});
 		joongsikNameLB3.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		joongsikNameLB3.setHorizontalAlignment(SwingConstants.RIGHT);
 		joongsikNameLB3.setFont(new Font("맑은 고딕", Font.BOLD, 25));
-		joongsikNameLB3.setBounds(229, 36, 109, 30);
+		joongsikNameLB3.setBounds(263, 36, 109, 30);
 		joongsikMenuPanel3.add(joongsikNameLB3);
 		
 		JLabel joongsikPriceLB3 = new JLabel("\\ 25,000");
 		joongsikPriceLB3.setHorizontalAlignment(SwingConstants.RIGHT);
 		joongsikPriceLB3.setFont(new Font("맑은 고딕", Font.PLAIN, 17));
-		joongsikPriceLB3.setBounds(263, 76, 75, 24);
+		joongsikPriceLB3.setBounds(297, 76, 75, 24);
 		joongsikMenuPanel3.add(joongsikPriceLB3);
 		
 		/*
@@ -191,12 +223,12 @@ public class JoongsikPanel_이은지 extends JPanel {
 			}
 		});
 		joongsikCartLB3.setIcon(new ImageIcon("C:\\Users\\itwill\\Downloads\\cart.png"));
-		joongsikCartLB3.setBounds(311, 114, 27, 27);
+		joongsikCartLB3.setBounds(345, 114, 27, 27);
 		joongsikMenuPanel3.add(joongsikCartLB3);
 		
 		JComboBox joongsikComboBox3 = new JComboBox();
 		joongsikComboBox3.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5"}));
-		joongsikComboBox3.setBounds(263, 118, 32, 23);
+		joongsikComboBox3.setBounds(297, 118, 32, 23);
 		joongsikMenuPanel3.add(joongsikComboBox3);
 
 		
@@ -211,6 +243,35 @@ public class JoongsikPanel_이은지 extends JPanel {
 		return frame.productService.findByName(p_name);
 	}
 	
+	/*
+	 * 콤보박스로 선택한 수량만큼 카트에 상품 담기
+	 */
+	private void joongsikToCart1(String p_name) throws Exception {
+		
+		Cart cartInMenu4 = new Cart(0, (int)joongsikComboBox1.getSelectedItem(), loginUser.getM_id(), frame.productService.findByName(p_name));
+		if(joongsikNameLB1.getText().equals(p_name)) {
+			frame.cartService.addCartInProduct(cartInMenu4);
+		}
+		
+	}
+	
+	private void joongsikToCart2(String p_name) throws Exception {
+		
+		Cart cartInMenu5 = new Cart(0, (int)joongsikComboBox2.getSelectedItem(), loginUser.getM_id(), frame.productService.findByName(p_name));
+		if(joongsikNameLB2.getText().equals(p_name)) {
+			frame.cartService.addCartInProduct(cartInMenu5);
+		}
+		
+	}
+	
+		private void joongsikToCart3(String p_name) throws Exception {
+		
+		Cart cartInMenu6 = new Cart(0, (int)joongsikComboBox3.getSelectedItem(), loginUser.getM_id(), frame.productService.findByName(p_name));
+		if(joongsikNameLB3.getText().equals(p_name)) {
+			frame.cartService.addCartInProduct(cartInMenu6);
+		}
+		
+	}
 	
 	
 }

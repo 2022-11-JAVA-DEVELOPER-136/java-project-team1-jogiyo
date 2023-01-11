@@ -39,7 +39,7 @@ public class OrderHistoryTabbedPanel_조성동 extends JPanel {
 		setLayout(null);
 		
 		JScrollPane OrderHistoryScrollPane = new JScrollPane();
-		OrderHistoryScrollPane.setBounds(0, 0, 371, 502);
+		OrderHistoryScrollPane.setBounds(0, 0, 400, 500);
 		add(OrderHistoryScrollPane);
 		
 		OrderHistoryListPanel = new JPanel();
