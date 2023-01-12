@@ -131,7 +131,7 @@ public class JogiyoMainFrame extends JFrame {
 		contentPane.setLayout(new BorderLayout(0, 0));
 		
 		JPanel northPanel = new JPanel();
-		northPanel.setBackground(new Color(255, 255, 255));
+		northPanel.setBackground(Color.WHITE);
 		northPanel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		contentPane.add(northPanel, BorderLayout.NORTH);
 		

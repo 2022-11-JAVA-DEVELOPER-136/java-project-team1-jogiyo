@@ -46,6 +46,7 @@ public class UserViewDetail_손요셉 extends JPanel {
 	private JButton userViewUpdateBtn;
 	private JButton userViewCancelBtn;
 	private JTextField detailmainTF;
+	private JButton userViewUpdateBtn_1;
 
 	/**
 	 * Create the panel.
@@ -158,7 +159,7 @@ public class UserViewDetail_손요셉 extends JPanel {
 			}
 		});
 		userViewUpdateBtn.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
-		userViewUpdateBtn.setBounds(40, 406, 97, 23);
+		userViewUpdateBtn.setBounds(28, 404, 62, 23);
 		add(userViewUpdateBtn);
 
 		userViewCancelBtn = new JButton("취소");
@@ -170,7 +171,7 @@ public class UserViewDetail_손요셉 extends JPanel {
 			}
 		});
 		userViewCancelBtn.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
-		userViewCancelBtn.setBounds(202, 406, 97, 23);
+		userViewCancelBtn.setBounds(211, 403, 62, 23);
 		add(userViewCancelBtn);
 
 		JLabel lblNewLabel_5 = new JLabel("회원정보");
@@ -184,6 +185,11 @@ public class UserViewDetail_손요셉 extends JPanel {
 		detailmainTF.setBounds(125, 129, 116, 21);
 		add(detailmainTF);
 		detailmainTF.setColumns(10);
+		
+		userViewUpdateBtn_1 = new JButton("수정완료");
+		userViewUpdateBtn_1.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
+		userViewUpdateBtn_1.setBounds(103, 404, 97, 23);
+		add(userViewUpdateBtn_1);
 
 		/********************************************************/
 	

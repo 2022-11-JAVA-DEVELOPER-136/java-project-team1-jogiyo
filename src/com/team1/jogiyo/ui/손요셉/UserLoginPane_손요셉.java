@@ -97,7 +97,7 @@ public class UserLoginPane_손요셉 extends JPanel {
 		
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon(UserLoginPane_손요셉.class.getResource("/com/team1/jogiyo/ui/손요셉/image/1 (1) (2).png")));
-		lblNewLabel.setBounds(85, 0, 194, 216);
+		lblNewLabel.setBounds(85, 28, 194, 216);
 		add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("아이디");
