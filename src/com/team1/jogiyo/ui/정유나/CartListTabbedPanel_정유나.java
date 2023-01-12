@@ -29,6 +29,7 @@ import java.awt.Dimension;
 import java.awt.Cursor;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.JCheckBox;
@@ -144,12 +145,18 @@ public class CartListTabbedPanel_정유나 extends JPanel {
 		cartOrderCheck.setBounds(276, 47, 21, 23);
 		cartPanel.add(cartOrderCheck);
 		
-		JButton deleteItemBtn = new JButton("X");
+		JButton deleteItemBtn = new JButton("");
+		deleteItemBtn.setForeground(Color.WHITE);
+		deleteItemBtn.setIcon(new ImageIcon(CartListTabbedPanel_정유나.class.getResource("/images/cross (1).png")));
 		
-		deleteItemBtn.setBounds(248, 8, 46, 20);
+		deleteItemBtn.setBounds(276, 0, 22, 20);
 		cartPanel.add(deleteItemBtn);
 		
 		/* 		CartListItem End	*/
+		totalOrderPriceLB = new JLabel("");
+		
+		totalOrderPriceLB.setBounds(163, 445, 135, 15);
+		add(totalOrderPriceLB);
 		
 		orderAllBtn = new JButton("전체주문");
 		orderAllBtn.addMouseListener(new MouseAdapter() {
@@ -183,6 +190,7 @@ public class CartListTabbedPanel_정유나 extends JPanel {
 		add(lblNewLabel_2);
 		
 		totalOrderPriceLB = new JLabel("");
+		totalOrderPriceLB.setText("");
 		totalOrderPriceLB.setBounds(163, 445, 135, 15);
 		add(totalOrderPriceLB);
 		
@@ -291,6 +299,7 @@ public class CartListTabbedPanel_정유나 extends JPanel {
 			cartPanel.add(productPriceLB);
 			
 			JCheckBox cartOrderCheck = new JCheckBox("");
+			//cartOrderCheck.isSelected()=true;
 			cartOrderCheck.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 			cartOrderCheck.setBounds(276, 47, 21, 23);
 			cartPanel.add(cartOrderCheck);
@@ -310,12 +319,15 @@ public class CartListTabbedPanel_정유나 extends JPanel {
 			
 			deleteItemBtn.setBounds(248, 8, 46, 20);
 			cartPanel.add(deleteItemBtn);
+			
+			
+			
+			result+=Integer.parseInt(totalProductPriceLB.getText());
+			
+			
 			cartListPanel.add(cartPanel);
 			}
 		
-		totalOrderPriceLB = new JLabel("");
-		totalOrderPriceLB.setBounds(163, 445, 135, 15);
-		add(totalOrderPriceLB);
 	}
 		
 		
@@ -333,6 +345,29 @@ public class CartListTabbedPanel_정유나 extends JPanel {
 	public void updateProductQtyInCart(int c_no, int c_qty) throws Exception{
 		frame.cartService.updateByCartNo(c_no, c_qty);
 	}
+	
+	
+	
+	/*
+	//카트안에 담긴 물건 중 체크한 물품들 총 금액
+	public int totalPriceOCheckedItemInCart() throws Exception{
+		int result=0;
+		List<Cart> checkedCartList=new ArrayList<Cart>();
+		if(cartOrderCheck.isSelected()==true) {
+			checkedCartList.add(cart);
+		}
+		for (Cart cart2 : checkedCartList) {
+			
+		}
+		
+		List<Cart> cartList=frame.cartService.cartListByUserId(loginUser.getM_id());
+		int result=0;
+		for (Cart cart : cartList) {
+			result+=cart.getC_qty()*cart.getProduct().getP_price();
+		}
+		return result;
+	}
+	*/
 
 	
 	

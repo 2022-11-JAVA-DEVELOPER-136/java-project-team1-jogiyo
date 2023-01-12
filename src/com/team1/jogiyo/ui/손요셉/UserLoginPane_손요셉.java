@@ -68,7 +68,7 @@ public class UserLoginPane_손요셉 extends JPanel {
 		
 		signupbutton = new JButton("");
 		signupbutton.setBackground(new Color(255, 255, 255));
-		signupbutton.setIcon(new ImageIcon(UserLoginPane_손요셉.class.getResource("/images/새계정4.png")));
+		signupbutton.setIcon(new ImageIcon(UserLoginPane_손요셉.class.getResource("/images/제목 없는 디자인 (2) (1).png")));
 		signupbutton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		signupbutton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -78,7 +78,7 @@ public class UserLoginPane_손요셉 extends JPanel {
 			}
 		});
 		signupbutton.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
-		signupbutton.setBounds(85, 442, 194, 32);
+		signupbutton.setBounds(85, 430, 194, 32);
 		add(signupbutton);
 		
 
