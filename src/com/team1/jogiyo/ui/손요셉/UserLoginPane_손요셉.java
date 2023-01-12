@@ -30,9 +30,9 @@ public class UserLoginPane_손요셉 extends JPanel {
 	}
 	User loginUser=null;
 	private JTextField loginIdTF;
-	private JTextField loginPasswordTF;
 	private JButton loginbutton;
 	private JButton signupbutton;
+	private JPasswordField loginPasswordF;
 	
 	//객체 선언
 	
@@ -54,7 +54,7 @@ public class UserLoginPane_손요셉 extends JPanel {
 					if(userLogin()==1) {
 						frame.changePanel(frame.PRODUCTCATEGORYPANE,loginProcess(loginIdTF.getText()));
 						loginIdTF.setText("아이디");
-						loginPasswordTF.setText("비밀번호");
+						loginPasswordF.setText("비밀번호");
 					}
 				} catch (Exception e1) {
 					e1.getMessage();
@@ -84,7 +84,6 @@ public class UserLoginPane_손요셉 extends JPanel {
 
 		
 		loginIdTF = new JTextField();
-		loginIdTF.setText("아이디");
 		loginIdTF.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -92,27 +91,26 @@ public class UserLoginPane_손요셉 extends JPanel {
 			}
 		});
 		loginIdTF.setFont(new Font("맑은 고딕", Font.PLAIN, 16));
-		loginIdTF.setBounds(85, 264, 194, 32);
+		loginIdTF.setBounds(155, 264, 151, 32);
 		add(loginIdTF);
 		loginIdTF.setColumns(10);
-		
-		loginPasswordTF = new JTextField();
-		loginPasswordTF.setText("비밀번호");
-		loginPasswordTF.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				loginPasswordTF.setText("");
-			}
-		});
-		loginPasswordTF.setFont(new Font("맑은 고딕", Font.PLAIN, 16));
-		loginPasswordTF.setBounds(85, 306, 194, 32);
-		add(loginPasswordTF);
-		loginPasswordTF.setColumns(10);
 		
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon(UserLoginPane_손요셉.class.getResource("/com/team1/jogiyo/ui/손요셉/image/1 (1) (2).png")));
 		lblNewLabel.setBounds(85, 0, 194, 216);
 		add(lblNewLabel);
+		
+		JLabel lblNewLabel_1 = new JLabel("아이디");
+		lblNewLabel_1.setBounds(62, 264, 66, 32);
+		add(lblNewLabel_1);
+		
+		JLabel lblNewLabel_1_1 = new JLabel("비밀번호");
+		lblNewLabel_1_1.setBounds(62, 306, 66, 32);
+		add(lblNewLabel_1_1);
+		
+		loginPasswordF = new JPasswordField();
+		loginPasswordF.setBounds(155, 306, 151, 30);
+		add(loginPasswordF);
 
 	}
 	
@@ -121,14 +119,14 @@ public class UserLoginPane_손요셉 extends JPanel {
 		int result=0;
 		try {
 			String id=loginIdTF.getText();
-			String password=loginPasswordTF.getText();
+			String password=loginPasswordF.getText();
 			result=frame.userService.login(id, password);
 			if(result==1) {
 				//로그인 성공시
 				frame.loginUser=frame.userService.findUser(id);
 				frame.setTitle(id+"님 로그인");
 				loginIdTF.setEnabled(false);
-				loginPasswordTF.setEnabled(false);
+				loginPasswordF.setEnabled(false);
 				loginbutton.setEnabled(false);
 				
 			} else {
@@ -137,7 +135,6 @@ public class UserLoginPane_손요셉 extends JPanel {
 				loginIdTF.setSelectionStart(0);
 				loginIdTF.setSelectionEnd(id.length());
 				loginIdTF.requestFocus();
-				loginPasswordTF.setText("비밀번호");
 			}
 		} catch (Exception e) {
 			e.getMessage();
@@ -147,6 +144,4 @@ public class UserLoginPane_손요셉 extends JPanel {
 	private User loginProcess(String sUserid) throws Exception{
 		 return frame.userService.findUser(sUserid);
 	}
-	
-	
 }
