@@ -15,6 +15,7 @@ import com.team1.jogiyo.order.OrderService;
 import com.team1.jogiyo.product.Product;
 import com.team1.jogiyo.product.ProductService;
 import com.team1.jogiyo.ui.JogiyoMainFrame;
+import com.team1.jogiyo.ui.조성동.OrderHistoryTabbedPanel_조성동;
 import com.team1.jogiyo.user.User;
 
 import javafx.scene.control.ComboBox;

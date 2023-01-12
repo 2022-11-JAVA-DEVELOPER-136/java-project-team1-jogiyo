@@ -242,13 +242,16 @@ public class JogiyoMainFrame extends JFrame {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}
-				} else if(selectedIndex==3) {
+				} 
+				
+				else if(selectedIndex==3) {
 					try {
 						orderHistoryTabbedPanel_조성동.OrderListPrint(loginUser.getM_id());
 					} catch(Exception e1){
 						e1.printStackTrace();
 					}
 				}
+				 
 				
 				try {
 					if(loginUser!=null) {
