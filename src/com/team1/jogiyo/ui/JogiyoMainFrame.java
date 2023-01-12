@@ -181,7 +181,7 @@ public class JogiyoMainFrame extends JFrame {
 		});
 		findProductIconLB.setIcon(new ImageIcon(JogiyoMainFrame.class.getResource("/images/search_20px.png")));
 		panel.add(findProductIconLB);
-		cartLB.setIcon(new ImageIcon(JogiyoMainFrame.class.getResource("/images/newcart.png")));
+		cartLB.setIcon(new ImageIcon(JogiyoMainFrame.class.getResource("/images/cart2 (1).png")));
 		cartLB.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		northPanel.add(cartLB);
 		
@@ -201,7 +201,7 @@ public class JogiyoMainFrame extends JFrame {
 		userInfoLB.setHorizontalTextPosition(SwingConstants.CENTER);
 		userInfoLB.setVerticalTextPosition(SwingConstants.BOTTOM);
 		userInfoLB.setHorizontalAlignment(SwingConstants.CENTER);
-		userInfoLB.setIcon(new ImageIcon(JogiyoMainFrame.class.getResource("/images/user.png")));
+		userInfoLB.setIcon(new ImageIcon(JogiyoMainFrame.class.getResource("/images/3my_50px.png")));
 		userInfoLB.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		southPanel.add(userInfoLB);
 		
@@ -214,7 +214,7 @@ public class JogiyoMainFrame extends JFrame {
 		});
 		homeLB.setHorizontalTextPosition(SwingConstants.CENTER);
 		homeLB.setVerticalTextPosition(SwingConstants.BOTTOM);
-		homeLB.setIcon(new ImageIcon(JogiyoMainFrame.class.getResource("/images/free1.png")));
+		homeLB.setIcon(new ImageIcon(JogiyoMainFrame.class.getResource("/images/3home_50px.png")));
 		homeLB.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		southPanel.add(homeLB);
 		
@@ -228,7 +228,7 @@ public class JogiyoMainFrame extends JFrame {
 		});
 		exitLB.setVerticalTextPosition(SwingConstants.BOTTOM);
 		exitLB.setHorizontalTextPosition(SwingConstants.CENTER);
-		exitLB.setIcon(new ImageIcon(JogiyoMainFrame.class.getResource("/images/exit1.png")));
+		exitLB.setIcon(new ImageIcon(JogiyoMainFrame.class.getResource("/images/50exit.png")));
 		exitLB.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		southPanel.add(exitLB);
 		
@@ -243,13 +243,16 @@ public class JogiyoMainFrame extends JFrame {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}
-				} else if(selectedIndex==3) {
+				} 
+				
+				else if(selectedIndex==3) {
 					try {
 						orderHistoryTabbedPanel_조성동.OrderListPrint(loginUser.getM_id());
 					} catch(Exception e1){
 						e1.printStackTrace();
 					}
 				}
+				 
 				
 				try {
 					if(loginUser!=null) {

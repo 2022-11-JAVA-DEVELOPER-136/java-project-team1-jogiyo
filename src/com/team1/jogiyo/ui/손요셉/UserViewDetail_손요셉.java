@@ -152,7 +152,7 @@ public class UserViewDetail_손요셉 extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				//수정클릭시 SQL 정보 업데이트 ==> 메쏘드 불러오기
 				// 수정클릭시 SQL 정보 업데이트
-				changeUpdateBtn(false);
+				changeUpdateBtn(true);
 				editUserInfo();
 				
 			}
@@ -224,10 +224,10 @@ public class UserViewDetail_손요셉 extends JPanel {
 		if(b) {
 			userViewUpdateBtn.setText("수정완료");
 			detailIdTF_1.setEnabled(false);
-			detailpasswordTF.setEditable(false);
-			detailIdTF_1.setEditable(false);
-			detailAddressTF.setEditable(false);
-			detailPhoneTF.setEditable(false);
+			detailpasswordTF.setEnabled(false);
+			detailIdTF_1.setEnabled(false);
+			detailAddressTF.setEnabled(false);
+			detailPhoneTF.setEnabled(false);
 			detailIdTF_1.setEditable(false);
 			detailpasswordTF.setEditable(false);
 			detailIdTF_1.setEditable(false);

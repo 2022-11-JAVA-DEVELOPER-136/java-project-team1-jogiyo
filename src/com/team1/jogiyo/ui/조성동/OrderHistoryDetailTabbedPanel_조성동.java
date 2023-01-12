@@ -39,6 +39,7 @@ public class OrderHistoryDetailTabbedPanel_조성동 extends JPanel {
 	private JLabel OrderTotalPriceLabel;
 	private JLabel OrderUserPhoneLabel;
 	private JLabel OrderUserLocLabel;
+	
 	/***************************************/
 	
 	
@@ -140,6 +141,7 @@ public class OrderHistoryDetailTabbedPanel_조성동 extends JPanel {
 	}
 	
 	public void orderProductPrint(String sUserId, int o_no) throws Exception {
+		OrderProductListPanel.removeAll();
 		//List<Order> orderList =  orderService.list(sUserId);
 		Order order = frame.orderService.detail(sUserId, o_no);
 
