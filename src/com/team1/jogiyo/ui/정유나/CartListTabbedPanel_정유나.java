@@ -320,11 +320,6 @@ public class CartListTabbedPanel_정유나 extends JPanel {
 			deleteItemBtn.setBounds(248, 8, 46, 20);
 			cartPanel.add(deleteItemBtn);
 			
-			
-			
-			result+=Integer.parseInt(totalProductPriceLB.getText());
-			
-			
 			cartListPanel.add(cartPanel);
 			}
 		
