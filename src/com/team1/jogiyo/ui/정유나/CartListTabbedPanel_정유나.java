@@ -320,6 +320,12 @@ public class CartListTabbedPanel_정유나 extends JPanel {
 			deleteItemBtn.setBounds(248, 8, 46, 20);
 			cartPanel.add(deleteItemBtn);
 			
+
+			
+			
+			//result+=Integer.parseInt(totalProductPriceLB.getText());
+			
+			
 			cartListPanel.add(cartPanel);
 			}
 		
@@ -344,25 +350,7 @@ public class CartListTabbedPanel_정유나 extends JPanel {
 	
 	
 	/*
-	//카트안에 담긴 물건 중 체크한 물품들 총 금액
-	public int totalPriceOCheckedItemInCart() throws Exception{
-		int result=0;
-		List<Cart> checkedCartList=new ArrayList<Cart>();
-		if(cartOrderCheck.isSelected()==true) {
-			checkedCartList.add(cart);
-		}
-		for (Cart cart2 : checkedCartList) {
-			
-		}
-		
-		List<Cart> cartList=frame.cartService.cartListByUserId(loginUser.getM_id());
-		int result=0;
-		for (Cart cart : cartList) {
-			result+=cart.getC_qty()*cart.getProduct().getP_price();
-		}
-		return result;
-	}
-	*/
+
 
 	
 	
