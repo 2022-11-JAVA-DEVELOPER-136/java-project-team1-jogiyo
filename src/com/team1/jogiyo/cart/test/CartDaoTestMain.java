@@ -12,7 +12,15 @@ public class CartDaoTestMain {
 		
 		//1. 카트에 추가
 		System.out.println("1. insert" +
-						  cartDao.insert(new Cart(0,4,"bbbb",productDao.findByPrimaryKey(1))));
+						  cartDao.insert(new Cart(0,1,"dddd",productDao.findByPrimaryKey(5))));
+		/*
+		System.out.println("1. insert" +
+				cartDao.insert(new Cart(0,5,"bbbb",productDao.findByPrimaryKey(6))));
+		System.out.println("1. insert" +
+				cartDao.insert(new Cart(0,1,"bbbb",productDao.findByPrimaryKey(3))));
+		System.out.println("1. insert" +
+				cartDao.insert(new Cart(0,7,"bbbb",productDao.findByPrimaryKey(8))));
+				*/
 		/*
 		//2.카트에 있는 제품의 수량 변경(카트리스트에서 변경)
 		System.out.println("2. update " +

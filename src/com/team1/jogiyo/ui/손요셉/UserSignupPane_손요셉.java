@@ -38,6 +38,7 @@ public class UserSignupPane_손요셉 extends JPanel {
 	private JButton joinBtn;
 	private JButton cancelBtn;
 	private JButton idcheakBtn;
+	private JTextField textField;
 
 	/**
 	 * Create the panel.
@@ -47,48 +48,48 @@ public class UserSignupPane_손요셉 extends JPanel {
 		setLayout(null);
 		
 		JLabel lblNewLabel_ID = new JLabel("아이디");
-		lblNewLabel_ID.setBounds(37, 131, 57, 15);
+		lblNewLabel_ID.setBounds(22, 131, 57, 15);
 		add(lblNewLabel_ID);
 		
 		idTF = new JTextField();
-		idTF.setBounds(106, 128, 142, 21);
+		idTF.setBounds(116, 128, 132, 21);
 		add(idTF);
 		idTF.setColumns(10);
 		
 		JLabel lblNewLabel_password = new JLabel("비밀번호");
-		lblNewLabel_password.setBounds(37, 177, 57, 15);
+		lblNewLabel_password.setBounds(22, 171, 57, 15);
 		add(lblNewLabel_password);
 		
 		passwordTF = new JTextField();
 		passwordTF.setColumns(10);
-		passwordTF.setBounds(106, 174, 142, 21);
+		passwordTF.setBounds(116, 168, 132, 21);
 		add(passwordTF);
 		
 		JLabel lblNewLabel_name = new JLabel("이름");
-		lblNewLabel_name.setBounds(37, 227, 57, 15);
+		lblNewLabel_name.setBounds(22, 251, 57, 15);
 		add(lblNewLabel_name);
 		
 		nameTF = new JTextField();
 		nameTF.setColumns(10);
-		nameTF.setBounds(106, 224, 142, 21);
+		nameTF.setBounds(116, 248, 132, 21);
 		add(nameTF);
 		
 		JLabel lblNewLabel_loc = new JLabel("주소");
-		lblNewLabel_loc.setBounds(37, 275, 57, 15);
+		lblNewLabel_loc.setBounds(22, 293, 57, 15);
 		add(lblNewLabel_loc);
 		
 		addressTF = new JTextField();
 		addressTF.setColumns(10);
-		addressTF.setBounds(106, 272, 142, 21);
+		addressTF.setBounds(116, 290, 132, 21);
 		add(addressTF);
 		
 		JLabel lblNewLabel_phone = new JLabel("핸드폰번호");
-		lblNewLabel_phone.setBounds(23, 331, 71, 15);
+		lblNewLabel_phone.setBounds(22, 333, 71, 15);
 		add(lblNewLabel_phone);
 		
 		phoneTF = new JTextField();
 		phoneTF.setColumns(10);
-		phoneTF.setBounds(106, 328, 142, 21);
+		phoneTF.setBounds(116, 330, 132, 21);
 		add(phoneTF);
 		
 		idcheakBtn = new JButton("중복확인");
@@ -110,7 +111,7 @@ public class UserSignupPane_손요셉 extends JPanel {
 		});
 		
 	
-		idcheakBtn.setBounds(256, 127, 82, 23);
+		idcheakBtn.setBounds(255, 127, 91, 23);
 		add(idcheakBtn);
 		
 		joinBtn = new JButton("가입");
@@ -148,6 +149,23 @@ public class UserSignupPane_손요셉 extends JPanel {
 		lblNewLabel.setIcon(new ImageIcon(UserSignupPane_손요셉.class.getResource("/com/team1/jogiyo/ui/손요셉/image/조기요.png")));
 		lblNewLabel.setBounds(127, 26, 97, 40);
 		add(lblNewLabel);
+		
+		JButton idcheakBtn_1 = new JButton("확인");
+		idcheakBtn_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		idcheakBtn_1.setBounds(257, 209, 91, 23);
+		add(idcheakBtn_1);
+		
+		JLabel lblNewLabel_password_1 = new JLabel("비밀번호 확인");
+		lblNewLabel_password_1.setBounds(22, 213, 81, 15);
+		add(lblNewLabel_password_1);
+		
+		textField = new JTextField();
+		textField.setColumns(10);
+		textField.setBounds(116, 210, 132, 21);
+		add(textField);
 /*******************************생성자끝**************************************/
 		
 		

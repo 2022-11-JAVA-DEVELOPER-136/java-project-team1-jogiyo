@@ -42,5 +42,5 @@ public class UserMainPane_손요셉 extends JPanel {
 		add(mainLogo);
 
 	}
-
+	
 }

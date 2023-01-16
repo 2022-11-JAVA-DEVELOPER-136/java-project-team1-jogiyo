@@ -1,13 +1,13 @@
 /***************회원******************/
 --회원정보보기(select pk)
 select * from userinfo;
-select * from userinfo where m_id='aaaa';
+select * from userinfo where m_id='1111';
 --회원정보수정(update pk)
 update userinfo set m_password='2345', m_name='sdtest', m_loc='test', m_phone='010-1234-1234' where m_id='bbbb';
-update userinfo set m_password = 'aaaa1' , m_name = '수정' , m_loc = '서울 강남구' , m_phone = '010-0000-0000' where m_id = 'aaaa';
+update userinfo set m_password = '1234' , m_name = '이은지' , m_loc = '천호' , m_phone = '010-4444-4444' where m_id = 'dddd';
 
 --회원탈퇴(delete pk)
-delete from userinfo where m_id='hhhh';
+delete from userinfo where m_id='1111';
 --회원추가(insert)
 insert into userinfo(m_id,m_password,m_name,m_loc,m_phone)values('hhhh','1234','송준기','구로','010-2122-2315');
 insert into userinfo(m_id,m_password,m_name,m_loc,m_phone)values('iiii','1234','김태희','강남','010-2342-1353');

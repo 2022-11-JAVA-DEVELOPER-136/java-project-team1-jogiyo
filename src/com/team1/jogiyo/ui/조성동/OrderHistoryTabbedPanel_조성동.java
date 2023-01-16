@@ -17,6 +17,7 @@ import java.util.List;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 
 public class OrderHistoryTabbedPanel_조성동 extends JPanel {
 	JogiyoMainFrame frame;
@@ -30,6 +31,7 @@ public class OrderHistoryTabbedPanel_조성동 extends JPanel {
 	}
 
 	private JPanel OrderHistoryListPanel;
+	JScrollPane OrderHistoryScrollPane;
 	
 	/**
 	 * Create the panel.
@@ -38,13 +40,15 @@ public class OrderHistoryTabbedPanel_조성동 extends JPanel {
 		setBackground(new Color(0, 64, 64));
 		setLayout(null);
 		
-		JScrollPane OrderHistoryScrollPane = new JScrollPane();
-		OrderHistoryScrollPane.setBounds(0, 0, 371, 502);
+		OrderHistoryScrollPane = new JScrollPane();
+		OrderHistoryScrollPane.setBounds(0, 0, 370, 530);
 		add(OrderHistoryScrollPane);
 		
 		OrderHistoryListPanel = new JPanel();
+		OrderHistoryListPanel.setBackground(new Color(255, 255, 255));
 		OrderHistoryListPanel.setPreferredSize(new Dimension(300, 700));
 		OrderHistoryScrollPane.setViewportView(OrderHistoryListPanel);
+		OrderHistoryListPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		/******패널 생성자*******/
 //		JPanel OrderHistoryPanel = new JPanel();
 //		OrderHistoryPanel.setPreferredSize(new Dimension(325, 65));
@@ -93,7 +97,15 @@ public class OrderHistoryTabbedPanel_조성동 extends JPanel {
 
 	}
 	
-	public void OrderListPrint(String sUserId) throws Exception {
+	public  void OrderListPrint(String sUserId) throws Exception {
+		OrderHistoryListPanel = new JPanel();
+		OrderHistoryListPanel.setBackground(new Color(255, 255, 255));
+		OrderHistoryListPanel.setPreferredSize(new Dimension(300, 700));
+		OrderHistoryScrollPane.setViewportView(OrderHistoryListPanel);
+		OrderHistoryListPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));		//이거요
+		
+		OrderHistoryListPanel.removeAll();
+		
 		List<Order> orderList =  frame.orderService.list(sUserId);
 		
 		for (Order order : orderList) {
