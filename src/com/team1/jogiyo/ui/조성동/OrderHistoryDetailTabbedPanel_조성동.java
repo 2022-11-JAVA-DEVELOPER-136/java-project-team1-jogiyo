@@ -31,6 +31,7 @@ public class OrderHistoryDetailTabbedPanel_조성동 extends JPanel {
 	public void setOrder(Order order) throws Exception {
 		orderProductPrint(loginUser.getM_id(), order.getO_no());
 	}
+	
 	private JPanel OrderProductListPanel;
 	private JPanel panel;
 	private JButton ToOrderHistoryBtn;
